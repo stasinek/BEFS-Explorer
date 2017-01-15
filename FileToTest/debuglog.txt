@@ -1,0 +1,37 @@
+=============================================================================================
+Logging started
+=============================================================================================
+countPhysicalDrives
+Number of drives: 4
+listPartitions
+DRIVE = \\.\PhysicalDrive0
+Read error in listPartitions: Access is denied.
+
+listPartitions
+DRIVE = \\.\PhysicalDrive1
+Read error in listPartitions: Access is denied.
+
+listPartitions
+DRIVE = \\.\PhysicalDrive2
+Read error in listPartitions: Access is denied.
+
+listPartitions
+DRIVE = \\.\PhysicalDrive3
+Read error in listPartitions: Access is denied.
+
++++++++++  item: Device0
+Node Level = 0 name = Device0 iData1 = 0
++++++++++  item: Device1
+Node Level = 0 name = Device1 iData1 = 1
++++++++++  item: Device2
+Node Level = 0 name = Device2 iData1 = 2
++++++++++  item: Device3
+Node Level = 0 name = Device3 iData1 = 3
+TVN_SELCHANGING, name: Device0  -3617008641903833651  -842150451
+TVN_SELCHANGING, name: Device1  -3617008641903833651  -842150451
+TVN_SELCHANGING, name: Device2  -3617008641903833651  -842150451
+TVN_SELCHANGING, name: Device3  -3617008641903833651  -842150451
+TVN_SELCHANGING, name: Device0  -3617008641903833651  -842150451
+popupmenu -> properties
+Node Level = 0 name = Device0 inode = -3617008641903833651
+Exit application.
