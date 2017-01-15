@@ -5,8 +5,7 @@
 #ifndef BFS_ENDIAN_H
 #define BFS_ENDIAN_H
 
-
-#include "system_dependencies.h"
+#include "BOS_System_Dependencies.h"
 
 #	define BFS_ENDIAN_TO_HOST_INT16(value) value
 #	define BFS_ENDIAN_TO_HOST_INT32(value) value

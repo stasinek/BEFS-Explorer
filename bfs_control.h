@@ -7,7 +7,7 @@
 */
 
 
-#include "system_dependencies.h"
+#include "BOS_System_Dependencies.h"
 
 
 /* ioctl to check the version of BFS used - parameter is a uint32 *

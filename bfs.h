@@ -8,8 +8,8 @@
 #ifndef BFS_H
 #define BFS_H
 
-#include "bfs_endian.h"
-#include "system_dependencies.h"
+#include "BFS_Endian.h"
+#include "BOS_System_Dependencies.h"
 
 
 #ifdef _BOOT_MODE

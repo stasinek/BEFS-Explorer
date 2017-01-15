@@ -5,8 +5,8 @@ CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
 RES      = BFS4WIN_private.res
-OBJ      = Attribute.o BFSInterface.o BlockAllocator.o BPlusTree.o Cache.o Debug.o DiskFunc.o Hash.o Index.o Inode.o Journal.o Query.o SkyfsInterface.o SupportFunctions.o System.o TreeControl.o Utility.o Volume.o $(RES)
-LINKOBJ  = Attribute.o BFSInterface.o BlockAllocator.o BPlusTree.o Cache.o Debug.o DiskFunc.o Hash.o Index.o Inode.o Journal.o Query.o SkyfsInterface.o SupportFunctions.o System.o TreeControl.o Utility.o Volume.o $(RES)
+OBJ      = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o $(RES)
+LINKOBJ  = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o $(RES)
 LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows  -mthreads -lntoskrnl -lkernel32 -luser32 -lshell32  -lcomctl32 -lodbc32 -lodbccp32 -lwinmm -lws2_32 -lole32  -loleaut32 -loleacc -lcomdlg32 -m32 -g3
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -25,60 +25,60 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Attribute.o: Attribute.cpp
-	$(CPP) -c Attribute.cpp -o Attribute.o $(CXXFLAGS)
+BFS_Attribute.o: BFS_Attribute.cpp
+	$(CPP) -c BFS_Attribute.cpp -o BFS_Attribute.o $(CXXFLAGS)
 
-BFSInterface.o: BFSInterface.cpp
-	$(CPP) -c BFSInterface.cpp -o BFSInterface.o $(CXXFLAGS)
+BFS_Interface.o: BFS_Interface.cpp
+	$(CPP) -c BFS_Interface.cpp -o BFS_Interface.o $(CXXFLAGS)
 
-BlockAllocator.o: BlockAllocator.cpp
-	$(CPP) -c BlockAllocator.cpp -o BlockAllocator.o $(CXXFLAGS)
+BFS_BlockAllocator.o: BFS_BlockAllocator.cpp
+	$(CPP) -c BFS_BlockAllocator.cpp -o BFS_BlockAllocator.o $(CXXFLAGS)
 
-BPlusTree.o: BPlusTree.cpp
-	$(CPP) -c BPlusTree.cpp -o BPlusTree.o $(CXXFLAGS)
+BFS_PlusTree.o: BFS_PlusTree.cpp
+	$(CPP) -c BFS_PlusTree.cpp -o BFS_PlusTree.o $(CXXFLAGS)
 
-Cache.o: Cache.cpp
-	$(CPP) -c Cache.cpp -o Cache.o $(CXXFLAGS)
+BFS_Cache.o: BFS_Cache.cpp
+	$(CPP) -c BFS_Cache.cpp -o BFS_Cache.o $(CXXFLAGS)
 
-Debug.o: Debug.cpp
-	$(CPP) -c Debug.cpp -o Debug.o $(CXXFLAGS)
+BFS_Debug.o: BFS_Debug.cpp
+	$(CPP) -c BFS_Debug.cpp -o BFS_Debug.o $(CXXFLAGS)
 
-DiskFunc.o: DiskFunc.cpp
-	$(CPP) -c DiskFunc.cpp -o DiskFunc.o $(CXXFLAGS)
+GUI_DiskFunc.o: GUI_DiskFunc.cpp
+	$(CPP) -c GUI_DiskFunc.cpp -o GUI_DiskFunc.o $(CXXFLAGS)
 
-Hash.o: Hash.cpp
-	$(CPP) -c Hash.cpp -o Hash.o $(CXXFLAGS)
+BFS_Hash.o: BFS_Hash.cpp
+	$(CPP) -c BFS_Hash.cpp -o BFS_Hash.o $(CXXFLAGS)
 
-Index.o: Index.cpp
-	$(CPP) -c Index.cpp -o Index.o $(CXXFLAGS)
+BFS_Index.o: BFS_Index.cpp
+	$(CPP) -c BFS_Index.cpp -o BFS_Index.o $(CXXFLAGS)
 
-Inode.o: Inode.cpp
-	$(CPP) -c Inode.cpp -o Inode.o $(CXXFLAGS)
+BFS_Inode.o: BFS_Inode.cpp
+	$(CPP) -c BFS_Inode.cpp -o BFS_Inode.o $(CXXFLAGS)
 
-Journal.o: Journal.cpp
-	$(CPP) -c Journal.cpp -o Journal.o $(CXXFLAGS)
+BFS_Journal.o: BFS_Journal.cpp
+	$(CPP) -c BFS_Journal.cpp -o BFS_Journal.o $(CXXFLAGS)
 
-Query.o: Query.cpp
-	$(CPP) -c Query.cpp -o Query.o $(CXXFLAGS)
+BFS_Query.o: BFS_Query.cpp
+	$(CPP) -c BFS_Query.cpp -o BFS_Query.o $(CXXFLAGS)
 
-SkyfsInterface.o: SkyfsInterface.cpp
-	$(CPP) -c SkyfsInterface.cpp -o SkyfsInterface.o $(CXXFLAGS)
+SKYFS_Interface.o: SKYFS_Interface.cpp
+	$(CPP) -c SKYFS_Interface.cpp -o SKYFS_Interface.o $(CXXFLAGS)
 
-SupportFunctions.o: SupportFunctions.cpp
-	$(CPP) -c SupportFunctions.cpp -o SupportFunctions.o $(CXXFLAGS)
+BFS_SupportFunctions.o: BFS_SupportFunctions.cpp
+	$(CPP) -c BFS_SupportFunctions.cpp -o BFS_SupportFunctions.o $(CXXFLAGS)
 
-System.o: System.cpp
-	$(CPP) -c System.cpp -o System.o $(CXXFLAGS)
+BOS_System.o: BOS_System.cpp
+	$(CPP) -c BOS_System.cpp -o BOS_System.o $(CXXFLAGS)
 
-TreeControl.o: TreeControl.cpp
-	$(CPP) -c TreeControl.cpp -o TreeControl.o $(CXXFLAGS)
+GUI_TreeControl.o: GUI_TreeControl.cpp
+	$(CPP) -c GUI_TreeControl.cpp -o GUI_TreeControl.o $(CXXFLAGS)
 
-Utility.o: Utility.cpp
-	$(CPP) -c Utility.cpp -o Utility.o $(CXXFLAGS)
+BFS_Utility.o: BFS_Utility.cpp
+	$(CPP) -c BFS_Utility.cpp -o BFS_Utility.o $(CXXFLAGS)
 
-Volume.o: Volume.cpp
-	$(CPP) -c Volume.cpp -o Volume.o $(CXXFLAGS)
+BFS_Volume.o: BFS_Volume.cpp
+	$(CPP) -c BFS_Volume.cpp -o BFS_Volume.o $(CXXFLAGS)
 
-BFS4WIN_private.res: BFS4WIN_private.rc resource/TreeControl.rsrc.rc
+BFS4WIN_private.res: BFS4WIN_private.rc resource/GUI_TreeControl.rsrc.rc
 	$(WINDRES) -i BFS4WIN_private.rc -F pe-i386 --input-format=rc -o BFS4WIN_private.res -O coff 
 
