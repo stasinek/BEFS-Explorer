@@ -86,11 +86,15 @@ typedef unsigned long long off_t;
 #ifndef LONG_MAX
 #define LONG_MAX 2147483647L
 #endif
+#ifdef __MSVC__
 #pragma warning (disable: 4005)
+#endif
 #ifndef LONG_MIN
 #define LONG_MIN (-LONG_MAX - 1L) 
 #endif
+#ifdef __MSVC__
 #pragma warning (default: 4005)
+#endif
 #define B_GENERAL_ERROR_BASE		LONG_MIN
 #define B_OS_ERROR_BASE				B_GENERAL_ERROR_BASE + 0x1000
 #define B_APP_ERROR_BASE			B_GENERAL_ERROR_BASE + 0x2000
@@ -146,7 +150,9 @@ enum {
 #define	S_LINK_SELF_HEALING	00001000000	/* link will be updated if you move its target */
 #define S_LINK_AUTO_DELETE	00002000000	/* link will be deleted if you delete its target */
 
+#ifdef __MSVC__
 #pragma warning( disable: 4005 )
+#endif
 /* standard file types */
 #define S_IFMT				00000170000 /* type of file */
 #define	S_IFLNK				00000120000 /* symbolic link */
@@ -155,7 +161,9 @@ enum {
 #define S_IFDIR 			00000040000 /* directory */
 #define S_IFCHR 			00000020000 /* character special */
 #define S_IFIFO 			00000010000 /* fifo */
+#ifdef __MSVC__
 #pragma warning( default: 4005 )
+#endif
 
 //#define S_IFREG				00000100000 /* regular */
 //#define	S_IFLNK				00000120000 /* symbolic link */

@@ -56,8 +56,7 @@ status_t skyfs_open_dir(void *_ns, void *_node, void **_cookie)
 }
 
 //static 
-status_t
-skyfs_read_dir(void *_ns, void *_node, void *_cookie, struct dirent *Dirent, 
+status_t skyfs_read_dir(void *_ns, void *_node, void *_cookie, struct dirent *Dirent,
 	size_t bufferSize, uint32 *_num)
 {
 	//FUNCTION();
@@ -88,8 +87,7 @@ skyfs_read_dir(void *_ns, void *_node, void *_cookie, struct dirent *Dirent,
 	return B_OK;
 }
 
-status_t
-skyfs_rewind_dir(void * ns, void * node, void *_cookie)
+status_t skyfs_rewind_dir(void * ns, void * node, void *_cookie)
 {
 	FUNCTION();
 	TreeIterator *iterator = (TreeIterator *)_cookie;
@@ -105,8 +103,7 @@ skyfs_rewind_dir(void * ns, void * node, void *_cookie)
  */
 
 //static 
-status_t
-skyfs_open(void *_fs, void *_node, int openMode, void **_cookie)
+status_t skyfs_open(void *_fs, void *_node, int openMode, void **_cookie)
 {
 	FUNCTION();
 
@@ -185,8 +182,7 @@ skyfs_open(void *_fs, void *_node, int openMode, void **_cookie)
  */
 
 //static 
-status_t
-skyfs_read(void *_ns, void *_node, void *_cookie, uint64 pos, void *buffer, uint64 *_length)
+status_t skyfs_read(void *_ns, void *_node, void *_cookie, uint64 pos, void *buffer, uint64 *_length)
 {
 	// not used: _ns, _cookie
 	//FUNCTION();
@@ -201,8 +197,7 @@ skyfs_read(void *_ns, void *_node, void *_cookie, uint64 pos, void *buffer, uint
 	return inode->ReadAt(pos, (uint8 *)buffer, _length);
 }
 
-status_t
-skyfs_close_dir(void * /*ns*/, void * /*node*/, void * /*_cookie*/)
+status_t skyfs_close_dir(void * /*ns*/, void * /*node*/, void * /*_cookie*/)
 {
 	FUNCTION();
 	// Do whatever you need to to close a directory, but DON'T free the cookie!
@@ -213,8 +208,7 @@ skyfs_close_dir(void * /*ns*/, void * /*node*/, void * /*_cookie*/)
  *	the cookie!
  */
 
-status_t
-skyfs_close(void *_ns, void *_node, void *_cookie)
+status_t skyfs_close(void *_ns, void *_node, void *_cookie)
 {
 	FUNCTION();
 	if (_ns == NULL || _node == NULL || _cookie == NULL)
@@ -350,8 +344,7 @@ status_t skyfs_rewind_attr_dir(void *_ns, void *_node, void *_cookie)
 	RETURN_ERROR(iterator->Rewind());
 }
 
-status_t skyfs_read_attr_dir(void *_ns, void *node, void *_cookie, struct dirent *dirent,
-	size_t bufferSize, uint32 *_num)
+status_t skyfs_read_attr_dir(void *_ns, void *node, void *_cookie, struct dirent *dirent,size_t bufferSize, uint32 *_num)
 {
 	//FUNCTION();
 	AttributeIterator *iterator = (AttributeIterator *)_cookie;
@@ -393,8 +386,7 @@ status_t skyfs_close_attr(void* _fs, fs_vnode _file, attr_cookie* cookie)
 	return B_OK;
 }
 
-status_t skyfs_read_attr(void* _fs, fs_vnode _file, attr_cookie* _cookie, uint64 pos,
-	void *buffer, uint64 *_length)
+status_t skyfs_read_attr(void* _fs, fs_vnode _file, attr_cookie* _cookie, uint64 pos,void *buffer, uint64 *_length)
 {
 	//FUNCTION();
 
@@ -417,4 +409,3 @@ status_t skyfs_read_attr_stat(void* _fs, fs_vnode _file, attr_cookie* _cookie, s
 
 	return attribute.Stat(*stat);
 }
-

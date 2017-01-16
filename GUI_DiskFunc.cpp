@@ -55,7 +55,7 @@ int __stdcall CountPhysicalDrives()
 }
 
 
-int __stdcall listDir(HWND hWnd, HTREEITEM* node, TV_ITEM* tvi, ofstream* debug, vector<Volume>* volumes)
+int __stdcall ListDirectories(HWND hWnd, HTREEITEM* node, TVITEMA* tvi, ofstream* debug, vector<Volume>* volumes)
 {
 	void* iter;
 	dirent d;
@@ -114,7 +114,7 @@ int __stdcall listDir(HWND hWnd, HTREEITEM* node, TV_ITEM* tvi, ofstream* debug,
 					TreeData* data = new TreeData(td->level+1, d.d_name, d.d_ino);
 					data->extra = v;
 					data->volume = td->volume;
-					addChild(hWnd, node, d.d_name, ICON_TREE, data, debug);
+                    AddChild(hWnd, node, d.d_name, ICON_TREE, data, debug);
 					children++;
 				}
 				
@@ -124,7 +124,7 @@ int __stdcall listDir(HWND hWnd, HTREEITEM* node, TV_ITEM* tvi, ofstream* debug,
 					TreeData* data = new TreeData(2, d.d_name, d.d_ino);
 					data->extra = v;
 					data->volume = td->volume;
-					addChild(hWnd, node, d.d_name, ICON_FILE, data, debug);
+                    AddChild(hWnd, node, d.d_name, ICON_FILE, data, debug);
 					children++;
 				}
 				
@@ -134,7 +134,7 @@ int __stdcall listDir(HWND hWnd, HTREEITEM* node, TV_ITEM* tvi, ofstream* debug,
 					TreeData* data = new TreeData(2, d.d_name, d.d_ino);
 					data->extra = v;
 					data->volume = td->volume;
-					addChild(hWnd, node, d.d_name, ICON_OTHER, data,debug);
+                    AddChild(hWnd, node, d.d_name, ICON_OTHER, data,debug);
 					children++;
 				}
 				free(I);
@@ -146,11 +146,11 @@ int __stdcall listDir(HWND hWnd, HTREEITEM* node, TV_ITEM* tvi, ofstream* debug,
 }
 
 
-int __stdcall addChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug)
+int __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug)
 {
 	*debug << "addChild: hWnd=" << hWnd << endl;
 	*debug << "addChild: parent=" << *parent << ", level = " << td->level << endl;
-	TV_INSERTSTRUCT tvinsert;   // struct to config out tree control
+    TVINSERTSTRUCTA tvinsert;   // struct to config out tree control
 	if (strcmp(t1,"..")!= 0 && strcmp(t1,".")!= 0) {
 		*debug<<"AddChild: " << t1 << " volume = " << td->extra << endl;
 		tvinsert.hParent = *parent;	
@@ -177,7 +177,7 @@ int __stdcall addChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeDat
 }
 
 
-int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT* s, std::ofstream* debug)
+int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* debug)
 {	
 	*debug << "listPartitions" << endl;
 	int i, count = 0;
@@ -208,7 +208,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 	int nRet = ReadFile(hDrive, szSector, 512, &dwBytes ,NULL);
 	
 	if (!nRet) {
-		printf("\tRead error in listPartitions: id %i %s\n", GetLastError, GetLastErrorText(GetLastError()));
+        printf("\tRead error in listPartitions: id %i %s\n", (int)GetLastError, GetLastErrorText(GetLastError()));
 		*debug << "Read error in listPartitions: " << GetLastErrorText(GetLastError()) << endl;
 		return GetLastError();
 	}
@@ -278,7 +278,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 				s->item.lParam=reinterpret_cast<LPARAM>(td);
 				oss << " ("<< szTmpStr<< ")";
 				t = oss.str();
-				s->item.pszText=(LPTSTR)(LPCTSTR)t.c_str();
+                s->item.pszText=(LPSTR)t.c_str();
 				SendDlgItemMessage(h,IDC_TREE1,TVM_INSERTITEM,0,(LPARAM)s);
 			}
 				break;
@@ -297,7 +297,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 				s->item.lParam = reinterpret_cast<LPARAM>(td);
 				oss << " ("<< szTmpStr<< ")";
 				t = oss.str();
-				s->item.pszText = (LPTSTR)(LPCTSTR)t.c_str();
+                s->item.pszText = (LPSTR)t.c_str();
 				SendDlgItemMessage(h, IDC_TREE1, TVM_INSERTITEM, 0 , (LPARAM)s);
 			}
 				break;
@@ -316,7 +316,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 				s->item.lParam = reinterpret_cast<LPARAM>(td);
 				oss << " ("<< szTmpStr<< ")";
 				t = oss.str();
-				s->item.pszText = (LPTSTR)(LPCTSTR)t.c_str();
+                s->item.pszText = (LPSTR)t.c_str();
 				SendDlgItemMessage(h, IDC_TREE1, TVM_INSERTITEM, 0, (LPARAM)s);
 			}
 				break;
@@ -342,7 +342,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 			n64Pos.QuadPart = ((LONGLONG) stDrive.dwNTRelativeSector)*  512;
 			
 			int nRet = SetFilePointer(hDrive, n64Pos.LowPart,&n64Pos.HighPart, FILE_BEGIN);
-			if (nRet == 0xffffffff)
+            if (nRet == (int)0xffffffff)
 				return GetLastError();
 
 			dwBytes = 0;
@@ -419,7 +419,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 					s->item.lParam=reinterpret_cast<LPARAM>(td);
 					oss << " ("<< szTmpStr<< ")";
 					t = oss.str();
-					s->item.pszText=(LPTSTR)(LPCTSTR)t.c_str();
+                    s->item.pszText=(LPSTR)t.c_str();
 					SendDlgItemMessage(h,IDC_TREE1,TVM_INSERTITEM,0,(LPARAM)s);
 				}
 					break;
@@ -438,7 +438,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 					s->item.lParam = reinterpret_cast<LPARAM>(td);
 					oss << " (" << szTmpStr << ")";
 					t = oss.str();
-					s->item.pszText = (LPTSTR)(LPCTSTR)t.c_str();
+                    s->item.pszText = (LPSTR)t.c_str();
 					SendDlgItemMessage(h, IDC_TREE1, TVM_INSERTITEM, 0, (LPARAM)s);
 				}
 					break;
@@ -457,7 +457,7 @@ int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT*
 					s->item.lParam = reinterpret_cast<LPARAM>(td);
 					oss << " (" << szTmpStr << ")";
 					t = oss.str();
-					s->item.pszText = (LPTSTR)(LPCTSTR)t.c_str();
+                    s->item.pszText = (LPSTR)t.c_str();
 					SendDlgItemMessage(h, IDC_TREE1, TVM_INSERTITEM, 0, (LPARAM)s);
 				}
 					break;

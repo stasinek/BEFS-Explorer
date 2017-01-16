@@ -21,6 +21,7 @@
 #include "NT_Native.h"
 //#include <windows.h>
 
+#ifdef __MSVC__
 #pragma warning( disable: 4018 )
 #pragma warning( disable: 4101 )
 #pragma warning( disable: 4103 )
@@ -36,8 +37,7 @@
 #pragma warning( disable: 4200 )
 #pragma warning( disable: 4309 )
 #pragma warning( disable: 4311 )
-
-
+#endif
 
 int read_pos(HANDLE fDevice, int64 sStart, void* data, unsigned int size);
 int read_pos2(HANDLE fDevice, int64 sStart, void* data, unsigned int size);

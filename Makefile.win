@@ -7,12 +7,12 @@ WINDRES  = windres.exe
 RES      = BFS4WIN_private.res
 OBJ      = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o $(RES)
 LINKOBJ  = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o $(RES)
-LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows  -mthreads -lntoskrnl -lkernel32 -luser32 -lshell32  -lcomctl32 -lodbc32 -lodbccp32 -lwinmm -lws2_32 -lole32  -loleaut32 -loleacc -lcomdlg32 -m32 -g3
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -mwindows  -mthreads -lntoskrnl -lkernel32 -luser32 -lshell32  -lcomctl32 -lwinmm -m32 -g3
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = BFS4WIN.exe
-CXXFLAGS = $(CXXINCS) -m32 -g3 -Wno-multichar -Wno-write-strings
-CFLAGS   = $(INCS) -m32 -g3 -Wno-multichar -Wno-write-strings
+CXXFLAGS = $(CXXINCS) -march=pentium3 -mmmx -m32 -g3 -Wno-multichar -Wno-write-strings
+CFLAGS   = $(INCS) -march=pentium3 -mmmx -m32 -g3 -Wno-multichar -Wno-write-strings
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom

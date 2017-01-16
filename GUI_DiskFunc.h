@@ -34,8 +34,8 @@ using namespace std;
 #define ICON_DISK	4
 
 int __stdcall CountPhysicalDrives();
-int __stdcall listPartitions(int disk, HWND h, HTREEITEM* node, TV_INSERTSTRUCT* s, std::ofstream* debug);
-int __stdcall listDir(HWND h, HTREEITEM* node, TV_ITEM* s, ofstream* d, vector<Volume>* volumes);
+int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* debug);
+int __stdcall ListDirectories(HWND h, HTREEITEM* node, TVITEMA* s, ofstream* d, vector<Volume>* volumes);
 
 class TreeData {
 	public:
@@ -70,6 +70,6 @@ class TreeData {
 		void* extra;
 };
 
-int __stdcall addChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug);
+int __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug);
 
 #endif

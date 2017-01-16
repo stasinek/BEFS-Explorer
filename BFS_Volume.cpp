@@ -373,7 +373,7 @@ DeviceOpener::Open(const char *device, int partitionNr, int mode)
                                NULL,                        // root directory handle
                                NULL );                      // ptr to security descriptor
 	//Status = NtCreateFile(&FileHandle,                      // returned file handle
-	Status = NtCreateFile(&fDevice,                      // returned file handle
+    Status = NtCreateFile(&fDevice,                      // returned file handle
 						  FILE_READ_DATA | SYNCHRONIZE,		// desired access
                           &ObjectAttributes,                // ptr to object attributes
                           &Iosb,                            // ptr to I/O status block
@@ -699,7 +699,7 @@ DeviceOpener::Open(int diskNr, int partitionNr, int mode)
                                NULL,                        // root directory handle
                                NULL );                      // ptr to security descriptor
 	//Status = NtCreateFile(&FileHandle,                      // returned file handle
-	Status = NtCreateFile(&fDevice,                      // returned file handle
+    Status = NtCreateFile(&fDevice,                      // returned file handle
 						  FILE_READ_DATA | SYNCHRONIZE,		// desired access
                           &ObjectAttributes,                // ptr to object attributes
                           &Iosb,                            // ptr to I/O status block

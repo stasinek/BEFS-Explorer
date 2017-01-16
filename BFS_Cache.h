@@ -56,9 +56,7 @@ struct cached_block {
 	static uint32 Hash(void *_cacheEntry, const void *_block, uint32 range);
 };
 
-typedef DoublyLinkedList<cached_block,
-	DoublyLinkedListMemberGetLink<cached_block,
-		&cached_block::link> > block_list;
+typedef DoublyLinkedList<cached_block,DoublyLinkedListMemberGetLink<cached_block,&cached_block::link> > block_list;
 
 struct volume_list_entry;
 class Volume;
@@ -151,8 +149,7 @@ status_t write_to_cache(file_cache_ref *ref, uint64 offset, size_t size, addr_t 
 status_t vm_page_put_page(vm_page* page);
 vm_page *vm_page_allocate_page(int state);
 void vm_cache_remove_page(file_cache_ref *cacheRef, vm_page *page);
-void vm_cache_insert_page(file_cache_ref *cacheRef, vm_page *page,
-	uint64 offset);
+void vm_cache_insert_page(file_cache_ref *cacheRef, vm_page *page,uint64 offset);
 vm_page *vm_cache_lookup_page(file_cache_ref *cacheRef, uint64 page);
 status_t vm_page_set_state(vm_page *page, int state);
 void vm_page_get_page(vm_page* page);
@@ -271,14 +268,8 @@ private:
 	vm_page*	fPage;
 };
 
-
-typedef DoublyLinkedList<vm_page,
-	DoublyLinkedListMemberGetLink<vm_page,
-		&vm_page::link_cache_modified> > cache_modified_page_list;
-
-typedef DoublyLinkedList<vm_page,
-	DoublyLinkedListMemberGetLink<vm_page,
-		&vm_page::link_cache> > cache_page_list;
+typedef DoublyLinkedList<vm_page,DoublyLinkedListMemberGetLink<vm_page,&vm_page::link_cache_modified> > cache_modified_page_list;
+typedef DoublyLinkedList<vm_page,DoublyLinkedListMemberGetLink<vm_page,&vm_page::link_cache> > cache_page_list;
 
 struct file_cache_ref {
 	mutex						lock;
@@ -323,32 +314,18 @@ status_t	file_cache_write(void *_cacheRef,uint64 offset, const void *buffer,size
 //status_t	file_cache_read_pages(void *_cacheRef,uint64 offset, const iovec *vecs,size_t count, size_t *_numBytes);
 //status_t	file_cache_write_pages(void *_cacheRef,uint64 offset, const iovec *vecs,size_t count, size_t *_numBytes);
 status_t file_cache_init();
-
-
-status_t vfs_read_pages(HANDLE fd, uint64 pos, const iovec *vecs, size_t count,
-	uint64 *_numBytes, bool fsReenter);
-status_t vfs_write_pages(HANDLE fd, uint64 pos, const iovec *vecs, size_t count,
-	uint64 *_numBytes, bool fsReenter);
-status_t get_file_map(file_cache_ref *ref, uint64 offset, uint64 size,
-	file_io_vec *vecs, size_t *_count);
-file_extent *
-find_file_extent(file_cache_ref *ref, uint64 offset, uint32 *_index);
-
+status_t vfs_read_pages(HANDLE fd, uint64 pos, const iovec *vecs, size_t count,uint64 *_numBytes, bool fsReenter);
+status_t vfs_write_pages(HANDLE fd, uint64 pos, const iovec *vecs, size_t count,uint64 *_numBytes, bool fsReenter);
+status_t get_file_map(file_cache_ref *ref, uint64 offset, uint64 size,file_io_vec *vecs, size_t *_count);
+file_extent *find_file_extent(file_cache_ref *ref, uint64 offset, uint32 *_index);
 // cache stuff
-status_t pages_io(file_cache_ref *ref, uint64 offset, const iovec *vecs,
-	size_t count, uint64 *_numBytes, bool doWrite);
-inline status_t
-read_chunk_into_cache(file_cache_ref *ref, uint64 offset, uint64 numBytes,
-	int32 pageOffset, addr_t buffer, uint64 bufferSize);
+status_t pages_io(file_cache_ref *ref, uint64 offset, const iovec *vecs,size_t count, uint64 *_numBytes, bool doWrite);
+inline status_t read_chunk_into_cache(file_cache_ref *ref, uint64 offset, uint64 numBytes,int32 pageOffset, addr_t buffer, uint64 bufferSize);
 status_t read_into_cache(file_cache_ref *ref, uint64 offset, uint64 size, addr_t buffer, uint64 bufferSize);
 status_t satisfy_cache_io(file_cache_ref *ref, uint64 offset, addr_t buffer, addr_t lastBuffer,bool doWrite);
 status_t cache_io(void *_cacheRef, uint64 offset, addr_t buffer, uint64 *_size, bool doWrite);
 
-
-static cached_block * get_cached_block(block_cache *cache, 
-									   uint64 blockNumber, 
-									   bool *_allocated,
-									   bool readBlock);
+static cached_block * get_cached_block(block_cache *cache, uint64 blockNumber, bool *_allocated,bool readBlock);
 static void put_cached_block(block_cache *cache, uint64 blockNumber);
 static void put_cached_block(block_cache *cache, cached_block *block);
 

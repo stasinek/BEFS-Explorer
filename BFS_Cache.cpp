@@ -284,9 +284,7 @@ const void * block_cache_get(void *_cache,	uint64 blockNumber){
 		not already in the cache. The block you retrieve may contain random
 		data.
 */
-static cached_block *
-get_cached_block(block_cache *cache, uint64 blockNumber, bool *_allocated,/*uint64 offset,*/
-	bool readBlock = true)
+static cached_block *get_cached_block(block_cache *cache, uint64 blockNumber, bool *_allocated,/*uint64 offset,*/bool readBlock = true)
 {
 //	printf("Cache.cpp:get_cached_block\n");
 	if (blockNumber < 0 || blockNumber >= cache->max_blocks) {
@@ -405,8 +403,7 @@ block_cache_put(void *_cache, uint64 blockNumber)
 	put_cached_block(cache, blockNumber);
 }
 
-static void
-put_cached_block(block_cache *cache, cached_block *block)
+static void put_cached_block(block_cache *cache, cached_block *block)
 {
 #ifdef DEBUG_CHANGED
 	if (!block->is_dirty && block->compare != NULL
@@ -438,8 +435,7 @@ put_cached_block(block_cache *cache, cached_block *block)
 }
 
 
-static void
-put_cached_block(block_cache *cache, uint64 blockNumber)
+static void put_cached_block(block_cache *cache, uint64 blockNumber)
 {
 	if (blockNumber < 0 || blockNumber >= cache->max_blocks) {
 		panic("put_cached_block: invalid block number %lld (max %lld)",
@@ -533,7 +529,7 @@ vm_page_get_page(vm_page* page)
 vm_page *
 vm_cache_lookup_page(file_cache_ref *cache, uint64 offset)
 {
-	printf("vm_cache_lookup_page... %I64d\n",cache->virtual_size);
+    printf("vm_cache_lookup_page... %ld\n",cache->virtual_size);
 	//TODO: added this myself here, where should I call this?
 	if (sPagePool.pageHash==NULL){
 		printf("need to init file_cache (%p): ",sPagePool.pageHash);
@@ -557,7 +553,7 @@ vm_cache_lookup_page(file_cache_ref *cache, uint64 offset)
 void *
 file_cache_create(mount_id mountID, vnode_id vnodeID, uint64 size, HANDLE fd, Volume* v)
 {
-	printf("file_cache_create(mountID = %ld, vnodeID = %I64d, size = %I64d, fd = 0x%p)\n", mountID, vnodeID, size, fd);
+    printf("file_cache_create(mountID = %ld, vnodeID = %ld, size = %ld, fd = 0x%p)\n", mountID, vnodeID, size, fd);
 	
 	// TODO: nothrow in windows??
 	file_cache_ref *ref = new file_cache_ref;
@@ -609,7 +605,7 @@ vfs_read_pages(HANDLE fd, uint64 pos, const iovec *vecs, size_t count,
 	uint64 toRead = 0;
 	for (size_t i = 0; i < count; i++)
 		toRead += vecs[i].iov_len;
-	printf("vfs_read_pages: count: %Lu, toRead: %I64d, pos=%I64d\n",count,toRead,pos);
+    printf("vfs_read_pages: count: %Lu, toRead: %ld, pos=%ld\n",count,toRead,pos);
 	iovec* newVecs = NULL;
 	if (*_numBytes < toRead) {
 		// We're supposed to read less than specified by the vecs. Since
@@ -671,7 +667,7 @@ find_file_extent(file_cache_ref *ref, uint64 offset, uint32 *_index)
 status_t get_file_map(file_cache_ref* ref, uint64 offset, uint64 size,
 	file_io_vec *vecs, size_t *_count)
 {
-	printf("get_file_map: offset = %I64d, size = %I64d\n", offset, size);
+    printf("get_file_map: offset = %ld, size = %ld\n", offset, size);
 	
 	//TODO: convert the file_cache_ref into volume and inode info ?
 	//Volume *volume = (Volume *)_fs;
@@ -684,17 +680,17 @@ status_t get_file_map(file_cache_ref* ref, uint64 offset, uint64 size,
 	block_run run;
 	uint64 fileOffset;
 
-	//FUNCTION_START(("offset = %I64d, size = %I64d\n", offset, size));
+    //FUNCTION_START(("offset = %ld, size = %ld\n", offset, size));
 
 	while (true) {
 		static int i,j, k, l,m,n;
 		status_t status = inode->FindBlockRun(offset, run, fileOffset);
 		printf("blockrun: (%d, %d, %d)\n", (int)run.allocation_group, run.start, run.length);
-		printf("volume->ToOffset(run)=%I64d, offset=%I64d, fileOffset=%I64d\n",volume->ToOffset(run), offset, fileOffset);
+        printf("volume->ToOffset(run)=%ld, offset=%ld, fileOffset=%ld\n",volume->ToOffset(run), offset, fileOffset);
 		if (status != B_OK)
 			return status;
 		vecs[index].offset = volume->ToOffset(run) + offset - fileOffset;
-		printf("vecs[%lu].offset=%I64d\n",index,volume->ToOffset(run) + offset - fileOffset);
+        printf("vecs[%lu].offset=%ld\n",index,volume->ToOffset(run) + offset - fileOffset);
 		vecs[index].length = (run.Length() << blockShift) - offset + fileOffset;
 
 		offset += vecs[index].length;
@@ -753,17 +749,17 @@ struct file_cache_ref {
 };*/
 	printf("Dumping file_cache_ref:\n");
 	printf("\tmount_id=%i\n",ref->mountID);
-	printf("\tvnode_id=%I64d\n",ref->nodeID);
+    printf("\tvnode_id=%ld\n",ref->nodeID);
 	printf("\tnodeHandle=%p\n",ref->nodeHandle);
 	printf("\tdeviceFD=%p\n",ref->deviceFD);
-	printf("\tvirtual_size=%I64d\n",ref->virtual_size);
+    printf("\tvirtual_size=%ld\n",ref->virtual_size);
 }
 
 status_t
 pages_io(file_cache_ref *ref, uint64 offset, const iovec *vecs, size_t count,
 	uint64 *_numBytes, bool doWrite)
 {
-	printf("pages_io: ref = %p, offset = %I64d, size = %I64d, vecCount = %lu, %s\n",
+    printf("pages_io: ref = %p, offset = %ld, size = %ld, vecCount = %lu, %s\n",
 		ref, offset, *_numBytes, count, doWrite ? "write" : "read");
 	dump_ref(ref);
 	// translate the iovecs into direct device accesses
@@ -775,7 +771,7 @@ pages_io(file_cache_ref *ref, uint64 offset, const iovec *vecs, size_t count,
 		&fileVecCount);
 	
 	if (status < B_OK && status != B_BUFFER_OVERFLOW) {
-		printf("get_file_map(offset = %I64d, numBytes = %Lu) failed: %s\n",
+        printf("get_file_map(offset = %ld, numBytes = %Lu) failed: %s\n",
 			offset, numBytes, strerror(status));
 		return status;
 	}
@@ -783,10 +779,10 @@ pages_io(file_cache_ref *ref, uint64 offset, const iovec *vecs, size_t count,
 	bool bufferOverflow = status == B_BUFFER_OVERFLOW;
 
 //#ifdef TRACE_FILE_CACHE
-	printf("got %lu file vecs for %I64d:%I64d%s:\n", fileVecCount, offset,
+    printf("got %lu file vecs for %ld:%ld%s:\n", fileVecCount, offset,
 		numBytes, bufferOverflow ? " (array too small)" : "");
 	for (size_t i = 0; i < fileVecCount; i++) {
-		printf("  [%lu] offset = %I64d, size = %I64d\n",
+        printf("  [%lu] offset = %ld, size = %ld\n",
 			i, fileVecs[i].offset, fileVecs[i].length);
 	}
 //#endif
@@ -968,7 +964,7 @@ status_t	file_cache_read(void *_cacheRef, uint64 offset,void *bufferBase, uint64
 	
 	file_cache_ref *ref = (file_cache_ref *)_cacheRef;
 
-	printf("file_cache_read(ref = 0x%p, offset = %I64dd, buffer = %p, size = %I64u)\n",
+    printf("file_cache_read(ref = 0x%p, offset = %ldd, buffer = %p, size = %I64u)\n",
 		ref, offset, bufferBase, *_size);
 	// bufferBase is the buffer where data needs to be copied to
 	return cache_io(ref, offset, (addr_t)bufferBase, _size, false);
@@ -1010,7 +1006,7 @@ inline status_t
 read_chunk_into_cache(file_cache_ref *ref, uint64 offset, uint64 numBytes,
 	int32 pageOffset, addr_t buffer, uint64 bufferSize)
 {
-	printf("read_chunk(offset = %I64d, size =%I64d, pageOffset = %ld, buffer = %p, bufferSize = %I64d\n",
+    printf("read_chunk(offset = %ld, size =%ld, pageOffset = %ld, buffer = %p, bufferSize = %ld\n",
 		offset, numBytes, pageOffset, buffer, bufferSize);
 
 	iovec vecs[MAX_IO_VECS];
@@ -1095,7 +1091,7 @@ read_chunk_into_cache(file_cache_ref *ref, uint64 offset, uint64 numBytes,
 status_t
 read_into_cache(file_cache_ref *ref, uint64 offset, uint64 size, addr_t buffer, uint64 bufferSize)
 {
-	printf("read_from_cache: ref = %p, offset = %I64d, size = %I64d, buffer = %p, bufferSize = %Lu\n",
+    printf("read_from_cache: ref = %p, offset = %ld, size = %ld, buffer = %p, bufferSize = %Lu\n",
 		ref, offset, size, (void *)buffer, bufferSize);
 
 	// do we have to read in anything at all?
@@ -1107,12 +1103,12 @@ read_into_cache(file_cache_ref *ref, uint64 offset, uint64 size, addr_t buffer, 
 	//#define PAGE_ALIGN(x) (((x) + (B_PAGE_SIZE - 1)) & ~( - 1))
 	size = PAGE_ALIGN(size + pageOffset);
 	offset -= pageOffset;
-	printf("size=%I64d, offset=%I64d, %i\n",size,offset,~(-1));
+    printf("size=%ld, offset=%ld, %i\n",size,offset,~(-1));
 	while (true) {
 		uint64 chunkSize = size;
 		if (chunkSize > (MAX_IO_VECS * B_PAGE_SIZE))
 			chunkSize = MAX_IO_VECS * B_PAGE_SIZE;
-		printf("size=%I64d,chunkSize=%I64d\n",size,chunkSize);
+        printf("size=%ld,chunkSize=%ld\n",size,chunkSize);
 		status_t status = read_chunk_into_cache(ref, offset, chunkSize, pageOffset,
 								buffer, bufferSize);
 		if (status != B_OK)
@@ -1158,7 +1154,7 @@ cache_io(void *_cacheRef, uint64 offset, addr_t buffer, uint64 *_size, bool doWr
 	
 	uint64 fileSize = ref->virtual_size;
 
-	printf("cache_io(ref = %p, offset = %I64d, buffer = %p, size = %I64d, %s,%I64d)\n",
+    printf("cache_io(ref = %p, offset = %ld, buffer = %p, size = %ld, %s,%ld)\n",
 		ref, offset, (void *)buffer, *_size, doWrite ? "write" : "read",fileSize);
 
 	// out of bounds access?
@@ -1170,14 +1166,14 @@ cache_io(void *_cacheRef, uint64 offset, addr_t buffer, uint64 *_size, bool doWr
 	int32 pageOffset = offset & (B_PAGE_SIZE - 1);
 	uint64 size = *_size;
 	offset -= pageOffset;
-	printf("PAGE_OFFSET=%i,offset=%I64d,size=%I64d\n",pageOffset,offset,size);
+    printf("PAGE_OFFSET=%i,offset=%ld,size=%ld\n",pageOffset,offset,size);
 
 	if (offset + pageOffset + size > fileSize) {
 		printf("adapt\n");
 		// adapt size to be within the file's offsets
 		size = fileSize - pageOffset - offset;
 		*_size = size;
-		printf("adapt: size=%I64d\n",size); //don't come here during test
+        printf("adapt: size=%ld\n",size); //don't come here during test
 	}
 
 	// "offset" and "lastOffset" are always aligned to B_PAGE_SIZE,
@@ -1188,7 +1184,7 @@ cache_io(void *_cacheRef, uint64 offset, addr_t buffer, uint64 *_size, bool doWr
 	int32 lastPageOffset = pageOffset;
 	addr_t lastBuffer = buffer;
 	uint64 lastOffset = offset;
-printf("\t offsets: %I64d+%i=%I64d .%I64d\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset,lastLeft);
+printf("\t offsets: %ld+%i=%ld .%ld\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset,lastLeft);
 	// TODO: enable locking		mutex_lock(&ref->lock);
 
 	for (; bytesLeft > 0; offset += B_PAGE_SIZE) {
@@ -1196,7 +1192,7 @@ printf("\t offsets: %I64d+%i=%I64d .%I64d\n",lastOffset, lastPageOffset,lastOffs
 	restart:
 		vm_page *page = vm_cache_lookup_page(ref, offset);
 		PagePutter pagePutter(page);
-printf("offsets__0: %I64d+%i=%I64d, bytesLeft=%I64d page=%p\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset,bytesLeft,page);
+printf("offsets__0: %ld+%i=%ld, bytesLeft=%ld page=%p\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset,bytesLeft,page);
 		if (page != NULL) {
 			// The page is busy - since we need to unlock the cache sometime
 			// in the near future, we need to satisfy the request of the pages
@@ -1235,10 +1231,10 @@ printf("page1!=NULL\n");
 		uint64 bytesInPage = min_c(uint64(B_PAGE_SIZE - pageOffset), bytesLeft);
 		//uint64 bytesInPage = 4096;
 		addr_t virtualAddress;
-		printf("bytesInPage = %I64d\n",bytesInPage);
-		printf("lookup page from offset %I64d: %p, size = %I64d, pageOffset = %i\n", offset, page, bytesLeft, pageOffset);
+        printf("bytesInPage = %ld\n",bytesInPage);
+        printf("lookup page from offset %ld: %p, size = %ld, pageOffset = %i\n", offset, page, bytesLeft, pageOffset);
 		if (page != NULL) {
-printf("page2!=NULL, %I64d\n",bytesLeft);
+printf("page2!=NULL, %ld\n",bytesLeft);
 			virtualAddress = page->Address();
 
 			// and copy the contents of the page already in memory
@@ -1249,7 +1245,7 @@ printf("page2!=NULL, %I64d\n",bytesLeft);
 				if (page->state != PAGE_STATE_MODIFIED)
 					vm_page_set_state(page, PAGE_STATE_MODIFIED);
 			} else{
-				printf("memcpy: virtualAddress=%p, pageOffset=%i, bytesInPage=%I64d, bytesLeft=%I64d\n",virtualAddress,pageOffset, bytesInPage,bytesLeft);
+                printf("memcpy: virtualAddress=%p, pageOffset=%i, bytesInPage=%ld, bytesLeft=%ld\n",virtualAddress,pageOffset, bytesInPage,bytesLeft);
 				memcpy((void *)buffer, (void *)(virtualAddress + pageOffset), bytesInPage);
 			}
 
@@ -1258,13 +1254,13 @@ printf("page2!=NULL, %I64d\n",bytesLeft);
 				// TODO: enable locking		mutex_unlock(&ref->lock);
 				return B_OK;
 			}
-printf("offsets__1: %I64d+%i=%I64d\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset);
+printf("offsets__1: %ld+%i=%ld\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset);
 			// prepare a potential gap request
 			lastBuffer = buffer + bytesInPage;
 			lastLeft = bytesLeft - bytesInPage;
 			lastOffset = offset + B_PAGE_SIZE;
 			lastPageOffset = 0;
-			printf("offsets___2: %I64d+%i=%I64d\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset);
+            printf("offsets___2: %ld+%i=%ld\n",lastOffset, lastPageOffset,lastOffset + lastPageOffset);
 		}
 
 		if (bytesLeft <= bytesInPage)
@@ -1281,14 +1277,14 @@ printf("offsets__1: %I64d+%i=%I64d\n",lastOffset, lastPageOffset,lastOffset + la
 	if (doWrite)
 		status = write_to_cache(ref, lastOffset + lastPageOffset, lastLeft, lastBuffer, lastLeft);
 	else{
-		printf("read_into_cache1: bytesLeft=%I64d, %I64d+%i=%I64d\n",bytesLeft,lastOffset, lastPageOffset,lastOffset + lastPageOffset);
+        printf("read_into_cache1: bytesLeft=%ld, %ld+%i=%ld\n",bytesLeft,lastOffset, lastPageOffset,lastOffset + lastPageOffset);
 		
 		//if (bytesLeft >0){
-		//	printf("read_into_cache3: bytesLeft=%I64d, %I64d+%i=%I64d\n",bytesLeft,lastOffset, lastPageOffset,lastOffset + lastPageOffset);
+        //	printf("read_into_cache3: bytesLeft=%ld, %ld+%i=%ld\n",bytesLeft,lastOffset, lastPageOffset,lastOffset + lastPageOffset);
 		//	status = read_into_cache(ref, lastOffset + lastPageOffset, bytesLeft, lastBuffer, bytesLeft);
 		//}
 		//else{ 
-			printf("read_into_cache4: bytesLeft=%I64d, %I64d+%i=%I64d\n",bytesLeft,lastOffset, lastPageOffset,lastOffset + lastPageOffset);
+            printf("read_into_cache4: bytesLeft=%ld, %ld+%i=%ld\n",bytesLeft,lastOffset, lastPageOffset,lastOffset + lastPageOffset);
 			status = read_into_cache(ref, lastOffset + lastPageOffset, lastLeft, lastBuffer, lastLeft);
 		//}
 	}
@@ -1455,8 +1451,7 @@ vm_page::Hash(void *_cacheEntry, const void *_key, uint32 range)
 	value = value * 17 + id;
 	value = value * 17 + offset;
 
-	printf("vm_page::Hash unchecked, _cacheEntry=0x%p, page=0x%p, key=0x%p, range=%u, id=%I64d, offset=%I64d\nend result: %Lu\n",
-		_cacheEntry,page,key,range,id,offset,value%range);
+    printf("vm_page::Hash unchecked, _cacheEntry=0x%p, page=0x%p, key=0x%p, range=%u, id=%ld, offset=%ld\nend result: %lu\n",_cacheEntry,page,key,range,id,offset,value%range);
 	return value % range;
 	
 	//return 0;

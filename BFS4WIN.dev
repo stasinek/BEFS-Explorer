@@ -1,7 +1,7 @@
 [Project]
 FileName=BFS4WIN.dev
 Name=BFS4WIN
-Type=1
+Type=0
 Ver=2
 ObjFiles=
 Includes=
@@ -11,7 +11,7 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=-Wno-multichar_@@_-Wno-write-strings_@@_
 CppCompiler=-Wno-multichar_@@_-Wno-write-strings_@@_
-Linker=-mwindows _@@_-mthreads_@@_-lntoskrnl_@@_-lkernel32_@@_-luser32_@@_-lshell32 _@@_-lcomctl32_@@_-lodbc32_@@_-lodbccp32_@@_-lwinmm_@@_-lws2_32_@@_-lole32 _@@_-loleaut32_@@_-loleacc_@@_-lcomdlg32_@@_
+Linker=-mwindows _@@_-mthreads_@@_-lntoskrnl_@@_-lkernel32_@@_-luser32_@@_-lshell32 _@@_-lcomctl32_@@_-lwinmm_@@_
 IsCpp=1
 Icon=
 ExeOutput=
@@ -28,7 +28,7 @@ Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=4
-CompilerSettings=0000000100000000001000000
+CompilerSettings=000i010100000000001000000
 UnitCount=49
 
 [VersionInfo]

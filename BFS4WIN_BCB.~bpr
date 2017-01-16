@@ -4,10 +4,7 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="BFS4WIN_BCB.exe"/>
-    <OBJFILES value="TreeControl.obj main.obj SupportFunctions.obj Utility.obj Attribute.obj 
-      Hash.obj Debug.obj Index.obj BFSInterface.obj SkyfsInterface.obj 
-      System.obj DiskFunc.obj Journal.obj Query.obj BlockAllocator.obj Cache.obj 
-      Volume.obj BPlusTree.obj Inode.obj"/>
+    <OBJFILES value="GUI_TreeControl.obj GUI_DiskFunc.obj"/>
     <RESFILES value="BFS4WIN_BCB.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES)"/>
@@ -26,7 +23,7 @@
     <SYSDEFINES value="NO_STRICT;_NO_VCL;_RTLDLL;USEPACKAGES"/>
     <MAINSOURCE value="BFS4WIN_BCB.bpf"/>
     <INCLUDEPATH value="&quot;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="&quot;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <LIBPATH value="$(BCB)\Projects\Lib;&quot;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
@@ -48,25 +45,8 @@
   <FILELIST>
       <FILE FILENAME="BFS4WIN_BCB.res" FORMNAME="" UNITNAME="BFS4WIN_BCB.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="BFS4WIN_BCB.bpf" FORMNAME="" UNITNAME="BFS4WIN_BCB" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="TreeControl.cpp" FORMNAME="" UNITNAME="TreeControl" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="main.cpp" FORMNAME="" UNITNAME="main.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="SupportFunctions.cpp" FORMNAME="" UNITNAME="SupportFunctions.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Utility.cpp" FORMNAME="" UNITNAME="Utility.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Attribute.cpp" FORMNAME="" UNITNAME="Attribute.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Hash.cpp" FORMNAME="" UNITNAME="Hash.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Debug.cpp" FORMNAME="" UNITNAME="Debug.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Index.cpp" FORMNAME="" UNITNAME="Index.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="BFSInterface.cpp" FORMNAME="" UNITNAME="BFSInterface.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="SkyfsInterface.cpp" FORMNAME="" UNITNAME="SkyfsInterface.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="System.cpp" FORMNAME="" UNITNAME="System.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="DiskFunc.cpp" FORMNAME="" UNITNAME="DiskFunc.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Journal.cpp" FORMNAME="" UNITNAME="Journal.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Query.cpp" FORMNAME="" UNITNAME="Query.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="BlockAllocator.cpp" FORMNAME="" UNITNAME="BlockAllocator.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Cache.cpp" FORMNAME="" UNITNAME="Cache.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Volume.cpp" FORMNAME="" UNITNAME="Volume.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="BPlusTree.cpp" FORMNAME="" UNITNAME="BPlusTree.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Inode.cpp" FORMNAME="" UNITNAME="Inode.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GUI_TreeControl.cpp" FORMNAME="" UNITNAME="GUI_TreeControl" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GUI_DiskFunc.cpp" FORMNAME="" UNITNAME="GUI_DiskFunc" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

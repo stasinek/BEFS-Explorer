@@ -473,7 +473,7 @@ bplustree_node::Used() const
 inline bool 
 bplustree_node::IsLeaf() const
 {
-	return OverflowLink() == BPLUSTREE_NULL;
+    return OverflowLink() == (uint64)BPLUSTREE_NULL;
 }
 
 

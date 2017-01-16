@@ -10,8 +10,7 @@
 #include "BOS_System.h"
 #include <stdio.h>
 
-int
-read_pos(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
+int read_pos(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
 {
 	char*  q = (char* )calloc(size,sizeof(char));
 	DWORD dwBytes;
@@ -71,8 +70,7 @@ read_pos(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
 }
 
 
-int
-read_pos2(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
+int read_pos2(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
 {
 	char*  q = (char* )calloc(size,sizeof(char));
 	DWORD dwBytes;
@@ -132,8 +130,7 @@ read_pos2(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
 }
 
 
-ssize_t
-readv_pos(HANDLE fDevice, uint64 pos, const struct iovec* vec, size_t count)
+ssize_t readv_pos(HANDLE fDevice, uint64 pos, const struct iovec* vec, size_t count)
 {
 	printf("readv_pos: pos=%I64d, count=%i\n",pos,count);
 // assumption: read count iovecs into vec[] ?
@@ -206,96 +203,84 @@ readv_pos(HANDLE fDevice, uint64 pos, const struct iovec* vec, size_t count)
 }
 
 
-int
-write_pos(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
+int write_pos(HANDLE fDevice, int64 sStart, void* data, unsigned int size)
 {
 	printf("write_pos not implemented\n");
 	return 0;
 }
 
 
-status_t
-acquire_sem(sem_id sem)
+status_t acquire_sem(sem_id sem)
 {
 	//printf("acquire_sem not implemented\n");
 	return 0;
 }
 
 
-status_t
-acquire_sem_etc(sem_id sem,uint32 count,uint32 flags,bigtime_t timeout)
+status_t acquire_sem_etc(sem_id sem,uint32 count,uint32 flags,bigtime_t timeout)
 {
 	printf("acquire_sem_etc not implemented\n");
 	return 0;
 }
 
 
-sem_id
-create_sem(uint32 thread_count, const char* name)
+sem_id create_sem(uint32 thread_count, const char* name)
 {
 	printf("create_sem not implemented\n");
 	return 0;
 }
 
 
-status_t
-delete_sem(sem_id sem)
+status_t delete_sem(sem_id sem)
 {
 	printf("delete_sem not implemented\n");
 	return 0;
 }
 
 
-status_t
-release_sem(sem_id sem)
+status_t release_sem(sem_id sem)
 {
 	printf("release_sem not implemented\n");
 	return 0;
 }
 
 
-status_t
-release_sem_etc(sem_id sem, int32 count, uint32 flags)
+status_t release_sem_etc(sem_id sem, int32 count, uint32 flags)
 {
 	printf("release_sem_etc not implemented\n");
 	return 0;
 }
 
 
-gid_t
-getegid(void)
+gid_t getegid(void)
 {
 	printf("getegid not implemented\n");
 	return 0;
 }
 
 
-uid_t
-geteuid(void)
+uid_t geteuid(void)
 {
 	printf("geteuid not implemented\n");
 	return 0;
 }
 
 // TODO: correct?
-int32
-atomic_add(vint32* value, int32 addValue)
+int32 atomic_add(vint32* value, int32 addValue)
 {
 	*value += addValue;
 	return* value;
 }
 
 
-int32
-atomic_set(vint32* value, int32 newValue)
+int32 atomic_set(vint32* value, int32 newValue)
 {
 	*value = newValue;
 	return* value;
 }
 
 //  http://factory.haiku-os.org/documentation/Haiku_Book_doxygen/html/fs__interface_8h.html#02a4d3e3e95cdb05bf3a3da6dc2ac80a
-status_t
-get_vnode(int fs, vnode_id id, void* *_vnode)
+status_t get_vnode(int fs, vnode_id id, void* *_vnode)
 {
 	//Creates the private data handle to be associated with the node referred to by id. 
 	printf("get_vnode not implemented\n");
@@ -303,8 +288,7 @@ get_vnode(int fs, vnode_id id, void* *_vnode)
 }
 
 
-status_t
-publish_vnode (unsigned int mountID, uint64 vnodeID, void* privateNode)
+status_t publish_vnode (unsigned int mountID, uint64 vnodeID, void* privateNode)
 {
 	printf("publish_vnode not implemented, continuing...\n");
 	return 0;
@@ -345,24 +329,21 @@ publish_vnode (unsigned int mountID, uint64 vnodeID, void* privateNode)
 	return error;
 }*/
 
-status_t
-new_vnode (unsigned int mountID, uint64 vnodeID, void* privateNode)
+status_t new_vnode (unsigned int mountID, uint64 vnodeID, void* privateNode)
 {
 	printf("new_vnode not implemented\n");
 	return -1;
 }
 
 
-status_t
-remove_vnode (unsigned int mountID, uint64 vnodeID)
+status_t remove_vnode (unsigned int mountID, uint64 vnodeID)
 {
 	printf("remove_vnode not implemented\n");
 	return -1;
 }
 
 
-status_t
-unremove_vnode (unsigned int mountID, uint64 vnodeID)
+status_t unremove_vnode (unsigned int mountID, uint64 vnodeID)
 {
 	printf("unremove_vnode not implemented\n");
 	return -1;
@@ -374,7 +355,6 @@ status_t put_vnode (unsigned int mountID, uint64 vnodeID)
 	printf("put_vnode not implemented\n");
 	return -1;
 }
-
  	
 status_t resume_thread(thread_id id)
 {
@@ -382,80 +362,66 @@ status_t resume_thread(thread_id id)
 	return 0;
 }
 
-
-status_t
-cache_next_block_in_transaction(void* a, int,unsigned int* b, uint64*  c, int d, int e)
+status_t cache_next_block_in_transaction(void* a, int,unsigned int* b, uint64*  c, int d, int e)
 {
 	printf("cache_next_block_in_transaction not implemented\n");
 	return 0;
 }
 
 
-void
-notify_query_entry_created(int a, int b, unsigned int c,uint64 d, const char* e, uint64 f)
+void notify_query_entry_created(int a, int b, unsigned int c,uint64 d, const char* e, uint64 f)
 { 
 	printf("notify_query_entry_created not implemented\n");
 }
 
 
-void
-notify_query_entry_removed(int a, int b, unsigned int c,uint64 d, const char* e, uint64 f)
+void notify_query_entry_removed(int a, int b, unsigned int c,uint64 d, const char* e, uint64 f)
 {
 	printf("notify_query_entry_removed not implemented\n");
 }
 
 
-ssize_t
-writev_pos(HANDLE fd, uint64 pos, const struct iovec* vec,size_t count)
+ssize_t writev_pos(HANDLE fd, uint64 pos, const struct iovec* vec,size_t count)
 {
 	printf("writev_pos not implemented\n");
 	return 0;
 }
 
-void
-cache_abort_sub_transaction(void* d, int id)
+void cache_abort_sub_transaction(void* d, int id)
 {
 	printf("cache_abort_sub_transaction not implemented\n");
 }
 
 
-void
-cache_abort_transaction(void* d, int id)
+void cache_abort_transaction(void* d, int id)
 {
 	printf("cache_abort_transaction not implemented\n");
 }
 
 
-int32
-cache_blocks_in_transaction(void* d, int id)
+int32 cache_blocks_in_transaction(void* d, int id)
 {
 	printf("cache_blocks_in_transaction not implemented\n");
 	return 0;
 }
 
 
-void
-cache_end_transaction(void* d, int id, tFoo f, void*)
+void cache_end_transaction(void* d, int id, tFoo f, void*)
 {
 	printf("cache_end_transaction not implemented\n");
 }
 
-
-int
-cache_start_sub_transaction(void* d, int id)
+int cache_start_sub_transaction(void* d, int id)
 {
 	printf("cache_start_sub_transaction not implemented\n");
 	return 0;
 }
 
-
-int
-cache_start_transaction(void* d)
+int cache_start_transaction(void* d)
 {
 	printf("cache_start_transaction not implemented\n");
 	return 0;
 }
-
 
 /*
 check haiku for:
