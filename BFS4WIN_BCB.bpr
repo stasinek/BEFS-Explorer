@@ -8,11 +8,170 @@
       BFS_Utility.obj BFS_Attribute.obj BFS_Hash.obj BFS_Debug.obj BFS_Index.obj 
       BFS_Interface.obj SKYFS_Interface.obj BOS_System.obj BFS_Journal.obj 
       BFS_Query.obj BFS_BlockAllocator.obj BFS_Cache.obj BFS_Volume.obj 
-      BFS_PlusTree.obj BFS_Inode.obj"/>
+      BFS_PlusTree.obj BFS_Inode.obj NT_Native.obj"/>
     <RESFILES value="BFS4WIN_BCB.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES)"/>
-    <LIBFILES value=""/>
+    <LIBFILES value="&quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\kernel32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\usebormm.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\vcllink.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\memmgr.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\uuid.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\noeh32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\odbccp32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\odbc32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\dxextra.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\ws2_32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\oleaut32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\wininet.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\w32inet.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\ole2w32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\bcbatl.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\dclocx.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlpi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlpmti.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\cw32i.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\cw32mti.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\cp32mti.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\bcbie.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlp_stldebugi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlpmt_stldebugi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\xml3.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\import32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlpst.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlp.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlpmt.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\cw32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\cw32mt.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\cp32mt.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\bcbsmp.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlp_stldebug.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\stlpmt_stldebug.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\bcb97axserver.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\bcb2kaxserver.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\trnsdt.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dtccfg.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\wst.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\bhsupp.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\aclcls.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\framedyd.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\framedyn.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dflayout.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\icmui.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dinput.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\shfolder.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\fmistr32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\sporder.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\cap.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msimg32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\svcsrvl.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mtx.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\aclui.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\sens.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\win32spl.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\bhmon.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\sensapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mobsync.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mtxdm.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\gwperf.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dsprop.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\hexedit.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dlcapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\snanls.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\sti.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\winstrm.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\gpedit.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\scarddlg.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dsound.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\ksproxy.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\xolehlp.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\iprop.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dacdll.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dplayx.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\olepro32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\url.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\rulecls.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\lsapi32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\riched20.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\measure.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mgmtapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\lz32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\friendly.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\th32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mfcuia32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\version.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\filter.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msuilstf.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msshlstf.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\wincsv32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\webpost.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\sfc.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\oleacc.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\rassapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dsetup.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntquery.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\loadperf.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msconf.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\svrapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\comsvcs.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\olesvr32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\traffic.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\ddraw.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\d3drm.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\icm32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\ctl3d32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mswsock.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\oledlg.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\psapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\rpcdce4.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\comdlg32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msrating.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\wow32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\edbbcli.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\slbs.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\vdmdbg.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\activeds.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\nddeapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mtxoci.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\nal.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\hlink.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\gtrtst32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntdsbcli.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\pkpd32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\rasdlg.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msdetstf.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\snmpapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\wtsapi32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mqrt.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dhcpcsvc.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mpr.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\adptif.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msacm32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\wsnmp32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\glu32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\wappc32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msvfw32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\bdnapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\winfax.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\rtutils.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\smsapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\winscard.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\wsock32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\mscms.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\urlmon.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\rpcns4.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\thunk32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\secur32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\imm32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntmsapi.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\parser.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\msinsstf.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\resutils.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\comctl32.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\opends60.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\dbghelp.lib&quot; 
+      &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntdsapi.lib&quot; &quot;C:\Program Files\Borland\CBuilder6\Lib\Psdk\penwin32.lib&quot;"/>
     <LIBRARIES value=""/>
     <SPARELIBS value=""/>
     <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi dclocx.bpi USRPKG.bpi dclusr.bpi"/>
@@ -23,27 +182,27 @@
     <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
     <LINKER value="ilink32"/>
-    <USERDEFINES value="_DEBUG"/>
-    <SYSDEFINES value="NO_STRICT;_NO_VCL;_RTLDLL;USEPACKAGES"/>
+    <USERDEFINES value="_DEBUG;WIN32_LEAN_AND_MEAN"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL;USEPACKAGES"/>
     <MAINSOURCE value="BFS4WIN_BCB.bpf"/>
-    <INCLUDEPATH value="&quot;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="$(BCB)\Projects\Lib;&quot;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;$(BCB)\Projects\Lib;&quot;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <CFLAG1 value="-tW -tWM -Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v 
-      -vi- -c"/>
-    <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -fp -ff -X- -ps -a8 -6 -b -k -y -v 
+      -vi- -tW -tWM -c"/>
+    <PFLAGS value="-$YD -$W -$R -$Q -$O- -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>
     <AFLAGS value="/mx /w2 /zd"/>
-    <LFLAGS value="-Tpe -aa -D&quot;&quot; -x -Gn -v"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
     <ALLOBJ value="c0w32.obj $(PACKAGES) $(OBJFILES)"/>
     <ALLRES value="$(RESFILES)"/>
-    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32mti.lib"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32mt.lib"/>
     <OTHERFILES value=""/>
   </LINKER>
   <FILELIST>
@@ -67,6 +226,168 @@
       <FILE FILENAME="BFS_Volume.cpp" FORMNAME="" UNITNAME="BFS_Volume.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="BFS_PlusTree.cpp" FORMNAME="" UNITNAME="BFS_PlusTree.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="BFS_Inode.cpp" FORMNAME="" UNITNAME="BFS_Inode.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\kernel32.lib" FORMNAME="" UNITNAME="kernel32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\usebormm.lib" FORMNAME="" UNITNAME="usebormm.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\vcllink.lib" FORMNAME="" UNITNAME="vcllink.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\memmgr.lib" FORMNAME="" UNITNAME="memmgr.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\uuid.lib" FORMNAME="" UNITNAME="uuid.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\noeh32.lib" FORMNAME="" UNITNAME="noeh32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\odbccp32.lib" FORMNAME="" UNITNAME="odbccp32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\odbc32.lib" FORMNAME="" UNITNAME="odbc32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\dxextra.lib" FORMNAME="" UNITNAME="dxextra.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\ws2_32.lib" FORMNAME="" UNITNAME="ws2_32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\oleaut32.lib" FORMNAME="" UNITNAME="oleaut32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\wininet.lib" FORMNAME="" UNITNAME="wininet.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\w32inet.lib" FORMNAME="" UNITNAME="w32inet.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\ole2w32.lib" FORMNAME="" UNITNAME="ole2w32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\bcbatl.lib" FORMNAME="" UNITNAME="bcbatl.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\dclocx.lib" FORMNAME="" UNITNAME="dclocx.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlpi.lib" FORMNAME="" UNITNAME="stlpi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlpmti.lib" FORMNAME="" UNITNAME="stlpmti.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cw32i.lib" FORMNAME="" UNITNAME="cw32i.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cw32mti.lib" FORMNAME="" UNITNAME="cw32mti.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cp32mti.lib" FORMNAME="" UNITNAME="cp32mti.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\bcbie.lib" FORMNAME="" UNITNAME="bcbie.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlp_stldebugi.lib" FORMNAME="" UNITNAME="stlp_stldebugi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlpmt_stldebugi.lib" FORMNAME="" UNITNAME="stlpmt_stldebugi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\xml3.lib" FORMNAME="" UNITNAME="xml3.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\import32.lib" FORMNAME="" UNITNAME="import32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlpst.lib" FORMNAME="" UNITNAME="stlpst.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlp.lib" FORMNAME="" UNITNAME="stlp.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlpmt.lib" FORMNAME="" UNITNAME="stlpmt.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cw32.lib" FORMNAME="" UNITNAME="cw32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cw32mt.lib" FORMNAME="" UNITNAME="cw32mt.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\cp32mt.lib" FORMNAME="" UNITNAME="cp32mt.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\bcbsmp.lib" FORMNAME="" UNITNAME="bcbsmp.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlp_stldebug.lib" FORMNAME="" UNITNAME="stlp_stldebug.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\stlpmt_stldebug.lib" FORMNAME="" UNITNAME="stlpmt_stldebug.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\bcb97axserver.lib" FORMNAME="" UNITNAME="bcb97axserver.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\bcb2kaxserver.lib" FORMNAME="" UNITNAME="bcb2kaxserver.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\trnsdt.lib" FORMNAME="" UNITNAME="trnsdt.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dtccfg.lib" FORMNAME="" UNITNAME="dtccfg.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\wst.lib" FORMNAME="" UNITNAME="wst.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\bhsupp.lib" FORMNAME="" UNITNAME="bhsupp.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\aclcls.lib" FORMNAME="" UNITNAME="aclcls.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\framedyd.lib" FORMNAME="" UNITNAME="framedyd.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\framedyn.lib" FORMNAME="" UNITNAME="framedyn.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dflayout.lib" FORMNAME="" UNITNAME="dflayout.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\icmui.lib" FORMNAME="" UNITNAME="icmui.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dinput.lib" FORMNAME="" UNITNAME="dinput.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\shfolder.lib" FORMNAME="" UNITNAME="shfolder.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\fmistr32.lib" FORMNAME="" UNITNAME="fmistr32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\sporder.lib" FORMNAME="" UNITNAME="sporder.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\cap.lib" FORMNAME="" UNITNAME="cap.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msimg32.lib" FORMNAME="" UNITNAME="msimg32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\svcsrvl.lib" FORMNAME="" UNITNAME="svcsrvl.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mtx.lib" FORMNAME="" UNITNAME="mtx.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\aclui.lib" FORMNAME="" UNITNAME="aclui.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\sens.lib" FORMNAME="" UNITNAME="sens.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\win32spl.lib" FORMNAME="" UNITNAME="win32spl.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\bhmon.lib" FORMNAME="" UNITNAME="bhmon.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\sensapi.lib" FORMNAME="" UNITNAME="sensapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mobsync.lib" FORMNAME="" UNITNAME="mobsync.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mtxdm.lib" FORMNAME="" UNITNAME="mtxdm.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\gwperf.lib" FORMNAME="" UNITNAME="gwperf.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dsprop.lib" FORMNAME="" UNITNAME="dsprop.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\hexedit.lib" FORMNAME="" UNITNAME="hexedit.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dlcapi.lib" FORMNAME="" UNITNAME="dlcapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\snanls.lib" FORMNAME="" UNITNAME="snanls.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\sti.lib" FORMNAME="" UNITNAME="sti.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\winstrm.lib" FORMNAME="" UNITNAME="winstrm.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\gpedit.lib" FORMNAME="" UNITNAME="gpedit.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\scarddlg.lib" FORMNAME="" UNITNAME="scarddlg.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dsound.lib" FORMNAME="" UNITNAME="dsound.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\ksproxy.lib" FORMNAME="" UNITNAME="ksproxy.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\xolehlp.lib" FORMNAME="" UNITNAME="xolehlp.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\iprop.lib" FORMNAME="" UNITNAME="iprop.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dacdll.lib" FORMNAME="" UNITNAME="dacdll.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dplayx.lib" FORMNAME="" UNITNAME="dplayx.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\olepro32.lib" FORMNAME="" UNITNAME="olepro32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\url.lib" FORMNAME="" UNITNAME="url.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\rulecls.lib" FORMNAME="" UNITNAME="rulecls.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\lsapi32.lib" FORMNAME="" UNITNAME="lsapi32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\riched20.lib" FORMNAME="" UNITNAME="riched20.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\measure.lib" FORMNAME="" UNITNAME="measure.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mgmtapi.lib" FORMNAME="" UNITNAME="mgmtapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\lz32.lib" FORMNAME="" UNITNAME="lz32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\friendly.lib" FORMNAME="" UNITNAME="friendly.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\th32.lib" FORMNAME="" UNITNAME="th32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mfcuia32.lib" FORMNAME="" UNITNAME="mfcuia32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\version.lib" FORMNAME="" UNITNAME="version.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\filter.lib" FORMNAME="" UNITNAME="filter.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msuilstf.lib" FORMNAME="" UNITNAME="msuilstf.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msshlstf.lib" FORMNAME="" UNITNAME="msshlstf.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\wincsv32.lib" FORMNAME="" UNITNAME="wincsv32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\webpost.lib" FORMNAME="" UNITNAME="webpost.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\sfc.lib" FORMNAME="" UNITNAME="sfc.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\oleacc.lib" FORMNAME="" UNITNAME="oleacc.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\rassapi.lib" FORMNAME="" UNITNAME="rassapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dsetup.lib" FORMNAME="" UNITNAME="dsetup.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntquery.lib" FORMNAME="" UNITNAME="ntquery.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\loadperf.lib" FORMNAME="" UNITNAME="loadperf.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msconf.lib" FORMNAME="" UNITNAME="msconf.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dapi.lib" FORMNAME="" UNITNAME="dapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\svrapi.lib" FORMNAME="" UNITNAME="svrapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\comsvcs.lib" FORMNAME="" UNITNAME="comsvcs.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\olesvr32.lib" FORMNAME="" UNITNAME="olesvr32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\traffic.lib" FORMNAME="" UNITNAME="traffic.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\ddraw.lib" FORMNAME="" UNITNAME="ddraw.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\d3drm.lib" FORMNAME="" UNITNAME="d3drm.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\icm32.lib" FORMNAME="" UNITNAME="icm32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\ctl3d32.lib" FORMNAME="" UNITNAME="ctl3d32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mswsock.lib" FORMNAME="" UNITNAME="mswsock.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\oledlg.lib" FORMNAME="" UNITNAME="oledlg.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\psapi.lib" FORMNAME="" UNITNAME="psapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\rpcdce4.lib" FORMNAME="" UNITNAME="rpcdce4.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\comdlg32.lib" FORMNAME="" UNITNAME="comdlg32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msrating.lib" FORMNAME="" UNITNAME="msrating.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\wow32.lib" FORMNAME="" UNITNAME="wow32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\edbbcli.lib" FORMNAME="" UNITNAME="edbbcli.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\slbs.lib" FORMNAME="" UNITNAME="slbs.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\vdmdbg.lib" FORMNAME="" UNITNAME="vdmdbg.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\activeds.lib" FORMNAME="" UNITNAME="activeds.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\nddeapi.lib" FORMNAME="" UNITNAME="nddeapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mtxoci.lib" FORMNAME="" UNITNAME="mtxoci.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\nal.lib" FORMNAME="" UNITNAME="nal.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\hlink.lib" FORMNAME="" UNITNAME="hlink.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\gtrtst32.lib" FORMNAME="" UNITNAME="gtrtst32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntdsbcli.lib" FORMNAME="" UNITNAME="ntdsbcli.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\pkpd32.lib" FORMNAME="" UNITNAME="pkpd32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\rasdlg.lib" FORMNAME="" UNITNAME="rasdlg.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msdetstf.lib" FORMNAME="" UNITNAME="msdetstf.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\snmpapi.lib" FORMNAME="" UNITNAME="snmpapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\wtsapi32.lib" FORMNAME="" UNITNAME="wtsapi32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mqrt.lib" FORMNAME="" UNITNAME="mqrt.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dhcpcsvc.lib" FORMNAME="" UNITNAME="dhcpcsvc.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mpr.lib" FORMNAME="" UNITNAME="mpr.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\adptif.lib" FORMNAME="" UNITNAME="adptif.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msacm32.lib" FORMNAME="" UNITNAME="msacm32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\wsnmp32.lib" FORMNAME="" UNITNAME="wsnmp32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\glu32.lib" FORMNAME="" UNITNAME="glu32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\wappc32.lib" FORMNAME="" UNITNAME="wappc32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msvfw32.lib" FORMNAME="" UNITNAME="msvfw32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\bdnapi.lib" FORMNAME="" UNITNAME="bdnapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\winfax.lib" FORMNAME="" UNITNAME="winfax.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\rtutils.lib" FORMNAME="" UNITNAME="rtutils.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\smsapi.lib" FORMNAME="" UNITNAME="smsapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\winscard.lib" FORMNAME="" UNITNAME="winscard.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\wsock32.lib" FORMNAME="" UNITNAME="wsock32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\mscms.lib" FORMNAME="" UNITNAME="mscms.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\urlmon.lib" FORMNAME="" UNITNAME="urlmon.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\rpcns4.lib" FORMNAME="" UNITNAME="rpcns4.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\thunk32.lib" FORMNAME="" UNITNAME="thunk32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\secur32.lib" FORMNAME="" UNITNAME="secur32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\imm32.lib" FORMNAME="" UNITNAME="imm32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntmsapi.lib" FORMNAME="" UNITNAME="ntmsapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\parser.lib" FORMNAME="" UNITNAME="parser.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\msinsstf.lib" FORMNAME="" UNITNAME="msinsstf.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\resutils.lib" FORMNAME="" UNITNAME="resutils.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\comctl32.lib" FORMNAME="" UNITNAME="comctl32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\opends60.lib" FORMNAME="" UNITNAME="opends60.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\dbghelp.lib" FORMNAME="" UNITNAME="dbghelp.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\ntdsapi.lib" FORMNAME="" UNITNAME="ntdsapi.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files\Borland\CBuilder6\Lib\Psdk\penwin32.lib" FORMNAME="" UNITNAME="penwin32.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="NT_Native.cpp" FORMNAME="" UNITNAME="NT_Native" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
@@ -99,6 +420,25 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Item1=C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Item1=$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_DEBUG;WIN32_LEAN_AND_MEAN
+Item1=_DEBUG
+
 [Debugging]
 DebugSourceDirs=$(BCB)\source\vcl
 
@@ -116,6 +456,6 @@ RemoteDebug=0
 
 [Compiler]
 ShowInfoMsgs=0
-LinkDebugVcl=0
+LinkDebugVcl=1
   </IDEOPTIONS>
 </PROJECT>

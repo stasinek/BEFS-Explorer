@@ -380,7 +380,7 @@ Journal::_ReplayRunArray(int32 *_start)
 	CachedBlock cached(fVolume);
 	for (int32 index = 0; index < array->CountRuns(); index++) {
 		const block_run &run = array->RunAt(index);
-		PRINT(("replay block run %lu:%u:%u in log at %Ld!\n", run.AllocationGroup(),
+		PRINT(("replay block run %lu:%u:%u in log at %ld!\n", run.AllocationGroup(),
 			run.Start(), run.Length(), blockNumber));
 
 		uint64 offset = fVolume->ToOffset(run);
@@ -525,7 +525,7 @@ Journal::_WriteTransactionToLog()
 	uint32 cookie = 0;
 	uint64 blockNumber;
 	while (cache_next_block_in_transaction(fVolume->BlockCache(), fTransactionID,
-			&cookie, &blockNumber, NULL, NULL) == B_OK) {
+			&cookie, &blockNumber, 0, 0) == B_OK) {
 		status = runArrays.Insert(blockNumber);
 		if (status < B_OK) {
 			FATAL(("filling log entry failed!"));

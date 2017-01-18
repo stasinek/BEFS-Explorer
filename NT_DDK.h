@@ -1,8 +1,22 @@
 //The stuff in here are parts of ntddk.h, to make it get along with windows.h
-
 //
 // NTSTATUS
 //
+#ifndef NT_DDK_H
+#define NT_DDK_H
+
+#include <windows.h>
+
+#ifndef NTAPI
+#define NTAPI __stdcall
+#endif
+#ifndef DWORD
+#define DWORD unsigned long
+#endif
+
+#ifndef IN
+#define IN const
+#endif
 
 typedef LONG NTSTATUS;
 /*lint -save -e624 */  // Don't complain about different typedefs.
@@ -10,6 +24,7 @@ typedef NTSTATUS *PNTSTATUS;
 /*lint -restore */  // Resume checking for different typedefs.
 #define NT_SUCCESS(Status) ((NTSTATUS)(Status) >= 0)
 
+#ifndef __BORLANDC__
 typedef struct _UNICODE_STRING {
 	USHORT Length;
 	USHORT MaximumLength;
@@ -30,6 +45,7 @@ typedef struct _OBJECT_ATTRIBUTES {
 	PVOID SecurityQualityOfService;  // Points to type SECURITY_QUALITY_OF_SERVICE
 } OBJECT_ATTRIBUTES;
 typedef OBJECT_ATTRIBUTES *POBJECT_ATTRIBUTES;
+#endif
 
 //
 // Define the create disposition values
@@ -110,13 +126,26 @@ typedef struct _IO_STATUS_BLOCK {
 //
 // Define an Asynchronous Procedure Call from I/O viewpoint
 //
-typedef
-VOID
-(NTAPI *PIO_APC_ROUTINE) (
+
+#define PVOID void*
+#define VOID void
+typedef VOID (NTAPI *PIO_APC_ROUTINE) (
 	IN PVOID ApcContext,
 	IN PIO_STATUS_BLOCK IoStatusBlock,
 	IN ULONG Reserved
 	);
+
+#ifdef __BORLANDC__
+#include <ntsecapi.h>
+typedef struct _OBJECT_ATTRIBUTES {
+  ULONG           Length;
+  HANDLE          RootDirectory;
+  PUNICODE_STRING ObjectName;
+  ULONG           Attributes;
+  PVOID           SecurityDescriptor;
+  PVOID           SecurityQualityOfService;
+}  OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
+#endif
 
 //++
 //
@@ -140,10 +169,8 @@ VOID
 	(p)->SecurityQualityOfService = NULL;			   \
 	}
 
-NTSYSAPI
-VOID
-NTAPI
-RtlInitUnicodeString(
-	PUNICODE_STRING DestinationString,
-	PCWSTR SourceString
-	);
+
+
+
+
+#endif

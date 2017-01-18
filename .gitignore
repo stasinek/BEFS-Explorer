@@ -154,3 +154,6 @@ $RECYCLE.BIN/
 *.pch
 *.s
 *.res
+*.tds
+*.gch
+*.~*

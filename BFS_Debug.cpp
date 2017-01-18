@@ -101,9 +101,9 @@ dump_inode(const bfs_inode *inode)
 	Print("  gid                = %u\n", (unsigned)inode->gid);
 	Print("  mode               = %08x\n", (int)inode->mode);
 	Print("  flags              = %08x\n", (int)inode->flags);
-	Print("  create_time        = %I64dd (%Ld)\n", inode->create_time,
+	Print("  create_time        = %I64dd (%ld)\n", inode->create_time,
 		inode->create_time >> INODE_TIME_SHIFT);
-	Print("  last_modified_time = %I64d (%Ld)\n", inode->last_modified_time,
+	Print("  last_modified_time = %I64d (%ld)\n", inode->last_modified_time,
 		inode->last_modified_time >> INODE_TIME_SHIFT);
 	dump_block_run(	"  parent             = ", inode->parent);
 	dump_block_run(	"  attributes         = ", inode->attributes);
@@ -130,8 +130,8 @@ dump_bplustree_header(const bplustree_header *header)
 	Print("  node_size            = %u\n", (unsigned)header->node_size);
 	Print("  max_number_of_levels = %u\n", (unsigned)header->max_number_of_levels);
 	Print("  data_type            = %u\n", (unsigned)header->data_type);
-	Print("  root_node_pointer    = %Ld\n", header->root_node_pointer);
-	Print("  free_node_pointer    = %Ld\n", header->free_node_pointer);
+	Print("  root_node_pointer    = %ld\n", header->root_node_pointer);
+	Print("  free_node_pointer    = %ld\n", header->free_node_pointer);
 	Print("  maximum_size         = %Lu\n", header->maximum_size);
 }
 
@@ -176,9 +176,9 @@ dump_bplustree_node(const bplustree_node *node, const bplustree_header *header,
 	Volume *volume)
 {
 	Print("bplustree_node:\n");
-	Print("  left_link      = %Ld\n", node->left_link);
-	Print("  right_link     = %Ld\n", node->right_link);
-	Print("  overflow_link  = %Ld\n", node->overflow_link);
+	Print("  left_link      = %ld\n", node->left_link);
+	Print("  right_link     = %ld\n", node->right_link);
+	Print("  overflow_link  = %ld\n", node->overflow_link);
 	Print("  all_key_count  = %u\n", node->all_key_count);
 	Print("  all_key_length = %u\n", node->all_key_length);
 
@@ -217,18 +217,18 @@ dump_bplustree_node(const bplustree_node *node, const bplustree_header *header,
 			else if (header->data_type == BPLUSTREE_UINT32_TYPE)
 				Print("uint32 = %u (0x%x)", (unsigned)*(uint32 *)&buffer, (unsigned)*(uint32 *)&buffer);
 			else if (header->data_type == BPLUSTREE_INT64_TYPE)
-				Print("int64 = %Ld (0x%Lx)", *(int64 *)&buffer, *(int64 *)&buffer);
+				Print("int64 = %ld (0x%Lx)", *(int64 *)&buffer, *(int64 *)&buffer);
 			else
 				Print("???");
 
 			uint64 offset = *value & 0x3fffffffffffffffLL;
-			Print(" (%d bytes) -> %Ld", length, offset);
+			Print(" (%d bytes) -> %ld", length, offset);
 			if (volume != NULL) {
 				block_run run = volume->ToBlockRun(offset);
 				Print(" (%d, %d)", (int)run.allocation_group, run.start);
 			}
 			if (bplustree_node::LinkType(*value) == BPLUSTREE_DUPLICATE_FRAGMENT)
-				Print(" (duplicate fragment %Ld)\n", *value & 0x3ff);
+				Print(" (duplicate fragment %ld)\n", *value & 0x3ff);
 			else if (bplustree_node::LinkType(*value) == BPLUSTREE_DUPLICATE_NODE)
 				Print(" (duplicate node)\n");
 			else

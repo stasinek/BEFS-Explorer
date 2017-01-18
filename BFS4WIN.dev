@@ -11,7 +11,7 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=-Wno-multichar_@@_-Wno-write-strings_@@_
 CppCompiler=-Wno-multichar_@@_-Wno-write-strings_@@_
-Linker=-mwindows _@@_-mthreads_@@_-lntoskrnl_@@_-lkernel32_@@_-luser32_@@_-lshell32 _@@_-lcomctl32_@@_-lwinmm_@@_
+Linker=-mwindows _@@_-mthreads_@@_-lkernel32_@@_-luser32_@@_-lshell32 _@@_-lcomctl32_@@_-lwinmm_@@_
 IsCpp=1
 Icon=
 ExeOutput=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=4
 CompilerSettings=000i010100000000001000000
-UnitCount=49
+UnitCount=50
 
 [VersionInfo]
 Major=1
@@ -521,7 +521,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit50]
-FileName=BFS_Volume.cpp
+FileName=NT_Native.cpp
 Folder=
 Compile=1
 Link=1

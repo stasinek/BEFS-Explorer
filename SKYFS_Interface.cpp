@@ -222,27 +222,27 @@ status_t skyfs_close(void *_ns, void *_node, void *_cookie)
 
 status_t skyfs_read_vnode(void *_ns, vnode_id id, void **_node, bool reenter)
 {
-	//FUNCTION_START(("vnode_id = %Ld\n", id));
+	//FUNCTION_START(("vnode_id = %ld\n", id));
 	Volume *volume = (Volume *)_ns;
 
 	// first inode may be after the log area, we don't go through
 	// the hassle and try to load an earlier block from disk
 	if (id < volume->ToBlock(volume->Log()) + volume->Log().Length()
 		|| id > volume->NumBlocks()) {
-			printf("error: inode at %Ld requested!\n", id);
+			printf("error: inode at %ld requested!\n", id);
 		return B_ERROR;
 	}
 
 	CachedBlock cached(volume, id);
 	bfs_inode *node = (bfs_inode *)cached.Block();
 	if (node == NULL) {
-		FATAL(("could not read inode: %Ld\n", id));
+		FATAL(("could not read inode: %ld\n", id));
 		return B_IO_ERROR;
 	}
 
 	status_t status = node->InitCheck(volume);
 	if (status < B_OK) {
-		FATAL(("inode at %Ld is corrupt!\n", id));
+		FATAL(("inode at %ld is corrupt!\n", id));
 		return status;
 	}
 

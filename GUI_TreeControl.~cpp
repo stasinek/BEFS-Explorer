@@ -8,9 +8,6 @@
 */
 
 #define _CRT_SECURE_NO_DEPRECATE 1
-//#include <vld.h>
-
-//#define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
 #include <vector>
 
@@ -41,9 +38,9 @@ HINSTANCE hInst; // main function handler
 #define ID_copy 100
 #define ID_props 200
 #define ID_about 300
-TV_ITEM tvi;
+TVITEMA tvi;
 HTREEITEM Selected;
-TV_INSERTSTRUCT tvinsert;   // struct to config out tree control
+TVINSERTSTRUCTA tvinsert;   // struct to config out tree control
 HTREEITEM Parent;           // Tree item handle
 HTREEITEM Before;           // .......
 HTREEITEM Root;             // .......
@@ -82,19 +79,19 @@ BOOL CALLBACK AboutDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 
 VOID InitPopupMenu(HWND hWnd)
 {
-	LPTSTR str[3] = {TEXT("Copy to local folder"), TEXT("Properties..."), TEXT("About...")};
+    LPSTR str[3] = {"Copy to local folder", "Properties...", "About..."};
 	int ID[3] = {ID_copy, ID_props, ID_about};
 
-	MENUITEMINFO mi;
+    MENUITEMINFOA mi;
 
 	popupMenu = CreatePopupMenu();
 
 	for (int i = 0; i < 3; i++) {
-		mi.cbSize = sizeof(MENUITEMINFO);
+        mi.cbSize = sizeof(MENUITEMINFOA);
 		mi.fMask = MIIM_FTYPE | MIIM_STRING | MIIM_ID;
 		//mi.hbmpItem=LoadBitmap((HINSTANCE) GetWindowLong(hWnd, GWL_HINSTANCE), str[i]);
 		mi.fType = MFT_RIGHTORDER;
-		mi.cch = lstrlen(str[i]);
+        mi.cch = strlen(str[i]);
 		mi.wID = ID[i];
 		mi.dwTypeData = str[i];
 
@@ -341,22 +338,22 @@ BOOL CALLBACK PropertiesDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 			ostringstream oss;
 			oss << "Name: " << td->name;
 			string str = oss.str();
-			SetDlgItemText(hWnd, IDC_STATIC2, str.c_str());
+            SetDlgItemTextA(hWnd, IDC_STATIC2, str.c_str());
 			if (I->IsFile()) {
-				SetDlgItemText(hWnd, IDC_STATIC3, "Type: File");
+                SetDlgItemTextA(hWnd, IDC_STATIC3, "Type: File");
 				ostringstream oss2;
 				oss2 << "Size: " << I->Size() << " bytes";
 				string str = oss2.str();
-				SetDlgItemText(hWnd, IDC_STATIC4, str.c_str());
+                SetDlgItemTextA(hWnd, IDC_STATIC4, str.c_str());
 			} else if (I->IsDirectory())
-				SetDlgItemText(hWnd, IDC_STATIC3, "Type: Directory");
+                SetDlgItemTextA(hWnd, IDC_STATIC3, "Type: Directory");
 			else if (I->IsSymLink())
-				SetDlgItemText(hWnd, IDC_STATIC3, "Type: Symlink");
+                SetDlgItemTextA(hWnd, IDC_STATIC3, "Type: Symlink");
 			else 
-				SetDlgItemText(hWnd, IDC_STATIC3, "Type: Unknown");
+                SetDlgItemTextA(hWnd, IDC_STATIC3, "Type: Unknown");
 			
 			if (!I->IsFile())
-				SetDlgItemText(hWnd, IDC_STATIC4, "");
+                SetDlgItemTextA(hWnd, IDC_STATIC4, "");
 			//read attibutes
 		}
 
@@ -427,18 +424,18 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				t->iData1 = i; // save disk number
 				tvinsert.item.lParam = reinterpret_cast<LPARAM>(t); //TreeData pointer
 								
-				tvinsert.item.pszText = (LPTSTR)(LPCTSTR)strItem.c_str();
+                tvinsert.item.pszText = (LPSTR)strItem.c_str();
 				tvinsert.item.iImage = ICON_DISK;
 				tvinsert.item.iSelectedImage = ICON_DISK;
 				
-				Parent = (HTREEITEM)SendDlgItemMessage(hWnd, IDC_TREE1, TVM_INSERTITEM, 0, (LPARAM)&tvinsert);
+                Parent = (HTREEITEM)SendDlgItemMessage(hWnd, IDC_TREE1, TVM_INSERTITEM, 0, (LPARAM)&tvinsert);
 				Root = Parent;
-				listPartitions(i, hWnd, &Parent, &tvinsert, &debug);
+                ListPartitions(i, hWnd, &Parent, &tvinsert, &debug);
 			}
 
 			// now, for each bfs/bfs partition on all drives, list root dir
 			char Text[255] = "";
-			HTREEITEM CurrentItem = TreeView_GetRoot(hTree);
+            HTREEITEM CurrentItem = TreeView_GetRoot(hTree);
 			tvi.mask = TVIF_TEXT|TVIF_PARAM|TVIF_CHILDREN;
 			tvi.pszText = Text;
 			tvi.cchTextMax = 256;
@@ -467,7 +464,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 							TreeView_SetItem(hWnd,&tvi);
 							//load dir root dir contents of this partition
 							debug << "CurrentItem = " << CurrentItem << "  currentvolume = " << td->extra << "  hTree = " << hTree << endl;
-							children = listDir(hTree, &CurrentItem, &tvi, &debug, &volumes);
+                            children = ListDirectories(hTree, &CurrentItem, &tvi, &debug, &volumes);
 						} else {
 							debug << "Mounting failed, status: " << s << endl;
 						}
@@ -482,7 +479,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					CurrentItem = GetNext(hTree, CurrentItem);
 			}
 
-			for (int i = 0;i < volumes.size(); i++) {
+			for (unsigned int i = 0;i < volumes.size(); i++) {
 				Volume* vv = (Volume*)&volumes[i];
 				
 				if (vv->IsValidSuperBlock())
@@ -524,7 +521,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				debug << "TVN_SELCHANGING, name: " << Text << "  " << td->inode << "  " << td->volume << endl;
 				if (td->level > 1) {
 					if (tvi.cChildren == 0) {
-						listDir(hTree, &tvi.hItem, &tvi, &debug, &volumes);
+                        ListDirectories(hTree, &tvi.hItem, &tvi, &debug, &volumes);
 					}
 				}
 				break;
@@ -532,7 +529,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 			if (((LPNMHDR)lParam)->code == NM_CLICK) { // if code == NM_CLICK - Single click on an item
 				//NMTREEVIEW*  pnmtv = (LPNMTREEVIEW) lParam;
-				for (int i = 0;i < volumes.size(); i++) {
+				for (unsigned int i = 0;i < volumes.size(); i++) {
 					Volume vv = volumes[i];
 					if (vv.IsValidSuperBlock())
 						debug<<"3: VALID SUPERBLOCK "<<(Volume*)&volumes[i]<<endl;
@@ -546,7 +543,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				Selected = (HTREEITEM)SendDlgItemMessage(hWnd, IDC_TREE1, TVM_GETNEXTITEM, TVGN_CARET, (LPARAM)Selected);
 				
 				if (Selected == NULL) {
-					MessageBox(hWnd, "No Items in TreeView", "Error", MB_OK|MB_ICONINFORMATION);
+                    MessageBoxA(hWnd, "No Items in TreeView", "Error", MB_OK|MB_ICONINFORMATION);
 					break;
 				}
 				TreeView_EnsureVisible(hWnd, Selected);
@@ -630,7 +627,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 							}
 						}
 						else if (td->level>1) {
-							// we're somewhere in the partition, 
+							// we're somewhere in the partition,
 							// if dir, list contents, else do nothing
 							// if has children, do nothing
 							debug << "somewhere in the partition, volume = " << td->extra << " hWnd = " << hWnd << endl;
@@ -640,34 +637,34 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 								listDir(hWnd, &Selected, &tvi, &debug,&volumes);
 								Inode* II = new Inode(vol,td->inode);
 								debug<<"\tInode size: "<<II->Size()<<endl;debug.flush();
-								
+
 								if (II->IsDirectory())
 									listDir(hTree, &Selected, &tvi, &debug,&volumes);
-								
+
 								debug<<"checking node type, inode="<<td->inode<<"  volume="<<vol<<endl;debug.flush();
-								
+
 
 								debug<<"\tInode size: "<<II->Size()<<endl;debug.flush();
-								if (II->IsDirectory()) { 
+								if (II->IsDirectory()) {
 									debug<<"Level "<<td->level<<" directory, listing contents\n";debug.flush();
 									bfs_open_dir(vol, II, &iter);
 									status_t s1 = bfs_read_dir(vol, II, iter, &d,sizeof(dirent), &num2);
 									Inode* ii = new Inode(vol,d.d_ino);
-									if (s1==B_OK && num2>0 && ii->IsDirectory()) { 
+									if (s1==B_OK && num2>0 && ii->IsDirectory()) {
 										//printf("\t%s (directory,%I64d)\n",dd.d_name,dd.d_ino);
 										debug<<d.d_name<<"(dir)" << endl;debug.flush();
 										TreeData* data = new TreeData(td->level+1,d.d_name,d.d_ino);
 										data->extra=vol;
 										addChild(hWnd,&Selected, d.d_name,ICON_TREE,data,&debug);
 									}
-									if (s1==B_OK && num2>0 && ii->IsFile()) { 
+									if (s1==B_OK && num2>0 && ii->IsFile()) {
 										//printf("\t%s (file,%I64d)\n",dd.d_name,dd.d_ino);
 										debug<<d.d_name<<"(file)" << endl;debug.flush();
 										TreeData* data = new TreeData(td->level+1,d.d_name,d.d_ino);
 										data->extra=vol;
 										addChild(hWnd,&Selected, d.d_name,ICON_OTHER,data,&debug);
 									}
-									if (s1==B_OK && num2>0 && !ii->IsDirectory() && !ii->IsFile()) { 
+									if (s1==B_OK && num2>0 && !ii->IsDirectory() && !ii->IsFile()) {
 										//printf("\t%s (other,%I64d)\n",dd.d_name,dd.d_ino);
 										debug<<d.d_name<<"(?)" << endl;debug.flush();
 										TreeData* data = new TreeData(td->level+1,d.d_name,d.d_ino);
@@ -678,21 +675,21 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 									while (s1==B_OK && num2>0) {
 										s1 = bfs_read_dir(vol, II, iter, &d,sizeof(dirent), &num2);
 										ii = new Inode(vol,d.d_ino);
-										if (s1==B_OK && num2>0 && ii->IsDirectory()) { 
+										if (s1==B_OK && num2>0 && ii->IsDirectory()) {
 											//printf("\t%s (directory,%I64d)\n",dd.d_name,dd.d_ino);
 											debug<<d.d_name<<"(dir)" << endl;debug.flush();
 											TreeData* data = new TreeData(td->level+1,d.d_name,d.d_ino);
 											data->extra=vol;
 											addChild(hWnd,&Selected, d.d_name,ICON_TREE,data,&debug);
 										}
-										if (s1==B_OK && num2>0 && ii->IsFile()) { 
+										if (s1==B_OK && num2>0 && ii->IsFile()) {
 											//printf("\t%s (file,%I64d)\n",dd.d_name,dd.d_ino);
 											debug<<d.d_name<<"(file)" << endl;debug.flush();
 											TreeData* data = new TreeData(td->level+1,d.d_name,d.d_ino);
 											data->extra=vol;
 											addChild(hWnd,&Selected, d.d_name,ICON_FILE,data,&debug);
 										}
-										if (s1==B_OK && num2>0 && !ii->IsDirectory() && !ii->IsFile()) { 
+										if (s1==B_OK && num2>0 && !ii->IsDirectory() && !ii->IsFile()) {
 											//printf("\t%s (other,%I64d)\n",dd.d_name,dd.d_ino);
 											debug<<d.d_name<<"(?)" << endl;debug.flush();
 											TreeData* data = new TreeData(2,d.d_name,d.d_ino);
@@ -705,7 +702,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 								}
 								free(II);
 							}
-						}   
+						}
 					}
 				}*///Was coment out end..
 				break;
@@ -740,7 +737,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					// item may already be selected
 					Selected = (HTREEITEM)SendDlgItemMessage(hWnd, IDC_TREE1, TVM_GETNEXTITEM, TVGN_CARET, (LPARAM)Selected);
 					if (Selected == NULL) {
-						MessageBox(hWnd, "No Items in TreeView", "Error", MB_OK|MB_ICONINFORMATION);
+                        MessageBoxA(hWnd, "No Items in TreeView", "Error", MB_OK|MB_ICONINFORMATION);
 						break;
 					}
 				}
@@ -753,7 +750,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				//ClientToScreen(hWnd, &p);
 				GetCursorPos(&p);
 				TrackPopupMenu(popupMenu, TPM_LEFTALIGN | TPM_RIGHTBUTTON , p.x, p.y, 0, hWnd, NULL);
-				
+
 				break;
 			}
 
@@ -763,9 +760,9 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				hImg=TreeView_CreateDragImage(hTree, lpnmtv->itemNew.hItem);
 				ImageList_BeginDrag(hImg, 0, 0, 0);
 				ImageList_DragEnter(hTree,lpnmtv->ptDrag.x,lpnmtv->ptDrag.y);
-				ShowCursor(FALSE); 
-				SetCapture(hWnd); 
-				Dragging = TRUE;	
+				ShowCursor(FALSE);
+				SetCapture(hWnd);
+				Dragging = TRUE;
 			}
 
 			if (((LPNMHDR)lParam)->code == TVN_BEGINLABELEDIT) {
@@ -776,7 +773,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				char Text[256] = "";
 				tvi.hItem = Selected;
 				SendDlgItemMessage(hWnd, IDC_TREE1, TVM_GETITEM, 0, (WPARAM)&tvi);
-				GetWindowText(hEdit, Text, sizeof(Text)); 
+                GetWindowTextA(hEdit, Text, sizeof(Text));
 				tvi.pszText = Text;
 				SendDlgItemMessage(hWnd, IDC_TREE1, TVM_SETITEM, 0, (WPARAM)&tvi);
 			}
@@ -794,8 +791,8 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 				if (hitTarget = (HTREEITEM)SendMessageA(hTree, TVM_HITTEST, WPARAM(""), (LPARAM)&tvht)) // if there is a hit
 					SendMessageA(hTree, TVM_SELECTITEM, TVGN_DROPHILITE, (LPARAM)hitTarget);   // highlight it
-			
-			    ImageList_DragShowNolock(TRUE); 
+
+			    ImageList_DragShowNolock(TRUE);
 			}
 		}
 		break;
@@ -809,7 +806,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 SendDlgItemMessage(hWnd, IDC_TREE1, TVM_SELECTITEM, TVGN_CARET, (LPARAM)Selected);
                 SendDlgItemMessage(hWnd, IDC_TREE1, TVM_SELECTITEM, TVGN_DROPHILITE, 0);
                 ReleaseCapture();
-                ShowCursor(TRUE); 
+                ShowCursor(TRUE);
                 Dragging = FALSE;
             }
         }
@@ -821,11 +818,11 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			return 0;
 		}
 		break;
-		
+
 		case WM_COMMAND: // Controling the Buttons
 		{
 			switch (LOWORD(wParam)) // what we pressed on?
-			{ 	 
+			{
 				case ID_props: {
 					//TODO: only if level is high enough (so not disk or partitions)
 					debug << "popupmenu -> properties" << endl;
@@ -836,7 +833,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					tvi.pszText = Text;
 					tvi.cchTextMax = 256;
 					tvi.hItem = Selected;
-								
+
 					if (SendDlgItemMessage(hWnd, IDC_TREE1, TVM_GETITEM, TVGN_CARET, (LPARAM)&tvi)) {
 						TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
 						if (td) {
@@ -844,12 +841,13 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 							//show properties dialog window
 							//DialogBoxParam(hInst, MAKEINTRESOURCE(IDD_DIALOG2), NULL, (DLGPROC)DialogProc,0);
 							if (td->level>1) // only show dialog for real files and dirs, not for devices/partitions
-								DialogBoxA(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG2), hWnd, PropertiesDlgProc);
+                                ::DialogBoxA(GetModuleHandle(NULL), MAKEINTRESOURCEA(IDD_DIALOG2), hWnd, (DLGPROC)PropertiesDlgProc);
+
 						}
 					}
 				} break;
 
-				case ID_copy:{ 
+				case ID_copy:{
 					debug << "popupmenu -> copy file" << endl;
 					char Text[255] = "";
 					memset(&tvi, 0, sizeof(tvi));
@@ -930,7 +928,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 									ostringstream oss;
 									oss << "File copied to local directory: " << td->name << " (" << BytesWritten << "/" << BytesTotal << " bytes)";
 									string str = oss.str();
-									MessageBox(hWnd, str.c_str(), "File copied", MB_OK|MB_ICONINFORMATION);
+                                    MessageBoxA(hWnd, str.c_str(), "File copied", MB_OK|MB_ICONINFORMATION);
 									SendMessage(hProgress, PBM_SETPOS, 0L, 0L);
 									free (q);
 								}
@@ -941,7 +939,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				} break;
 
 				case ID_about: { 
-					DialogBoxA(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG3), hWnd, AboutDlgProc);
+                    ::DialogBoxA(GetModuleHandle(NULL), MAKEINTRESOURCEA(IDD_DIALOG3), hWnd, (DLGPROC)AboutDlgProc);
 				} break;
 					/*
 				case IDC_DELETE: // Generage Button is pressed
@@ -1034,7 +1032,7 @@ int addChild(HWND hWnd,HTREEITEM* parent, char* t1,int icon,TreeData* td) {
 
 void AddAttrInfo(char* pszAttrName, char* pszAttrData, char* type, int iAccess)
 {
-	LVITEM LvItem;
+    LVITEMA LvItem;
 	char* buff = pszAttrData;
 	char pszBuff[256] = {0};
 	int y = iAccess + 1;
@@ -1067,7 +1065,7 @@ void AddAttrInfo(char* pszAttrName, char* pszAttrData, char* type, int iAccess)
 
 void SetupListView(void)
 {
-	LVCOLUMN LvCol;
+    LVCOLUMNA LvCol;
 
 	memset(&LvCol, 0, sizeof(LvCol));              
 
@@ -1137,10 +1135,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	_CrtDumpMemoryLeaks();
 #endif
 	hInst = hInstance;
+#include "NT_Native.h"
+    NtInit();
+    
 	DialogBoxParam(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, (DLGPROC)DialogProc, 0);
 	debug << "Exit application.\n";
 	debug.close();
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
 
 

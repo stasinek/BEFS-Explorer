@@ -50,6 +50,10 @@
 
 #ifdef DEBUG
 	#define PRINT(x) { __out("skyfs: "); __out x; }
+#ifndef __FUNCTION__
+#define __FUNCTION__ __FILE__
+#endif
+
 	#define REPORT_ERROR(status) \
 		__out("skyfs: %s:%d: %s\n", __FUNCTION__, __LINE__, strerror(status));
 	#define RETURN_ERROR(err) { status_t _status = err; if (_status < B_OK) REPORT_ERROR(_status); return _status;}

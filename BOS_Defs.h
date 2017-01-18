@@ -6,16 +6,17 @@
  * this stuff is worth it, you can buy me a beer in return. Poul-Henning Kamp
  * ----------------------------------------------------------------------------
  */
-
-
 #ifndef BOS_SUPPORTDEFS_H
 #define BOS_SUPPORTDEFS_H
+
 #define _CRT_SECURE_NO_DEPRECATE 1
 //#define _X86_ 1
 //#include <winioctl.h>
 // add as dependancy (linker/input)
 // C:\WINDDK\3790.1830\lib\wxp\i386\ntdll.lib
 #include <windows.h>
+#include <winioctl.h>
+
 extern "C"{
 	//#include <ntddk.h>  //for NTCreateFile
 	#include "NT_DDK.h"  //for NTCreateFile
@@ -51,14 +52,16 @@ typedef unsigned int uint32;
 typedef unsigned long long uint64;
 #define mode_t		unsigned int
 #define int8		char
+#define byte		int8
 #define type_code   unsigned int
-#define int32_t		int 
+#define int32_t		int
 #define mount_id	unsigned int
 #define vnode_id	uint64
 #define uid_t		int32
 #define gid_t		int32
 #define ino_t		unsigned short
 #define dev_t		unsigned int
+
 #ifndef __GNUC__
 typedef unsigned long long off_t;
 #endif
@@ -258,6 +261,7 @@ enum {
 
 //dirent stuff
 
+#include <time.h>
 
 typedef struct dirent {
 	dev_t			d_dev;		/* device */

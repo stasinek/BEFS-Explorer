@@ -143,7 +143,7 @@ InodeAllocator::Keep()
 
 	status_t status = fInode->WriteBack(*fTransaction);
 	if (status < B_OK) {
-		FATAL(("writing new inode %Ld failed!\n", fInode->ID()));
+		FATAL(("writing new inode %ld failed!\n", fInode->ID()));
 		return status;
 	}
 
@@ -202,7 +202,7 @@ Inode::Inode(Volume *volume, vnode_id id)
 	fAttributes(NULL),
 	fCache(NULL)
 {
-	//printf("Inode::Inode(volume = %p, id = %Ld) @ %p\n", volume, id, this);
+	//printf("Inode::Inode(volume = %p, id = %ld) @ %p\n", volume, id, this);
 
 	NodeGetter node(volume, this);
 	memcpy(&fNode, node.Node(), sizeof(bfs_inode));
@@ -234,7 +234,7 @@ Inode::Inode(Volume *volume, Transaction &transaction, vnode_id id, mode_t mode,
 	fAttributes(NULL),
 	fCache(NULL)
 {
-	//PRINT(("Inode::Inode(volume = %p, transaction = %p, id = %Ld) @ %p\n",
+	//PRINT(("Inode::Inode(volume = %p, transaction = %p, id = %ld) @ %p\n",
 	//	volume, &transaction, id, this));
 
 	char lockName[B_OS_NAME_LENGTH];
@@ -289,7 +289,7 @@ Inode::InitCheck(bool checkNode)
 			return B_BUSY;
 
 		if (status < B_OK) {
-			FATAL(("inode at block %Ld corrupt!\n", BlockNumber()));
+			FATAL(("inode at block %ld corrupt!\n", BlockNumber()));
 			RETURN_ERROR(B_BAD_DATA);
 		}
 	}
@@ -301,7 +301,7 @@ Inode::InitCheck(bool checkNode)
 
 		status_t status = fTree->InitCheck();
 		if (status < B_OK) {
-			FATAL(("inode tree at block %Ld corrupt!\n", BlockNumber()));
+			FATAL(("inode tree at block %ld corrupt!\n", BlockNumber()));
 			RETURN_ERROR(B_BAD_DATA);
 		}
 	}
@@ -774,8 +774,7 @@ Inode::SetName(Transaction &transaction, const char *name)
 	NodeGetter node(fVolume, transaction, this);
 	const char nameTag[2] = {FILE_NAME_NAME, 0};
 
-	return _AddSmallData(transaction, node, nameTag, FILE_NAME_TYPE,
-		(uint8 *)name, strlen(name), true);
+	return _AddSmallData(transaction, node, nameTag, FILE_NAME_TYPE,(uint8 *)name, strlen(name), true);
 }
 
 
@@ -855,7 +854,7 @@ Inode::ReadAttribute(const char *name, int32 type, uint64 pos, uint8 *buffer,
 			if (length + pos > smallData->DataSize())
 				length = smallData->DataSize() - pos;
 			printf("it's in smalldata!\n");
-			memcpy(buffer, smallData->Data() + pos, length);
+			memcpy(buffer, (void*)((size_t)smallData->Data() + (size_t)pos), length);
 			*_length = length;
 			return B_OK;
 		}
@@ -1181,7 +1180,7 @@ Inode::FindBlockRun(uint64 pos, block_run &run, uint64 &offset)
 			if (indirect == NULL)
 				RETURN_ERROR(B_ERROR);
 
-			//printf("\tstart = %Ld, indirectSize = %ld, directSize = %ld, index = %ld\n",start,indirectSize,directSize,index);
+			//printf("\tstart = %ld, indirectSize = %ld, directSize = %ld, index = %ld\n",start,indirectSize,directSize,index);
 			//printf("\tlook for indirect block at %ld,%d\n",indirect[index].allocation_group,indirect[index].start);
 
 			int32 current = (start % indirectSize) / directSize;
@@ -1195,7 +1194,7 @@ Inode::FindBlockRun(uint64 pos, block_run &run, uint64 &offset)
 			run = indirect[current % runsPerBlock];
 			offset = data->MaxIndirectRange() + (index * indirectSize)
 				+ (current * directSize);
-			//printf("\tfCurrent = %ld, fRunFileOffset = %Ld, fRunBlockEnd = %Ld, fRun = %ld,%d\n",fCurrent,fRunFileOffset,fRunBlockEnd,fRun.allocation_group,fRun.start);
+			//printf("\tfCurrent = %ld, fRunFileOffset = %ld, fRunBlockEnd = %ld, fRun = %ld,%d\n",fCurrent,fRunFileOffset,fRunBlockEnd,fRun.allocation_group,fRun.start);
 		} else {
 			// access to indirect blocks
 
@@ -1222,7 +1221,7 @@ Inode::FindBlockRun(uint64 pos, block_run &run, uint64 &offset)
 						offset = runBlockEnd - (run.Length()
 							<< cached.BlockShift());
 						//printf("reading from indirect block: %ld,%d\n",fRun.allocation_group,fRun.start);
-						//printf("### indirect-run[%ld] = (%ld,%d,%d), offset = %Ld\n",fCurrent,fRun.allocation_group,fRun.start,fRun.Length(),fRunFileOffset);
+						//printf("### indirect-run[%ld] = (%ld,%d,%d), offset = %ld\n",fCurrent,fRun.allocation_group,fRun.start,fRun.Length(),fRunFileOffset);
 						return fVolume->ValidateBlockRun(run);
 					}
 				}
@@ -1244,12 +1243,12 @@ Inode::FindBlockRun(uint64 pos, block_run &run, uint64 &offset)
 			if (runBlockEnd > pos) {
 				run = data->direct[current];
 				offset = runBlockEnd - (run.Length() << fVolume->BlockShift());
-				//printf("### run[%ld] = (%ld,%d,%d), offset = %Ld\n",fCurrent,fRun.allocation_group,fRun.start,fRun.Length(),fRunFileOffset);
+				//printf("### run[%ld] = (%ld,%d,%d), offset = %ld\n",fCurrent,fRun.allocation_group,fRun.start,fRun.Length(),fRunFileOffset);
 				return fVolume->ValidateBlockRun(run);
 			}
 		}
 
-		//PRINT(("FindBlockRun() failed in direct range: size = %Ld, pos = %Ld\n",data->size,pos));
+		//PRINT(("FindBlockRun() failed in direct range: size = %ld, pos = %ld\n",data->size,pos));
 		return B_ENTRY_NOT_FOUND;
 	}
 	return fVolume->ValidateBlockRun(run);
@@ -1850,7 +1849,7 @@ status_t
 Inode::_FreeStreamArray(Transaction &transaction, block_run *array,
 	uint32 arrayLength, uint64 size, uint64 &offset, uint64 &max)
 {
-	PRINT(("FreeStreamArray: arrayLength %lu, size %Ld, offset %Ld, max %Ld\n",
+	PRINT(("FreeStreamArray: arrayLength %lu, size %ld, offset %ld, max %ld\n",
 		arrayLength, size, offset, max));
 
 	uint64 newOffset = offset;
@@ -2550,7 +2549,7 @@ AttributeIterator::GetNext(char *name, size_t *_length, uint32 *_type,
 		if (get_vnode(volume->ID(), volume->ToVnode(fInode->Attributes()),
 				(void **)&fAttributes) != B_OK) {
 			FATAL(("get_vnode() failed in AttributeIterator::GetNext(vnode_id"
-				" = %Ld,name = \"%s\")\n",fInode->ID(),name));
+				" = %ld,name = \"%s\")\n",fInode->ID(),name));
 			return B_ENTRY_NOT_FOUND;
 		}
 
@@ -2558,7 +2557,7 @@ AttributeIterator::GetNext(char *name, size_t *_length, uint32 *_type,
 		if (fAttributes->GetTree(&tree) < B_OK
 			|| (fIterator = new TreeIterator(tree)) == NULL) {
 			FATAL(("could not get tree in AttributeIterator::GetNext(vnode_id"
-				" = %Ld,name = \"%s\")\n",fInode->ID(),name));
+				" = %ld,name = \"%s\")\n",fInode->ID(),name));
 			return B_ENTRY_NOT_FOUND;
 		}
 	}
@@ -2590,4 +2589,7 @@ AttributeIterator::Update(uint16 index, int8 change)
 	if (index < fCurrentSmallData)
 		fCurrentSmallData += change;
 }
+
+
+
 

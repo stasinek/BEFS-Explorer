@@ -205,7 +205,7 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 		return GetLastError();
 	}
 
-	int nRet = ReadFile(hDrive, szSector, 512, &dwBytes ,NULL);
+	int nRet = ReadFile(hDrive, szSector, 512, (DWORD*)&dwBytes ,NULL);
 	
 	if (!nRet) {
         printf("\tRead error in listPartitions: id %i %s\n", (int)GetLastError, GetLastErrorText(GetLastError()));

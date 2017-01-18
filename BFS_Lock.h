@@ -540,8 +540,8 @@ class SimpleLock {
 			HANDLE thisThread = GetCurrentThread();
 			printf("SimpleLock::Lock 2\n");
 			//int32 current;
-			HANDLE current;
-			int a=0;
+            HANDLE current;
+            int a=0;
 			while (1) {
 				printf("SimpleLock::Lock 2 - %i\n",a++);
 				// TODO: changed back to old code

@@ -5,9 +5,9 @@ CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
 RES      = BFS4WIN_private.res
-OBJ      = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o $(RES)
-LINKOBJ  = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o $(RES)
-LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -mwindows  -mthreads -lntoskrnl -lkernel32 -luser32 -lshell32  -lcomctl32 -lwinmm -m32 -g3
+OBJ      = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o NT_Native.o $(RES)
+LINKOBJ  = BFS_Attribute.o BFS_Interface.o BFS_BlockAllocator.o BFS_PlusTree.o BFS_Cache.o BFS_Debug.o GUI_DiskFunc.o BFS_Hash.o BFS_Index.o BFS_Inode.o BFS_Journal.o BFS_Query.o SKYFS_Interface.o BFS_SupportFunctions.o BOS_System.o GUI_TreeControl.o BFS_Utility.o BFS_Volume.o NT_Native.o $(RES)
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -mwindows  -mthreads -lkernel32 -luser32 -lshell32  -lcomctl32 -lwinmm -m32 -g3
 INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = BFS4WIN.exe
@@ -78,6 +78,9 @@ BFS_Utility.o: BFS_Utility.cpp
 
 BFS_Volume.o: BFS_Volume.cpp
 	$(CPP) -c BFS_Volume.cpp -o BFS_Volume.o $(CXXFLAGS)
+
+NT_Native.o: NT_Native.cpp
+	$(CPP) -c NT_Native.cpp -o NT_Native.o $(CXXFLAGS)
 
 BFS4WIN_private.res: BFS4WIN_private.rc resource/GUI_TreeControl.rsrc.rc
 	$(WINDRES) -i BFS4WIN_private.rc -F pe-i386 --input-format=rc -o BFS4WIN_private.res -O coff 

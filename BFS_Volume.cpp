@@ -90,8 +90,7 @@ DeviceOpener::~DeviceOpener()
 }
 
 
-HANDLE
-DeviceOpener::Open(const char *device, int partitionNr, int mode)
+HANDLE DeviceOpener::Open(const char *device, int partitionNr, int mode)
 {
 	printf("opening device: %s, skyfs partition %i\n",device, partitionNr);
 	debug<<"DeviceOpener::Open: opening device: "<<device<<", partition "<<partitionNr<<std::endl;
@@ -151,7 +150,7 @@ DeviceOpener::Open(const char *device, int partitionNr, int mode)
 			NULL);	// key
 	*/
 	if(!nRet){
-		printf("DeviceOpene::Open: ReadFile error: %i\n",GetLastError());
+        printf("DeviceOpene::Open: ReadFile error: %d\n",(int)GetLastError());
 		return INVALID_HANDLE_VALUE;
 	}
 
@@ -423,8 +422,7 @@ DeviceOpener::Open(const char *device, int partitionNr, int mode)
 	return fDevice;
 }
 
-HANDLE
-DeviceOpener::Open(int diskNr, int partitionNr, int mode)
+HANDLE DeviceOpener::Open(int diskNr, int partitionNr, int mode)
 {
 	printf("Requested: \\Device\\HardDisk%i\\Partition%i\n",diskNr,partitionNr+1);
 	char device[60];
@@ -750,15 +748,13 @@ DeviceOpener::Open(int diskNr, int partitionNr, int mode)
 }
 
 
-void *
-DeviceOpener::InitCache(uint64 numBlocks, uint32 blockSize)
+void *DeviceOpener::InitCache(uint64 numBlocks, uint32 blockSize)
 {
 	return block_cache_create(fDevice, numBlocks, blockSize, fMode == O_RDONLY);
 }
 
 
-void
-DeviceOpener::RemoveCache(bool allowWrites)
+void DeviceOpener::RemoveCache(bool allowWrites)
 {
 	if (fBlockCache == NULL)
 		return;
@@ -768,8 +764,7 @@ DeviceOpener::RemoveCache(bool allowWrites)
 }
 
 
-void
-DeviceOpener::Keep()
+void DeviceOpener::Keep()
 {
 	//fDevice = -1;
     fDevice = INVALID_HANDLE_VALUE;	
@@ -780,8 +775,7 @@ DeviceOpener::Keep()
  *	to compute the size, or fstat() if that failed.
  */
 
-status_t
-DeviceOpener::GetSize(uint64 *_size, uint32 *_blockSize)
+status_t DeviceOpener::GetSize(uint64 *_size, uint32 *_blockSize)
 {
 	/*
 typedef struct _DISK_GEOMETRY {
@@ -842,8 +836,7 @@ typedef struct _DISK_GEOMETRY {
 //	#pragma mark -
 
 
-bool
-disk_super_block::IsValid()
+bool disk_super_block::IsValid()
 {
 	//check for a valid SKYFS or BFS partition
 	if ((Magic1() != (int32)SUPER_BLOCK_MAGIC1 && Magic1() != (int32)BFS_SUPER_BLOCK_MAGIC1)
@@ -867,8 +860,7 @@ disk_super_block::IsValid()
 }
 
 
-void
-disk_super_block::Initialize(const char *diskName, uint64 numBlocks, uint32 blockSize)
+void disk_super_block::Initialize(const char *diskName, uint64 numBlocks, uint32 blockSize)
 {
 	memset(this, 0, sizeof(disk_super_block));
 
@@ -948,15 +940,13 @@ Volume::~Volume()
 }
 
 
-bool
-Volume::IsValidSuperBlock()
+bool Volume::IsValidSuperBlock()
 {
 	return fSuperBlock.IsValid();
 }
 
 
-void
-Volume::Panic()
+void Volume::Panic()
 {
 	FATAL(("we have to panic... switch to read-only mode!\n"));
 	fFlags |= VOLUME_READ_ONLY;
@@ -964,8 +954,7 @@ Volume::Panic()
 	DEBUGGER(("BFS panics!"));
 #endif
 }
-void
-dump_inode2(const bfs_inode *inode)
+void dump_inode2(const bfs_inode *inode)
 {
 	printf("Root inode:\n");
 	printf("  magic1             = %08x (%s) %s\n", (int)inode->magic1,
@@ -975,9 +964,9 @@ dump_inode2(const bfs_inode *inode)
 	printf("  gid                = %u\n", (unsigned)inode->gid);
 	printf("  mode               = %08x\n", (int)inode->mode);
 	printf("  flags              = %08x\n", (int)inode->flags);
-	printf("  create_time        = %Ld (%Ld)\n", inode->create_time,
+    printf("  create_time        = %ld (%ld)\n", inode->create_time,
 		inode->create_time >> INODE_TIME_SHIFT);
-	printf("  last_modified_time = %Ld (%Ld)\n", inode->last_modified_time,
+    printf("  last_modified_time = %ld (%ld)\n", inode->last_modified_time,
 		inode->last_modified_time >> INODE_TIME_SHIFT);
 	dump_block_run2(	"  parent             = ", inode->parent);
 	dump_block_run2(	"  attributes         = ", inode->attributes);
@@ -994,8 +983,7 @@ dump_inode2(const bfs_inode *inode)
 	printf("  pad[3]             = %08x\n", (int)inode->pad[3]);
 }
 
-status_t
-Volume::Mount(const char *deviceName, int partitionNr, uint32 flags)
+status_t Volume::Mount(const char *deviceName, int partitionNr, uint32 flags)
 {
 	// partitionNr x is the x'th skyfs partition, starting at 0 for the first partition
 	skyfsNr = partitionNr;
@@ -1137,8 +1125,7 @@ printf("Mount:RootNode\n============================\n");
 	printf("Mounting done\n");
 	return status;
 }
-status_t
-Volume::Mount(int diskNr, int partitionNr, uint32 flags)
+status_t Volume::Mount(int diskNr, int partitionNr, uint32 flags)
 {
 	debug<<"Volume::Mount\n";
 	// partitionNr x is the x'th skyfs partition, starting at 0 for the first partition
@@ -1292,8 +1279,7 @@ printf("Mount:RootNode\n============================\n");
 	debug<<"Volume::Mount: mounting done, status="<<status<<std::endl;
 	return status;
 }
-status_t
-Volume::MountBFS(const char *deviceName, int partitionNr, uint32 flags)
+status_t Volume::MountBFS(const char *deviceName, int partitionNr, uint32 flags)
 {
 	// partitionNr x is the x'th skyfs partition, starting at 0 for the first partition
 	skyfsNr = partitionNr;
@@ -1678,8 +1664,7 @@ int Volume::CountSkyfsPartitions(const char* DRIVE,bool skyfs){
 	/*Status = NtClose(FileHandle);*/
 	return count;
 }
-status_t
-Volume::Unmount()
+status_t Volume::Unmount()
 {
 	// Unlike in BeOS, we need to put the reference to our root node ourselves
 	put_vnode(fID, ToVnode(Root()));
@@ -1700,15 +1685,12 @@ Volume::Unmount()
 }
 
 
-status_t
-Volume::Sync()
+status_t Volume::Sync()
 {
 	return fJournal->FlushLogAndBlocks();
 }
 
-
-status_t
-Volume::ValidateBlockRun(block_run run)
+status_t Volume::ValidateBlockRun(block_run run)
 {
 	if (run.AllocationGroup() < 0 || run.AllocationGroup() > (int32)AllocationGroups()
 		|| run.Start() > (1UL << AllocationGroupShift())
@@ -1722,8 +1704,7 @@ Volume::ValidateBlockRun(block_run run)
 }
 
 
-block_run
-Volume::ToBlockRun(uint64 block) const
+block_run Volume::ToBlockRun(uint64 block) const
 {
 	block_run run;
 	run.allocation_group = HOST_ENDIAN_TO_BFS_INT32(block >> AllocationGroupShift());
@@ -1733,8 +1714,7 @@ Volume::ToBlockRun(uint64 block) const
 }
 
 
-status_t
-Volume::CreateIndicesRoot(Transaction &transaction)
+status_t Volume::CreateIndicesRoot(Transaction &transaction)
 {
 	uint64 id;
 	status_t status = Inode::Create(transaction, NULL, NULL,
@@ -1747,15 +1727,13 @@ Volume::CreateIndicesRoot(Transaction &transaction)
 }
 
 
-status_t
-Volume::AllocateForInode(Transaction &transaction, const Inode *parent, mode_t type, block_run &run)
+status_t Volume::AllocateForInode(Transaction &transaction, const Inode *parent, mode_t type, block_run &run)
 {
 	return fBlockAllocator.AllocateForInode(transaction, &parent->BlockRun(), type, run);
 }
 
 
-status_t
-Volume::WriteSuperBlock()
+status_t Volume::WriteSuperBlock()
 {
 	if (write_pos(fDevice, 512, &fSuperBlock, sizeof(disk_super_block)) != sizeof(disk_super_block))
 		return B_IO_ERROR;
@@ -1764,8 +1742,7 @@ Volume::WriteSuperBlock()
 }
 
 
-void
-Volume::UpdateLiveQueries(Inode *inode, const char *attribute, int32 type, const uint8 *oldKey,
+void Volume::UpdateLiveQueries(Inode *inode, const char *attribute, int32 type, const uint8 *oldKey,
 	size_t oldLength, const uint8 *newKey, size_t newLength)
 {
 	if (fQueryLock.Lock() < B_OK)
@@ -1785,16 +1762,14 @@ Volume::UpdateLiveQueries(Inode *inode, const char *attribute, int32 type, const
  *	the queries - it wouldn't safe you anything in this case.
  */
 
-bool
-Volume::CheckForLiveQuery(const char *attribute)
+bool Volume::CheckForLiveQuery(const char *attribute)
 {
 	// ToDo: check for a live query that depends on the specified attribute
 	return true;
 }
 
 
-void
-Volume::AddQuery(Query *query)
+void Volume::AddQuery(Query *query)
 {
 	if (fQueryLock.Lock() < B_OK)
 		return;
@@ -1805,8 +1780,7 @@ Volume::AddQuery(Query *query)
 }
 
 
-void
-Volume::RemoveQuery(Query *query)
+void Volume::RemoveQuery(Query *query)
 {
 	if (fQueryLock.Lock() < B_OK)
 		return;
@@ -1819,8 +1793,7 @@ Volume::RemoveQuery(Query *query)
 
 //	#pragma mark -
 //	Disk scanning and initialization
-char *
-get_tupel2(uint32 id)
+char *get_tupel2(uint32 id)
 {
 	static unsigned char tupel[5];
 
@@ -1841,8 +1814,7 @@ void dump_block_run2(const char *prefix, const block_run &run)
 {
 	printf("%s(%d, %d, %d)\n", prefix, (int)run.allocation_group, run.start, run.length);
 }
-void
-dump_data_stream2(const data_stream *stream)
+void dump_data_stream2(const data_stream *stream)
 {
 	printf("data_stream:\n");
 	for (int i = 0; i < NUM_DIRECT_BLOCKS; i++) {
@@ -1865,8 +1837,7 @@ dump_data_stream2(const data_stream *stream)
 	printf("  size                      = %Lu\n", stream->size);
 }
 
-status_t
-Volume::Identify(HANDLE fd, disk_super_block *superBlock)
+status_t Volume::Identify(HANDLE fd, disk_super_block *superBlock)
 {
 	debug<<"Volume::Identify\n";
 	char buffer[1024];
@@ -1889,7 +1860,7 @@ Volume::Identify(HANDLE fd, disk_super_block *superBlock)
 	printf("  inode_size     = %u\n", (unsigned)superBlock->inode_size);
 	printf("  magic2         = %#08x (%s) %s\n", (int)superBlock->magic2, get_tupel2(superBlock->magic2), ((superBlock->magic2 == (int)SUPER_BLOCK_MAGIC2) || (superBlock->magic2 == BFS_SUPER_BLOCK_MAGIC2) ? "valid" : "INVALID"));
 	printf("  blocks_per_ag  = %u\n", (unsigned)superBlock->blocks_per_ag);
-	printf("  ag_shift       = %u (%ld bytes)\n", (unsigned)superBlock->ag_shift, 1L << superBlock->ag_shift);
+    printf("  ag_shift       = %u (%ld bytes)\n", (unsigned)superBlock->ag_shift, 1L << superBlock->ag_shift);
 	printf("  num_ags        = %u\n", (unsigned)superBlock->num_ags);
 	printf("  flags          = %#08x (%s)\n", (int)superBlock->flags, get_tupel2(superBlock->flags));
 	dump_block_run2("  log_blocks     = ", superBlock->log_blocks);
@@ -1938,8 +1909,7 @@ Volume::Identify(HANDLE fd, disk_super_block *superBlock)
 }
 
 
-status_t
-Volume::Initialize(const char *device, const char *name, uint32 blockSize,
+status_t Volume::Initialize(const char *device, const char *name, uint32 blockSize,
 	uint32 flags)
 {
 	// although there is no really good reason for it, we won't

@@ -225,11 +225,11 @@ AllocationGroup::AllocationGroup()
 }
 
 
-void
-AllocationGroup::AddFreeRange(int32 start, int32 blocks)
+void AllocationGroup::AddFreeRange(int32 start, int32 blocks)
 {
+
 	//D(if (blocks > 512)
-	//	PRINT(("range of %ld blocks starting at %ld\n",blocks,start)));
+    //	PRINT(("range of %ld blocks starting at %ld\n",blocks,start)));
 
 	if (fFirstFree == -1)
 		fFirstFree = start;
@@ -531,7 +531,7 @@ BlockAllocator::_Initialize(BlockAllocator *allocator)
 	if (volume->UsedBlocks() != usedBlocks) {
 		// If the disk in a dirty state at mount time, it's
 		// normal that the values don't match
-		INFORM(("volume reports %Ld used blocks, correct is %Ld\n", volume->UsedBlocks(), usedBlocks));
+        INFORM(("volume reports %ld used blocks, correct is %ld\n", volume->UsedBlocks(), usedBlocks));
 		volume->SuperBlock().used_blocks = HOST_ENDIAN_TO_BFS_INT64(usedBlocks);
 	}
 
@@ -547,7 +547,7 @@ BlockAllocator::AllocateBlocks(Transaction &transaction, int32 group, uint16 sta
 	if (maximum == 0)
 		return B_BAD_VALUE;
 
-	FUNCTION_START(("group = %ld, start = %u, maximum = %u, minimum = %u\n", group, start, maximum, minimum));
+    FUNCTION_START(("group = %ld, start = %u, maximum = %u, minimum = %u\n", group, start, maximum, minimum));
 
 	AllocationBlock cached(fVolume);
 	Locker lock(fLock);
@@ -735,7 +735,7 @@ BlockAllocator::Free(Transaction &transaction, block_run run)
 	uint16 start = run.Start();
 	uint16 length = run.Length();
 
-	FUNCTION_START(("group = %ld, start = %u, length = %u\n", group, start, length));
+    FUNCTION_START(("group = %ld, start = %u, length = %u\n", group, start, length));
 
 	// doesn't use Volume::IsValidBlockRun() here because it can check better
 	// against the group size (the last group may have a different length)
@@ -945,18 +945,18 @@ BlockAllocator::CheckNextNode(check_control *control)
 			Vnode vnode(fVolume, cookie->current);
 			Inode *inode;
 			if (vnode.Get(&inode) < B_OK) {
-				FATAL(("check: Could not open inode at %Ld\n", fVolume->ToBlock(cookie->current)));
+                FATAL(("check: Could not open inode at %ld\n", fVolume->ToBlock(cookie->current)));
 				continue;
 			}
 
 			if (!inode->IsContainer()) {
-				FATAL(("check: inode at %Ld should have been a directory\n", fVolume->ToBlock(cookie->current)));
+                FATAL(("check: inode at %ld should have been a directory\n", fVolume->ToBlock(cookie->current)));
 				continue;
 			}
 
 			BPlusTree *tree;
 			if (inode->GetTree(&tree) != B_OK) {
-				FATAL(("check: could not open b+tree from inode at %Ld\n", fVolume->ToBlock(cookie->current)));
+                FATAL(("check: could not open b+tree from inode at %ld\n", fVolume->ToBlock(cookie->current)));
 				continue;
 			}
 
@@ -1011,7 +1011,7 @@ BlockAllocator::CheckNextNode(check_control *control)
 			Vnode vnode(fVolume, id);
 			Inode *inode;
 			if (vnode.Get(&inode) < B_OK) {
-				FATAL(("Could not open inode ID %Ld!\n", id));
+                FATAL(("Could not open inode ID %ld!\n", id));
 				control->errors |= BFS_COULD_NOT_OPEN;
 				control->status = B_ERROR;
 				return B_OK;
@@ -1038,7 +1038,7 @@ BlockAllocator::CheckNextNode(check_control *control)
 				|| ((cookie->parent_mode & (S_DIRECTORY | S_ATTR_DIR | S_INDEX_DIR)) 
 						== S_DIRECTORY
 					&& (inode->Mode() & (S_ATTR | S_ATTR_DIR | S_INDEX_DIR)) != 0)) {
-				FATAL(("inode at %Ld is of wrong type: %o (parent %o at %Ld)!\n",
+                FATAL(("inode at %ld is of wrong type: %o (parent %o at %ld)!\n",
 					inode->BlockNumber(), inode->Mode(), cookie->parent_mode, cookie->parent->BlockNumber()));
 
 				// if we are allowed to fix errors, we should remove the file
@@ -1112,7 +1112,7 @@ BlockAllocator::CheckBlockRun(block_run run, const char *type, check_control *co
 		|| run.Start() > fGroups[run.AllocationGroup()].fNumBits
 		|| uint32(run.Start() + run.Length()) > fGroups[run.AllocationGroup()].fNumBits
 		|| run.length == 0) {
-		PRINT(("%s: block_run(%ld, %u, %u) is invalid!\n", type, run.AllocationGroup(), run.Start(), run.Length()));
+        PRINT(("%s: block_run(%ld, %u, %u) is invalid!\n", type, run.AllocationGroup(), run.Start(), run.Length()));
 		if (control == NULL)
 			return B_BAD_DATA;
 
@@ -1141,7 +1141,7 @@ BlockAllocator::CheckBlockRun(block_run run, const char *type, check_control *co
 		while (length < run.Length() && pos < cached.NumBlockBits()) {
 			if (cached.IsUsed(pos) != allocated) {
 				if (control == NULL) {
-					PRINT(("%s: block_run(%ld, %u, %u) is only partially allocated (pos = %ld, length = %ld)!\n",
+                    PRINT(("%s: block_run(%ld, %u, %u) is only partially allocated (pos = %ld, length = %ld)!\n",
 						type, run.AllocationGroup(), run.Start(), run.Length(), pos, length));
 					return B_BAD_DATA;
 				}
@@ -1151,7 +1151,7 @@ BlockAllocator::CheckBlockRun(block_run run, const char *type, check_control *co
 				}
 				control->stats.missing++;
 			} else if (firstMissing != -1) {
-				PRINT(("%s: block_run(%ld, %u, %u): blocks %Ld - %Ld are %sallocated!\n",
+                PRINT(("%s: block_run(%ld, %u, %u): blocks %ld - %ld are %sallocated!\n",
 					type, run.allocation_group, run.start, run.length, firstMissing,
 					firstGroupBlock + pos + block * bitsPerBlock - 1, allocated ? "not " : ""));
 				firstMissing = -1;
@@ -1169,7 +1169,7 @@ BlockAllocator::CheckBlockRun(block_run run, const char *type, check_control *co
 					control->stats.already_set++;
 				} else {
 					if (firstSet != -1) {
-						FATAL(("%s: block_run(%d, %u, %u): blocks %Ld - %Ld are already set!\n",
+                        FATAL(("%s: block_run(%d, %u, %u): blocks %ld - %ld are already set!\n",
 							type, (int)run.AllocationGroup(), run.Start(), run.Length(), firstSet, firstGroupBlock + offset - 1));
 						firstSet = -1;
 					}
@@ -1182,9 +1182,9 @@ BlockAllocator::CheckBlockRun(block_run run, const char *type, check_control *co
 
 		if (block + 1 >= fBlocksPerGroup || length >= run.Length()) {
 			if (firstMissing != -1)
-				PRINT(("%s: block_run(%ld, %u, %u): blocks %Ld - %Ld are not allocated!\n", type, run.AllocationGroup(), run.Start(), run.Length(), firstMissing, firstGroupBlock + pos + block * bitsPerBlock - 1));
+                PRINT(("%s: block_run(%ld, %u, %u): blocks %ld - %ld are not allocated!\n", type, run.AllocationGroup(), run.Start(), run.Length(), firstMissing, firstGroupBlock + pos + block * bitsPerBlock - 1));
 			if (firstSet != -1)
-				FATAL(("%s: block_run(%d, %u, %u): blocks %Ld - %Ld are already set!\n", type, (int)run.AllocationGroup(), run.Start(), run.Length(), firstSet, firstGroupBlock + pos + block * bitsPerBlock - 1));
+                FATAL(("%s: block_run(%d, %u, %u): blocks %ld - %ld are already set!\n", type, (int)run.AllocationGroup(), run.Start(), run.Length(), firstSet, firstGroupBlock + pos + block * bitsPerBlock - 1));
 		}
 	}
 

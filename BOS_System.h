@@ -13,12 +13,12 @@
 #define SYSTEM_H
 
 #include "BOS_Defs.h"
+#include "NT_Native.h"
 
 #include <stdio.h>
 //thread stuff?
 #include <conio.h>
 
-#include "NT_Native.h"
 //#include <windows.h>
 
 #ifdef __MSVC__
