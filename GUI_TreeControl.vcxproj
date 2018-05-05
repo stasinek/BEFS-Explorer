@@ -15,7 +15,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>BEFSViewer</ProjectName>
+    <ProjectName>BEFS-Explorer</ProjectName>
     <ProjectGuid>{5D617433-0460-4F88-85F7-4490EB00D564}</ProjectGuid>
     <RootNamespace>SkyFS</RootNamespace>
   </PropertyGroup>
@@ -43,14 +43,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\BEFSViwer\haiku;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -87,6 +86,9 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/TreeControl.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -102,13 +104,14 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include;..\BEFSViwer\haiku;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\VC98\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>Sync</ExceptionHandling>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>.\Debug/TreeControl.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
       <ObjectFileName>.\Debug/</ObjectFileName>
@@ -125,54 +128,29 @@
       <Culture>0x040d</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>comctl32.lib;LIBCMTD.lib;lib\ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>comctl32.lib;LIBCMTD.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
-      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>Debug/SkyFS.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>LIBCMTD.lib ntdll.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(OutDir)skyfs.pdb</ProgramDatabaseFile>
       <GenerateMapFile>false</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="DiskFunc.cpp" />
-    <ClCompile Include="haiku\Attribute.cpp" />
-    <ClCompile Include="haiku\BlockAllocator.cpp" />
-    <ClCompile Include="haiku\BPlusTree.cpp" />
-    <ClCompile Include="haiku\Cache.cpp" />
-    <ClCompile Include="haiku\Debug.cpp" />
-    <ClCompile Include="haiku\Hash.cpp" />
-    <ClCompile Include="haiku\Index.cpp" />
-    <ClCompile Include="haiku\Inode.cpp" />
-    <ClCompile Include="haiku\Journal.cpp" />
-    <ClCompile Include="haiku\Query.cpp" />
-    <ClCompile Include="haiku\Utility.cpp" />
-    <ClCompile Include="haiku\Volume.cpp" />
-    <ClCompile Include="BEFSInterface.cpp" />
-    <ClCompile Include="SupportFunctions.cpp" />
-    <ClCompile Include="System.cpp" />
-    <ClCompile Include="TreeControl.cpp">
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-  </ItemGroup>
   <ItemGroup>
     <None Include="resource\bitmap3.bmp" />
     <None Include="resource\ICOkeyg.ico" />
     <None Include="resource\icon1.ico" />
     <None Include="resource\LIST.BMP" />
-    <None Include="resource\Thumbs.db" />
-    <None Include="resource\TreeControl.rsrc.aps" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource\TreeControl.rsrc.rc">
@@ -183,36 +161,11 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DiskFunc.h" />
-    <ClInclude Include="haiku\Attribute.h" />
-    <ClInclude Include="haiku\AutoLocker.h" />
-    <ClInclude Include="haiku\bfs.h" />
-    <ClInclude Include="haiku\bfs_control.h" />
-    <ClInclude Include="haiku\bfs_endian.h" />
-    <ClInclude Include="haiku\BlockAllocator.h" />
-    <ClInclude Include="haiku\BPlusTree.h" />
-    <ClInclude Include="haiku\Cache.h" />
-    <ClInclude Include="haiku\CachedBlock.h" />
-    <ClInclude Include="haiku\Chain.h" />
-    <ClInclude Include="haiku\Debug.h" />
-    <ClInclude Include="haiku\DoublyLinkedList.h" />
-    <ClInclude Include="haiku\Hash.h" />
-    <ClInclude Include="haiku\Index.h" />
-    <ClInclude Include="haiku\Inode.h" />
-    <ClInclude Include="haiku\Journal.h" />
-    <ClInclude Include="haiku\Lock.h" />
-    <ClInclude Include="haiku\Query.h" />
-    <ClInclude Include="haiku\Stack.h" />
-    <ClInclude Include="haiku\supportdefs.h" />
-    <ClInclude Include="haiku\system_dependencies.h" />
-    <ClInclude Include="haiku\Utility.h" />
-    <ClInclude Include="haiku\Volume.h" />
-    <ClInclude Include="myntddk.h" />
-    <ClInclude Include="native.h" />
-    <ClInclude Include="resource\resource.h" />
-    <ClInclude Include="BEFSInterface.h" />
-    <ClInclude Include="SupportFunctions.h" />
-    <ClInclude Include="System.h" />
+    <ClCompile Include="GUI_DiskFunc.cpp" />
+    <ClCompile Include="GUI_TreeControl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GUI_DiskFunc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
