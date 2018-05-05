@@ -10,75 +10,105 @@
 #define BEOS_SUPPORTDEFS_H
 
 #ifdef _MSC_VER
-    #pragma warning (disable: 4005)
-    #pragma warning (default: 4005)
+#define __MSVC__
+#endif
+
+#if defined(__MSVC__)
     #pragma warn -8098
-    #define _CRT_SECURE_NO_DEPRECATE 1
+    #pragma warning (default: 4005)
+    #pragma warning (disable: 4005)
+    #pragma warning( disable: 4018 )
+    #pragma warning( disable: 4101 )
+    #pragma warning( disable: 4103 )
+    #pragma warning( disable: 4200 )
+    #pragma warning( disable: 4244 )
+    #pragma warning( disable: 4267 )
+    #pragma warning( disable: 4311 )
+    #pragma warning( disable: 4355 )
+    #pragma warning( disable: 4390 )
+    #pragma warning( disable: 4800 )
+    #pragma warning( disable: 4005 )
+    #pragma warning( disable: 4103 )
+    #pragma warning( disable: 4200 )
+    #pragma warning( disable: 4309 )
+    #pragma warning( disable: 4311 )
     //#define _X86_ 1
     //#include <winioctl.h>
-    // add as dependancy (linker/input)
-    // C:\WINDDK\3790.1830\lib\wxp\i386\ntdll.lib
+    //add as dependancy (linker/input)
+    //C:\WINDDK\3790.1830\lib\wxp\i386\ntdll.lib // NTCreateFile
 #endif
-#include <winsock2.h>
-#include <windows.h>
-#include <winioctl.h>
-
-extern "C"{
-	#include <NT_System.h>  //for NTCreateFile
-}
+#define _CRT_SECURE_NO_DEPRECATE 1
+#ifdef  WIN32
+    #include <NT_System.h>  //for NTCreateFile
+    #include <winsock2.h>
+    #include <windows.h>
+    #include <conio.h>
+    #include <io.h>
+    #include <direct.h>
+#endif
 //access to the debugfile
 #include <fstream>
 extern std::ofstream debug;
-
-//#include <sys/stat.h>
 #include <string.h>
 
-//#define B_OK 0
-#define port_id     int
-#define ssize_t		signed long
-
+#if defined(__WATCOMC__) | defined(__BORLANDC__) | defined(_MSC_VER)
+//#include <sys/stat.h>
 //#define size_t		unsigned long
 //#define size_t		long long
 //#define size_t		unsigned int
-//typedef long long	size_t;
-
-#define int32_t		int
-#define int16_t		short
-typedef unsigned int uint32_t;
-#define status_t	int
-#define int32_t      int
-#define sem_id		int
-#define uint8_t		unsigned char
-#define uint16_t		unsigned short
-#define thread_id   int
-#define uint		unsigned int
-#ifdef _MSC_VER
-typedef long long int64_t;
-typedef unsigned long long uint64_t;
-#define bigtime_t   unsigned long long
-#else
-typedef __int64 int64_t;
-typedef unsigned __int64 uint64_t;
-#define bigtime_t   unsigned __int64
-#endif
-#define mode_t		unsigned int
+#define byte		char
 #define int8_t		char
-#define byte		int8_t
-#define type_code   unsigned int
-#define int32_t		int
+#define int16_t     short
+#define int32_t     int
+#define uint8_t     unsigned char
+#define uint16_t    unsigned short
+#define uint32_t    unsigned int
+#define uint		unsigned int
+#define int64_t     __int64
+#define uint64_t    unsigned __int64
+#define off_t       unsigned __int64
+//typedef size_t        long long;
+#else
+#define __STDC_CONSTANT_MACROS
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <conio.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <time.h>
+#include <ctime>
+#include <fstream>
+#endif
+
+#define port_id     int
+#define ssize_t		signed long
+#define bigtime_t   unsigned __int64
+#define status_t	int
+#define mode_t		unsigned int
 #define mount_id	int
 #define vnode_id	int64_t
+#define thread_id   int
+#define sem_id		int
+#define type_code   unsigned int
 #define uid_t		int32_t
 #define gid_t		int32_t
 #define ino_t		unsigned short
 #define dev_t		unsigned int
 
-#ifndef __GNUC__
-#ifdef _MSC_VER
-typedef unsigned long long off_t;
-#else
-typedef unsigned __int64 off_t;
+#ifndef LONG_LONG_MAX
+#define LONG_LONG_MAX 9223372036854775807LL
 #endif
+#ifndef LONG_MAX
+#define LONG_MAX 2147483647L
+#endif
+#ifndef LONG_MIN
+#define LONG_MIN (-LONG_MAX - 1L)
 #endif
 
 #define	NAME_MAX			255	/* max bytes in a file name */
@@ -97,18 +127,9 @@ typedef unsigned __int64 off_t;
 #define W_OK				2
 #define R_OK				4
 
-#define B_INFINITE_TIMEOUT	INT64_MAX
+#define B_INFINITE_TIMEOUT	(9223372036854775807)
 #define B_RELATIVE_TIMEOUT	8
 
-#ifndef LONG_LONG_MAX
-#define LONG_LONG_MAX 9223372036854775807LL
-#endif
-#ifndef LONG_MAX
-#define LONG_MAX 2147483647L
-#endif
-#ifndef LONG_MIN
-#define LONG_MIN (-LONG_MAX - 1L)
-#endif
 #define B_GENERAL_ERROR_BASE		LONG_MIN
 #define B_OS_ERROR_BASE				B_GENERAL_ERROR_BASE + 0x1000
 #define B_APP_ERROR_BASE			B_GENERAL_ERROR_BASE + 0x2000
@@ -121,6 +142,7 @@ typedef unsigned __int64 off_t;
 #define B_MAIL_ERROR_BASE			B_GENERAL_ERROR_BASE + 0x8000
 #define B_PRINT_ERROR_BASE			B_GENERAL_ERROR_BASE + 0x9000
 #define B_DEVICE_ERROR_BASE			B_GENERAL_ERROR_BASE + 0xa000
+//#define B_OK                      0
 
 enum {
 	B_NO_MEMORY = B_GENERAL_ERROR_BASE,
@@ -164,9 +186,10 @@ enum {
 #define	S_LINK_SELF_HEALING	00001000000	/* link will be updated if you move its target */
 #define S_LINK_AUTO_DELETE	00002000000	/* link will be deleted if you delete its target */
 
-#ifdef __MSVC__
+#if defined(__MSVC__)
 #pragma warning( disable: 4005 )
 #endif
+
 /* standard file types */
 #define S_IFMT				00000170000 /* type of file */
 #define	S_IFLNK				00000120000 /* symbolic link */
@@ -175,7 +198,8 @@ enum {
 #define S_IFDIR 			00000040000 /* directory */
 #define S_IFCHR 			00000020000 /* character special */
 #define S_IFIFO 			00000010000 /* fifo */
-#ifdef __MSVC__
+
+#if defined(__MSVC__)
 #pragma warning( default: 4005 )
 #endif
 
@@ -249,7 +273,6 @@ enum  	{
   S_MIME_TYPE = 'MIMS'
 };
 
-
 /*----- Storage Kit/File System Errors ------------------------*/
 enum {
 	B_FILE_ERROR = B_STORAGE_ERROR_BASE,
@@ -269,21 +292,12 @@ enum {
 	B_UNSUPPORTED,
 	B_PARTITION_TOO_SMALL
 };
-
 //dirent stuff
-
-#include <time.h>
-
 typedef struct dirent_t {
 	dev_t			d_dev;		/* device */
 	dev_t			d_pdev;		/* parent device (only for queries) */
-#ifdef _MSC_VER
-	unsigned long long			d_ino;		/* inode number */
-	unsigned long long			d_pino;		/* parent inode (only for queries) */
-#else
 	unsigned __int64			d_ino;		/* inode number */
 	unsigned __int64			d_pino;		/* parent inode (only for queries) */
-#endif
 	unsigned short		d_reclen;	/* length of this record, not the name */
 	char				d_name[256];	/* name of the entry (null byte terminated) */
 	unsigned int  type;
@@ -296,6 +310,10 @@ typedef struct dirent_t {
 #define B_READ_ONLY_DEVICE	EINVAL //22
 #define B_DEVICE_FULL 		ENOSPC //28
 #define B_ENTRY_NOT_FOUND	ENOENT //2
+#define B_ATTR_NAME_LENGTH (B_FILE_NAME_LENGTH-1)
+#define B_LIVE_QUERY   0x00000001
+#define B_QUERY_NON_INDEXED 0x00000010   // TODO: just a lucky guess since no definition found
+#define B_MOUNT_READ_ONLY 0x0001
 
 //from fs_info.h
 struct fs_info {
@@ -365,20 +383,17 @@ struct stat {
 	unsigned int		st_type;		/* attribute/index type */
 };
 #endif //0
+
 typedef char* caddr_t;
 typedef struct iovec{
-	caddr_t    iov_base;  /* base address of the data storage area */
-                           /* represented by the iovec structure */
-    size_t        iov_len;   /* size of the data storage area in bytes */
-    //int64_t        iov_len;   /* size of the data storage area in bytes */
+    caddr_t    iov_base;  /* base address of the data storage area represented by the iovec structure */
+    size_t     iov_len;   /* size of the data storage area in bytes */
+    //int64_t    iov_len;   /* size of the data storage area in bytes */
 } iovec;
+
 #ifndef addr_t
 typedef char* addr_t;
 #endif
-#define B_ATTR_NAME_LENGTH (B_FILE_NAME_LENGTH-1)
-#define B_LIVE_QUERY   0x00000001
-#define B_QUERY_NON_INDEXED 0x00000010   // TODO: just a lucky guess since no definition found
-#define B_MOUNT_READ_ONLY 0x0001
 
 typedef struct device_geometry{
 	uint32_t 	bytes_per_sector;
@@ -389,9 +404,21 @@ typedef struct device_geometry{
 	bool 	removable;
 	bool 	read_only;
 	bool 	write_once;
-}device_geometry;
+} device_geometry;
 
 #define panic printf
 #define 	min_c(a, b)   ((a)>(b)?(b):(a))
 
-#endif // SUPPORTDEFS_H
+#endif // BEOS_DEFS_H
+
+
+
+
+
+
+
+
+
+
+
+
