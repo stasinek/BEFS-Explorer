@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="BEFS4WIN_BCB.exe"/>
+    <OBJFILES value="GUI_DiskFunc.obj GUI_TreeControl.obj NT_System.obj SKYFS_Interface.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Attribute.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Cache.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Debug.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Hash.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Index.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Inode.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Interface.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Journal.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_PlusTree.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Query.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Utility.obj 
+      src\add-ons\kernel\file_systems\befs\BEFS_Volume.obj 
+      src\BEOS_SystemWrapper.obj"/>
+    <RESFILES value="resource\GUI_TreeControl.rsrc.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="Vcl50.lib"/>
+    <SPARELIBS value="Vcl50.lib"/>
+    <PACKAGES value="USRPKG.bpi dclusr50.bpi"/>
+    <PATHCPP value=".;src\add-ons\kernel\file_systems\befs;src"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;resource"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG;WIN32_LEAN_AND_MEAN"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL"/>
+    <MAINSOURCE value="BEFS4WIN_BCB.bpf"/>
+    <INCLUDEPATH value="src;resource;src\add-ons\kernel\file_systems\befs;&quot;C:\Program Files\Borland\CBuilder6\Projects\&quot;;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="src;resource;src\add-ons\kernel\file_systems\befs;&quot;C:\Program Files\Borland\CBuilder6\Projects\&quot;;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;&quot;D:\PROGS\CPP\BEFS4WIN\&quot;"/>
+    <WARNINGS value="-w8092 -w8091 -w8090 -w8089 -w8087 -wprc -wucp -wstv -wstu -wpin -w-par 
+      -wnod -wnak -wdef -wcln -wasm -wamp -wamb"/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-O2 -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -fp -ff -X- -a8 -6 -b -k -y -v 
+      -vi- -tW -tWM -c"/>
+    <PFLAGS value="-$YD -$W -$R -$Q -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32mt.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1045
+CodePage=1250
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+$(BCB)\Bin\bcbsmp50.bpl=Borland C++ Sample Components
+$(BCB)\Bin\dcl31w50.bpl=Delphi 1.0 Compatibility Components
+$(BCB)\Bin\dclocx50.bpl=Borland Sample Imported ActiveX Controls
+$(BCB)\Bin\bcb2kaxserver50.bpl=Borland C++Builder COM Server Components Sample Package
+
+[HistoryLists\hlIncludePath]
+Count=5
+Item0=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item1=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item2=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Item3=C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Item4=C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=5
+Item0=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
+Item1=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\lib\obj;$(BCB)\lib
+Item2=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Item3=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Item4=$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_DEBUG;WIN32_LEAN_AND_MEAN
+Item1=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=1
+  </IDEOPTIONS>
+</PROJECT>

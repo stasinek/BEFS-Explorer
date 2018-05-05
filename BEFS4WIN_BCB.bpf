@@ -1,0 +1,23 @@
+USEUNIT("GUI_DiskFunc.cpp");
+USEUNIT("GUI_TreeControl.cpp");
+USEUNIT("NT_System.cpp");
+USEUNIT("SKYFS_Interface.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Attribute.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Hash.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Inode.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Interface.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_PlusTree.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Query.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Utility.cpp");
+USEUNIT("src\add-ons\kernel\file_systems\befs\BEFS_Volume.cpp");
+USERC("resource\GUI_TreeControl.rsrc.rc");
+USEUNIT("src\BEOS_SystemWrapper.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+WinMain

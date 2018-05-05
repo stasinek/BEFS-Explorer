@@ -7,8 +7,7 @@
 *  ----------------------------------------------------------------------------
 */
 
-
-#include "GUI_DiskFunc.h"
+#include <GUI_DiskFunc.h>
 #include <sstream>
 using namespace std;
 
@@ -26,10 +25,9 @@ char* __stdcall GetLastErrorText(DWORD nErrorCode)
 		return(msg);
 }
 
-
 int __stdcall CountPhysicalDrives()
 {
-	debug << "CountPhysicalDrives" << endl;
+    debug << "CountPhysicalDrives" << endl;
 	int index = 0;
 
 //	HANDLE hDevice; // handle to the drive to be examined
@@ -39,8 +37,8 @@ int __stdcall CountPhysicalDrives()
 	HANDLE hDevice = CreateFileA(drive, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_FLAG_RANDOM_ACCESS|FILE_FLAG_WRITE_THROUGH, NULL);
 
 	if (hDevice == INVALID_HANDLE_VALUE) {
-		printf("\tError in CountPhysicalDrives: could not open disk %i (error %i)\n", index, GetLastErrorText(GetLastError()));
-		debug<<"Error in CountPhysicalDrives: could not open disk " << index << ", error " << GetLastErrorText(GetLastError()) << endl;
+        printf("\tError in CountPhysicalDrives: could not open disk %i (error %s)\n", index, GetLastErrorText(GetLastError()));
+        debug<<"Error in CountPhysicalDrives: could not open disk " << index << ", error " << GetLastErrorText(GetLastError()) << endl;
 		return 0;
 	}
 
@@ -54,28 +52,27 @@ int __stdcall CountPhysicalDrives()
 	return index;
 }
 
-
-int __stdcall ListDirectories(HWND hWnd, HTREEITEM* node, TVITEMA* tvi, ofstream* debug, vector<Volume>* volumes)
+int __stdcall ListDirectories(HWND hWnd, HTREEITEM* node, TVITEMA* tvi, ofstream* a_debug, vector<Volume>* volumes)
 {
 	void* iter;
-	dirent d;
+    dirent_t d;
 	int children = 0;
-	uint32 num;
+	uint32_t num;
 	TreeData* td = reinterpret_cast<TreeData*>(tvi->lParam);
 	Volume* vv = (Volume*)td->extra;
 	Volume* v = (Volume*)(&volumes->at(td->volume));
-	*debug << "ListDir: " << tvi->pszText << " volume = " << v << " vol.Name = " << v->Name() << " hWnd = " << hWnd << endl;
-	debug->flush();
-	//if (vv->IsValidSuperBlock())* debug<<"2: VALID SUPERBLOCK " << vv <<" td->volume = " << td->volume << endl;
-	//else* debug << "2: NO VALID SUPERBLOCK!!! " << v << " td->volume=" << td->volume << endl;
-	debug->flush();
+    *a_debug << "ListDir: " << tvi->pszText << " volume = " << v << " vol.Name = " << v->Name() << " hWnd = " << hWnd << endl;
+     a_debug->flush();
+    //if (vv->IsValidSuperBlock())* a_debug<<"2: VALID SUPERBLOCK " << vv <<" td->volume = " << td->volume << endl;
+    //else* a_debug << "2: NO VALID SUPERBLOCK!!! " << v << " td->volume=" << td->volume << endl;
+     a_debug->flush();
 	
 	if (v->IsValidSuperBlock())
-		*debug<<"4: VALID SUPERBLOCK " << v << endl;
+        *a_debug<<"4: VALID SUPERBLOCK " << v << endl;
 	else 
-		*debug<<"4: NO VALID SUPERBLOCK!!! " << v << endl;
+        *a_debug<<"4: NO VALID SUPERBLOCK!!! " << v << endl;
 	
-	debug->flush();
+     a_debug->flush();
 	Inode* II;
 	
 	if (td->inode!=-1)
@@ -87,72 +84,71 @@ int __stdcall ListDirectories(HWND hWnd, HTREEITEM* node, TVITEMA* tvi, ofstream
 	
 	if (II->IsDirectory()) { 
 		bfs_open_dir(v, II, &iter);
-		*debug << "after opendir...  inode: " << td->inode << endl;
-		debug->flush();
+        *a_debug << "after opendir...  inode: " << td->inode << endl;
+        a_debug->flush();
 		// second arg of bfs_read_dir is not used actually
 		//status_t ss = bfs_read_dir(v, v->RootNode(), iter, &d,sizeof(dirent), &num);
-		status_t ss = bfs_read_dir(v, II, iter, &d,sizeof(dirent), &num);
-		*debug << "after readdir..." << endl;
-		debug->flush();
+        status_t ss = bfs_read_dir(v, II, iter, &d,sizeof(dirent_t), &num);
+        *a_debug << "after readdir..." << endl;
+        a_debug->flush();
 		//TODO: this should be the '.' entry...
 		if (ss==B_OK && num>0)
-			* debug<<d.d_name<<endl;
+            *a_debug<<d.d_name<<endl;
 		
-		debug->flush();
+        a_debug->flush();
 		while (ss == B_OK && num > 0) {
-			*debug << "before readdir\n";
-			debug->flush();
-			ss = bfs_read_dir(v, v->RootNode(), iter, &d,sizeof(dirent), &num);
+            *a_debug << "before readdir\n";
+            a_debug->flush();
+            ss = bfs_read_dir(v, v->RootNode(), iter, &d,sizeof(dirent_t), &num);
 			if (ss == B_OK && num > 0) { 
-				//debug<<"readdir success\n";debug.flush();
+                //a_debug<<"readdir success\n";a_debug.flush();
 				//printf("dirent: %s, len=%i, ino=%i\n",d.d_name,d.d_reclen,d.d_ino);
 				Inode* I = new Inode(v, d.d_ino);
 				
 				if (I->IsDirectory()) {
-					*debug << d.d_name << "(dir)" << endl;
-					debug->flush();
+                    *a_debug << d.d_name << "(dir)" << endl;
+                    a_debug->flush();
 					TreeData* data = new TreeData(td->level+1, d.d_name, d.d_ino);
 					data->extra = v;
 					data->volume = td->volume;
-                    AddChild(hWnd, node, d.d_name, ICON_TREE, data, debug);
+                    AddChild(hWnd, node, d.d_name, ICON_TREE, data, a_debug);
 					children++;
 				}
 				
 				if (I->IsFile()) { 
-					*debug << d.d_name << "(file)" << endl;
-					debug->flush();
+                    *a_debug << d.d_name << "(file)" << endl;
+                    a_debug->flush();
 					TreeData* data = new TreeData(2, d.d_name, d.d_ino);
 					data->extra = v;
 					data->volume = td->volume;
-                    AddChild(hWnd, node, d.d_name, ICON_FILE, data, debug);
+                    AddChild(hWnd, node, d.d_name, ICON_FILE, data, a_debug);
 					children++;
 				}
 				
 				if (!I->IsFile() && !I->IsDirectory()) { 
-					*debug << d.d_name << "(?)" << endl;
-					debug->flush();
+                    *a_debug << d.d_name << "(?)" << endl;
+                    a_debug->flush();
 					TreeData* data = new TreeData(2, d.d_name, d.d_ino);
 					data->extra = v;
 					data->volume = td->volume;
-                    AddChild(hWnd, node, d.d_name, ICON_OTHER, data,debug);
+                    AddChild(hWnd, node, d.d_name, ICON_OTHER, data,a_debug);
 					children++;
 				}
 				free(I);
 			}
-			//debug<<"at end while loop\n"; debug.flush();
+            //a_debug<<"at end while loop\n"; a_debug.flush();
 		}
 	}
 	return children;
 }
 
-
-int __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug)
+int __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* a_debug)
 {
-	*debug << "addChild: hWnd=" << hWnd << endl;
-	*debug << "addChild: parent=" << *parent << ", level = " << td->level << endl;
+    *a_debug << "addChild: hWnd=" << hWnd << endl;
+    *a_debug << "addChild: parent=" << *parent << ", level = " << td->level << endl;
     TVINSERTSTRUCTA tvinsert;   // struct to config out tree control
 	if (strcmp(t1,"..")!= 0 && strcmp(t1,".")!= 0) {
-		*debug<<"AddChild: " << t1 << " volume = " << td->extra << endl;
+        *a_debug<<"AddChild: " << t1 << " volume = " << td->extra << endl;
 		tvinsert.hParent = *parent;	
 		tvinsert.hInsertAfter = TVI_LAST; 
 		tvinsert.item.mask = TVIF_TEXT|TVIF_IMAGE|TVIF_SELECTEDIMAGE|TVIF_PARAM;
@@ -172,14 +168,13 @@ int __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeDat
 		//SendDlgItemMessage(hWnd,IDC_TREE1,TVM_INSERTITEM,0,(LPARAM)&tvinsert);
 		TreeView_InsertItem(hWnd, (LPARAM)&tvinsert);
 	} else
-		*debug<<"AddChild: ignoring '.' or '..'" << endl;
+        *a_debug<<"AddChild: ignoring '.' or '..'" << endl;
 	return 0;
 }
 
-
-int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* debug)
+int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* a_debug)
 {	
-	*debug << "listPartitions" << endl;
+    *a_debug << "listPartitions" << endl;
 	int i, count = 0;
 	DWORD dwBytes;
 	PARTITION* PartitionTbl;
@@ -196,12 +191,12 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 	DWORD dwPrevRelSector = 0;
 	char drive[60];
 	sprintf(drive, PHYSICALDRIVE, disk);
-	*debug << "DRIVE = " << drive << endl;
+    *a_debug << "DRIVE = " << drive << endl;
 	HANDLE hDrive = CreateFileA(drive, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_FLAG_RANDOM_ACCESS|FILE_FLAG_WRITE_THROUGH, NULL);
 
 	if (hDrive == INVALID_HANDLE_VALUE) {
 		printf("\tError in listPartitions: could not open disk %i (error id %i, %s)\n", disk, GetLastError(), GetLastErrorText(GetLastError()));
-		*debug<<"Error in listPartitions: could not open disk " << disk << ", error id " << GetLastError << ", " << GetLastErrorText(GetLastError()) << endl;
+        *a_debug<<"Error in listPartitions: could not open disk " << disk << ", error id " << GetLastError() << ", " << GetLastErrorText(GetLastError()) << endl;
 		return GetLastError();
 	}
 
@@ -209,7 +204,7 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 	
 	if (!nRet) {
         printf("\tRead error in listPartitions: id %i %s\n", (int)GetLastError, GetLastErrorText(GetLastError()));
-		*debug << "Read error in listPartitions: " << GetLastErrorText(GetLastError()) << endl;
+        *a_debug << "Read error in listPartitions: " << GetLastErrorText(GetLastError()) << endl;
 		return GetLastError();
 	}
 
@@ -282,9 +277,9 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 				SendDlgItemMessage(h,IDC_TREE1,TVM_INSERTITEM,0,(LPARAM)s);
 			}
 				break;
-			case PART_BFS:
+			case PART_BEFS:
 				{
-				strcpy(szTmpStr, "BFS");	//bfs partition
+				strcpy(szTmpStr, "BEFS");	//bfs partition
 				s->hParent = *node;
 				s->item.mask = TVIF_TEXT|TVIF_IMAGE|TVIF_SELECTEDIMAGE| TVIF_PARAM;
 				s->item.lParam = 0;
@@ -301,9 +296,9 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 				SendDlgItemMessage(h, IDC_TREE1, TVM_INSERTITEM, 0 , (LPARAM)s);
 			}
 				break;
-			case PART_BFS1:
+			case PART_BEFS1:
 			{
-				strcpy(szTmpStr, "BFS?");	//bfs partition
+				strcpy(szTmpStr, "BEFS?");	//bfs partition
 				s->hParent = *node;
 				s->item.mask = TVIF_TEXT|TVIF_IMAGE|TVIF_SELECTEDIMAGE| TVIF_PARAM;
 				s->item.lParam = 0;
@@ -326,7 +321,7 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 		}
 
 		printf("\t[%d] %s Drive, Primary (0x%x)\n", wDrive, szTmpStr, PartitionTbl->chType);
-		*debug<<"\t[" << wDrive << "] " << szTmpStr << " Drive, Primary (" << (int)PartitionTbl->chType << ")" << endl;
+        *a_debug<<"\t[" << wDrive << "] " << szTmpStr << " Drive, Primary (" << (int)PartitionTbl->chType << ")" << endl;
 		PartitionTbl++;
 		wDrive++;
 	}
@@ -423,9 +418,9 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 					SendDlgItemMessage(h,IDC_TREE1,TVM_INSERTITEM,0,(LPARAM)s);
 				}
 					break;
-				case PART_BFS:
+				case PART_BEFS:
 				{
-					strcpy(szTmpStr, "BFS");	//bfs partition
+					strcpy(szTmpStr, "BEFS");	//bfs partition
 					s->hParent = *node;
 					s->item.mask = TVIF_TEXT|TVIF_IMAGE|TVIF_SELECTEDIMAGE| TVIF_PARAM;
 					s->item.lParam = 0;
@@ -442,9 +437,9 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 					SendDlgItemMessage(h, IDC_TREE1, TVM_INSERTITEM, 0, (LPARAM)s);
 				}
 					break;
-				case PART_BFS1:
+				case PART_BEFS1:
 				{
-					strcpy(szTmpStr, "BFS?");	//bfs partition
+					strcpy(szTmpStr, "BEFS?");	//bfs partition
 					s->hParent = *node;
 					s->item.mask = TVIF_TEXT|TVIF_IMAGE|TVIF_SELECTEDIMAGE| TVIF_PARAM;
 					s->item.lParam = 0;
@@ -466,7 +461,7 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 					break;
 				}
 				printf("\t[%d] %s Drive, Logical (0x%x)\n", wDrive, szTmpStr, PartitionTbl->chType);
-				*debug << "\t[" << wDrive << "] " << szTmpStr << " Drive, Logical (" << (int)PartitionTbl->chType << ")" << endl;
+                *a_debug << "\t[" << wDrive << "] " << szTmpStr << " Drive, Logical (" << (int)PartitionTbl->chType << ")" << endl;
 				PartitionTbl++;
 				wDrive++;
 			}

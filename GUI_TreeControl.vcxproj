@@ -15,7 +15,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>BFSViewer</ProjectName>
+    <ProjectName>BEFSViewer</ProjectName>
     <ProjectGuid>{5D617433-0460-4F88-85F7-4490EB00D564}</ProjectGuid>
     <RootNamespace>SkyFS</RootNamespace>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\BFSViwer\haiku;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\BEFSViwer\haiku;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -102,7 +102,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include;..\BFSViwer\haiku;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include;..\BEFSViwer\haiku;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>Sync</ExceptionHandling>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -154,7 +154,7 @@
     <ClCompile Include="haiku\Query.cpp" />
     <ClCompile Include="haiku\Utility.cpp" />
     <ClCompile Include="haiku\Volume.cpp" />
-    <ClCompile Include="BFSInterface.cpp" />
+    <ClCompile Include="BEFSInterface.cpp" />
     <ClCompile Include="SupportFunctions.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TreeControl.cpp">
@@ -210,7 +210,7 @@
     <ClInclude Include="myntddk.h" />
     <ClInclude Include="native.h" />
     <ClInclude Include="resource\resource.h" />
-    <ClInclude Include="BFSInterface.h" />
+    <ClInclude Include="BEFSInterface.h" />
     <ClInclude Include="SupportFunctions.h" />
     <ClInclude Include="System.h" />
   </ItemGroup>

@@ -10,21 +10,21 @@
 #ifndef GUI_DISKFUNC_H
 #define GUI_DISKFUNC_H
 
+#include <src/add-ons/kernel/file_systems/befs/BEFS_Volume.h>
+#include <src/add-ons/kernel/file_systems/befs/BEFS_Inode.h>
+#include <src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h>
+#include <src/add-ons/kernel/file_systems/befs/BEFS_Interface.h>
+#include <BEOS_SystemWrapper.h>
+#include <resource/GUI_resource.h>
+
 // bfs include files
 #define _CRT_SECURE_NO_DEPRECATE 1
+#include <winsock2.h>
 #include <windows.h>
 #include <commctrl.h>
 #include <iostream>
 #include <fstream>
 #include <vector>
-
-#include "resource\GUI_resource.h"
-
-#include "BFS_Volume.h"
-#include "BFS_Inode.h"
-#include "BFS_PlusTree.h"
-#include "BFS_Interface.h"
-#include "BOS_System.h"
 
 using namespace std;
 
@@ -34,8 +34,8 @@ using namespace std;
 #define ICON_DISK	4
 
 int __stdcall CountPhysicalDrives();
-int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* debug);
-int __stdcall ListDirectories(HWND h, HTREEITEM* node, TVITEMA* s, ofstream* d, vector<Volume>* volumes);
+int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* a_debug);
+int __stdcall ListDirectories(HWND h, HTREEITEM* node, TVITEMA* s, ofstream* d, vector<Volume>* a_volumes);
 
 class TreeData {
 	public:
@@ -46,7 +46,7 @@ class TreeData {
 			sprintf(name, n);
 		}
 		
-		TreeData(int l, const char* n, uint64 i)
+        TreeData(int l, const char* n, int64_t i)
 			:level(l), inode(i)
 		{
 			sprintf(name,n);
@@ -65,7 +65,7 @@ class TreeData {
 		int iData1;
 		int iData2;
 		int volume;
-		uint64 inode;
+        int64_t inode;
 		char name[255];
 		void* extra;
 };

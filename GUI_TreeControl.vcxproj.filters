@@ -63,7 +63,7 @@
     <ClCompile Include="haiku\Volume.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BFSInterface.cpp">
+    <ClCompile Include="BEFSInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,7 +176,7 @@
     <ClInclude Include="haiku\supportdefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BFSInterface.h">
+    <ClInclude Include="BEFSInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
