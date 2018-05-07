@@ -13,7 +13,7 @@
 #include "BEFS_Volume.h"
 #include "BEFS_Chain.h"
 #include "BEFS_Utility.h"
-#include <BEOS_SystemDependencies.h>
+#include <BEOS_SystemWrapper.h>
 //---------------------------------------------------------------------------
 class LogEntry;
 typedef DoublyLinkedList<LogEntry> LogEntryList;

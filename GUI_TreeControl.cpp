@@ -429,9 +429,9 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			SendMessage(hProgress, PBM_SETSTEP, 4096, 0L);
 
 			string strItem;
-			int cd = CountPhysicalDrives();
+			int i, cd = CountPhysicalDrives();
 			debug << "Number of drives: " << cd << endl;
-			for (int i = 0;i < cd; i++) {
+			for (i = 0;i < cd; i++) {
 				tvinsert.hParent=NULL;			// top most level no need handle
 				tvinsert.hInsertAfter = TVI_ROOT; // work as root level
 				tvinsert.item.mask = TVIF_TEXT|TVIF_IMAGE|TVIF_SELECTEDIMAGE|TVIF_PARAM;
@@ -498,7 +498,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					CurrentItem = GetNext(hTree, CurrentItem);
 			}
 
-			for (unsigned int i = 0;i < volumes.size(); i++) {
+			for (i = 0;i < volumes.size(); i++) {
 				Volume* vv = (Volume*)&volumes[i];
 
 				if (vv->IsValidSuperBlock())

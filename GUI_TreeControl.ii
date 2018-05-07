@@ -1,12 +1,12 @@
-# 1 "GUI_TreeControl.cpp"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
 # 1 "D:\\stasiek\\My Projects\\PROGS\\CPP\\BEFS4WIN//"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "GUI_TreeControl.cpp"
-# 13 "GUI_TreeControl.cpp"
-# 1 "./GUI_DiskFunc.h" 1
-# 13 "./GUI_DiskFunc.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 1
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
+# 13 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 1
+# 13 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 1
 
 
 
@@ -14,12 +14,12 @@
 
 
 
-# 1 "./BEOS_SystemWrapper.h" 1
-# 12 "./BEOS_SystemWrapper.h"
-# 1 "./BEOS_Defs.h" 1
-# 42 "./BEOS_Defs.h"
-# 1 "./NT_System.h" 1
-# 11 "./NT_System.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_SystemWrapper.h" 1
+# 12 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_SystemWrapper.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 1
+# 42 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN\\src/NT_System.h" 1
+# 11 "D:\\PROGS\\CPP\\BEFS4WIN\\src/NT_System.h"
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 1 3
 # 10 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 3
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/_mingw_unicode.h" 1 3
@@ -44157,7 +44157,7 @@ typedef unsigned int GROUP;
   __attribute__((dllimport)) INT __attribute__((__stdcall__)) WSAProviderConfigChange(LPHANDLE lpNotificationHandle,LPWSAOVERLAPPED lpOverlapped,LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine);
 # 1225 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 3
 }
-# 12 "./NT_System.h" 2
+# 12 "D:\\PROGS\\CPP\\BEFS4WIN\\src/NT_System.h" 2
 
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 1 3
 # 12 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 3
@@ -44173,8 +44173,8 @@ extern "C" const GUID GUID_DEVINTERFACE_CDCHANGER;
 extern "C" const GUID GUID_DEVINTERFACE_STORAGEPORT;
 extern "C" const GUID GUID_DEVINTERFACE_COMPORT;
 extern "C" const GUID GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR;
-# 14 "./NT_System.h" 2
-# 28 "./NT_System.h"
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN\\src/NT_System.h" 2
+# 28 "D:\\PROGS\\CPP\\BEFS4WIN\\src/NT_System.h"
 typedef struct _IO_STATUS_BLOCK {
   union {
     int Status;
@@ -44255,7 +44255,8 @@ extern __RtlInitUnicodeString RtlInitUnicodeString;
 
 int __attribute__((__stdcall__)) Load_NTDLL(void);
 int __attribute__((__stdcall__)) UnLoad_NTDLL(void);
-# 43 "./BEOS_Defs.h" 2
+# 43 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
+
 
 
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 1 3
@@ -44374,7 +44375,9 @@ extern "C" {
 
 }
 # 126 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 2 3
-# 46 "./BEOS_Defs.h" 2
+# 47 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
+# 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 1 3
+# 10 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 3
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 1 3
 # 12 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 3
 #pragma pack(push,_CRT_PACKING)
@@ -44633,9 +44636,8 @@ extern "C" {
 
 }
 # 369 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 2 3
-# 47 "./BEOS_Defs.h" 2
-# 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 1 3
-# 12 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 3
+# 11 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 2 3
+
 #pragma pack(push,_CRT_PACKING)
 
 
@@ -44692,7 +44694,8 @@ extern "C" {
 
 
 #pragma pack(pop)
-# 48 "./BEOS_Defs.h" 2
+# 48 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
+
 
 
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 1 3
@@ -67975,9 +67978,9 @@ namespace std
 
 }
 # 940 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 2 3
-# 51 "./BEOS_Defs.h" 2
+# 52 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
 extern std::ofstream debug;
-# 79 "./BEOS_Defs.h"
+# 91 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h"
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 1 3
 # 21 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 3
 extern "C" {
@@ -67989,7 +67992,7 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 
 
 }
-# 80 "./BEOS_Defs.h" 2
+# 92 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 1 3
 # 16 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
@@ -68016,12 +68019,12 @@ int __attribute__((__cdecl__)) wstat(const wchar_t *_Filename,struct stat *_Stat
 
 
 #pragma pack(pop)
-# 82 "./BEOS_Defs.h" 2
+# 94 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
 
 
 
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/fcntl.h" 1 3
-# 86 "./BEOS_Defs.h" 2
+# 98 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 1 3
 # 15 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
@@ -68155,7 +68158,7 @@ int __attribute__((__cdecl__)) clock_settime(clockid_t clock_id, const struct ti
 
 }
 # 286 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 2 3
-# 88 "./BEOS_Defs.h" 2
+# 100 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 1 3
 # 39 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 3
        
@@ -68177,8 +68180,8 @@ namespace std
   using ::localtime;
   using ::strftime;
 }
-# 89 "./BEOS_Defs.h" 2
-# 146 "./BEOS_Defs.h"
+# 101 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h" 2
+# 162 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h"
 enum {
  B_NO_MEMORY = (-2147483647L - 1L),
  B_IO_ERROR,
@@ -68202,7 +68205,7 @@ enum {
  B_OK = 0,
  B_NO_ERROR = 0
 };
-# 228 "./BEOS_Defs.h"
+# 238 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h"
 enum {
   B_ANY_TYPE = 'ANYT',
   B_ATOM_TYPE = 'ATOM',
@@ -68283,7 +68286,7 @@ typedef struct dirent_t {
  time_t modify;
  time_t create;
 } dirent_t;
-# 318 "./BEOS_Defs.h"
+# 328 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h"
 struct fs_info {
     unsigned int dev;
     unsigned short root;
@@ -68312,7 +68315,7 @@ struct attr_stat {
         time_t st_ctime;
   uint32_t st_type;
 };
-# 386 "./BEOS_Defs.h"
+# 396 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_Defs.h"
 typedef char* caddr_t;
 typedef struct iovec{
     caddr_t iov_base;
@@ -68334,16 +68337,14 @@ typedef struct device_geometry{
  bool read_only;
  bool write_once;
 } device_geometry;
-# 13 "./BEOS_SystemWrapper.h" 2
-# 1 "./BEOS_SystemDependencies.h" 1
-# 14 "./BEOS_SystemWrapper.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
-# 1 "./BEOS_SystemWrapper.h" 1
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Endian.h" 1
-# 13 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
-# 21 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
+# 13 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_SystemWrapper.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h" 1
+# 11 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_SystemWrapper.h" 1
+# 12 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Endian.h" 1
+# 13 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h" 2
+# 21 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h"
 struct block_run {
  int32_t allocation_group;
  uint16_t start;
@@ -68362,7 +68363,7 @@ struct block_run {
 } ;
 
 typedef block_run inode_addr;
-# 50 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
+# 50 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h"
 struct disk_super_block {
         char name[32];
  int32_t magic1;
@@ -68405,7 +68406,7 @@ struct disk_super_block {
  bool IsValid();
         void Initialize(const char *name, int64_t numBlocks, uint32_t blockSize);
 } ;
-# 110 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
+# 110 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h"
 struct data_stream {
  block_run direct[12];
         int64_t max_direct_range;
@@ -68420,7 +68421,7 @@ struct data_stream {
         int64_t MaxDoubleIndirectRange() const { return max_double_indirect_range; }
         int64_t Size() const { return size; }
 } ;
-# 134 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
+# 134 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h"
 struct bfs_inode;
 
 struct small_data {
@@ -68439,7 +68440,7 @@ struct small_data {
  inline small_data *Next() const;
  inline bool IsLast(const bfs_inode *inode) const;
 } ;
-# 161 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
+# 161 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h"
 class Volume;
 
 
@@ -68653,7 +68654,7 @@ small_data::IsLast(const bfs_inode *inode) const
 
  return (uint32_t)this > (uint32_t)inode + inode->InodeSize() - sizeof(small_data) || name_size == 0;
 }
-# 15 "./BEOS_SystemWrapper.h" 2
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN\\src/BEOS_SystemWrapper.h" 2
 
 
 
@@ -68711,16 +68712,16 @@ int32_t cache_blocks_in_transaction(void* d, int id);
 void cache_end_transaction(void* d, int id, tFoo f, void*);
 int cache_start_sub_transaction(void* d, int id);
 int cache_start_transaction(void* d);
-# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 9 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
 
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 1
-# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 1
-# 10 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h" 1
-# 82 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS.h" 1
+# 11 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 1
+# 9 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 1
+# 10 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Debug.h" 1
+# 83 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Debug.h"
  struct block_run;
  struct bplustree_header;
  struct bplustree_node;
@@ -68742,9 +68743,9 @@ int cache_start_transaction(void* d);
 
  void remove_debugger_commands();
  void add_debugger_commands();
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Utility.h" 1
-# 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Utility.h"
+# 11 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Utility.h" 1
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Utility.h"
 struct sorted_array {
  public:
         int64_t count;
@@ -68765,8 +68766,13 @@ sorted_array::Find(int64_t value) const
  int32_t i;
  return FindInternal(value,i) ? i : -1;
 }
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
-# 20 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 12 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
+
+
+
+
+
+
 typedef struct recursive_lock {
     int sem;
     int holder;
@@ -68791,7 +68797,7 @@ typedef struct rw_lock {
     int32_t count;
     benaphore writeLock;
 } rw_lock;
-# 57 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 55 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
 class Semaphore {
  public:
   Semaphore(const char *name)
@@ -68981,7 +68987,7 @@ class RecursiveLocker {
   RecursiveLock &fLock;
   int fStatus;
 };
-# 368 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 366 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
 class ReadWriteLock {
  public:
   ReadWriteLock(const char *name)
@@ -69163,7 +69169,7 @@ class SimpleLock {
      current = fHolder;
      fHolder = thisThread;
     }
-# 557 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 555 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
     Sleep(time);
    }
 
@@ -69211,7 +69217,7 @@ class SimpleLocker {
  private:
   SimpleLock &fLock;
 };
-# 10 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 2
+# 10 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 2
 
 struct disk_super_block;
 struct check_control;
@@ -69263,9 +69269,9 @@ class BlockAllocator {
   uint32_t *fCheckBitmap;
   check_cookie *fCheckCookie;
 };
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Chain.h" 1
-# 15 "./src/add-ons/kernel/file_systems/befs/BEFS_Chain.h"
+# 12 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Chain.h" 1
+# 15 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Chain.h"
 template<class Link> class Chain {
  public:
   Chain()
@@ -69305,15 +69311,15 @@ template<class Link> class Chain {
  private:
   Link *fFirst;
 };
-# 13 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Cache.h" 1
+# 13 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Cache.h" 1
 
 
 
 
 
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_DoublyLinkedList.h" 1
-# 10 "./src/add-ons/kernel/file_systems/befs/BEFS_DoublyLinkedList.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_DoublyLinkedList.h" 1
+# 10 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_DoublyLinkedList.h"
 template<typename Element>
 class DoublyLinkedListLink {
 public:
@@ -69864,9 +69870,9 @@ DoublyLinkedList<Element, GetLink>::Size() const
 
 template<typename Element, typename GetLink>
 GetLink DoublyLinkedList<Element, GetLink>::sGetLink;
-# 7 "./src/add-ons/kernel/file_systems/befs/BEFS_Cache.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Hash.h" 1
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Hash.h"
+# 7 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Cache.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Hash.h" 1
+# 11 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Hash.h"
 typedef struct hash_iterator {
  void *current;
  int bucket;
@@ -69889,10 +69895,10 @@ extern struct hash_iterator *hash_open(struct hash_table *table, struct hash_ite
 extern void hash_close(struct hash_table *table, struct hash_iterator *i, bool free_iterator);
 extern void *hash_next(struct hash_table *table, struct hash_iterator *i);
 extern void hash_rewind(struct hash_table *table, struct hash_iterator *i);
-# 45 "./src/add-ons/kernel/file_systems/befs/BEFS_Hash.h"
+# 45 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Hash.h"
 extern uint32_t hash_hash_string(const char *str);
-# 8 "./src/add-ons/kernel/file_systems/befs/BEFS_Cache.h" 2
-# 20 "./src/add-ons/kernel/file_systems/befs/BEFS_Cache.h"
+# 8 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Cache.h" 2
+# 20 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Cache.h"
 struct cache_transaction;
 struct cached_block;
 struct hash_table;
@@ -70203,7 +70209,7 @@ int cache_io(void *_cacheRef, int64_t offset, addr_t buffer, int64_t *_size, boo
 static cached_block * get_cached_block(block_cache *cache, int64_t blockNumber, bool *_allocated,bool readBlock);
 static void put_cached_block(block_cache *cache, int64_t blockNumber);
 static void put_cached_block(block_cache *cache, cached_block *block);
-# 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
 
 class Journal;
 class Inode;
@@ -70216,7 +70222,7 @@ enum volume_flags {
 enum volume_initialize_flags {
  VOLUME_NO_INDICES = 0x0001,
 };
-# 47 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h"
+# 47 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h"
 typedef struct
 {
  BYTE chBootInd;
@@ -70435,17 +70441,17 @@ Volume::GetUniqueID()
 {
   return atomic_add(&fUniqueID, 1);
 }
-# 14 "./GUI_DiskFunc.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 1
-# 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 1
-# 15 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Journal.h" 1
-# 18 "./src/add-ons/kernel/file_systems/befs/BEFS_Journal.h"
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 1
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Inode.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 1
+# 15 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Journal.h" 1
+# 18 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Journal.h"
 class LogEntry;
 typedef DoublyLinkedList<LogEntry> LogEntryList;
 struct run_array;
-# 29 "./src/add-ons/kernel/file_systems/befs/BEFS_Journal.h"
+# 29 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Journal.h"
 class Journal {
  public:
   Journal(Volume *);
@@ -70572,12 +70578,12 @@ class Transaction {
 
   Journal *fJournal;
 };
-# 16 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 2
+# 16 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 2
 
 
 
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h" 1
-# 21 "./src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h" 1
+# 21 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h"
 class CachedBlock {
  public:
   CachedBlock(Volume *volume);
@@ -70742,7 +70748,7 @@ CachedBlock::MakeWritable(Transaction &transaction)
 
  return block_cache_make_writable(fVolume->BlockCache(), fBlockNumber, transaction.ID());
 }
-# 20 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 2
+# 20 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 2
 
 
 void fill_stat_buffer(Inode *inode, struct attr_stat &stat);
@@ -71003,7 +71009,7 @@ class AttributeIterator {
 
   int Rewind();
 
-  int GetNext(char *name, size_t *length, uint32_t *type, unsigned long long *id);
+  int GetNext(char *name, size_t *length, uint32_t *type, uint64_t *id);
 
  private:
   friend class Chain<AttributeIterator>;
@@ -71036,9 +71042,9 @@ openModeToAccess(int openMode)
 
  return 4 | 2;
 }
-# 15 "./GUI_DiskFunc.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h" 1
-# 14 "./src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h"
+# 15 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h" 1
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h"
 struct bplustree_node;
 
 
@@ -71125,7 +71131,7 @@ struct bplustree_node {
  int CheckIntegrity(uint32_t nodeSize) const;
 
 } ;
-# 109 "./src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h"
+# 109 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h"
 enum bplustree_traversing {
  BPLUSTREE_FORWARD = 1,
  BPLUSTREE_BACKWARD = -1,
@@ -71489,13 +71495,13 @@ inline uint32_t bplustree_node::MaxFragments(uint32_t nodeSize)
 {
     return nodeSize / ((7 + 1) * sizeof(int64_t));
 }
-# 16 "./GUI_DiskFunc.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Interface.h" 1
-# 13 "./src/add-ons/kernel/file_systems/befs/BEFS_Interface.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h" 1
-# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 1
-# 10 "./src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h" 2
+# 16 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Interface.h" 1
+# 13 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Interface.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h" 1
+# 9 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h"
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 1
+# 10 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h" 2
 
 struct attr_cookie {
  char name[(255 -1)];
@@ -71533,7 +71539,7 @@ class Attribute {
   Inode *fAttribute;
   const char *fName;
 };
-# 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Interface.h" 2
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_Interface.h" 2
 
 
 int bfs_open_dir(void *, void *, void **);
@@ -71558,10 +71564,10 @@ int bfs_open_attr(void* _fs, fs_vnode _node, const char *name, int openMode, voi
 int bfs_close_attr(void* _fs, fs_vnode _file, attr_cookie* cookie);
 int bfs_read_attr(void* _fs, fs_vnode _file, attr_cookie* _cookie, int64_t pos, void *buffer, int64_t *_length);
 int bfs_read_attr_stat(void* _fs, fs_vnode _file, attr_cookie* _cookie, struct attr_stat *stat);
-# 17 "./GUI_DiskFunc.h" 2
+# 17 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
 
-# 1 "./resource/GUI_resource.h" 1
-# 19 "./GUI_DiskFunc.h" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/resource/GUI_resource.h" 1
+# 19 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
 
 
 
@@ -73211,7 +73217,7 @@ typedef const void* (__attribute__((__stdcall__)) *PFNDPAMERGECONST)(UINT, const
 
 
 }
-# 25 "./GUI_DiskFunc.h" 2
+# 25 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/iostream" 1 3
 # 36 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/iostream" 3
        
@@ -73243,7 +73249,7 @@ namespace std
 
 
 }
-# 26 "./GUI_DiskFunc.h" 2
+# 26 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
 
 # 1 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/vector" 1 3
 # 58 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/vector" 3
@@ -77283,7 +77289,7 @@ namespace std
 
 }
 # 70 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/vector" 2 3
-# 28 "./GUI_DiskFunc.h" 2
+# 28 "D:\\PROGS\\CPP\\BEFS4WIN/GUI_DiskFunc.h" 2
 
 using namespace std;
 
@@ -77330,22 +77336,24 @@ class TreeData {
 };
 
 int __attribute__((__stdcall__)) AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug);
-# 14 "GUI_TreeControl.cpp" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h" 1
+# 14 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h" 1
 
 
 
 
 struct _TREEITEM;
 typedef struct _TREEITEM *HTREEITEM;
+
 typedef struct HWND__ *HWND;
+
 
 
 HTREEITEM GetNext(HWND hTree, HTREEITEM Item);
 HTREEITEM GetNextUpItem(HWND hTree, HTREEITEM Item);
-# 15 "GUI_TreeControl.cpp" 2
-# 1 "./resource/GUI_resource.h" 1
-# 16 "GUI_TreeControl.cpp" 2
+# 15 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp" 2
+# 1 "D:\\PROGS\\CPP\\BEFS4WIN/resource/GUI_resource.h" 1
+# 16 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp" 2
 
 
 
@@ -77961,8 +77969,8 @@ namespace std
 
 }
 # 601 "C:/Qt/Qt5.5.1/Tools/mingw492_32/i686-w64-mingw32/include/c++/sstream" 2 3
-# 20 "GUI_TreeControl.cpp" 2
-# 34 "GUI_TreeControl.cpp"
+# 20 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp" 2
+# 34 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
 using namespace std;
 
 
@@ -78100,7 +78108,7 @@ BOOL __attribute__((__stdcall__)) PropertiesDlgProc(HWND hWnd, UINT message, WPA
     debug.flush();
     ostringstream oss;
     switch(AttrStat.st_type) {
-# 216 "GUI_TreeControl.cpp"
+# 216 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
      case B_UINT8_TYPE:
       {
        byte tmp;
@@ -78317,9 +78325,9 @@ BOOL __attribute__((__stdcall__)) DialogProc(HWND hWnd, UINT message, WPARAM wPa
    SendMessageW(hProgress, (0x0400 +4), 4096, 0L);
 
    string strItem;
-   int cd = CountPhysicalDrives();
+   int i, cd = CountPhysicalDrives();
    debug << "Number of drives: " << cd << endl;
-   for (int i = 0;i < cd; i++) {
+   for (i = 0;i < cd; i++) {
     tvinsert.hParent=__null;
     tvinsert.hInsertAfter = ((HTREEITEM)(ULONG_PTR)-0x10000);
     tvinsert.item.mask = 0x1|0x2|0x20|0x4;
@@ -78386,7 +78394,7 @@ BOOL __attribute__((__stdcall__)) DialogProc(HWND hWnd, UINT message, WPARAM wPa
      CurrentItem = GetNext(hTree, CurrentItem);
    }
 
-   for (unsigned int i = 0;i < volumes.size(); i++) {
+   for (i = 0;i < volumes.size(); i++) {
     Volume* vv = (Volume*)&volumes[i];
 
     if (vv->IsValidSuperBlock())
@@ -78462,13 +78470,13 @@ BOOL __attribute__((__stdcall__)) DialogProc(HWND hWnd, UINT message, WPARAM wPa
     tvi.hItem = Selected;
 
     debug << "If the program get's here wee need to look at this code.." << endl;
-# 727 "GUI_TreeControl.cpp"
+# 727 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
     break;
    }
    if (((LPNMHDR)lParam)->code == ((0U-400U)-14))
    {
     debug << "If the program get's here wee need to look at this code.. nr 2" << endl;
-# 750 "GUI_TreeControl.cpp"
+# 750 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
     break;
    }
 
@@ -78682,7 +78690,7 @@ BOOL __attribute__((__stdcall__)) DialogProc(HWND hWnd, UINT message, WPARAM wPa
     case 300: {
                     ::DialogBoxParamA(GetModuleHandleW(__null),((LPSTR)((ULONG_PTR)((WORD)(138)))),hWnd,(DLGPROC)AboutDlgProc,(LPARAM)0);
     } break;
-# 1007 "GUI_TreeControl.cpp"
+# 1007 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
     default: {
      debug << "1 Some other switch value " << ((WORD) (((DWORD_PTR) (wParam)) & 0xffff)) << endl;
     } break;
@@ -78703,7 +78711,7 @@ BOOL __attribute__((__stdcall__)) DialogProc(HWND hWnd, UINT message, WPARAM wPa
  }
  return 0;
 }
-# 1058 "GUI_TreeControl.cpp"
+# 1058 "D:\\PROGS\\CPP\\BEFS4WIN\\GUI_TreeControl.cpp"
 void AddAttrInfo(char* pszAttrName, char* pszAttrData, char* type, int iAccess)
 {
     LVITEMA LvItem;

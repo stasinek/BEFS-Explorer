@@ -44,7 +44,6 @@ HEADERS += \
     NT_Native.h \
     src/BEOS_Defs.h \
     src/BEOS_SystemWrapper.h \
-    src/BEOS_SystemDependencies.h \
     SKYFS_Interface.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
     src/add-ons/kernel/file_systems/befs/BEFS_AutoLocker.h \

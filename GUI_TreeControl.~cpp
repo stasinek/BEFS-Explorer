@@ -7,19 +7,18 @@
 *  ----------------------------------------------------------------------------
 */
 
-#define _CRT_SECURE_NO_DEPRECATE 1
-
 //-----------------------------------------------------------------------------
-#include "GUI_DiskFunc.h"
-#include "./src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h"
-#include "./resource/GUI_resource.h"
+#define _CRT_SECURE_NO_DEPRECATE 1
+//-----------------------------------------------------------------------------
+#include <GUI_DiskFunc.h>
+#include <src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h>
+#include <resource/GUI_resource.h>
 //-----------------------------------------------------------------------------
 #include <stdlib.h>
 #include <vector>
-#include  <sstream>
+#include <sstream>
 #include <iostream>
-#include  <fstream>
-//-----------------------------------------------------------------------------
+#include <fstream>
 #include <winsock2.h>
 #include <windows.h>
 #include <commctrl.h>
@@ -79,7 +78,7 @@ vector<Volume> volumes;
 void* iter;
 void* it;
 dirent_t d,dd;
-uint32 num,num2;
+uint32_t num,num2;
 HMENU popupMenu;
 //-----------------------------------------------------------------------------
 //function prototypes:
@@ -140,7 +139,7 @@ BOOL CALLBACK PropertiesDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 			bfs_read_vnode(v, td->inode, (void**)&I, true /*not used*/);
 			//memcpy(&ff,f,sizeof(file_cookie));
 			void* attIt;
-			uint32 num;
+			uint32_t num;
 			dirent_t d;
 			struct attr_stat AttrStat;
 			attr_cookie* attCookie;
@@ -157,12 +156,12 @@ BOOL CALLBACK PropertiesDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 				tupel[2] = 0xff & (AttrStat.st_type >> 8);
 				tupel[3] = 0xff & (AttrStat.st_type);
 				tupel[4] = 0;
-				for (int16 i = 0;i < 4;i++) {
+				for (int16_t i = 0;i < 4;i++) {
 					if (tupel[i] < ' ' || tupel[i] > 128)
 						tupel[i] = '.';
 				}
 
-                int64 leng=AttrStat.st_size;
+                int64_t leng=AttrStat.st_size;
 				char*  buff = (char*)calloc(leng,sizeof(char));
 				bfs_read_attr(v, I, attCookie, 0,buff, &leng);
 				debug << "attribute: " << d.d_name << "  " << "length: " << leng << " type: " << tupel << "  data: ";
@@ -338,7 +337,7 @@ BOOL CALLBACK PropertiesDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 					//case S_MIME_TYPE://skyos uses MIMS, beos uses MIME
 					case B_STRING_TYPE:
 					default:
-                        for (int64 i = 0; i < leng; i++) {
+                        for (int64_t i = 0; i < leng; i++) {
 							//debug<<buff[i];
 							oss << buff[i];
 						}
@@ -898,11 +897,11 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 									debug << "open status: " << bfs_open(vol, I, O_RDONLY, &f) << endl;
 									memcpy(&ff, f, sizeof(file_cookie));
 									debug << "filesize: " << ff.last_size << endl;
-                                    int64 BytesTotal = ff.last_size;
-                                    int64 BytesLeft = ff.last_size;
-                                    int64 block = 4096;  // we will be reading in 4096 blocks
-                                    int64 offset = 0;
-                                    int64 BytesWritten = 0;
+                                    int64_t BytesTotal = ff.last_size;
+                                    int64_t BytesLeft = ff.last_size;
+                                    int64_t block = 4096;  // we will be reading in 4096 blocks
+                                    int64_t offset = 0;
+                                    int64_t BytesWritten = 0;
 									SendMessage(hProgress, PBM_SETRANGE, 0, MAKELPARAM(0, (long)BytesTotal/4096));
 									//debug<<"PROGRESS: set range 0-"<<BytesTotal<<endl;
 									SendMessage(hProgress, PBM_SETPOS, 0L, 0L);
@@ -913,7 +912,7 @@ BOOL CALLBACK DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 									char* q = (char* )calloc(block, sizeof(char));
 									// open file for writing
 									ofstream file;
-                                    int64 step = 0;
+                                    int64_t step = 0;
 									file.open(td->name, ios::trunc|ios::out|ios::binary);
 									while (BytesLeft>0) {
 										// read block
@@ -1164,7 +1163,7 @@ BOOL CALLBACK AboutDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 
 //-----------------------------------------------------------------------------
 
-#include "NT_System.h"
+#include <NT_System.h>
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)
 {
@@ -1176,7 +1175,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	DialogBoxParam(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, (DLGPROC)DialogProc, 0);
 	debug << "Exit application.\n";
 	debug.close();
-    Unload_NTDLL();
+    UnLoad_NTDLL();
 	return 0;
 }
 //-----------------------------------------------------------------------------

@@ -277,7 +277,7 @@ class AttributeIterator {
 		
 		status_t Rewind();
 		//status_t GetNext(char *name, size_t *length, uint32_t *type, vnode_id *id);
-		status_t GetNext(char *name, size_t *length, uint32_t *type, unsigned long long *id);
+		status_t GetNext(char *name, size_t *length, uint32_t *type, uint64_t *id);
 
 	private:
 		friend class Chain<AttributeIterator>;

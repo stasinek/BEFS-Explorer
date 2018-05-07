@@ -40,11 +40,12 @@
 #define _CRT_SECURE_NO_DEPRECATE 1
 #ifdef  WIN32
     #include <NT_System.h>  //for NTCreateFile
+
     #include <winsock2.h>
     #include <windows.h>
     #include <conio.h>
-    #include <io.h>
     #include <direct.h>
+    #include <io.h>
 #endif
 //access to the debugfile
 #include <fstream>
@@ -66,8 +67,22 @@ extern std::ofstream debug;
 #define uint		unsigned int
 #define int64_t     __int64
 #define uint64_t    unsigned __int64
-#define off_t       unsigned __int64
+//#define off_t       unsigned __int64
 //typedef size_t        long long;
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <conio.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <time.h>
+#include <ctime>
+#include <fstream>
 #else
 #define __STDC_CONSTANT_MACROS
 #include <stdint.h>
@@ -181,15 +196,9 @@ enum {
 #define S_FLOAT_INDEX		00040000000	/* float index */
 #define S_DOUBLE_INDEX		00001000000	/* double index */
 #define S_ALLOW_DUPS		00002000000	/* allow duplicate entries (currently unused) */
-
 /* link types */
 #define	S_LINK_SELF_HEALING	00001000000	/* link will be updated if you move its target */
 #define S_LINK_AUTO_DELETE	00002000000	/* link will be deleted if you delete its target */
-
-#if defined(__MSVC__)
-#pragma warning( disable: 4005 )
-#endif
-
 /* standard file types */
 #define S_IFMT				00000170000 /* type of file */
 #define	S_IFLNK				00000120000 /* symbolic link */

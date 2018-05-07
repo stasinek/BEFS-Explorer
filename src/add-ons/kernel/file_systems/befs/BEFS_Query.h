@@ -7,7 +7,7 @@
 #ifndef BEFS_QUERY_H
 #define BEFS_QUERY_H
 //---------------------------------------------------------------------------
-#include <BEOS_SystemDependencies.h>
+#include <BEOS_SystemWrapper.h>
 #include "BEFS_Chain.h"
 #include "BEFS_Index.h"
 #include "BEFS_Stack.h"

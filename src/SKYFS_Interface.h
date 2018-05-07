@@ -10,7 +10,7 @@
 #ifndef SKYFS_INTERFACE_H
 #define SKYFS_INTERFACE_H
 
-#include <BEOS_SystemDependencies.h>
+#include <BEOS_SystemWrapper.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h> //for struct attr_cookie
 
 status_t skyfs_lookup(void *_ns, void *_directory, const char *file, vnode_id *_vnodeID, int *_type);

@@ -4,7 +4,7 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="BEFS4WIN_BCB.exe"/>
-    <OBJFILES value="GUI_DiskFunc.obj GUI_TreeControl.obj NT_System.obj SKYFS_Interface.obj 
+    <OBJFILES value="GUI_DiskFunc.obj GUI_TreeControl.obj 
       src\add-ons\kernel\file_systems\befs\BEFS_Attribute.obj 
       src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.obj 
       src\add-ons\kernel\file_systems\befs\BEFS_Cache.obj 
@@ -19,7 +19,7 @@
       src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.obj 
       src\add-ons\kernel\file_systems\befs\BEFS_Utility.obj 
       src\add-ons\kernel\file_systems\befs\BEFS_Volume.obj 
-      src\BEOS_SystemWrapper.obj"/>
+      src\BEOS_SystemWrapper.obj src\NT_System.obj src\SKYFS_Interface.obj"/>
     <RESFILES value="resource\GUI_TreeControl.rsrc.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES)"/>
@@ -43,8 +43,8 @@
       -wnod -wnak -wdef -wcln -wasm -wamp -wamb"/>
   </MACROS>
   <OPTIONS>
-    <CFLAG1 value="-O2 -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -fp -ff -X- -a8 -6 -b -k -y -v 
-      -vi- -tW -tWM -c"/>
+    <CFLAG1 value="-O2 -H=$(BCB)\lib\vcl60.csm -Hc -Q -w- -Vx -Ve -VF -C -fp -ff -X- -a8 -6 
+      -b -d -k -y -v -vi- -tW -tWM -c"/>
     <PFLAGS value="-$YD -$W -$R -$Q -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>
     <AFLAGS value="/mx /w2 /zd"/>
@@ -57,7 +57,7 @@
   </LINKER>
   <IDEOPTIONS>
 [Version Info]
-IncludeVerInfo=1
+IncludeVerInfo=0
 AutoIncBuild=0
 MajorVer=1
 MinorVer=0
@@ -90,20 +90,22 @@ $(BCB)\Bin\dclocx50.bpl=Borland Sample Imported ActiveX Controls
 $(BCB)\Bin\bcb2kaxserver50.bpl=Borland C++Builder COM Server Components Sample Package
 
 [HistoryLists\hlIncludePath]
-Count=5
-Item0=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
-Item1=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
-Item2=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
-Item3=C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
-Item4=C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Count=6
+Item0=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item1=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item2=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item3=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Item4=C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Item5=C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
 
 [HistoryLists\hlLibraryPath]
-Count=5
-Item0=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
-Item1=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\lib\obj;$(BCB)\lib
-Item2=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
-Item3=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
-Item4=$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Count=6
+Item0=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
+Item1=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
+Item2=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\lib\obj;$(BCB)\lib
+Item3=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Item4=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Item5=$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
 
 [HistoryLists\hlDebugSourcePath]
 Count=1
@@ -125,7 +127,7 @@ RemotePath=
 RemoteDebug=0
 
 [Compiler]
-ShowInfoMsgs=0
+ShowInfoMsgs=1
 LinkDebugVcl=1
   </IDEOPTIONS>
 </PROJECT>
