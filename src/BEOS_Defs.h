@@ -1,4 +1,4 @@
-/* Author: Peter Speybrouck - peter.speybrouck@gmail.com
+﻿/* Author: Peter Speybrouck - peter.speybrouck@gmail.com
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
  * <phk@FreeBSD.ORG> wrote this file. As long as you retain this notice you
@@ -14,7 +14,6 @@
 #endif
 
 #if defined(__MSVC__)
-    #pragma warn -8098
     #pragma warning (default: 4005)
     #pragma warning (disable: 4005)
     #pragma warning( disable: 4018 )
@@ -160,27 +159,27 @@ extern std::ofstream debug;
 //#define B_OK                      0
 
 enum {
-	B_NO_MEMORY = B_GENERAL_ERROR_BASE,
-	B_IO_ERROR,
-	B_PERMISSION_DENIED,
-	B_BAD_INDEX,
-	B_BAD_TYPE,
-	B_BAD_VALUE,
-	B_MISMATCHED_VALUES,
-	B_NAME_NOT_FOUND,
-	B_NAME_IN_USE,
-	B_TIMED_OUT,
+    B_NO_MEMORY = B_GENERAL_ERROR_BASE,
+    B_IO_ERROR,
+    B_PERMISSION_DENIED,
+    B_BAD_INDEX,
+    B_BAD_TYPE,
+    B_BAD_VALUE,
+    B_MISMATCHED_VALUES,
+    B_NAME_NOT_FOUND,
+    B_NAME_IN_USE,
+    B_TIMED_OUT,
     B_INTERRUPTED,
-	B_WOULD_BLOCK,
+    B_WOULD_BLOCK,
     B_CANCELED,
-	B_NO_INIT,
-	B_BUSY,
-	B_NOT_ALLOWED,
-	B_BAD_DATA,
-	B_DONT_DO_THAT,
-	B_ERROR = -1,
-	B_OK = 0,
-	B_NO_ERROR = 0
+    B_NO_INIT,
+    B_BUSY,
+    B_NOT_ALLOWED,
+    B_BAD_DATA,
+    B_DONT_DO_THAT,
+    B_ERROR = -1,
+    B_OK = 0,
+    B_NO_ERROR = 0
 };
 // inode types
 // TODO: this is probably not right but also not needed for now but this needs to be verified:
@@ -284,36 +283,36 @@ enum  	{
 
 /*----- Storage Kit/File System Errors ------------------------*/
 enum {
-	B_FILE_ERROR = B_STORAGE_ERROR_BASE,
-	B_FILE_NOT_FOUND,	/* discouraged; use B_ENTRY_NOT_FOUND in new code*/
-	B_FILE_EXISTS,
-	B_ENTRY_NOT_FOUND,
-	B_NAME_TOO_LONG,
-	B_NOT_A_DIRECTORY,
-	B_DIRECTORY_NOT_EMPTY,
-	B_DEVICE_FULL,
-	B_READ_ONLY_DEVICE,
-	B_IS_A_DIRECTORY,
-	B_NO_MORE_FDS,
-	B_CROSS_DEVICE_LINK,
-	B_LINK_LIMIT,
-	B_BUSTED_PIPE,
-	B_UNSUPPORTED,
-	B_PARTITION_TOO_SMALL
+    B_FILE_ERROR = B_STORAGE_ERROR_BASE,
+    B_FILE_NOT_FOUND,	/* discouraged; use B_ENTRY_NOT_FOUND in new code*/
+    B_FILE_EXISTS,
+    B_ENTRY_NOT_FOUND,
+    B_NAME_TOO_LONG,
+    B_NOT_A_DIRECTORY,
+    B_DIRECTORY_NOT_EMPTY,
+    B_DEVICE_FULL,
+    B_READ_ONLY_DEVICE,
+    B_IS_A_DIRECTORY,
+    B_NO_MORE_FDS,
+    B_CROSS_DEVICE_LINK,
+    B_LINK_LIMIT,
+    B_BUSTED_PIPE,
+    B_UNSUPPORTED,
+    B_PARTITION_TOO_SMALL
 };
 //dirent stuff
 typedef struct dirent_t {
-	dev_t			d_dev;		/* device */
-	dev_t			d_pdev;		/* parent device (only for queries) */
-	unsigned __int64			d_ino;		/* inode number */
-	unsigned __int64			d_pino;		/* parent inode (only for queries) */
-	unsigned short		d_reclen;	/* length of this record, not the name */
-	char				d_name[256];	/* name of the entry (null byte terminated) */
-	unsigned int  type;
-	unsigned int  size;
-	time_t        access;
-	time_t        modify;
-	time_t        create;
+    dev_t			d_dev;		/* device */
+    dev_t			d_pdev;		/* parent device (only for queries) */
+    unsigned __int64			d_ino;		/* inode number */
+    unsigned __int64			d_pino;		/* parent inode (only for queries) */
+    unsigned short		d_reclen;	/* length of this record, not the name */
+    char				d_name[256];	/* name of the entry (null byte terminated) */
+    unsigned int  type;
+    unsigned int  size;
+    time_t        access;
+    time_t        modify;
+    time_t        create;
 } dirent_t;
 
 #define B_READ_ONLY_DEVICE	EINVAL //22
@@ -351,45 +350,45 @@ struct attr_stat {
         time_t st_atime;
         time_t st_mtime;
         time_t st_ctime;
-		uint32_t st_type;
+        uint32_t st_type;
 };
 /*struct stat {
-	dev_t st_dev;
-	ino_t st_ino;
-	mode_t st_mode;
-	nlink_t st_nlink;
-	uid_t st_uid;
-	gid_t st_gid;
-	dev_t st_rdev;
+    dev_t st_dev;
+    ino_t st_ino;
+    mode_t st_mode;
+    nlink_t st_nlink;
+    uid_t st_uid;
+    gid_t st_gid;
+    dev_t st_rdev;
     int64_t st_size;
-	time_t st_atime;
-	time_t st_mtime;
-	time_t st_ctime;
-	blksize_t st_blksize;
-	blkcnt_t st_blocks;
-	mode_t st_attr;
+    time_t st_atime;
+    time_t st_mtime;
+    time_t st_ctime;
+    blksize_t st_blksize;
+    blkcnt_t st_blocks;
+    mode_t st_attr;
 }; */
 #if 0
 struct stat {
-	dev_t			st_dev;		/* "device" that this file resides on */
-	ino_t			st_ino;		/* this file's inode #, unique per device */
-	mode_t			st_mode;		/* mode bits (rwx for user, group, etc) */
-	nlink_t			st_nlink;		/* number of hard links to this file */
-	uid_t			st_uid;		/* user id of the owner of this file */
-	gid_t			st_gid;		/* group id of the owner of this file */
+    dev_t			st_dev;		/* "device" that this file resides on */
+    ino_t			st_ino;		/* this file's inode #, unique per device */
+    mode_t			st_mode;		/* mode bits (rwx for user, group, etc) */
+    nlink_t			st_nlink;		/* number of hard links to this file */
+    uid_t			st_uid;		/* user id of the owner of this file */
+    gid_t			st_gid;		/* group id of the owner of this file */
     int64_t			st_size;		/* size in bytes of this file */
-	dev_t			st_rdev;		/* device type (not used) */
-	size_t			st_blksize;	/* preferred block size for i/o */
-	time_t			st_atime;		/* last access time */
-	time_t			st_mtime;		/* last modification time */
-	time_t			st_ctime;		/* last change time, not creation time */
-	time_t			st_crtime;		/* creation time */
+    dev_t			st_rdev;		/* device type (not used) */
+    size_t			st_blksize;	/* preferred block size for i/o */
+    time_t			st_atime;		/* last access time */
+    time_t			st_mtime;		/* last modification time */
+    time_t			st_ctime;		/* last change time, not creation time */
+    time_t			st_crtime;		/* creation time */
 
-	// Haiku extensions:
-	// TODO: we might also define special types for files and TTYs
-	// TODO: we should find another solution for this, as BStatable::GetStat()
-	//		can only retrieve the R5 stat structure
-	unsigned int		st_type;		/* attribute/index type */
+    // Haiku extensions:
+    // TODO: we might also define special types for files and TTYs
+    // TODO: we should find another solution for this, as BStatable::GetStat()
+    //		can only retrieve the R5 stat structure
+    unsigned int		st_type;		/* attribute/index type */
 };
 #endif //0
 
@@ -405,18 +404,23 @@ typedef char* addr_t;
 #endif
 
 typedef struct device_geometry{
-	uint32_t 	bytes_per_sector;
-	uint32_t 	sectors_per_track;
-	uint32_t 	cylinder_count;
-	uint32_t 	head_count;
-	unsigned char 	device_type;
-	bool 	removable;
-	bool 	read_only;
-	bool 	write_once;
+    uint32_t 	bytes_per_sector;
+    uint32_t 	sectors_per_track;
+    uint32_t 	cylinder_count;
+    uint32_t 	head_count;
+    unsigned char 	device_type;
+    bool 	removable;
+    bool 	read_only;
+    bool 	write_once;
 } device_geometry;
 
 #define panic printf
 #define 	min_c(a, b)   ((a)>(b)?(b):(a))
+
+#if !defined(ASSERT) && !defined(DEBUGGER)
+    #define ASSERT(x) { if (!(x)) DEBUGGER(("skyfs: assert failed: " #x "\n")); }
+    #define DEBUGGER(x) printf x
+#endif
 
 #endif // BEOS_DEFS_H
 

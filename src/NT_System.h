@@ -1,4 +1,4 @@
-#ifndef NT_SYSTEM_H
+﻿#ifndef NT_SYSTEM_H
 #define NT_SYSTEM_H
 //---------------------------------------------------------------------------
 #ifndef _In_
@@ -50,6 +50,7 @@ typedef struct _OBJECT_ATTRIBUTES {
 //---------------------------------------------------------------------------
 #define 	FILE_OPEN   0x00000001
 #define 	FILE_SYNCHRONOUS_IO_NONALERT   0x00000020
+#if !defined(__MSVC__)
 typedef NTSTATUS __stdcall (*__NtCreateFile)(
       PHANDLE            FileHandle,
       ACCESS_MASK        DesiredAccess,
@@ -105,6 +106,7 @@ extern __RtlInitUnicodeString RtlInitUnicodeString;
 //---------------------------------------------------------------------------
 int __stdcall Load_NTDLL(void);
 int __stdcall UnLoad_NTDLL(void);
+#endif
 //---------------------------------------------------------------------------
 
 #endif

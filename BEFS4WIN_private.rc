@@ -2,3 +2,10 @@
 /* DO NOT EDIT! */
 
 #include "resource/GUI_TreeControl.rsrc.rc"
+
+//
+// SUPPORT FOR WINDOWS XP THEMES:
+// THIS WILL MAKE THE PROGRAM USE THE COMMON CONTROLS
+// LIBRARY VERSION 6.0 (IF IT IS AVAILABLE)
+//
+1 24 "BEFS4WIN.exe.Manifest"

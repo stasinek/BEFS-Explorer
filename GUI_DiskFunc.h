@@ -1,4 +1,4 @@
-/* Author: Peter Speybrouck - peter.speybrouck@gmail.com
+﻿/* Author: Peter Speybrouck - peter.speybrouck@gmail.com
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
  * <phk@FreeBSD.ORG> wrote this file. As long as you retain this notice you
@@ -10,14 +10,15 @@
 #ifndef GUI_DISKFUNC_H
 #define GUI_DISKFUNC_H
 
+// BEFS include files
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Volume.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Inode.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Interface.h>
-#include <BEOS_SystemWrapper.h>
 #include <resource/GUI_resource.h>
+#include <BEOS_SystemWrapper.h>
 
-// bfs include files
+// WINDOWS CRT include files
 #define _CRT_SECURE_NO_DEPRECATE 1
 #include <winsock2.h>
 #include <windows.h>
@@ -38,36 +39,36 @@ int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA*
 int __stdcall ListDirectories(HWND h, HTREEITEM* node, TVITEMA* s, ofstream* d, vector<Volume>* a_volumes);
 
 class TreeData {
-	public:
-		TreeData() {}
-		TreeData(int l, const char* n)
-			:level(l)
-		{
-			sprintf(name, n);
-		}
-		
-        TreeData(int l, const char* n, int64_t i)
-			:level(l), inode(i)
-		{
-			sprintf(name,n);
-		}
+    public:
+        TreeData() {}
+        TreeData(int l, const char* n)
+            :level(l)
+        {
+            sprintf(name, n);
+        }
 
-		~TreeData()
-		{ 
-			if (name)
-				free(name); 
-			
-			if (extra)
-				free(extra);
-		}
-		
-		int level;
-		int iData1;
-		int iData2;
-		int volume;
+        TreeData(int l, const char* n, int64_t i)
+            :level(l), inode(i)
+        {
+            sprintf(name,n);
+        }
+
+        ~TreeData()
+        {
+            if (name)
+                free(name);
+
+            if (extra)
+                free(extra);
+        }
+
+        int level;
+        int iData1;
+        int iData2;
+        int volume;
         int64_t inode;
-		char name[255];
-		void* extra;
+        char name[255];
+        void* extra;
 };
 
 int __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug);

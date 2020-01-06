@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2004-2006, Haiku.
 * Distributed under the terms of the MIT License.
 *
@@ -16,8 +16,8 @@
 #define BEFS_AUTO_LOCKER_H
 
 #include <BEOS_SystemWrapper.h>
-// locking
-// AutoLockerStandardLocking
+
+// lockin AutoLockerStandardLocking
 template<typename Lockable>
 class AutoLockerStandardLocking {
 public:

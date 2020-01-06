@@ -4,7 +4,7 @@ Name=BEFS4WIN
 Type=0
 Ver=2
 ObjFiles=
-Includes="C:\Documents and Settings\Stasiek\My Documents\My Projects\prc++\PROGS\CPP\BEFS4WIN\src"
+Includes=C:\SRC\PRCPP\BEFS4WIN\src;C:\SRC\PRCPP\BEFS4WIN
 Libs=
 PrivateResource=BEFS4WIN_private.rc
 ResourceIncludes=
@@ -26,10 +26,10 @@ CustomMakefile=
 CommandLine=
 Folders=
 IncludeVersionInfo=0
-SupportXPThemes=0
+SupportXPThemes=1
 CompilerSet=4
 CompilerSettings=000i010100000000001000000
-UnitCount=47
+UnitCount=46
 
 [VersionInfo]
 Major=1
@@ -351,26 +351,6 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit32]
-FileName=SKYFS_Interface.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit33]
-FileName=SKYFS_Interface.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit34]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Stack.h
 CompileCpp=1
 Folder=
@@ -380,7 +360,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit35]
+[Unit33]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp
 CompileCpp=1
 Folder=
@@ -390,7 +370,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit36]
+[Unit34]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.h
 CompileCpp=1
 Folder=
@@ -400,27 +380,17 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit37]
-FileName=BEOS_System.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit38]
+[Unit35]
 FileName=GUI_TreeControl.cpp
+CompileCpp=1
 Folder=
 Compile=1
 Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
-CompileCpp=1
 
-[Unit39]
+[Unit36]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Utility.cpp
 CompileCpp=1
 Folder=
@@ -430,7 +400,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit40]
+[Unit37]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Utility.h
 CompileCpp=1
 Folder=
@@ -440,17 +410,17 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit41]
+[Unit38]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Volume.cpp
-CompileCpp=1
 Folder=
 Compile=1
 Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=1
 
-[Unit42]
+[Unit39]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Volume.h
 CompileCpp=1
 Folder=
@@ -460,7 +430,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit43]
+[Unit40]
 FileName=resource\GUI_Resource.h
 CompileCpp=1
 Folder=
@@ -470,7 +440,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit44]
+[Unit41]
 FileName=resource\GUI_TreeControl.rsrc.rc
 CompileCpp=1
 Folder=Resources
@@ -480,7 +450,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit45]
+[Unit42]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Attribute.h
 CompileCpp=1
 Folder=
@@ -490,8 +460,28 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit44]
+FileName=src\BEOS_SystemWrapper.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit45]
+FileName=src\NT_System.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit46]
-FileName=NT_System.h
+FileName=src\BEOS_Defs.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -622,6 +612,16 @@ BuildCmd=
 
 [Unit1]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Attribute.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit43]
+FileName=src\BEOS_SystemWrapper.h
 CompileCpp=1
 Folder=
 Compile=1

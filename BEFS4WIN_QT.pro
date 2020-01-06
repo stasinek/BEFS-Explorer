@@ -5,7 +5,7 @@ CONFIG -= qt
 
 INCLUDEPATH += src
 INCLUDEPATH += C:/OpenSSL-Win32/include
-#LIBS += L"../../../../../x86_libraries/BHAPI" -libbhapi
+#LIBS += L"./../../../../x86_libraries/BHAPI" -libbhapi
 #LIBS += -L"C:/OpenSSL-Win32/lib" -lubsec
 #LIBS += -L"C:/OpenSSL-Win32/lib/MinGW" -lssleay32
 #LIBS += -L"C:/OpenSSL-Win32/lib/MinGW" -llibeay32
@@ -31,8 +31,8 @@ SOURCES += \
     src/add-ons/kernel/file_systems/befs/BEFS_Query.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp \
-    src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp \
-	
+    src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp
+
 include(deployment.pri)
 qtcAddDeployment()
 
@@ -67,7 +67,8 @@ HEADERS += \
     src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
     src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
-    src/add-ons/kernel/file_systems/befs/BEFS_Volume.h
+    src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
+    src/NT_System.h
 
 LIBS += -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32
 LIBS += -lole32 -lshell32 -lcomctl32 -lwinmm
@@ -139,4 +140,6 @@ QMAKE_CXXFLAGS -= -pipe
 QMAKE_LFLAGS += -Qunused-arguments -Wno-error=unused-command-line-argument-hard-error-in-future
 QMAKE_LFLAGS -= -mthreads
 }
+
+RESOURCES +=     resource/GUI_TreeControl.rsrc.rc
 

@@ -1,7 +1,8 @@
 // Microsoft Visual C++ generated resource script.
 //
 #include "GUI_resource.h"
-
+#include <winuser.h>
+#include <commctrl.h>
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10,16 +11,19 @@
 #ifdef _MSC_VER
 #include "afxres.h"
 #endif
-
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
 // English (United States) resources
 
+#ifdef _MSC_VER
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
+#endif
+#endif
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -84,8 +88,8 @@ CAPTION "About"
 FONT 8, "MS Shell Dlg"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,54,62,50,14
-    LTEXT           "BEFS viewer 0.3",IDC_STATIC,7,7,113,11
-    LTEXT           "Created by Peter Speybrouck, updated by Fredrik Modéen@2006 and Stanislaw Stasiak@2017",IDC_STATIC,7,15,134,21
+    LTEXT           "BEFS viewer 0.3",IDC_STATIC1,7,7,113,11
+    LTEXT           "Created by Peter Speybrouck, updated by Fredrik Modéen@2006 and Stanislaw Stasiak@2017",IDC_STATIC1,7,15,134,21
 END
 
 
@@ -122,17 +126,6 @@ BEGIN
 END
 #endif    // APSTUDIO_INVOKED
 
-#endif    // English (United States) resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Hebrew (Israel) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HEB)
-LANGUAGE LANG_HEBREW, SUBLANG_DEFAULT
-#pragma code_page(1255)
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Bitmap
@@ -149,10 +142,7 @@ IDB_FILE                BITMAP                  "resource\\bitmap3.bmp"
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_ICON1               ICON                    "resource\\icon1.ico"
-#endif    // Hebrew (Israel) resources
 /////////////////////////////////////////////////////////////////////////////
-
-
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

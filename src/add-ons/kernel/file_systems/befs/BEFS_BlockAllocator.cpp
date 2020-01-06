@@ -148,7 +148,7 @@ void
 AllocationBlock::Allocate(uint16_t start, uint16_t numBlocks)
 {
 	ASSERT(start < fNumBits);
-	ASSERT(uint32_t(start + numBlocks) <= fNumBits);
+	ASSERT(start + numBlocks <= fNumBits);
 #ifdef DEBUG
 	ASSERT(fWritable);
 #endif

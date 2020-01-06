@@ -11,11 +11,17 @@
 //
 #include <BEOS_Defs.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS.h>
+
+#ifndef _IMPEXP_KERNEL
+#define _IMPEXP_KERNEL
+#endif
+
 //
 // UID, GID
 //
 gid_t getegid(void);
 uid_t geteuid(void);
+
 // ?
 int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
 int read_pos2(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
