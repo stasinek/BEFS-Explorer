@@ -1,4 +1,4 @@
-﻿/* Author: Peter Speybrouck - peter.speybrouck@gmail.com
+/* Author: Peter Speybrouck - peter.speybrouck@gmail.com
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
  * <phk@FreeBSD.ORG> wrote this file. As long as you retain this notice you
@@ -38,13 +38,12 @@
 #endif
 #define _CRT_SECURE_NO_DEPRECATE 1
 #ifdef  WIN32
-    #include <NT_System.h>  //for NTCreateFile
-
     #include <winsock2.h>
     #include <windows.h>
     #include <conio.h>
     #include <direct.h>
     #include <io.h>
+    #include <NT_System.h>  //for NTCreateFile
 #endif
 //access to the debugfile
 #include <fstream>

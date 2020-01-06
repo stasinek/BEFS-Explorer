@@ -39,8 +39,8 @@
     <USERDEFINES value="_DEBUG;WIN32_LEAN_AND_MEAN"/>
     <SYSDEFINES value="NO_STRICT;_NO_VCL"/>
     <MAINSOURCE value="BEFS4WIN_BCB.bpf"/>
-    <INCLUDEPATH value="src;resource;src\add-ons\kernel\file_systems\befs;&quot;C:\Program Files\Borland\CBuilder6\Projects\&quot;;C:\Source\PRCPP\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="src;resource;src\add-ons\kernel\file_systems\befs;&quot;C:\Program Files\Borland\CBuilder6\Projects\&quot;;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;&quot;C:\Source\PRCPP\PROGS\CPP\BEFS4WIN\&quot;"/>
+    <INCLUDEPATH value="src;resource;src\add-ons\kernel\file_systems\befs;&quot;C:\Program Files\Borland\CBuilder6\Projects\&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="src;resource;src\add-ons\kernel\file_systems\befs;&quot;C:\Program Files\Borland\CBuilder6\Projects\&quot;;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w8092 -w8091 -w8090 -w8089 -w8087 -wprc -wucp -wstv -wstu -wpin -w-par 
       -wnod -wnak -wdef -wcln -wasm -wamp -wamb"/>
   </MACROS>
@@ -96,26 +96,28 @@ $(BCB)\Bin\dclocx50.bpl=Borland Sample Imported ActiveX Controls
 $(BCB)\Bin\bcb2kaxserver50.bpl=Borland C++Builder COM Server Components Sample Package
 
 [HistoryLists\hlIncludePath]
-Count=8
-Item0=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Source\PRCPP\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
-Item1=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Source\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
-Item2=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
-Item3=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
-Item4=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
-Item5=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
-Item6=C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
-Item7=C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Count=9
+Item0=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\SRC\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item1=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Source\PRCPP\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item2=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Source\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item3=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item4=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;D:\PROGS\CPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item5=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\include;$(BCB)\include\vcl
+Item6=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Item7=C:\Program Files\Borland\CBuilder6\Projects;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
+Item8=C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\include;$(BCB)\include\vcl
 
 [HistoryLists\hlLibraryPath]
-Count=8
-Item0=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\Source\PRCPP\PROGS\CPP\BEFS4WIN\
-Item1=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\Source\PROGS\CPP\BEFS4WIN\
-Item2=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
-Item3=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
-Item4=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\lib\obj;$(BCB)\lib
-Item5=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
-Item6=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
-Item7=$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Count=9
+Item0=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\SRC\PROGS\CPP\BEFS4WIN\
+Item1=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\Source\PRCPP\PROGS\CPP\BEFS4WIN\
+Item2=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\Source\PROGS\CPP\BEFS4WIN\
+Item3=src;resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
+Item4=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\PROGS\CPP\BEFS4WIN\
+Item5=resource;src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects\;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\;$(BCB)\lib\obj;$(BCB)\lib
+Item6=src\add-ons\kernel\file_systems\befs;C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Item7=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
+Item8=$(BCB)\Projects\Lib;C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN;$(BCB)\lib\obj;$(BCB)\lib
 
 [HistoryLists\hlDebugSourcePath]
 Count=1
@@ -139,16 +141,5 @@ RemoteDebug=0
 [Compiler]
 ShowInfoMsgs=1
 LinkDebugVcl=1
-LinkCGLIB=0
-
-[CORBA]
-AddServerUnit=1
-AddClientUnit=1
-PrecompiledHeaders=1
-
-[Language]
-ActiveLang=
-ProjectLang=
-RootDir=
   </IDEOPTIONS>
 </PROJECT>

@@ -1,4 +1,4 @@
-﻿#ifndef NT_SYSTEM_H
+#ifndef NT_SYSTEM_H
 #define NT_SYSTEM_H
 //---------------------------------------------------------------------------
 #ifndef _In_
