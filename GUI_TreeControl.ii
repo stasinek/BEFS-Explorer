@@ -1,5 +1,5 @@
 # 1 "GUI_TreeControl.cpp"
-# 1 "C:\\SRC\\PRCPP\\BEFS4WIN//"
+# 1 "H:\\Drive\\My Projects\\PROGS\\CPP\\BEFS4WIN//"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "GUI_TreeControl.cpp"
@@ -18,8 +18,6 @@
 # 12 "src/BEOS_SystemWrapper.h"
 # 1 "src/BEOS_Defs.h" 1
 # 41 "src/BEOS_Defs.h"
-# 1 "src/NT_System.h" 1
-# 11 "src/NT_System.h"
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 1 3
 # 9 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 3
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/_mingw_unicode.h" 1 3
@@ -44189,108 +44187,7 @@ typedef unsigned int GROUP;
   __attribute__((dllimport)) INT __attribute__((__stdcall__)) WSAProviderConfigChange(LPHANDLE lpNotificationHandle,LPWSAOVERLAPPED lpOverlapped,LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine);
 # 1224 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 3
 }
-# 12 "src/NT_System.h" 2
-
-# 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 1 3
-# 12 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 3
-extern "C" const GUID GUID_DEVINTERFACE_DISK;
-extern "C" const GUID GUID_DEVINTERFACE_CDROM;
-extern "C" const GUID GUID_DEVINTERFACE_PARTITION;
-extern "C" const GUID GUID_DEVINTERFACE_TAPE;
-extern "C" const GUID GUID_DEVINTERFACE_WRITEONCEDISK;
-extern "C" const GUID GUID_DEVINTERFACE_VOLUME;
-extern "C" const GUID GUID_DEVINTERFACE_MEDIUMCHANGER;
-extern "C" const GUID GUID_DEVINTERFACE_FLOPPY;
-extern "C" const GUID GUID_DEVINTERFACE_CDCHANGER;
-extern "C" const GUID GUID_DEVINTERFACE_STORAGEPORT;
-extern "C" const GUID GUID_DEVINTERFACE_COMPORT;
-extern "C" const GUID GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR;
-# 14 "src/NT_System.h" 2
-# 28 "src/NT_System.h"
-typedef struct _IO_STATUS_BLOCK {
-  union {
-    int Status;
-    PVOID Pointer;
-  };
-  ULONG_PTR Information;
-} IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
-
-typedef struct _LSA_UNICODE_STRING {
-  USHORT Length;
-  USHORT MaximumLength;
-  PWSTR Buffer;
-} LSA_UNICODE_STRING, *PLSA_UNICODE_STRING, UNICODE_STRING, *PUNICODE_STRING;
-
-typedef struct _OBJECT_ATTRIBUTES {
-  ULONG Length;
-  HANDLE RootDirectory;
-  PUNICODE_STRING ObjectName;
-  ULONG Attributes;
-  PVOID SecurityDescriptor;
-  PVOID SecurityQualityOfService;
-} OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
-
-
-
-
-typedef int __attribute__((__stdcall__)) (*__NtCreateFile)(
-      PHANDLE FileHandle,
-      ACCESS_MASK DesiredAccess,
-      POBJECT_ATTRIBUTES ObjectAttributes,
-      PIO_STATUS_BLOCK IoStatusBlock,
-   PLARGE_INTEGER AllocationSize,
-       ULONG FileAttributes,
-       ULONG ShareAccess,
-       ULONG CreateDisposition,
-       ULONG CreateOptions,
-       PVOID EaBuffer,
-       ULONG EaLength
-);
-extern __NtCreateFile NtCreateFile;
-
-typedef void(__attribute__((__stdcall__)) * PIO_APC_ROUTINE )( PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved);
-typedef int __attribute__((__stdcall__)) (*__NtReadFile)(
-  HANDLE FileHandle,
-  HANDLE Event,
-  PIO_APC_ROUTINE ApcRoutine,
-  PVOID ApcContext,
-  PIO_STATUS_BLOCK IoStatusBlock,
-  PVOID Buffer,
-  ULONG Length,
-  PLARGE_INTEGER ByteOffset,
-  PULONG Key
-);
-extern __NtReadFile NtReadFile;
-
-typedef int __attribute__((__stdcall__)) (*__NtWriteFile)(
-  HANDLE FileHandle,
-  HANDLE Event,
-  PIO_APC_ROUTINE ApcRoutine,
-  PVOID ApcContext,
-  PIO_STATUS_BLOCK IoStatusBlock,
-  PVOID Buffer,
-  ULONG Length,
-  PLARGE_INTEGER ByteOffset,
-  PULONG Key
-);
-extern __NtWriteFile NtWriteFile;
-
-typedef int __attribute__((__stdcall__)) (*__NtClose)(
-  HANDLE Handle
-);
-extern __NtClose NtClose;
-
-typedef void __attribute__((__stdcall__)) (*__RtlInitUnicodeString)(
-  PUNICODE_STRING DestinationString,
-  PCWSTR SourceString
-);
-extern __RtlInitUnicodeString RtlInitUnicodeString;
-
-int __attribute__((__stdcall__)) Load_NTDLL(void);
-int __attribute__((__stdcall__)) UnLoad_NTDLL(void);
 # 42 "src/BEOS_Defs.h" 2
-
-
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 1 3
 # 12 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 3
@@ -44408,7 +44305,7 @@ extern "C" {
 
 }
 # 126 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 2 3
-# 46 "src/BEOS_Defs.h" 2
+# 44 "src/BEOS_Defs.h" 2
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 1 3
 # 10 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 3
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 1 3
@@ -44761,8 +44658,111 @@ extern "C" {
 
 
 #pragma pack(pop)
-# 47 "src/BEOS_Defs.h" 2
+# 45 "src/BEOS_Defs.h" 2
 
+# 1 "src/NT_System.h" 1
+# 19 "src/NT_System.h"
+# 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 1 3
+# 12 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 3
+extern "C" const GUID GUID_DEVINTERFACE_DISK;
+extern "C" const GUID GUID_DEVINTERFACE_CDROM;
+extern "C" const GUID GUID_DEVINTERFACE_PARTITION;
+extern "C" const GUID GUID_DEVINTERFACE_TAPE;
+extern "C" const GUID GUID_DEVINTERFACE_WRITEONCEDISK;
+extern "C" const GUID GUID_DEVINTERFACE_VOLUME;
+extern "C" const GUID GUID_DEVINTERFACE_MEDIUMCHANGER;
+extern "C" const GUID GUID_DEVINTERFACE_FLOPPY;
+extern "C" const GUID GUID_DEVINTERFACE_CDCHANGER;
+extern "C" const GUID GUID_DEVINTERFACE_STORAGEPORT;
+extern "C" const GUID GUID_DEVINTERFACE_COMPORT;
+extern "C" const GUID GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR;
+# 20 "src/NT_System.h" 2
+# 35 "src/NT_System.h"
+typedef struct _IO_STATUS_BLOCK {
+  union {
+    int Status;
+    PVOID Pointer;
+  };
+  ULONG_PTR Information;
+} IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
+
+typedef struct _LSA_UNICODE_STRING {
+  USHORT Length;
+  USHORT MaximumLength;
+  PWSTR Buffer;
+} LSA_UNICODE_STRING, *PLSA_UNICODE_STRING, UNICODE_STRING, *PUNICODE_STRING;
+
+typedef struct _OBJECT_ATTRIBUTES {
+  ULONG Length;
+  HANDLE RootDirectory;
+  PUNICODE_STRING ObjectName;
+  ULONG Attributes;
+  PVOID SecurityDescriptor;
+  PVOID SecurityQualityOfService;
+} OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
+
+
+
+
+
+
+typedef int __attribute__((__stdcall__)) (*__NtCreateFile)(
+    PHANDLE FileHandle,
+    ACCESS_MASK DesiredAccess,
+    POBJECT_ATTRIBUTES ObjectAttributes,
+    PIO_STATUS_BLOCK IoStatusBlock,
+    PLARGE_INTEGER AllocationSize,
+    ULONG FileAttributes,
+    ULONG ShareAccess,
+    ULONG CreateDisposition,
+    ULONG CreateOptions,
+    PVOID EaBuffer,
+    ULONG EaLength
+);
+extern __NtCreateFile NtCreateFile;
+
+typedef void(__attribute__((__stdcall__)) * PIO_APC_ROUTINE )( PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved);
+typedef int __attribute__((__stdcall__)) (*__NtReadFile)(
+  HANDLE FileHandle,
+  HANDLE Event,
+  PIO_APC_ROUTINE ApcRoutine,
+  PVOID ApcContext,
+  PIO_STATUS_BLOCK IoStatusBlock,
+  PVOID Buffer,
+  ULONG Length,
+  PLARGE_INTEGER ByteOffset,
+  PULONG Key
+);
+extern __NtReadFile NtReadFile;
+
+typedef int __attribute__((__stdcall__)) (*__NtWriteFile)(
+  HANDLE FileHandle,
+  HANDLE Event,
+  PIO_APC_ROUTINE ApcRoutine,
+  PVOID ApcContext,
+  PIO_STATUS_BLOCK IoStatusBlock,
+  PVOID Buffer,
+  ULONG Length,
+  PLARGE_INTEGER ByteOffset,
+  PULONG Key
+);
+extern __NtWriteFile NtWriteFile;
+
+typedef int __attribute__((__stdcall__)) (*__NtClose)(
+  HANDLE Handle
+);
+extern __NtClose NtClose;
+
+typedef void __attribute__((__stdcall__)) (*__RtlInitUnicodeString)(
+  PUNICODE_STRING DestinationString,
+  PCWSTR SourceString
+);
+extern __RtlInitUnicodeString RtlInitUnicodeString;
+
+int __attribute__((__stdcall__)) Load_NTDLL(void);
+
+int __attribute__((__stdcall__)) UnLoad_NTDLL(void);
+# 47 "src/BEOS_Defs.h" 2
 
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 1 3
@@ -68106,9 +68106,9 @@ namespace std
 
 }
 # 940 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 2 3
-# 51 "src/BEOS_Defs.h" 2
+# 50 "src/BEOS_Defs.h" 2
 extern std::ofstream debug;
-# 90 "src/BEOS_Defs.h"
+# 89 "src/BEOS_Defs.h"
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 1 3
 # 21 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 3
 extern "C" {
@@ -68120,7 +68120,7 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 
 
 }
-# 91 "src/BEOS_Defs.h" 2
+# 90 "src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 1 3
 # 16 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
@@ -68207,12 +68207,12 @@ inline int __attribute__((__cdecl__))
 
 
 #pragma pack(pop)
-# 93 "src/BEOS_Defs.h" 2
+# 92 "src/BEOS_Defs.h" 2
 
 
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/fcntl.h" 1 3
-# 97 "src/BEOS_Defs.h" 2
+# 96 "src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 1 3
 # 15 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
@@ -68361,7 +68361,7 @@ int __attribute__((__cdecl__)) clock_settime(clockid_t clock_id, const struct ti
 
 }
 # 286 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 2 3
-# 99 "src/BEOS_Defs.h" 2
+# 98 "src/BEOS_Defs.h" 2
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 1 3
 # 39 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 3
        
@@ -68383,8 +68383,8 @@ namespace std
   using ::localtime;
   using ::strftime;
 }
-# 100 "src/BEOS_Defs.h" 2
-# 161 "src/BEOS_Defs.h"
+# 99 "src/BEOS_Defs.h" 2
+# 160 "src/BEOS_Defs.h"
 enum {
     B_NO_MEMORY = (-2147483647L - 1L),
     B_IO_ERROR,
@@ -68408,7 +68408,7 @@ enum {
     B_OK = 0,
     B_NO_ERROR = 0
 };
-# 237 "src/BEOS_Defs.h"
+# 236 "src/BEOS_Defs.h"
 enum {
   B_ANY_TYPE = 'ANYT',
   B_ATOM_TYPE = 'ATOM',
@@ -68489,7 +68489,7 @@ typedef struct dirent_t {
     time_t modify;
     time_t create;
 } dirent_t;
-# 327 "src/BEOS_Defs.h"
+# 326 "src/BEOS_Defs.h"
 struct fs_info {
     unsigned int dev;
     unsigned short root;
@@ -68518,7 +68518,7 @@ struct attr_stat {
         time_t st_ctime;
         uint32_t st_type;
 };
-# 395 "src/BEOS_Defs.h"
+# 394 "src/BEOS_Defs.h"
 typedef char* caddr_t;
 typedef struct iovec{
     caddr_t iov_base;
@@ -68541,10 +68541,66 @@ typedef struct device_geometry{
     bool write_once;
 } device_geometry;
 # 13 "src/BEOS_SystemWrapper.h" 2
+# 21 "src/BEOS_SystemWrapper.h"
+int32_t getegid(void);
+int32_t geteuid(void);
+
+
+int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
+int read_pos2(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
+int write_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
+signed long readv_pos(HANDLE fd, int64_t pos, const struct iovec *vec, size_t count);
+signed long writev_pos(HANDLE fd, int64_t pos, const struct iovec *vec,size_t count);
+
+
+
+int resume_thread(int id);
+
+
+
+int acquire_sem(int sem);
+int acquire_sem_etc(int sem, uint32_t count, uint32_t flags, unsigned long long timeout);
+int create_sem(uint32_t thread_count, const char *name);
+int delete_sem(int sem);
+int release_sem(int sem);
+int release_sem_etc(int sem, int32_t count, uint32_t flags);
+
+
+
+int32_t atomic_add (int32_t *value, int32_t addValue);
+int32_t atomic_set (int32_t *value, int32_t newValue);
+
+
+
+int get_vnode(int fs, int64_t id, void **_vnode);
+int publish_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
+int new_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
+int remove_vnode (unsigned int mountID, int64_t vnodeID);
+int unremove_vnode (unsigned int mountID, int64_t vnodeID);
+int put_vnode (unsigned int mountID, int64_t vnodeID);
+
+
+
+void notify_query_entry_created(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
+void notify_query_entry_removed(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
+
+
+
+typedef void (*tFoo)(int f, void*ff);
+
+
+
+int cache_next_block_in_transaction(void* a, int,unsigned int* b, int64_t * c, int d, int e);
+void cache_abort_sub_transaction(void* d, int id);
+void cache_abort_transaction(void* d, int id);
+int32_t cache_blocks_in_transaction(void* d, int id);
+void cache_end_transaction(void* d, int id, tFoo f, void*);
+int cache_start_sub_transaction(void* d, int id);
+int cache_start_transaction(void* d);
+# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
-# 1 "src/BEOS_SystemWrapper.h" 1
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
+# 12 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Endian.h" 1
 # 13 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
 # 21 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
@@ -68857,66 +68913,6 @@ small_data::IsLast(const bfs_inode *inode) const
 
  return (uint32_t)this > (uint32_t)inode + inode->InodeSize() - sizeof(small_data) || name_size == 0;
 }
-# 14 "src/BEOS_SystemWrapper.h" 2
-# 22 "src/BEOS_SystemWrapper.h"
-int32_t getegid(void);
-int32_t geteuid(void);
-
-
-int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-int read_pos2(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-int write_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-signed long readv_pos(HANDLE fd, int64_t pos, const struct iovec *vec, size_t count);
-signed long writev_pos(HANDLE fd, int64_t pos, const struct iovec *vec,size_t count);
-
-
-
-int resume_thread(int id);
-
-
-
-int acquire_sem(int sem);
-int acquire_sem_etc(int sem, uint32_t count, uint32_t flags, unsigned long long timeout);
-int create_sem(uint32_t thread_count, const char *name);
-int delete_sem(int sem);
-int release_sem(int sem);
-int release_sem_etc(int sem, int32_t count, uint32_t flags);
-
-
-
-int32_t atomic_add (int32_t *value, int32_t addValue);
-int32_t atomic_set (int32_t *value, int32_t newValue);
-
-
-
-int get_vnode(int fs, int64_t id, void **_vnode);
-int publish_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
-int new_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
-int remove_vnode (unsigned int mountID, int64_t vnodeID);
-int unremove_vnode (unsigned int mountID, int64_t vnodeID);
-int put_vnode (unsigned int mountID, int64_t vnodeID);
-
-
-
-void notify_query_entry_created(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
-void notify_query_entry_removed(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
-
-
-
-typedef void (*tFoo)(int f, void*ff);
-
-
-
-int cache_next_block_in_transaction(void* a, int,unsigned int* b, int64_t * c, int d, int e);
-void cache_abort_sub_transaction(void* d, int id);
-void cache_abort_transaction(void* d, int id);
-int32_t cache_blocks_in_transaction(void* d, int id);
-void cache_end_transaction(void* d, int id, tFoo f, void*);
-int cache_start_sub_transaction(void* d, int id);
-int cache_start_transaction(void* d);
-# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
-
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
 # 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 1
 # 9 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h"

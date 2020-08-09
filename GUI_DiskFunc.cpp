@@ -6,7 +6,6 @@
 *  this stuff is worth it, you can buy me a beer in return. Poul-Henning Kamp
 *  ----------------------------------------------------------------------------
 */
-
 #include <GUI_DiskFunc.h>
 #include <sstream>
 using namespace std;

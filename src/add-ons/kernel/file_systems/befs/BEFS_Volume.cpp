@@ -1686,13 +1686,15 @@ status_t Volume::Sync()
 
 status_t Volume::ValidateBlockRun(block_run run)
 {
-	if (run.AllocationGroup() < 0 || run.AllocationGroup() > (int32_t)AllocationGroups()
-		|| run.Start() > (1UL << AllocationGroupShift())
-		|| run.length == 0
-		|| uint32_t(run.Length() + run.Start()) > (1UL << AllocationGroupShift())) {
-		Panic();
-		FATAL(("*** invalid run(%d,%d,%d)\n", (int)run.AllocationGroup(), run.Start(), run.Length()));
-		return B_BAD_DATA;
+	if (run.AllocationGroup() < 0 ||
+        run.AllocationGroup() > (int32_t)AllocationGroups() ||
+        run.Start() > (0x0000000000000001 << AllocationGroupShift()) ||
+		run.length == 0 ||
+		(uint64_t)(run.Length() + run.Start()) > (0x0000000000000001 << AllocationGroupShift()))
+        {
+		    Panic();
+		    FATAL(("*** invalid run(%d,%d,%d)\n", (int)run.AllocationGroup(), run.Start(), run.Length()));
+		    return B_BAD_DATA;
 	}
 	return B_OK;
 }

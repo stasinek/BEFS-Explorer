@@ -198,8 +198,7 @@ class Operator : public Term {
 //---------------------------------
 
 
-void 
-skipWhitespace(char **expr, int32_t skip = 0)
+void skipWhitespace(char **expr, int32_t skip = 0)
 {
 	char *string = (*expr) + skip;
 	while (*string == ' ' || *string == '\t') string++;
@@ -207,8 +206,7 @@ skipWhitespace(char **expr, int32_t skip = 0)
 }
 
 
-void 
-skipWhitespaceReverse(char **expr,char *stop)
+void skipWhitespaceReverse(char **expr,char *stop)
 {
 	char *string = *expr;
 	while (string > stop && (*string == ' ' || *string == '\t')) string--;
@@ -219,8 +217,7 @@ skipWhitespaceReverse(char **expr,char *stop)
 //	#pragma mark -
 
 
-uint32_t
-utf8ToUnicode(char **string)
+uint32_t utf8ToUnicode(char **string)
 {
 	uint8_t *bytes = (uint8_t *)*string;
 	int32_t length;
@@ -255,8 +252,7 @@ utf8ToUnicode(char **string)
 }
 
 
-int32_t
-getFirstPatternSymbol(char *string)
+int32_t getFirstPatternSymbol(char *string)
 {
 	char c;
 
@@ -268,8 +264,7 @@ getFirstPatternSymbol(char *string)
 }
 
 
-bool
-isPattern(char *string)
+bool isPattern(char *string)
 {
 	return getFirstPatternSymbol(string) >= 0 ? true : false;
 }

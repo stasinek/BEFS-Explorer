@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <assert.h>
 //---------------------------------------------------------------------------
-HMODULE __ntdll_handle = NULL;
-   BOOL __ntdll_loaded = false;
+static HMODULE __ntdll_handle = NULL;
+static    bool __ntdll_loaded = false;
 //---------------------------------------------------------------------------
 __NtCreateFile NtCreateFile;
 __NtReadFile NtReadFile;

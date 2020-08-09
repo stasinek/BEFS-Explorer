@@ -620,8 +620,8 @@ Journal::_WriteTransactionToLog()
 		}
 
 		// release blocks again
-		for (int32_t i = 0; i < array->CountRuns(); i++) {
-			const block_run &run = array->RunAt(i);
+		for (int32_t ia = 0; ia < array->CountRuns(); ia++) {
+			const block_run &run = array->RunAt(ia);
             blockNumber = fVolume->ToBlock(run);
 
 			for (int32_t j = 0; j < run.Length(); j++) {

@@ -10,7 +10,6 @@
 #define BEOS_SYSTEM_H
 //
 #include <BEOS_Defs.h>
-#include <src/add-ons/kernel/file_systems/befs/BEFS.h>
 
 #ifndef _IMPEXP_KERNEL
 #define _IMPEXP_KERNEL

@@ -9,12 +9,6 @@
 #include <BEOS_SystemWrapper.h>
 #include <stdio.h>
 
-#ifdef USER
-#	define __out printf
-#else
-#	define __out printf
-#endif
-
 // Which debugger should be used when?
 // The DEBUGGER() macro actually has no effect if DEBUG is not defined,
 // use the DIE() macro if you really want to die.
@@ -48,59 +42,59 @@
 //	D()
 //		the statements in D() are only included if DEBUG is defined
 
-#ifdef DEBUG
-	#define PRINT(x) { __out("skyfs: "); __out x; }
 #ifndef __FUNCTION__
 #define __FUNCTION__ __FILE__
 #endif
 
-	#define REPORT_ERROR(status) \
-		__out("skyfs: %s:%d: %s\n", __FUNCTION__, __LINE__, strerror(status));
-	#define RETURN_ERROR(err) { status_t _status = err; if (_status < B_OK) REPORT_ERROR(_status); return _status;}
-	#define FATAL(x) { __out("skyfs: "); __out x; }
-	#define INFORM(x) { __out("skyfs: "); __out x; }
-	#define FUNCTION() __out("skyfs: %s()\n",__FUNCTION__);
-	#define FUNCTION_START(x) { __out("skyfs: %s() ",__FUNCTION__); __out x; }
-	//#define FUNCTION() ;
+#ifdef DEBUG
+    #define PRINT(x) { __out("skyfs: "); __out x; }
+    #define REPORT_ERROR(status) \
+        __out("skyfs: %s:%d: %s\n", __FUNCTION__, __LINE__, strerror(status));
+    #define RETURN_ERROR(err) { status_t _status = err; if (_status < B_OK) REPORT_ERROR(_status); return _status;}
+    #define FATAL(x) { __out("skyfs: "); __out x; }
+    #define INFORM(x) { __out("skyfs: "); __out x; }
+    #define FUNCTION() __out("skyfs: %s()\n",__FUNCTION__);
+    #define FUNCTION_START(x) { __out("skyfs: %s() ",__FUNCTION__); __out x; }
+    //#define FUNCTION() ;
 //	#define FUNCTION_START(x) ;
-	#define D(x) {x;};
-	#define ASSERT(x) { if (!(x)) DEBUGGER(("skyfs: assert failed: " #x "\n")); }
+    #define D(x) {x;};
+    #define ASSERT(x) { if (!(x)) DEBUGGER(("skyfs: assert failed: " #x "\n")); }
 #else
-	#define PRINT(x) ;
-	#define REPORT_ERROR(status) \
-		__out("skyfs: %s:%d: %s\n", __FUNCTION__, __LINE__, strerror(status));
-	#define RETURN_ERROR(err) { status_t _status = err; if (_status < B_OK) REPORT_ERROR(_status); return _status;}
+    #define PRINT(x) ;
+    #define REPORT_ERROR(status) \
+        __out("skyfs: %s:%d: %s\n", __FUNCTION__, __LINE__, strerror(status));
+    #define RETURN_ERROR(err) { status_t _status = err; if (_status < B_OK) REPORT_ERROR(_status); return _status;}
 //	#define FATAL(x) { __out("skyfs: "); __out x; sync(); panic("BEFS!\n"); }
-	#define FATAL(x) { __out("skyfs: "); __out x; }
-	#define INFORM(x) { __out("skyfs: "); __out x; }
-	#define FUNCTION() ;
-	#define FUNCTION_START(x) ;
-	#define D(x) ;
-	#define ASSERT(x) ;
+    #define FATAL(x) { __out("skyfs: "); __out x; }
+    #define INFORM(x) { __out("skyfs: "); __out x; }
+    #define FUNCTION() ;
+    #define FUNCTION_START(x) ;
+    #define D(x) ;
+    #define ASSERT(x) ;
 #endif
 
 #ifdef DEBUG
-	struct block_run;
-	struct bplustree_header;
-	struct bplustree_node;
-	struct data_stream;
-	struct bfs_inode;
-	struct disk_super_block;
-	class Inode;
-	class Volume;
-	
-	// some structure dump functions
-	void dump_block_run(const char *prefix, block_run &run);
-	void dump_super_block(const disk_super_block *superBlock);
-	void dump_data_stream(const data_stream *stream);
-	void dump_inode(const bfs_inode *inode);
-	void dump_bplustree_header(const bplustree_header *header);
-	void dump_bplustree_node(const bplustree_node *node,
-					const bplustree_header *header = NULL, Volume *volume = NULL);
-	void dump_block(const char *buffer, int size);
+    struct block_run;
+    struct bplustree_header;
+    struct bplustree_node;
+    struct data_stream;
+    struct bfs_inode;
+    struct disk_super_block;
+    class Inode;
+    class Volume;
 
-	void remove_debugger_commands();
-	void add_debugger_commands();
+    // some structure dump functions
+    void dump_block_run(const char *prefix, block_run &run);
+    void dump_super_block(const disk_super_block *superBlock);
+    void dump_data_stream(const data_stream *stream);
+    void dump_inode(const bfs_inode *inode);
+    void dump_bplustree_header(const bplustree_header *header);
+    void dump_bplustree_node(const bplustree_node *node,
+                    const bplustree_header *header = NULL, Volume *volume = NULL);
+    void dump_block(const char *buffer, int size);
+
+    void remove_debugger_commands();
+    void add_debugger_commands();
 #endif
 
 #endif	/* DEBUG_H */

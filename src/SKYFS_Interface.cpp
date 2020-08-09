@@ -10,9 +10,9 @@
 #define _CRT_SECURE_NO_DEPRECATE 1
 
 #include <SKYFS_Interface.h>
-#include <src/add-ons/kernel/file_systems/befs/BEFS_Inode.h>
-#include <src/add-ons/kernel/file_systems/befs/BEFS_Volume.h>
-#include <src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h>
+#include <add-ons/kernel/file_systems/befs/BEFS_Inode.h>
+#include <add-ons/kernel/file_systems/befs/BEFS_Volume.h>
+#include <add-ons/kernel/file_systems/befs/BEFS_PlusTree.h>
 
 /**	Opens a directory ready to be traversed.
  *	skyfs_open_dir() is also used by bfs_open_index_dir().

@@ -1,5 +1,5 @@
 # 1 "GUI_DiskFunc.cpp"
-# 1 "C:\\SRC\\PRCPP\\BEFS4WIN//"
+# 1 "C:\\Documents and Settings\\stasiek.TC12\\My Documents\\MEGASync\\My Projects\\PROGS\\CPP\\BEFS4WIN//"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "GUI_DiskFunc.cpp"
@@ -18,8 +18,6 @@
 # 12 "src/BEOS_SystemWrapper.h"
 # 1 "src/BEOS_Defs.h" 1
 # 41 "src/BEOS_Defs.h"
-# 1 "src/NT_System.h" 1
-# 11 "src/NT_System.h"
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 1 3
 # 9 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 3
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/_mingw_unicode.h" 1 3
@@ -1192,8 +1190,8 @@ extern "C" {
   int __attribute__((__cdecl__)) strncasecmp (const char *, const char *, size_t);
   int __attribute__((__cdecl__)) strcasecmp (const char *, const char *);
 
-  inline int __attribute__((__cdecl__)) strncasecmp (const char *__sz1, const char *__sz2, size_t __sizeMaxCompare) { return _strnicmp (__sz1, __sz2, __sizeMaxCompare); }
-  inline int __attribute__((__cdecl__)) strcasecmp (const char *__sz1, const char *__sz2) { return _stricmp (__sz1, __sz2); }
+
+
 
 
 
@@ -4563,22 +4561,7 @@ typedef DWORD (__attribute__((__stdcall__)) *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONC
   } RTL_BARRIER,*PRTL_BARRIER;
 # 7111 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winnt.h" 3
     PVOID __attribute__((__stdcall__)) RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt);
-
-
-    inline PVOID __attribute__((__stdcall__)) RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
-      volatile char *vptr =(volatile char *)ptr;
-
-
-
-      while(cnt) {
- *vptr++ = 0;
- cnt--;
-      }
-
-      return ptr;
-    }
-
-
+# 7128 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winnt.h" 3
     typedef struct _MESSAGE_RESOURCE_ENTRY {
       WORD Length;
       WORD Flags;
@@ -20413,8 +20396,8 @@ extern "C" {
 
   void __attribute__((__cdecl__)) _Exit(int) __attribute__ ((__noreturn__));
 
-  inline __attribute__ ((__noreturn__)) void __attribute__((__cdecl__)) _Exit(int status)
-  { _exit(status); }
+
+
 
 
 
@@ -20683,7 +20666,7 @@ extern "C" {
 
   __extension__ long long __attribute__((__cdecl__)) llabs(long long);
 
-  __extension__ inline long long __attribute__((__cdecl__)) llabs(long long _j) { return (_j >= 0 ? _j : -_j); }
+
 
 
   __extension__ long long __attribute__((__cdecl__)) strtoll(const char * __restrict__, char ** __restrict, int);
@@ -20698,21 +20681,7 @@ extern "C" {
   __extension__ char *__attribute__((__cdecl__)) ulltoa (unsigned long long , char *, int);
   __extension__ wchar_t *__attribute__((__cdecl__)) lltow (long long, wchar_t *, int);
   __extension__ wchar_t *__attribute__((__cdecl__)) ulltow (unsigned long long, wchar_t *, int);
-
-
-
-  __extension__ inline long long __attribute__((__cdecl__)) atoll (const char * _c) { return _atoi64 (_c); }
-  __extension__ inline char *__attribute__((__cdecl__)) lltoa (long long _n, char * _c, int _i) { return _i64toa (_n, _c, _i); }
-  __extension__ inline char *__attribute__((__cdecl__)) ulltoa (unsigned long long _n, char * _c, int _i) { return _ui64toa (_n, _c, _i); }
-  __extension__ inline long long __attribute__((__cdecl__)) wtoll (const wchar_t * _w) { return _wtoi64 (_w); }
-  __extension__ inline wchar_t *__attribute__((__cdecl__)) lltow (long long _n, wchar_t * _w, int _i) { return _i64tow (_n, _w, _i); }
-  __extension__ inline wchar_t *__attribute__((__cdecl__)) ulltow (unsigned long long _n, wchar_t * _w, int _i) { return _ui64tow (_n, _w, _i); }
-
-
-
-
-
-
+# 662 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/stdlib.h" 3
 }
 
 
@@ -43034,8 +43003,6 @@ extern "C" {
 extern "C" {
 # 35 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/stralign.h" 3
   PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source);
-
-  inline PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
 # 202 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/stralign.h" 3
 }
 
@@ -44189,108 +44156,7 @@ typedef unsigned int GROUP;
   __attribute__((dllimport)) INT __attribute__((__stdcall__)) WSAProviderConfigChange(LPHANDLE lpNotificationHandle,LPWSAOVERLAPPED lpOverlapped,LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine);
 # 1224 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 3
 }
-# 12 "src/NT_System.h" 2
-
-# 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 1 3
-# 12 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 3
-extern "C" const GUID GUID_DEVINTERFACE_DISK;
-extern "C" const GUID GUID_DEVINTERFACE_CDROM;
-extern "C" const GUID GUID_DEVINTERFACE_PARTITION;
-extern "C" const GUID GUID_DEVINTERFACE_TAPE;
-extern "C" const GUID GUID_DEVINTERFACE_WRITEONCEDISK;
-extern "C" const GUID GUID_DEVINTERFACE_VOLUME;
-extern "C" const GUID GUID_DEVINTERFACE_MEDIUMCHANGER;
-extern "C" const GUID GUID_DEVINTERFACE_FLOPPY;
-extern "C" const GUID GUID_DEVINTERFACE_CDCHANGER;
-extern "C" const GUID GUID_DEVINTERFACE_STORAGEPORT;
-extern "C" const GUID GUID_DEVINTERFACE_COMPORT;
-extern "C" const GUID GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR;
-# 14 "src/NT_System.h" 2
-# 28 "src/NT_System.h"
-typedef struct _IO_STATUS_BLOCK {
-  union {
-    int Status;
-    PVOID Pointer;
-  };
-  ULONG_PTR Information;
-} IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
-
-typedef struct _LSA_UNICODE_STRING {
-  USHORT Length;
-  USHORT MaximumLength;
-  PWSTR Buffer;
-} LSA_UNICODE_STRING, *PLSA_UNICODE_STRING, UNICODE_STRING, *PUNICODE_STRING;
-
-typedef struct _OBJECT_ATTRIBUTES {
-  ULONG Length;
-  HANDLE RootDirectory;
-  PUNICODE_STRING ObjectName;
-  ULONG Attributes;
-  PVOID SecurityDescriptor;
-  PVOID SecurityQualityOfService;
-} OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
-
-
-
-
-typedef int __attribute__((__stdcall__)) (*__NtCreateFile)(
-      PHANDLE FileHandle,
-      ACCESS_MASK DesiredAccess,
-      POBJECT_ATTRIBUTES ObjectAttributes,
-      PIO_STATUS_BLOCK IoStatusBlock,
-   PLARGE_INTEGER AllocationSize,
-       ULONG FileAttributes,
-       ULONG ShareAccess,
-       ULONG CreateDisposition,
-       ULONG CreateOptions,
-       PVOID EaBuffer,
-       ULONG EaLength
-);
-extern __NtCreateFile NtCreateFile;
-
-typedef void(__attribute__((__stdcall__)) * PIO_APC_ROUTINE )( PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved);
-typedef int __attribute__((__stdcall__)) (*__NtReadFile)(
-  HANDLE FileHandle,
-  HANDLE Event,
-  PIO_APC_ROUTINE ApcRoutine,
-  PVOID ApcContext,
-  PIO_STATUS_BLOCK IoStatusBlock,
-  PVOID Buffer,
-  ULONG Length,
-  PLARGE_INTEGER ByteOffset,
-  PULONG Key
-);
-extern __NtReadFile NtReadFile;
-
-typedef int __attribute__((__stdcall__)) (*__NtWriteFile)(
-  HANDLE FileHandle,
-  HANDLE Event,
-  PIO_APC_ROUTINE ApcRoutine,
-  PVOID ApcContext,
-  PIO_STATUS_BLOCK IoStatusBlock,
-  PVOID Buffer,
-  ULONG Length,
-  PLARGE_INTEGER ByteOffset,
-  PULONG Key
-);
-extern __NtWriteFile NtWriteFile;
-
-typedef int __attribute__((__stdcall__)) (*__NtClose)(
-  HANDLE Handle
-);
-extern __NtClose NtClose;
-
-typedef void __attribute__((__stdcall__)) (*__RtlInitUnicodeString)(
-  PUNICODE_STRING DestinationString,
-  PCWSTR SourceString
-);
-extern __RtlInitUnicodeString RtlInitUnicodeString;
-
-int __attribute__((__stdcall__)) Load_NTDLL(void);
-int __attribute__((__stdcall__)) UnLoad_NTDLL(void);
 # 42 "src/BEOS_Defs.h" 2
-
-
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 1 3
 # 12 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 3
@@ -44408,7 +44274,7 @@ extern "C" {
 
 }
 # 126 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/conio.h" 2 3
-# 46 "src/BEOS_Defs.h" 2
+# 44 "src/BEOS_Defs.h" 2
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 1 3
 # 10 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/direct.h" 3
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 1 3
@@ -44562,45 +44428,11 @@ typedef off32_t off_t;
 
 
   intptr_t __attribute__((__cdecl__)) _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData);
-
-  inline intptr_t __attribute__((__cdecl__)) _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData)
-  {
-    struct __finddata64_t fd;
-    intptr_t ret = _findfirst64(_Filename,&fd);
-    if (ret == -1) {
-      memset(_FindData,0,sizeof(struct _finddata64i32_t));
-      return -1;
-    }
-    _FindData->attrib=fd.attrib;
-    _FindData->time_create=fd.time_create;
-    _FindData->time_access=fd.time_access;
-    _FindData->time_write=fd.time_write;
-    _FindData->size=(_fsize_t) fd.size;
-    strncpy(_FindData->name,fd.name,260);
-    return ret;
-  }
-
+# 239 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 3
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _findnext32i64(intptr_t _FindHandle,struct _finddata32i64_t *_FindData);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _findnext64(intptr_t _FindHandle,struct __finddata64_t *_FindData);
   int __attribute__((__cdecl__)) _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData);
-
-  inline int __attribute__((__cdecl__)) _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData)
-  {
-    struct __finddata64_t fd;
-    int ret = _findnext64(_FindHandle,&fd);
-    if (ret == -1) {
-      memset(_FindData,0,sizeof(struct _finddata64i32_t));
-      return -1;
-    }
-    _FindData->attrib=fd.attrib;
-    _FindData->time_create=fd.time_create;
-    _FindData->time_access=fd.time_access;
-    _FindData->time_write=fd.time_write;
-    _FindData->size=(_fsize_t) fd.size;
-    strncpy(_FindData->name,fd.name,260);
-    return ret;
-  }
-
+# 260 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 3
   __extension__ long long __attribute__((__cdecl__)) _lseeki64(int _FileHandle,long long _Offset,int _Origin);
   __extension__ long long __attribute__((__cdecl__)) _telli64(int _FileHandle);
 
@@ -44761,8 +44593,117 @@ extern "C" {
 
 
 #pragma pack(pop)
-# 47 "src/BEOS_Defs.h" 2
+# 45 "src/BEOS_Defs.h" 2
 
+# 1 "src/NT_System.h" 1
+
+
+
+
+
+# 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 1 3
+# 12 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 3
+extern "C" const GUID GUID_DEVINTERFACE_DISK;
+extern "C" const GUID GUID_DEVINTERFACE_CDROM;
+extern "C" const GUID GUID_DEVINTERFACE_PARTITION;
+extern "C" const GUID GUID_DEVINTERFACE_TAPE;
+extern "C" const GUID GUID_DEVINTERFACE_WRITEONCEDISK;
+extern "C" const GUID GUID_DEVINTERFACE_VOLUME;
+extern "C" const GUID GUID_DEVINTERFACE_MEDIUMCHANGER;
+extern "C" const GUID GUID_DEVINTERFACE_FLOPPY;
+extern "C" const GUID GUID_DEVINTERFACE_CDCHANGER;
+extern "C" const GUID GUID_DEVINTERFACE_STORAGEPORT;
+extern "C" const GUID GUID_DEVINTERFACE_COMPORT;
+extern "C" const GUID GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR;
+# 7 "src/NT_System.h" 2
+# 52 "src/NT_System.h"
+typedef struct _IO_STATUS_BLOCK {
+  union {
+    int Status;
+    PVOID Pointer;
+  };
+  ULONG_PTR Information;
+} IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
+
+typedef struct _LSA_UNICODE_STRING {
+  USHORT Length;
+  USHORT MaximumLength;
+  PWSTR Buffer;
+} LSA_UNICODE_STRING, *PLSA_UNICODE_STRING, UNICODE_STRING, *PUNICODE_STRING;
+
+typedef struct _OBJECT_ATTRIBUTES {
+  ULONG Length;
+  HANDLE RootDirectory;
+  PUNICODE_STRING ObjectName;
+  ULONG Attributes;
+  PVOID SecurityDescriptor;
+  PVOID SecurityQualityOfService;
+} OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
+
+
+
+
+
+
+typedef int __attribute__((__stdcall__)) (*__NtCreateFile)(
+    PHANDLE FileHandle,
+    ACCESS_MASK DesiredAccess,
+    POBJECT_ATTRIBUTES ObjectAttributes,
+    PIO_STATUS_BLOCK IoStatusBlock,
+    PLARGE_INTEGER AllocationSize,
+    ULONG FileAttributes,
+    ULONG ShareAccess,
+    ULONG CreateDisposition,
+    ULONG CreateOptions,
+    PVOID EaBuffer,
+    ULONG EaLength
+);
+extern __NtCreateFile NtCreateFile;
+
+typedef void(__attribute__((__stdcall__)) * PIO_APC_ROUTINE )( PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved);
+typedef int __attribute__((__stdcall__)) (*__NtReadFile)(
+  HANDLE FileHandle,
+  HANDLE Event,
+  PIO_APC_ROUTINE ApcRoutine,
+  PVOID ApcContext,
+  PIO_STATUS_BLOCK IoStatusBlock,
+  PVOID Buffer,
+  ULONG Length,
+  PLARGE_INTEGER ByteOffset,
+  PULONG Key
+);
+extern __NtReadFile NtReadFile;
+
+typedef int __attribute__((__stdcall__)) (*__NtWriteFile)(
+  HANDLE FileHandle,
+  HANDLE Event,
+  PIO_APC_ROUTINE ApcRoutine,
+  PVOID ApcContext,
+  PIO_STATUS_BLOCK IoStatusBlock,
+  PVOID Buffer,
+  ULONG Length,
+  PLARGE_INTEGER ByteOffset,
+  PULONG Key
+);
+extern __NtWriteFile NtWriteFile;
+
+typedef int __attribute__((__stdcall__)) (*__NtClose)(
+  HANDLE Handle
+);
+extern __NtClose NtClose;
+
+typedef void __attribute__((__stdcall__)) (*__RtlInitUnicodeString)(
+  PUNICODE_STRING DestinationString,
+  PCWSTR SourceString
+);
+extern __RtlInitUnicodeString RtlInitUnicodeString;
+
+
+
+int __attribute__((__stdcall__)) Load_NTDLL(void);
+
+int __attribute__((__stdcall__)) UnLoad_NTDLL(void);
+# 47 "src/BEOS_Defs.h" 2
 
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 1 3
@@ -45323,15 +45264,6 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fgetwc_nolock(FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fputwc_nolock(wchar_t _Ch,FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _ungetwc_nolock(wint_t _Ch,FILE *_File);
-
-
-
-
-
-
-
-  inline wint_t __attribute__((__cdecl__)) getwchar() {return (fgetwc((&(* _imp___iob)[0]))); }
-  inline wint_t __attribute__((__cdecl__)) putwchar(wchar_t _C) {return (fputwc(_C,(&(* _imp___iob)[1]))); }
 # 895 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
   struct tm {
     int tm_sec;
@@ -45360,16 +45292,7 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
 
 
   wchar_t *__attribute__((__cdecl__)) _wctime(const time_t *_Time) ;
-
-
-
-
-  inline wchar_t *__attribute__((__cdecl__)) _wctime(const time_t *_Time) { return _wctime32(_Time); }
-
-
-
-
-
+# 932 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
   typedef int mbstate_t;
   typedef wchar_t _Wint_t;
 
@@ -45396,39 +45319,6 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
 
   void *__attribute__((__cdecl__)) memmove(void *_Dst,const void *_Src,size_t _MaxCount);
   void *__attribute__((__cdecl__)) memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _MaxCount) ;
-
-  inline int __attribute__((__cdecl__)) fwide(FILE *_F,int _M) { (void)_F; return (_M); }
-  inline int __attribute__((__cdecl__)) mbsinit(const mbstate_t *_P) { return (!_P || *_P==0); }
-  inline wchar_t *__attribute__((__cdecl__)) wmemchr(const wchar_t *_S,wchar_t _C,size_t _N) {
-    if (_S) {
-      for ( ; 0 < _N; ++_S, --_N)
- if (*_S == _C)
-   return ( wchar_t *)(_S);
-    }
-    return ( wchar_t *) 0;
-  }
-  inline int __attribute__((__cdecl__)) wmemcmp(const wchar_t *_S1,const wchar_t *_S2,size_t _N) {
-    if (_N == 0 || _S1 == _S2)
-      return 0;
-    if ((_S1 && !(_S2)) || (_S2 && !(_S1)))
-      return !(_S2) ? 1 : -1;
-    for ( ; 0 < _N; ++_S1, ++_S2, --_N)
-      if (*_S1 != *_S2)
- return (*_S1 < *_S2 ? -1 : +1);
-    return 0;
-  }
-  inline wchar_t *__attribute__((__cdecl__)) wmemcpy(wchar_t * __restrict__ _S1,const wchar_t * __restrict__ _S2,size_t _N)
-  {
-    return (wchar_t *) memcpy (_S1,_S2,_N*sizeof(wchar_t));
-  }
-  inline wchar_t *__attribute__((__cdecl__)) wmemmove(wchar_t *_S1,const wchar_t *_S2,size_t _N) { return (wchar_t *)memmove(_S1,_S2,_N*sizeof(wchar_t)); }
-  inline wchar_t *__attribute__((__cdecl__)) wmemset(wchar_t *_S,wchar_t _C,size_t _N) {
-    wchar_t *_Su = _S;
-    for (;0<_N;++_Su,--_N) {
-      *_Su = _C;
-    }
-    return (_S);
-  }
 # 1007 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
 int __attribute__((__cdecl__)) __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
 # 1021 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
@@ -52911,7 +52801,7 @@ namespace std
 
 
   inline int
-  __convert_from_v(const __c_locale&, char* __out,
+  __convert_from_v(const __c_locale&, char* ,
      const int __size __attribute__((__unused__)),
      const char* __fmt, ...)
   {
@@ -52929,7 +52819,7 @@ namespace std
     __builtin_va_start(__args, __fmt);
 
 
-    const int __ret = __mingw_vsnprintf(__out, __size, __fmt, __args);
+    const int __ret = __mingw_vsnprintf(, __size, __fmt, __args);
 
 
 
@@ -53349,15 +53239,7 @@ extern "C" {
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _ftime(struct __timeb32 *);
 # 102 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/timeb.h" 3
   void __attribute__((__cdecl__)) ftime (struct timeb *);
-# 111 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/timeb.h" 3
-  inline void __attribute__((__cdecl__)) ftime(struct timeb *_Tmb) {
-    _ftime((struct __timeb32 *)_Tmb);
-  }
-
-
-
-
-
+# 119 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/timeb.h" 3
 }
 
 
@@ -54371,31 +54253,31 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     inline void
-    __ostream_write(basic_ostream<_CharT, _Traits>& __out,
+    __ostream_write(basic_ostream<_CharT, _Traits>& ,
       const _CharT* __s, streamsize __n)
     {
       typedef basic_ostream<_CharT, _Traits> __ostream_type;
       typedef typename __ostream_type::ios_base __ios_base;
 
-      const streamsize __put = __out.rdbuf()->sputn(__s, __n);
+      const streamsize __put = .rdbuf()->sputn(__s, __n);
       if (__put != __n)
- __out.setstate(__ios_base::badbit);
+ .setstate(__ios_base::badbit);
     }
 
   template<typename _CharT, typename _Traits>
     inline void
-    __ostream_fill(basic_ostream<_CharT, _Traits>& __out, streamsize __n)
+    __ostream_fill(basic_ostream<_CharT, _Traits>& , streamsize __n)
     {
       typedef basic_ostream<_CharT, _Traits> __ostream_type;
       typedef typename __ostream_type::ios_base __ios_base;
 
-      const _CharT __c = __out.fill();
+      const _CharT __c = .fill();
       for (; __n > 0; --__n)
  {
-   const typename _Traits::int_type __put = __out.rdbuf()->sputc(__c);
+   const typename _Traits::int_type __put = .rdbuf()->sputc(__c);
    if (_Traits::eq_int_type(__put, _Traits::eof()))
      {
-       __out.setstate(__ios_base::badbit);
+       .setstate(__ios_base::badbit);
        break;
      }
  }
@@ -54403,43 +54285,43 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_ostream<_CharT, _Traits>&
-    __ostream_insert(basic_ostream<_CharT, _Traits>& __out,
+    __ostream_insert(basic_ostream<_CharT, _Traits>& ,
        const _CharT* __s, streamsize __n)
     {
       typedef basic_ostream<_CharT, _Traits> __ostream_type;
       typedef typename __ostream_type::ios_base __ios_base;
 
-      typename __ostream_type::sentry __cerb(__out);
+      typename __ostream_type::sentry __cerb();
       if (__cerb)
  {
    try
      {
-       const streamsize __w = __out.width();
+       const streamsize __w = .width();
        if (__w > __n)
   {
-    const bool __left = ((__out.flags()
+    const bool __left = ((.flags()
      & __ios_base::adjustfield)
            == __ios_base::left);
     if (!__left)
-      __ostream_fill(__out, __w - __n);
-    if (__out.good())
-      __ostream_write(__out, __s, __n);
-    if (__left && __out.good())
-      __ostream_fill(__out, __w - __n);
+      __ostream_fill(, __w - __n);
+    if (.good())
+      __ostream_write(, __s, __n);
+    if (__left && .good())
+      __ostream_fill(, __w - __n);
   }
        else
-  __ostream_write(__out, __s, __n);
-       __out.width(0);
+  __ostream_write(, __s, __n);
+       .width(0);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __out._M_setstate(__ios_base::badbit);
+       ._M_setstate(__ios_base::badbit);
        throw;
      }
    catch(...)
-     { __out._M_setstate(__ios_base::badbit); }
+     { ._M_setstate(__ios_base::badbit); }
  }
-      return __out;
+      return ;
     }
 
 
@@ -56875,13 +56757,13 @@ namespace std
 
   template<>
     basic_istream<char>&
-    getline(basic_istream<char>& __in, basic_string<char>& __str,
+    getline(basic_istream<char>& , basic_string<char>& __str,
      char __delim);
 
 
   template<>
     basic_istream<wchar_t>&
-    getline(basic_istream<wchar_t>& __in, basic_string<wchar_t>& __str,
+    getline(basic_istream<wchar_t>& , basic_string<wchar_t>& __str,
      wchar_t __delim);
 
 
@@ -58589,7 +58471,7 @@ namespace std
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in,
+    operator>>(basic_istream<_CharT, _Traits>& ,
         basic_string<_CharT, _Traits, _Alloc>& __str)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
@@ -58602,7 +58484,7 @@ namespace std
 
       __size_type __extracted = 0;
       typename __ios_base::iostate __err = __ios_base::goodbit;
-      typename __istream_type::sentry __cerb(__in, false);
+      typename __istream_type::sentry __cerb(, false);
       if (__cerb)
  {
    try
@@ -58611,12 +58493,12 @@ namespace std
        __str.erase();
        _CharT __buf[128];
        __size_type __len = 0;
-       const streamsize __w = __in.width();
+       const streamsize __w = .width();
        const __size_type __n = __w > 0 ? static_cast<__size_type>(__w)
                                 : __str.max_size();
-       const __ctype_type& __ct = use_facet<__ctype_type>(__in.getloc());
+       const __ctype_type& __ct = use_facet<__ctype_type>(.getloc());
        const __int_type __eof = _Traits::eof();
-       __int_type __c = __in.rdbuf()->sgetc();
+       __int_type __c = .rdbuf()->sgetc();
 
        while (__extracted < __n
        && !_Traits::eq_int_type(__c, __eof)
@@ -58630,17 +58512,17 @@ namespace std
       }
     __buf[__len++] = _Traits::to_char_type(__c);
     ++__extracted;
-    __c = __in.rdbuf()->snextc();
+    __c = .rdbuf()->snextc();
   }
        __str.append(__buf, __len);
 
        if (_Traits::eq_int_type(__c, __eof))
   __err |= __ios_base::eofbit;
-       __in.width(0);
+       .width(0);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(__ios_base::badbit);
+       ._M_setstate(__ios_base::badbit);
        throw;
      }
    catch(...)
@@ -58648,20 +58530,20 @@ namespace std
 
 
 
-       __in._M_setstate(__ios_base::badbit);
+       ._M_setstate(__ios_base::badbit);
      }
  }
 
       if (!__extracted)
  __err |= __ios_base::failbit;
       if (__err)
- __in.setstate(__err);
-      return __in;
+ .setstate(__err);
+      return ;
     }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     basic_istream<_CharT, _Traits>&
-    getline(basic_istream<_CharT, _Traits>& __in,
+    getline(basic_istream<_CharT, _Traits>& ,
      basic_string<_CharT, _Traits, _Alloc>& __str, _CharT __delim)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
@@ -58673,7 +58555,7 @@ namespace std
       __size_type __extracted = 0;
       const __size_type __n = __str.max_size();
       typename __ios_base::iostate __err = __ios_base::goodbit;
-      typename __istream_type::sentry __cerb(__in, true);
+      typename __istream_type::sentry __cerb(, true);
       if (__cerb)
  {
    try
@@ -58681,7 +58563,7 @@ namespace std
        __str.erase();
        const __int_type __idelim = _Traits::to_int_type(__delim);
        const __int_type __eof = _Traits::eof();
-       __int_type __c = __in.rdbuf()->sgetc();
+       __int_type __c = .rdbuf()->sgetc();
 
        while (__extracted < __n
        && !_Traits::eq_int_type(__c, __eof)
@@ -58689,7 +58571,7 @@ namespace std
   {
     __str += _Traits::to_char_type(__c);
     ++__extracted;
-    __c = __in.rdbuf()->snextc();
+    __c = .rdbuf()->snextc();
   }
 
        if (_Traits::eq_int_type(__c, __eof))
@@ -58697,14 +58579,14 @@ namespace std
        else if (_Traits::eq_int_type(__c, __idelim))
   {
     ++__extracted;
-    __in.rdbuf()->sbumpc();
+    .rdbuf()->sbumpc();
   }
        else
   __err |= __ios_base::failbit;
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(__ios_base::badbit);
+       ._M_setstate(__ios_base::badbit);
        throw;
      }
    catch(...)
@@ -58712,14 +58594,14 @@ namespace std
 
 
 
-       __in._M_setstate(__ios_base::badbit);
+       ._M_setstate(__ios_base::badbit);
      }
  }
       if (!__extracted)
  __err |= __ios_base::failbit;
       if (__err)
- __in.setstate(__err);
-      return __in;
+ .setstate(__err);
+      return ;
     }
 
 
@@ -62034,60 +61916,60 @@ namespace std
       num_get(size_t __refs = 0) : facet(__refs) { }
 # 1961 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, bool& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 # 1998 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned short& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned int& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, long long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned long long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 # 2058 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, float& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, double& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, long double& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 # 2101 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type , iter_type __end, ios_base& __io,
    ios_base::iostate& __err, void*& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(, __end, __io, __err, __v); }
 
     protected:
 
@@ -64305,70 +64187,70 @@ namespace std
 # 469 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ostream" 3
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
-    { return __ostream_insert(__out, &__c, 1); }
+    operator<<(basic_ostream<_CharT, _Traits>& , _CharT __c)
+    { return __ostream_insert(, &__c, 1); }
 
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
-    { return (__out << __out.widen(__c)); }
+    operator<<(basic_ostream<_CharT, _Traits>& , char __c)
+    { return ( << .widen(__c)); }
 
 
   template <class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, char __c)
-    { return __ostream_insert(__out, &__c, 1); }
+    operator<<(basic_ostream<char, _Traits>& , char __c)
+    { return __ostream_insert(, &__c, 1); }
 
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
-    { return (__out << static_cast<char>(__c)); }
+    operator<<(basic_ostream<char, _Traits>& , signed char __c)
+    { return ( << static_cast<char>(__c)); }
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
-    { return (__out << static_cast<char>(__c)); }
+    operator<<(basic_ostream<char, _Traits>& , unsigned char __c)
+    { return ( << static_cast<char>(__c)); }
 # 511 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ostream" 3
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+    operator<<(basic_ostream<_CharT, _Traits>& , const _CharT* __s)
     {
       if (!__s)
- __out.setstate(ios_base::badbit);
+ .setstate(ios_base::badbit);
       else
- __ostream_insert(__out, __s,
+ __ostream_insert(, __s,
     static_cast<streamsize>(_Traits::length(__s)));
-      return __out;
+      return ;
     }
 
   template<typename _CharT, typename _Traits>
     basic_ostream<_CharT, _Traits> &
-    operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s);
+    operator<<(basic_ostream<_CharT, _Traits>& , const char* __s);
 
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+    operator<<(basic_ostream<char, _Traits>& , const char* __s)
     {
       if (!__s)
- __out.setstate(ios_base::badbit);
+ .setstate(ios_base::badbit);
       else
- __ostream_insert(__out, __s,
+ __ostream_insert(, __s,
     static_cast<streamsize>(_Traits::length(__s)));
-      return __out;
+      return ;
     }
 
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
-    { return (__out << reinterpret_cast<const char*>(__s)); }
+    operator<<(basic_ostream<char, _Traits>& , const signed char* __s)
+    { return ( << reinterpret_cast<const char*>(__s)); }
 
   template<class _Traits>
     inline basic_ostream<char, _Traits> &
-    operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
-    { return (__out << reinterpret_cast<const char*>(__s)); }
+    operator<<(basic_ostream<char, _Traits>& , const unsigned char* __s)
+    { return ( << reinterpret_cast<const char*>(__s)); }
 # 562 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ostream" 3
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
@@ -64686,10 +64568,10 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+    operator<<(basic_ostream<_CharT, _Traits>& , const char* __s)
     {
       if (!__s)
- __out.setstate(ios_base::badbit);
+ .setstate(ios_base::badbit);
       else
  {
 
@@ -64707,18 +64589,18 @@ namespace std
 
        _CharT *__ws = __pg.__get();
        for (size_t __i = 0; __i < __clen; ++__i)
-  __ws[__i] = __out.widen(__s[__i]);
-       __ostream_insert(__out, __ws, __clen);
+  __ws[__i] = .widen(__s[__i]);
+       __ostream_insert(, __ws, __clen);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __out._M_setstate(ios_base::badbit);
+       ._M_setstate(ios_base::badbit);
        throw;
      }
    catch(...)
-     { __out._M_setstate(ios_base::badbit); }
+     { ._M_setstate(ios_base::badbit); }
  }
-      return __out;
+      return ;
     }
 
 
@@ -65038,36 +64920,36 @@ namespace std
 # 721 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/istream" 3
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT& __c);
+    operator>>(basic_istream<_CharT, _Traits>& , _CharT& __c);
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, unsigned char& __c)
-    { return (__in >> reinterpret_cast<char&>(__c)); }
+    operator>>(basic_istream<char, _Traits>& , unsigned char& __c)
+    { return ( >> reinterpret_cast<char&>(__c)); }
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, signed char& __c)
-    { return (__in >> reinterpret_cast<char&>(__c)); }
+    operator>>(basic_istream<char, _Traits>& , signed char& __c)
+    { return ( >> reinterpret_cast<char&>(__c)); }
 # 763 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/istream" 3
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT* __s);
+    operator>>(basic_istream<_CharT, _Traits>& , _CharT* __s);
 
 
   template<>
     basic_istream<char>&
-    operator>>(basic_istream<char>& __in, char* __s);
+    operator>>(basic_istream<char>& , char* __s);
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, unsigned char* __s)
-    { return (__in >> reinterpret_cast<char*>(__s)); }
+    operator>>(basic_istream<char, _Traits>& , unsigned char* __s)
+    { return ( >> reinterpret_cast<char*>(__s)); }
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, signed char* __s)
-    { return (__in >> reinterpret_cast<char*>(__s)); }
+    operator>>(basic_istream<char, _Traits>& , signed char* __s)
+    { return ( >> reinterpret_cast<char*>(__s)); }
 # 794 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/istream" 3
   template<typename _CharT, typename _Traits>
     class basic_iostream
@@ -65135,20 +65017,20 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>::sentry::
-    sentry(basic_istream<_CharT, _Traits>& __in, bool __noskip) : _M_ok(false)
+    sentry(basic_istream<_CharT, _Traits>& , bool __noskip) : _M_ok(false)
     {
       ios_base::iostate __err = ios_base::goodbit;
-      if (__in.good())
+      if (.good())
  {
-   if (__in.tie())
-     __in.tie()->flush();
-   if (!__noskip && bool(__in.flags() & ios_base::skipws))
+   if (.tie())
+     .tie()->flush();
+   if (!__noskip && bool(.flags() & ios_base::skipws))
      {
        const __int_type __eof = traits_type::eof();
-       __streambuf_type* __sb = __in.rdbuf();
+       __streambuf_type* __sb = .rdbuf();
        __int_type __c = __sb->sgetc();
 
-       const __ctype_type& __ct = __check_facet(__in._M_ctype);
+       const __ctype_type& __ct = __check_facet(._M_ctype);
        while (!traits_type::eq_int_type(__c, __eof)
        && __ct.is(ctype_base::space,
     traits_type::to_char_type(__c)))
@@ -65162,12 +65044,12 @@ namespace std
      }
  }
 
-      if (__in.good() && __err == ios_base::goodbit)
+      if (.good() && __err == ios_base::goodbit)
  _M_ok = true;
       else
  {
    __err |= ios_base::failbit;
-   __in.setstate(__err);
+   .setstate(__err);
  }
     }
 
@@ -66004,18 +65886,18 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT& __c)
+    operator>>(basic_istream<_CharT, _Traits>& , _CharT& __c)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
       typedef typename __istream_type::int_type __int_type;
 
-      typename __istream_type::sentry __cerb(__in, false);
+      typename __istream_type::sentry __cerb(, false);
       if (__cerb)
  {
    ios_base::iostate __err = ios_base::goodbit;
    try
      {
-       const __int_type __cb = __in.rdbuf()->sbumpc();
+       const __int_type __cb = .rdbuf()->sbumpc();
        if (!_Traits::eq_int_type(__cb, _Traits::eof()))
   __c = _Traits::to_char_type(__cb);
        else
@@ -66023,20 +65905,20 @@ namespace std
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(ios_base::badbit);
+       ._M_setstate(ios_base::badbit);
        throw;
      }
    catch(...)
-     { __in._M_setstate(ios_base::badbit); }
+     { ._M_setstate(ios_base::badbit); }
    if (__err)
-     __in.setstate(__err);
+     .setstate(__err);
  }
-      return __in;
+      return ;
     }
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT* __s)
+    operator>>(basic_istream<_CharT, _Traits>& , _CharT* __s)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
       typedef basic_streambuf<_CharT, _Traits> __streambuf_type;
@@ -66046,20 +65928,20 @@ namespace std
 
       streamsize __extracted = 0;
       ios_base::iostate __err = ios_base::goodbit;
-      typename __istream_type::sentry __cerb(__in, false);
+      typename __istream_type::sentry __cerb(, false);
       if (__cerb)
  {
    try
      {
 
-       streamsize __num = __in.width();
+       streamsize __num = .width();
        if (__num <= 0)
   __num = __gnu_cxx::__numeric_traits<streamsize>::__max;
 
-       const __ctype_type& __ct = use_facet<__ctype_type>(__in.getloc());
+       const __ctype_type& __ct = use_facet<__ctype_type>(.getloc());
 
        const int_type __eof = _Traits::eof();
-       __streambuf_type* __sb = __in.rdbuf();
+       __streambuf_type* __sb = .rdbuf();
        int_type __c = __sb->sgetc();
 
        while (__extracted < __num - 1
@@ -66077,36 +65959,36 @@ namespace std
 
 
        *__s = char_type();
-       __in.width(0);
+       .width(0);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(ios_base::badbit);
+       ._M_setstate(ios_base::badbit);
        throw;
      }
    catch(...)
-     { __in._M_setstate(ios_base::badbit); }
+     { ._M_setstate(ios_base::badbit); }
  }
       if (!__extracted)
  __err |= ios_base::failbit;
       if (__err)
- __in.setstate(__err);
-      return __in;
+ .setstate(__err);
+      return ;
     }
 
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    ws(basic_istream<_CharT, _Traits>& __in)
+    ws(basic_istream<_CharT, _Traits>& )
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
       typedef basic_streambuf<_CharT, _Traits> __streambuf_type;
       typedef typename __istream_type::int_type __int_type;
       typedef ctype<_CharT> __ctype_type;
 
-      const __ctype_type& __ct = use_facet<__ctype_type>(__in.getloc());
+      const __ctype_type& __ct = use_facet<__ctype_type>(.getloc());
       const __int_type __eof = _Traits::eof();
-      __streambuf_type* __sb = __in.rdbuf();
+      __streambuf_type* __sb = .rdbuf();
       __int_type __c = __sb->sgetc();
 
       while (!_Traits::eq_int_type(__c, __eof)
@@ -66114,8 +65996,8 @@ namespace std
  __c = __sb->snextc();
 
        if (_Traits::eq_int_type(__c, __eof))
-  __in.setstate(ios_base::eofbit);
-      return __in;
+  .setstate(ios_base::eofbit);
+      return ;
     }
 
 
@@ -68106,9 +67988,9 @@ namespace std
 
 }
 # 940 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 2 3
-# 51 "src/BEOS_Defs.h" 2
+# 50 "src/BEOS_Defs.h" 2
 extern std::ofstream debug;
-# 90 "src/BEOS_Defs.h"
+# 89 "src/BEOS_Defs.h"
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 1 3
 # 21 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 3
 extern "C" {
@@ -68120,7 +68002,7 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 
 
 }
-# 91 "src/BEOS_Defs.h" 2
+# 90 "src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 1 3
 # 16 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
@@ -68134,85 +68016,25 @@ extern "C" {
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fstat64(int _FileDes,struct _stat64 *_Stat);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fstati64(int _FileDes,struct _stati64 *_Stat);
   int __attribute__((__cdecl__)) _fstat64i32(int _FileDes,struct _stat64i32 *_Stat);
-
-  inline int __attribute__((__cdecl__)) _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
-  {
-    struct _stat64 st;
-    int ret=_fstat64(_FileDes,&st);
-    if (ret == -1) {
-      memset(_Stat,0,sizeof(struct _stat64i32));
-      return -1;
-    }
-    _Stat->st_dev=st.st_dev;
-    _Stat->st_ino=st.st_ino;
-    _Stat->st_mode=st.st_mode;
-    _Stat->st_nlink=st.st_nlink;
-    _Stat->st_uid=st.st_uid;
-    _Stat->st_gid=st.st_gid;
-    _Stat->st_rdev=st.st_rdev;
-    _Stat->st_size=(_off_t) st.st_size;
-    _Stat->st_atime=st.st_atime;
-    _Stat->st_mtime=st.st_mtime;
-    _Stat->st_ctime=st.st_ctime;
-    return ret;
-  }
-
+# 97 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _stat64(const char *_Name,struct _stat64 *_Stat);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _stati64(const char *_Name,struct _stati64 *_Stat);
   int __attribute__((__cdecl__)) _stat64i32(const char *_Name,struct _stat64i32 *_Stat);
-
-  inline int __attribute__((__cdecl__)) _stat64i32(const char *_Name,struct _stat64i32 *_Stat)
-  {
-    struct _stat64 st;
-    int ret=_stat64(_Name,&st);
-    if (ret == -1) {
-      memset(_Stat,0,sizeof(struct _stat64i32));
-      return -1;
-    }
-    _Stat->st_dev=st.st_dev;
-    _Stat->st_ino=st.st_ino;
-    _Stat->st_mode=st.st_mode;
-    _Stat->st_nlink=st.st_nlink;
-    _Stat->st_uid=st.st_uid;
-    _Stat->st_gid=st.st_gid;
-    _Stat->st_rdev=st.st_rdev;
-    _Stat->st_size=(_off_t) st.st_size;
-    _Stat->st_atime=st.st_atime;
-    _Stat->st_mtime=st.st_mtime;
-    _Stat->st_ctime=st.st_ctime;
-    return ret;
-  }
 # 164 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
 int __attribute__((__cdecl__)) stat(const char *_Filename,struct stat *_Stat);
 int __attribute__((__cdecl__)) fstat(int _Desc,struct stat *_Stat);
 int __attribute__((__cdecl__)) wstat(const wchar_t *_Filename,struct stat *_Stat);
-
-
-
-inline int __attribute__((__cdecl__))
- fstat(int _Desc,struct stat *_Stat) {
-  struct _stat st;
-  int ret=_fstat(_Desc,&st);
-  if (ret == -1) {
-    memset(_Stat,0,sizeof(struct stat));
-    return -1;
-  }
-
-
-  memcpy(_Stat, &st, sizeof(struct _stat));
-  return ret;
-}
 # 264 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
 }
 
 
 #pragma pack(pop)
-# 93 "src/BEOS_Defs.h" 2
+# 92 "src/BEOS_Defs.h" 2
 
 
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/fcntl.h" 1 3
-# 97 "src/BEOS_Defs.h" 2
+# 96 "src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 1 3
 # 15 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
@@ -68270,22 +68092,7 @@ struct tm *__attribute__((__cdecl__)) localtime(const time_t *_Time) ;
 time_t __attribute__((__cdecl__)) mktime(struct tm *_Tm);
 time_t __attribute__((__cdecl__)) _mkgmtime(struct tm *_Tm);
 time_t __attribute__((__cdecl__)) time(time_t *_Time);
-# 235 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
-inline double __attribute__((__cdecl__)) difftime(time_t _Time1,time_t _Time2)
-  { return _difftime32(_Time1,_Time2); }
-inline char *__attribute__((__cdecl__)) ctime(const time_t *_Time) { return _ctime32(_Time); }
-inline struct tm *__attribute__((__cdecl__)) localtime(const time_t *_Time) { return _localtime32(_Time); }
-inline time_t __attribute__((__cdecl__)) mktime(struct tm *_Tm) { return _mktime32(_Tm); }
-inline struct tm *__attribute__((__cdecl__)) gmtime(const time_t *_Time) { return _gmtime32(_Time); }
-inline time_t __attribute__((__cdecl__)) _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
-inline time_t __attribute__((__cdecl__)) time(time_t *_Time) { return _time32(_Time); }
-
-
-
-
-
-
-
+# 250 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
   __attribute__ ((__dllimport__)) extern int daylight;
   __attribute__ ((__dllimport__)) extern long timezone;
   __attribute__ ((__dllimport__)) extern char *tzname[2];
@@ -68361,7 +68168,7 @@ int __attribute__((__cdecl__)) clock_settime(clockid_t clock_id, const struct ti
 
 }
 # 286 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 2 3
-# 99 "src/BEOS_Defs.h" 2
+# 98 "src/BEOS_Defs.h" 2
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 1 3
 # 39 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 3
        
@@ -68383,8 +68190,8 @@ namespace std
   using ::localtime;
   using ::strftime;
 }
-# 100 "src/BEOS_Defs.h" 2
-# 161 "src/BEOS_Defs.h"
+# 99 "src/BEOS_Defs.h" 2
+# 160 "src/BEOS_Defs.h"
 enum {
     B_NO_MEMORY = (-2147483647L - 1L),
     B_IO_ERROR,
@@ -68408,7 +68215,7 @@ enum {
     B_OK = 0,
     B_NO_ERROR = 0
 };
-# 237 "src/BEOS_Defs.h"
+# 241 "src/BEOS_Defs.h"
 enum {
   B_ANY_TYPE = 'ANYT',
   B_ATOM_TYPE = 'ATOM',
@@ -68489,7 +68296,7 @@ typedef struct dirent_t {
     time_t modify;
     time_t create;
 } dirent_t;
-# 327 "src/BEOS_Defs.h"
+# 331 "src/BEOS_Defs.h"
 struct fs_info {
     unsigned int dev;
     unsigned short root;
@@ -68518,7 +68325,7 @@ struct attr_stat {
         time_t st_ctime;
         uint32_t st_type;
 };
-# 395 "src/BEOS_Defs.h"
+# 399 "src/BEOS_Defs.h"
 typedef char* caddr_t;
 typedef struct iovec{
     caddr_t iov_base;
@@ -68541,10 +68348,66 @@ typedef struct device_geometry{
     bool write_once;
 } device_geometry;
 # 13 "src/BEOS_SystemWrapper.h" 2
+# 21 "src/BEOS_SystemWrapper.h"
+int32_t getegid(void);
+int32_t geteuid(void);
+
+
+int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
+int read_pos2(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
+int write_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
+signed long readv_pos(HANDLE fd, int64_t pos, const struct iovec *vec, size_t count);
+signed long writev_pos(HANDLE fd, int64_t pos, const struct iovec *vec,size_t count);
+
+
+
+int resume_thread(int id);
+
+
+
+int acquire_sem(int sem);
+int acquire_sem_etc(int sem, uint32_t count, uint32_t flags, unsigned long long timeout);
+int create_sem(uint32_t thread_count, const char *name);
+int delete_sem(int sem);
+int release_sem(int sem);
+int release_sem_etc(int sem, int32_t count, uint32_t flags);
+
+
+
+int32_t atomic_add (int32_t *value, int32_t addValue);
+int32_t atomic_set (int32_t *value, int32_t newValue);
+
+
+
+int get_vnode(int fs, int64_t id, void **_vnode);
+int publish_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
+int new_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
+int remove_vnode (unsigned int mountID, int64_t vnodeID);
+int unremove_vnode (unsigned int mountID, int64_t vnodeID);
+int put_vnode (unsigned int mountID, int64_t vnodeID);
+
+
+
+void notify_query_entry_created(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
+void notify_query_entry_removed(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
+
+
+
+typedef void (*tFoo)(int f, void*ff);
+
+
+
+int cache_next_block_in_transaction(void* a, int,unsigned int* b, int64_t * c, int d, int e);
+void cache_abort_sub_transaction(void* d, int id);
+void cache_abort_transaction(void* d, int id);
+int32_t cache_blocks_in_transaction(void* d, int id);
+void cache_end_transaction(void* d, int id, tFoo f, void*);
+int cache_start_sub_transaction(void* d, int id);
+int cache_start_transaction(void* d);
+# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
-# 1 "src/BEOS_SystemWrapper.h" 1
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
+# 12 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Endian.h" 1
 # 13 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
 # 21 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
@@ -68857,66 +68720,6 @@ small_data::IsLast(const bfs_inode *inode) const
 
  return (uint32_t)this > (uint32_t)inode + inode->InodeSize() - sizeof(small_data) || name_size == 0;
 }
-# 14 "src/BEOS_SystemWrapper.h" 2
-# 22 "src/BEOS_SystemWrapper.h"
-int32_t getegid(void);
-int32_t geteuid(void);
-
-
-int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-int read_pos2(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-int write_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-signed long readv_pos(HANDLE fd, int64_t pos, const struct iovec *vec, size_t count);
-signed long writev_pos(HANDLE fd, int64_t pos, const struct iovec *vec,size_t count);
-
-
-
-int resume_thread(int id);
-
-
-
-int acquire_sem(int sem);
-int acquire_sem_etc(int sem, uint32_t count, uint32_t flags, unsigned long long timeout);
-int create_sem(uint32_t thread_count, const char *name);
-int delete_sem(int sem);
-int release_sem(int sem);
-int release_sem_etc(int sem, int32_t count, uint32_t flags);
-
-
-
-int32_t atomic_add (int32_t *value, int32_t addValue);
-int32_t atomic_set (int32_t *value, int32_t newValue);
-
-
-
-int get_vnode(int fs, int64_t id, void **_vnode);
-int publish_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
-int new_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
-int remove_vnode (unsigned int mountID, int64_t vnodeID);
-int unremove_vnode (unsigned int mountID, int64_t vnodeID);
-int put_vnode (unsigned int mountID, int64_t vnodeID);
-
-
-
-void notify_query_entry_created(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
-void notify_query_entry_removed(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
-
-
-
-typedef void (*tFoo)(int f, void*ff);
-
-
-
-int cache_next_block_in_transaction(void* a, int,unsigned int* b, int64_t * c, int d, int e);
-void cache_abort_sub_transaction(void* d, int id);
-void cache_abort_transaction(void* d, int id);
-int32_t cache_blocks_in_transaction(void* d, int id);
-void cache_end_transaction(void* d, int id, tFoo f, void*);
-int cache_start_sub_transaction(void* d, int id);
-int cache_start_transaction(void* d);
-# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
-
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
 # 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 1
 # 9 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h"
@@ -68924,27 +68727,27 @@ int cache_start_transaction(void* d);
 # 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h" 1
 # 83 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h"
- struct block_run;
- struct bplustree_header;
- struct bplustree_node;
- struct data_stream;
- struct bfs_inode;
- struct disk_super_block;
- class Inode;
- class Volume;
+    struct block_run;
+    struct bplustree_header;
+    struct bplustree_node;
+    struct data_stream;
+    struct bfs_inode;
+    struct disk_super_block;
+    class Inode;
+    class Volume;
 
 
- void dump_block_run(const char *prefix, block_run &run);
- void dump_super_block(const disk_super_block *superBlock);
- void dump_data_stream(const data_stream *stream);
- void dump_inode(const bfs_inode *inode);
- void dump_bplustree_header(const bplustree_header *header);
- void dump_bplustree_node(const bplustree_node *node,
-     const bplustree_header *header = __null, Volume *volume = __null);
- void dump_block(const char *buffer, int size);
+    void dump_block_run(const char *prefix, block_run &run);
+    void dump_super_block(const disk_super_block *superBlock);
+    void dump_data_stream(const data_stream *stream);
+    void dump_inode(const bfs_inode *inode);
+    void dump_bplustree_header(const bplustree_header *header);
+    void dump_bplustree_node(const bplustree_node *node,
+                    const bplustree_header *header = __null, Volume *volume = __null);
+    void dump_block(const char *buffer, int size);
 
- void remove_debugger_commands();
- void add_debugger_commands();
+    void remove_debugger_commands();
+    void add_debugger_commands();
 # 12 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Utility.h" 1
 # 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Utility.h"

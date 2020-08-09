@@ -153,7 +153,7 @@ AllocationBlock::Allocate(uint16_t start, uint16_t numBlocks)
 	ASSERT(fWritable);
 #endif
 
-	if (uint32_t(start + numBlocks) > fNumBits) {
+	if ((uint32_t)(start + numBlocks) > fNumBits) {
 		FATAL(("Allocation::Allocate(): tried to allocate too many blocks: %u (numBlocks = %u)!\n", numBlocks, (unsigned)fNumBits));
 		DIE(("Allocation::Allocate(): tried to allocate too many blocks"));
 	}
@@ -182,12 +182,12 @@ void
 AllocationBlock::Free(uint16_t start, uint16_t numBlocks)
 {
 	ASSERT(start < fNumBits);
-	ASSERT(uint32_t(start + numBlocks) <= fNumBits);
+	ASSERT((uint32_t)(start + numBlocks) <= fNumBits);
 #ifdef DEBUG
 	ASSERT(fWritable);
 #endif
 
-	if (uint32_t(start + numBlocks) > fNumBits) {
+	if ((uint32_t)(start + numBlocks) > fNumBits) {
 		FATAL(("Allocation::Free(): tried to free too many blocks: %u (numBlocks = %u)!\n", numBlocks, (unsigned)fNumBits));
 		DIE(("Allocation::Free(): tried to free too many blocks"));
 	}
@@ -326,7 +326,7 @@ AllocationGroup::Free(Transaction &transaction, uint16_t start, int32_t length)
 			RETURN_ERROR(B_IO_ERROR);
 
 		uint16_t freeLength = length;
-		if (uint32_t(start + length) > cached.NumBlockBits())
+		if ((uint32_t)(start + length) > cached.NumBlockBits())
 			freeLength = cached.NumBlockBits() - start;
 
 		cached.Free(start, freeLength);
@@ -739,14 +739,14 @@ BlockAllocator::Free(Transaction &transaction, block_run run)
 	// against the group size (the last group may have a different length)
 	if (group < 0 || group >= fNumGroups
 		|| start > fGroups[group].NumBits()
-		|| uint32_t(start + length) > fGroups[group].NumBits()
+		|| (uint32_t)(start + length) > fGroups[group].NumBits()
 		|| length == 0) {
 		FATAL(("tried to free an invalid block_run (%d, %u, %u)\n", (int)group, start, length));
 		DEBUGGER(("tried to free invalid block_run"));
 		return B_BAD_VALUE;
 	}
 	// check if someone tries to free reserved areas at the beginning of the drive
-	if (group == 0 && start < uint32_t(fVolume->Log().Start() + fVolume->Log().Length())) {
+	if (group == 0 && start < (uint32_t)(fVolume->Log().Start() + fVolume->Log().Length())) {
 		FATAL(("tried to free a reserved block_run (%d, %u, %u)\n", (int)group, start, length));
 		DEBUGGER(("tried to free reserved block"));
 		return B_BAD_VALUE;
@@ -1108,7 +1108,7 @@ BlockAllocator::CheckBlockRun(block_run run, const char *type, check_control *co
 {
 	if (run.AllocationGroup() < 0 || run.AllocationGroup() >= fNumGroups
 		|| run.Start() > fGroups[run.AllocationGroup()].fNumBits
-		|| uint32_t(run.Start() + run.Length()) > fGroups[run.AllocationGroup()].fNumBits
+		|| (uint32_t)(run.Start() + run.Length()) > fGroups[run.AllocationGroup()].fNumBits
 		|| run.length == 0) {
         PRINT(("%s: block_run(%I64d, %u, %u) is invalid!\n", type, run.AllocationGroup(), run.Start(), run.Length()));
 		if (control == NULL)

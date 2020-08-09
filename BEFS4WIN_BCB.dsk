@@ -8,25 +8,74 @@ File_5=SourceModule,'C:\Documents and Settings\stasiek.TC12\My Documents\My Proj
 File_6=SourceModule,'C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\NT_Native.~h',0,1,18,10,176,0,0
 File_7=SourceModule,'C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\NT_DDK.~h',0,1,145,1,1,0,0
 File_8=SourceModule,'C:\Documents and Settings\stasiek.TC12\My Documents\My Projects\prc++\PROGS\DEVPP\BEFS4WIN\NT_DDK.h',0,1,5,1,7,0,0
-File_9=SourceModule,'c:\program files\borland\cbuilder6\include\stl\_numpunct.h',0,1,45,1,62,0,0
 
 [Modules]
-Module0=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_SystemWrapper.h
-Module1=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\NT_System.h
-Module2=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_Defs.h
-Module3=C:\SRC\PROGS\CPP\BEFS4WIN\GUI_DISKFUNC.H
-Module4=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\rw\stdmutex.h
-Module5=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\rw\rwlocale.h
-Module6=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\vector.h
-Count=7
+Module0=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_SUPPORTFUNCTIONS.H
+Module1=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp
+Module2=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\windef.h
+Module3=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp
+Module4=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Debug.h
+Module5=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp
+Module6=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp
+Module7=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp
+Module8=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_AUTOLOCKER.H
+Module9=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp
+Module10=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_Defs.h
+Module11=C:\SRC\PROGS\CPP\BEFS4WIN\GUI_DISKFUNC.H
+Module12=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_SystemWrapper.h
+Module13=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\NT_System.h
+Module14=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\rw\stdmutex.h
+Module15=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\rw\rwlocale.h
+Module16=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\vector.h
+Count=17
 EditWindowCount=1
 
-[C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_SystemWrapper.h]
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_SUPPORTFUNCTIONS.H]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[C:\SRC\PROGS\CPP\BEFS4WIN\SRC\NT_System.h]
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\windef.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Debug.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_AUTOLOCKER.H]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
@@ -37,6 +86,16 @@ FormState=0
 FormOnTop=0
 
 [C:\SRC\PROGS\CPP\BEFS4WIN\GUI_DISKFUNC.H]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_SystemWrapper.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\SRC\PROGS\CPP\BEFS4WIN\SRC\NT_System.h]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
@@ -56,7 +115,7 @@ ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[C:\SRC\ProjectGroup1.bpg]
+[H:\Drive\My Projects\OBSOLETE\PROGS\Snake.VCL\ProjectGroup1.bpg]
 FormState=0
 FormOnTop=0
 
@@ -65,8 +124,8 @@ FormState=0
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=7
-CurrentView=6
+ViewCount=17
+CurrentView=13
 View0=0
 View1=1
 View2=2
@@ -74,6 +133,16 @@ View3=3
 View4=4
 View5=5
 View6=6
+View7=7
+View8=8
+View9=9
+View10=10
+View11=11
+View12=12
+View13=13
+View14=14
+View15=15
+View16=16
 MessageView=MessageView@EditWindow0
 Create=1
 Visible=1
@@ -124,9 +193,9 @@ LeftCol=1
 
 [View4]
 Module=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_Defs.h
-CursorX=1
-CursorY=1
-TopLine=1
+CursorX=28
+CursorY=60
+TopLine=43
 LeftCol=1
 
 [View5]
@@ -141,6 +210,76 @@ Module=C:\SRC\PROGS\CPP\BEFS4WIN\SRC\BEOS_SystemWrapper.h
 CursorX=76
 CursorY=17
 TopLine=1
+LeftCol=1
+
+[View7]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp
+CursorX=23
+CursorY=1111
+TopLine=1079
+LeftCol=1
+
+[View8]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_AUTOLOCKER.H
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View9]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp
+CursorX=57
+CursorY=1390
+TopLine=1373
+LeftCol=1
+
+[View10]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp
+CursorX=26
+CursorY=187
+TopLine=1
+LeftCol=1
+
+[View11]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Debug.h
+CursorX=1
+CursorY=55
+TopLine=51
+LeftCol=1
+
+[View12]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp
+CursorX=54
+CursorY=628
+TopLine=607
+LeftCol=1
+
+[View13]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_SUPPORTFUNCTIONS.H
+CursorX=78
+CursorY=14
+TopLine=1
+LeftCol=1
+
+[View14]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp
+CursorX=34
+CursorY=24
+TopLine=1
+LeftCol=1
+
+[View15]
+Module=C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\windef.h
+CursorX=12
+CursorY=196
+TopLine=71
+LeftCol=1
+
+[View16]
+Module=C:\SRC\PROGS\CPP\BEFS4WIN\src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp
+CursorX=33
+CursorY=208
+TopLine=192
 LeftCol=1
 
 [Watches]

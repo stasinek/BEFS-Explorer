@@ -5,12 +5,12 @@ CONFIG -= qt
 
 INCLUDEPATH += src
 INCLUDEPATH += C:/OpenSSL-Win32/include
-#LIBS += L"./../../../../x86_libraries/BHAPI" -libbhapi
-#LIBS += -L"C:/OpenSSL-Win32/lib" -lubsec
-#LIBS += -L"C:/OpenSSL-Win32/lib/MinGW" -lssleay32
-#LIBS += -L"C:/OpenSSL-Win32/lib/MinGW" -llibeay32
 LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/libcrypto.a"
 LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/llibssl.a"
+#LIBS += -L"./../../../../x86_libraries/BHAPI" -libbhapi
+#LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib" -lubsec
+#LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -lssleay32
+#LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -llibeay32
 
 SOURCES += \
     GUI_DiskFunc.cpp \
@@ -40,10 +40,11 @@ HEADERS += \
     BEFS4WIN_private.h \
     GUI_DiskFunc.h \
     BEFS.h \
-    NT_DDK.h \
-    NT_Native.h \
     src/BEOS_Defs.h \
     src/BEOS_SystemWrapper.h \
+    src/NT_System.h \
+    NT_DDK.h \
+    NT_Native.h \
     SKYFS_Interface.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
     src/add-ons/kernel/file_systems/befs/BEFS_AutoLocker.h \
@@ -67,8 +68,7 @@ HEADERS += \
     src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
     src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
-    src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
-    src/NT_System.h
+    src/add-ons/kernel/file_systems/befs/BEFS_Volume.h
 
 LIBS += -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32
 LIBS += -lole32 -lshell32 -lcomctl32 -lwinmm
@@ -142,4 +142,3 @@ QMAKE_LFLAGS -= -mthreads
 }
 
 RESOURCES +=     resource/GUI_TreeControl.rsrc.rc
-

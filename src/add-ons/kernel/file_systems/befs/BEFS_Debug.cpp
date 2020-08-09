@@ -10,9 +10,6 @@
 #include "BEFS_PlusTree.h"
 #include "BEFS_Inode.h"
 
-#define Print __out
-
-
 char *
 get_tupel(uint32_t id)
 {
@@ -186,7 +183,7 @@ dump_bplustree_node(const bplustree_node *node, const bplustree_header *header,
 		return;
 
 	if (node->all_key_count > node->all_key_length
-		|| uint32_t(node->all_key_count * 10) > (uint32_t)header->node_size
+		|| (uint32_t)(node->all_key_count * 10) > (uint32_t)header->node_size
 		|| node->all_key_count == 0) {
 		Print("\n");
         dump_block((char *)node, header->node_size/*, sizeof(int64_t)*/);

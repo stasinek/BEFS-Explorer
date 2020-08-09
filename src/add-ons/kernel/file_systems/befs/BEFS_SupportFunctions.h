@@ -1,6 +1,6 @@
 /* Author: Peter Speybrouck - peter.speybrouck@gmail.com */
-
 //---------------------------------------------------------------------------
+#include <Windows.h>
 // WinAPI commctrl32
 struct _TREEITEM;
 typedef struct _TREEITEM *HTREEITEM;

@@ -1,18 +1,41 @@
 #ifndef NT_SYSTEM_H
 #define NT_SYSTEM_H
 //---------------------------------------------------------------------------
-#ifndef _In_
-#define _In_
-#define _Inout_
-#define _In_opt_
-#define _Out_
-#endif
-//---------------------------------------------------------------------------
 #include <winsock2.h>
 #include <windows.h>
 #include <winioctl.h>
 //---------------------------------------------------------------------------
+#ifndef _In_
+#define _In_
+#endif
+#ifndef _In_out_
+#define _In_out_
+#endif
+#ifndef _In_opt_
+#define _In_opt_
+#endif
+#ifndef _Out_
+#define _Out_
+#endif
+#ifndef __in
+#define __in
+#endif
+#ifndef __in_out
+#define __in_out
+#endif
+#ifndef __in_opt
+#define __in_opt
+#endif
+#ifndef __out
+#define __out
+#endif
+#ifndef __nullterminated
+#define __nullterminated
+#endif
+//---------------------------------------------------------------------------
+#ifndef NTSTATUS
 #define NTSTATUS __int32
+#endif
 #define NT_SUCCESS(Status) (((NTSTATUS)(Status)) >= 0)
 //---------------------------------------------------------------------------
 #define OBJ_CASE_INSENSITIVE   0x00000040
@@ -25,6 +48,7 @@
     (p)->SecurityDescriptor = s; \
     (p)->SecurityQualityOfService = NULL; \
 }
+//---------------------------------------------------------------------------
 typedef struct _IO_STATUS_BLOCK {
   union {
     NTSTATUS Status;
@@ -50,19 +74,21 @@ typedef struct _OBJECT_ATTRIBUTES {
 //---------------------------------------------------------------------------
 #define 	FILE_OPEN   0x00000001
 #define 	FILE_SYNCHRONOUS_IO_NONALERT   0x00000020
-#if !defined(__MSVC__)
+//---------------------------------------------------------------------------
+#if !defined(__WATCOMC__)
+//---------------------------------------------------------------------------
 typedef NTSTATUS __stdcall (*__NtCreateFile)(
-      PHANDLE            FileHandle,
-      ACCESS_MASK        DesiredAccess,
-      POBJECT_ATTRIBUTES ObjectAttributes,
-      PIO_STATUS_BLOCK   IoStatusBlock,
-   PLARGE_INTEGER     AllocationSize,
-       ULONG              FileAttributes,
-       ULONG              ShareAccess,
-       ULONG              CreateDisposition,
-       ULONG              CreateOptions,
-       PVOID              EaBuffer,
-       ULONG              EaLength
+    PHANDLE             FileHandle,
+    ACCESS_MASK         DesiredAccess,
+    POBJECT_ATTRIBUTES  ObjectAttributes,
+    PIO_STATUS_BLOCK    IoStatusBlock,
+    PLARGE_INTEGER      AllocationSize,
+    ULONG               FileAttributes,
+    ULONG               ShareAccess,
+    ULONG               CreateDisposition,
+    ULONG               CreateOptions,
+    PVOID               EaBuffer,
+    ULONG               EaLength
 );
 extern __NtCreateFile NtCreateFile;
 //---------------------------------------------------------------------------
@@ -99,14 +125,15 @@ typedef NTSTATUS __stdcall (*__NtClose)(
 extern __NtClose NtClose;
 //---------------------------------------------------------------------------
 typedef VOID __stdcall (*__RtlInitUnicodeString)(
-  _Inout_  PUNICODE_STRING DestinationString,
+  _In_out_ PUNICODE_STRING DestinationString,
   _In_opt_ PCWSTR          SourceString
 );
 extern __RtlInitUnicodeString RtlInitUnicodeString;
 //---------------------------------------------------------------------------
-int __stdcall Load_NTDLL(void);
-int __stdcall UnLoad_NTDLL(void);
 #endif
 //---------------------------------------------------------------------------
-
+int __stdcall   Load_NTDLL(void);
+//---------------------------------------------------------------------------
+int __stdcall UnLoad_NTDLL(void);
+//---------------------------------------------------------------------------
 #endif

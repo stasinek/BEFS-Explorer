@@ -57,12 +57,12 @@ extern std::ofstream debug;
 //#define size_t		unsigned int
 #define byte		char
 #define int8_t		char
-#define int16_t     short
-#define int32_t     int
+#define int16_t     __int16
+#define int32_t     __int32
 #define uint8_t     unsigned char
-#define uint16_t    unsigned short
-#define uint32_t    unsigned int
-#define uint		unsigned int
+#define uint16_t    unsigned __int16
+#define uint32_t    unsigned __int32
+#define uint		unsigned __int32
 #define int64_t     __int64
 #define uint64_t    unsigned __int64
 //#define off_t       unsigned __int64
@@ -229,8 +229,13 @@ enum {
 #define S_ISLNK(m)	((((m)) & S_IFMT) == S_IFLNK)
 #define S_ISDIR(m)	((((m)) & S_IFDIR)== S_IFDIR)
 
+#ifndef O_TRUNC
 #define O_TRUNC 0x0002
+#endif
+#ifndef O_EXCL
 #define O_EXCL  0x0004
+#endif
+
 #define B_GET_GEOMETRY	7   //some ioctl
 //from TypeConstants.h
 enum  	{
@@ -324,49 +329,33 @@ typedef struct dirent_t {
 
 //from fs_info.h
 struct fs_info {
-    dev_t   dev;                                /* fs dev_t */
-    ino_t   root;                               /* root ino_t */
-    uint32_t  flags;                              /* file system flags */
-    int64_t   block_size;                         /* fundamental block size */
-    int64_t   io_size;                            /* optimal io size */
-    int64_t   total_blocks;                       /* total number of blocks */
-    int64_t   free_blocks;                        /* number of free blocks */
-    int64_t   total_nodes;                        /* total number of nodes */
-    int64_t   free_nodes;                         /* number of free nodes */
-    char    device_name[128];                   /* device holding fs */
-    char    volume_name[B_FILE_NAME_LENGTH];    /* volume name */
-    char    fsh_name[B_OS_NAME_LENGTH];         /* name of fs handler */
+    dev_t       dev;                                /* fs dev_t */
+    ino_t       root;                               /* root ino_t */
+    uint32_t    flags;                              /* file system flags */
+    int64_t     block_size;                         /* fundamental block size */
+    int64_t     io_size;                            /* optimal io size */
+    int64_t     total_blocks;                       /* total number of blocks */
+    int64_t     free_blocks;                        /* number of free blocks */
+    int64_t     total_nodes;                        /* total number of nodes */
+    int64_t     free_nodes;                         /* number of free nodes */
+    char        device_name[128];                   /* device holding fs */
+    char        volume_name[B_FILE_NAME_LENGTH];    /* volume name */
+    char        fsh_name[B_OS_NAME_LENGTH];         /* name of fs handler */
 };
 struct attr_stat {
-        dev_t     st_dev;
-        ino_t     st_ino;
-        unsigned short st_mode;
-        short      st_nlink;
-        short      st_uid;
-        short      st_gid;
-        dev_t     st_rdev;
-        int64_t     st_size;
-        time_t st_atime;
-        time_t st_mtime;
-        time_t st_ctime;
-        uint32_t st_type;
+    dev_t       st_dev;
+    ino_t       st_ino;
+    uint16_t    st_mode;
+    short       st_nlink;
+    short       st_uid;
+    short       st_gid;
+    dev_t       st_rdev;
+    int64_t     st_size;
+    time_t      st_atime;
+    time_t      st_mtime;
+    time_t      st_ctime;
+    uint32_t    st_type;
 };
-/*struct stat {
-    dev_t st_dev;
-    ino_t st_ino;
-    mode_t st_mode;
-    nlink_t st_nlink;
-    uid_t st_uid;
-    gid_t st_gid;
-    dev_t st_rdev;
-    int64_t st_size;
-    time_t st_atime;
-    time_t st_mtime;
-    time_t st_ctime;
-    blksize_t st_blksize;
-    blkcnt_t st_blocks;
-    mode_t st_attr;
-}; */
 #if 0
 struct stat {
     dev_t			st_dev;		/* "device" that this file resides on */
@@ -392,29 +381,33 @@ struct stat {
 #endif //0
 
 typedef char* caddr_t;
-typedef struct iovec{
+typedef struct iovec
+{
     caddr_t    iov_base;  /* base address of the data storage area represented by the iovec structure */
-    size_t     iov_len;   /* size of the data storage area in bytes */
-    //int64_t    iov_len;   /* size of the data storage area in bytes */
+    int64_t    iov_len;   /* size of the data storage area in bytes */
 } iovec;
 
 #ifndef addr_t
 typedef char* addr_t;
 #endif
 
-typedef struct device_geometry{
-    uint32_t 	bytes_per_sector;
-    uint32_t 	sectors_per_track;
-    uint32_t 	cylinder_count;
-    uint32_t 	head_count;
+typedef struct device_geometry
+{
+    uint32_t 	    bytes_per_sector;
+    uint32_t 	    sectors_per_track;
+    uint32_t 	    cylinder_count;
+    uint32_t 	    head_count;
     unsigned char 	device_type;
-    bool 	removable;
-    bool 	read_only;
-    bool 	write_once;
+    bool 	        removable;
+    bool 	        read_only;
+    bool 	        write_once;
 } device_geometry;
 
+#define  echo printf
 #define panic printf
-#define 	min_c(a, b)   ((a)>(b)?(b):(a))
+#define __out printf
+#define Print printf
+#define min_c(a, b)   ((a)>(b)?(b):(a))
 
 #if !defined(ASSERT) && !defined(DEBUGGER)
     #define ASSERT(x) { if (!(x)) DEBUGGER(("skyfs: assert failed: " #x "\n")); }
