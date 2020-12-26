@@ -7,10 +7,9 @@
 #ifndef BEFS_LOCK_H
 #define BEFS_LOCK_H
 //---------------------------------------------------------------------------
-#define DEBUG 1
 #include "BEFS_Debug.h"
 #include "BEFS_Utility.h"
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 //---------------------------------------------------------------------------
 typedef struct recursive_lock {
     sem_id      sem;

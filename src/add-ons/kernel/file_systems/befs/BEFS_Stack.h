@@ -7,73 +7,73 @@
 #ifndef FSSH_STACK_H
 #define FSSH_STACK_H
 
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 
 template<class T> class Stack {
-	public:
-		Stack()
-			:
-			fArray(NULL),
-			fUsed(0),
-			fMax(0)
-		{
-		}
+    public:
+        Stack()
+            :
+            fArray(NULL),
+            fUsed(0),
+            fMax(0)
+        {
+        }
 
-		~Stack()
-		{
-			free(fArray);
-		}
+        ~Stack()
+        {
+            free(fArray);
+        }
 
-		bool IsEmpty() const
-		{
-			return fUsed == 0;
-		}
+        bool IsEmpty() const
+        {
+            return fUsed == 0;
+        }
 
-		void MakeEmpty()
-		{
-			// could also free the memory
-			fUsed = 0;
-		}
+        void MakeEmpty()
+        {
+            // could also free the memory
+            fUsed = 0;
+        }
 
-		int32_t Push(T value)
-		{
-			if (fUsed >= fMax) {
-				fMax += 16;
-				T *newArray = (T *)realloc(fArray, fMax * sizeof(T));
-				if (newArray == NULL)
-					//return FSSH_B_NO_MEMORY;
-					return B_NO_MEMORY;
+        int32_t Push(T value)
+        {
+            if (fUsed >= fMax) {
+                fMax += 16;
+                T *newArray = (T *)realloc(fArray, fMax * sizeof(T));
+                if (newArray == NULL)
+                    //return FSSH_B_NO_MEMORY;
+                    return B_NO_MEMORY;
 
-				fArray = newArray;
-			}
-			fArray[fUsed++] = value;
-			//return FSSH_B_OK;
-			return B_OK;
-		}
+                fArray = newArray;
+            }
+            fArray[fUsed++] = value;
+            //return FSSH_B_OK;
+            return B_OK;
+        }
 
-		bool Pop(T *value)
-		{
-			if (fUsed == 0)
-				return false;
+        bool Pop(T *value)
+        {
+            if (fUsed == 0)
+                return false;
 
-			*value = fArray[--fUsed];
-			return true;
-		}
+            *value = fArray[--fUsed];
+            return true;
+        }
 
-		T *Array()
-		{
-			return fArray;
-		}
+        T *Array()
+        {
+            return fArray;
+        }
 
-		int32_t CountItems() const
-		{
-			return fUsed;
-		}
+        int32_t CountItems() const
+        {
+            return fUsed;
+        }
 
-	private:
-		T		*fArray;
-		int32_t	fUsed;
-		int32_t	fMax;
+    private:
+        T		*fArray;
+        int32_t	fUsed;
+        int32_t	fMax;
 };
 
 #endif	/* FSSH_STACK_H */

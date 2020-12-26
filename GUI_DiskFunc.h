@@ -7,17 +7,18 @@
  * ----------------------------------------------------------------------------
  */
 
+//-----------------------------------------------------------------------------
 #ifndef GUI_DISKFUNC_H
 #define GUI_DISKFUNC_H
-
+//-----------------------------------------------------------------------------
 // BEFS include files
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Volume.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Inode.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Interface.h>
-#include <resource/GUI_resource.h>
+#include <src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h>
 #include <BEOS_SystemWrapper.h>
-
+//-----------------------------------------------------------------------------
 // WINDOWS CRT include files
 #define _CRT_SECURE_NO_DEPRECATE 1
 #include <winsock2.h>
@@ -26,51 +27,51 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-
-using namespace std;
-
+//-----------------------------------------------------------------------------
+#include <resource/GUI_resource.h>
 #define ICON_TREE	1
 #define ICON_FILE	2
 #define ICON_OTHER	3
 #define ICON_DISK	4
+#define PHYSICALDRIVE "\\\\.\\PhysicalDrive%i"
+//-----------------------------------------------------------------------------
+using namespace std;
+//-----------------------------------------------------------------------------
 
-int __stdcall CountPhysicalDrives();
-int __stdcall ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* a_debug);
-int __stdcall ListDirectories(HWND h, HTREEITEM* node, TVITEMA* s, ofstream* d, vector<Volume>* a_volumes);
+__int32 __stdcall CountPhysicalDrives();
+__int32 __stdcall ListPartitions(__int32 disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* a_debug);
+__int32 __stdcall ListDirectories(HWND h, HTREEITEM* node, TVITEMA* s, ofstream* d, vector<Volume>* a_volumes);
+
+//-----------------------------------------------------------------------------
 
 class TreeData {
-    public:
+public:
         TreeData() {}
-        TreeData(int l, const char* n)
+        TreeData(__int32 l, const char* n)
             :level(l)
         {
-            sprintf(name, n);
+            strcpy(name,n);
         }
 
-        TreeData(int l, const char* n, int64_t i)
+        TreeData(__int32 l, const char* n, int64_t i)
             :level(l), inode(i)
         {
-            sprintf(name,n);
+            strcpy(name,n);
         }
 
         ~TreeData()
         {
-            if (name)
-                free(name);
-
-            if (extra)
-                free(extra);
+            if (extra) free(extra);
         }
-
-        int level;
-        int iData1;
-        int iData2;
-        int volume;
+        __int32 volume;
+        char    name[255];
+        __int32 level;
+        __int32 iData1;
+        __int32 iData2;
         int64_t inode;
-        char name[255];
-        void* extra;
+        void*   extra;
 };
-
-int __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug);
-
+//-----------------------------------------------------------------------------
+__int32 __stdcall AddChild(HWND hWnd, HTREEITEM* parent, char* t1, __int32 icon, TreeData* td, std::ofstream* debug);
+//-----------------------------------------------------------------------------
 #endif

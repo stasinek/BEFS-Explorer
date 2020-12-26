@@ -1,11 +1,11 @@
 # 1 "GUI_TreeControl.cpp"
-# 1 "H:\\Drive\\My Projects\\PROGS\\CPP\\BEFS4WIN//"
+# 1 "C:\\SRC\\PROGS\\CPP\\BEFS4WIN//"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "GUI_TreeControl.cpp"
-# 13 "GUI_TreeControl.cpp"
+# 14 "GUI_TreeControl.cpp"
 # 1 "./GUI_DiskFunc.h" 1
-# 14 "./GUI_DiskFunc.h"
+# 15 "./GUI_DiskFunc.h"
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 1
 
 
@@ -14,8 +14,16 @@
 
 
 
+# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 1
+# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h"
+# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 1
+# 10 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h" 1
+# 10 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h"
+# 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
+# 11 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
 # 1 "src/BEOS_SystemWrapper.h" 1
-# 12 "src/BEOS_SystemWrapper.h"
+# 16 "src/BEOS_SystemWrapper.h"
 # 1 "src/BEOS_Defs.h" 1
 # 41 "src/BEOS_Defs.h"
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winsock2.h" 1 3
@@ -1190,8 +1198,8 @@ extern "C" {
   int __attribute__((__cdecl__)) strncasecmp (const char *, const char *, size_t);
   int __attribute__((__cdecl__)) strcasecmp (const char *, const char *);
 
-  inline int __attribute__((__cdecl__)) strncasecmp (const char *__sz1, const char *__sz2, size_t __sizeMaxCompare) { return _strnicmp (__sz1, __sz2, __sizeMaxCompare); }
-  inline int __attribute__((__cdecl__)) strcasecmp (const char *__sz1, const char *__sz2) { return _stricmp (__sz1, __sz2); }
+
+
 
 
 
@@ -4561,22 +4569,7 @@ typedef DWORD (__attribute__((__stdcall__)) *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONC
   } RTL_BARRIER,*PRTL_BARRIER;
 # 7111 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winnt.h" 3
     PVOID __attribute__((__stdcall__)) RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt);
-
-
-    inline PVOID __attribute__((__stdcall__)) RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
-      volatile char *vptr =(volatile char *)ptr;
-
-
-
-      while(cnt) {
- *vptr++ = 0;
- cnt--;
-      }
-
-      return ptr;
-    }
-
-
+# 7128 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winnt.h" 3
     typedef struct _MESSAGE_RESOURCE_ENTRY {
       WORD Length;
       WORD Flags;
@@ -20411,8 +20404,8 @@ extern "C" {
 
   void __attribute__((__cdecl__)) _Exit(int) __attribute__ ((__noreturn__));
 
-  inline __attribute__ ((__noreturn__)) void __attribute__((__cdecl__)) _Exit(int status)
-  { _exit(status); }
+
+
 
 
 
@@ -20681,7 +20674,7 @@ extern "C" {
 
   __extension__ long long __attribute__((__cdecl__)) llabs(long long);
 
-  __extension__ inline long long __attribute__((__cdecl__)) llabs(long long _j) { return (_j >= 0 ? _j : -_j); }
+
 
 
   __extension__ long long __attribute__((__cdecl__)) strtoll(const char * __restrict__, char ** __restrict, int);
@@ -20696,21 +20689,7 @@ extern "C" {
   __extension__ char *__attribute__((__cdecl__)) ulltoa (unsigned long long , char *, int);
   __extension__ wchar_t *__attribute__((__cdecl__)) lltow (long long, wchar_t *, int);
   __extension__ wchar_t *__attribute__((__cdecl__)) ulltow (unsigned long long, wchar_t *, int);
-
-
-
-  __extension__ inline long long __attribute__((__cdecl__)) atoll (const char * _c) { return _atoi64 (_c); }
-  __extension__ inline char *__attribute__((__cdecl__)) lltoa (long long _n, char * _c, int _i) { return _i64toa (_n, _c, _i); }
-  __extension__ inline char *__attribute__((__cdecl__)) ulltoa (unsigned long long _n, char * _c, int _i) { return _ui64toa (_n, _c, _i); }
-  __extension__ inline long long __attribute__((__cdecl__)) wtoll (const wchar_t * _w) { return _wtoi64 (_w); }
-  __extension__ inline wchar_t *__attribute__((__cdecl__)) lltow (long long _n, wchar_t * _w, int _i) { return _i64tow (_n, _w, _i); }
-  __extension__ inline wchar_t *__attribute__((__cdecl__)) ulltow (unsigned long long _n, wchar_t * _w, int _i) { return _ui64tow (_n, _w, _i); }
-
-
-
-
-
-
+# 662 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/stdlib.h" 3
 }
 
 
@@ -43032,8 +43011,6 @@ extern "C" {
 extern "C" {
 # 35 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/stralign.h" 3
   PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source);
-
-  inline PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
 # 202 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/stralign.h" 3
 }
 
@@ -44459,45 +44436,11 @@ typedef off32_t off_t;
 
 
   intptr_t __attribute__((__cdecl__)) _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData);
-
-  inline intptr_t __attribute__((__cdecl__)) _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData)
-  {
-    struct __finddata64_t fd;
-    intptr_t ret = _findfirst64(_Filename,&fd);
-    if (ret == -1) {
-      memset(_FindData,0,sizeof(struct _finddata64i32_t));
-      return -1;
-    }
-    _FindData->attrib=fd.attrib;
-    _FindData->time_create=fd.time_create;
-    _FindData->time_access=fd.time_access;
-    _FindData->time_write=fd.time_write;
-    _FindData->size=(_fsize_t) fd.size;
-    strncpy(_FindData->name,fd.name,260);
-    return ret;
-  }
-
+# 239 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 3
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _findnext32i64(intptr_t _FindHandle,struct _finddata32i64_t *_FindData);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _findnext64(intptr_t _FindHandle,struct __finddata64_t *_FindData);
   int __attribute__((__cdecl__)) _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData);
-
-  inline int __attribute__((__cdecl__)) _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData)
-  {
-    struct __finddata64_t fd;
-    int ret = _findnext64(_FindHandle,&fd);
-    if (ret == -1) {
-      memset(_FindData,0,sizeof(struct _finddata64i32_t));
-      return -1;
-    }
-    _FindData->attrib=fd.attrib;
-    _FindData->time_create=fd.time_create;
-    _FindData->time_access=fd.time_access;
-    _FindData->time_write=fd.time_write;
-    _FindData->size=(_fsize_t) fd.size;
-    strncpy(_FindData->name,fd.name,260);
-    return ret;
-  }
-
+# 260 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/io.h" 3
   __extension__ long long __attribute__((__cdecl__)) _lseeki64(int _FileHandle,long long _Offset,int _Origin);
   __extension__ long long __attribute__((__cdecl__)) _telli64(int _FileHandle);
 
@@ -44661,7 +44604,11 @@ extern "C" {
 # 45 "src/BEOS_Defs.h" 2
 
 # 1 "src/NT_System.h" 1
-# 19 "src/NT_System.h"
+
+
+
+
+
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 1 3
 # 12 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/winioctl.h" 3
 extern "C" const GUID GUID_DEVINTERFACE_DISK;
@@ -44676,8 +44623,8 @@ extern "C" const GUID GUID_DEVINTERFACE_CDCHANGER;
 extern "C" const GUID GUID_DEVINTERFACE_STORAGEPORT;
 extern "C" const GUID GUID_DEVINTERFACE_COMPORT;
 extern "C" const GUID GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR;
-# 20 "src/NT_System.h" 2
-# 35 "src/NT_System.h"
+# 7 "src/NT_System.h" 2
+# 52 "src/NT_System.h"
 typedef struct _IO_STATUS_BLOCK {
   union {
     int Status;
@@ -44759,12 +44706,13 @@ typedef void __attribute__((__stdcall__)) (*__RtlInitUnicodeString)(
 );
 extern __RtlInitUnicodeString RtlInitUnicodeString;
 
+
+
 int __attribute__((__stdcall__)) Load_NTDLL(void);
 
 int __attribute__((__stdcall__)) UnLoad_NTDLL(void);
 # 47 "src/BEOS_Defs.h" 2
-
-
+# 55 "src/BEOS_Defs.h"
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 1 3
 # 36 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 3
        
@@ -45323,15 +45271,6 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fgetwc_nolock(FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fputwc_nolock(wchar_t _Ch,FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _ungetwc_nolock(wint_t _Ch,FILE *_File);
-
-
-
-
-
-
-
-  inline wint_t __attribute__((__cdecl__)) getwchar() {return (fgetwc((&(* _imp___iob)[0]))); }
-  inline wint_t __attribute__((__cdecl__)) putwchar(wchar_t _C) {return (fputwc(_C,(&(* _imp___iob)[1]))); }
 # 895 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
   struct tm {
     int tm_sec;
@@ -45360,16 +45299,7 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
 
 
   wchar_t *__attribute__((__cdecl__)) _wctime(const time_t *_Time) ;
-
-
-
-
-  inline wchar_t *__attribute__((__cdecl__)) _wctime(const time_t *_Time) { return _wctime32(_Time); }
-
-
-
-
-
+# 932 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
   typedef int mbstate_t;
   typedef wchar_t _Wint_t;
 
@@ -45396,39 +45326,6 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
 
   void *__attribute__((__cdecl__)) memmove(void *_Dst,const void *_Src,size_t _MaxCount);
   void *__attribute__((__cdecl__)) memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _MaxCount) ;
-
-  inline int __attribute__((__cdecl__)) fwide(FILE *_F,int _M) { (void)_F; return (_M); }
-  inline int __attribute__((__cdecl__)) mbsinit(const mbstate_t *_P) { return (!_P || *_P==0); }
-  inline wchar_t *__attribute__((__cdecl__)) wmemchr(const wchar_t *_S,wchar_t _C,size_t _N) {
-    if (_S) {
-      for ( ; 0 < _N; ++_S, --_N)
- if (*_S == _C)
-   return ( wchar_t *)(_S);
-    }
-    return ( wchar_t *) 0;
-  }
-  inline int __attribute__((__cdecl__)) wmemcmp(const wchar_t *_S1,const wchar_t *_S2,size_t _N) {
-    if (_N == 0 || _S1 == _S2)
-      return 0;
-    if ((_S1 && !(_S2)) || (_S2 && !(_S1)))
-      return !(_S2) ? 1 : -1;
-    for ( ; 0 < _N; ++_S1, ++_S2, --_N)
-      if (*_S1 != *_S2)
- return (*_S1 < *_S2 ? -1 : +1);
-    return 0;
-  }
-  inline wchar_t *__attribute__((__cdecl__)) wmemcpy(wchar_t * __restrict__ _S1,const wchar_t * __restrict__ _S2,size_t _N)
-  {
-    return (wchar_t *) memcpy (_S1,_S2,_N*sizeof(wchar_t));
-  }
-  inline wchar_t *__attribute__((__cdecl__)) wmemmove(wchar_t *_S1,const wchar_t *_S2,size_t _N) { return (wchar_t *)memmove(_S1,_S2,_N*sizeof(wchar_t)); }
-  inline wchar_t *__attribute__((__cdecl__)) wmemset(wchar_t *_S,wchar_t _C,size_t _N) {
-    wchar_t *_Su = _S;
-    for (;0<_N;++_Su,--_N) {
-      *_Su = _C;
-    }
-    return (_S);
-  }
 # 1007 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
 int __attribute__((__cdecl__)) __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
 # 1021 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/wchar.h" 3
@@ -52911,7 +52808,7 @@ namespace std
 
 
   inline int
-  __convert_from_v(const __c_locale&, char* __out,
+  __convert_from_v(const __c_locale&, char* printf,
      const int __size __attribute__((__unused__)),
      const char* __fmt, ...)
   {
@@ -52929,7 +52826,7 @@ namespace std
     __builtin_va_start(__args, __fmt);
 
 
-    const int __ret = __mingw_vsnprintf(__out, __size, __fmt, __args);
+    const int __ret = __mingw_vsnprintf(printf, __size, __fmt, __args);
 
 
 
@@ -53349,15 +53246,7 @@ extern "C" {
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _ftime(struct __timeb32 *);
 # 102 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/timeb.h" 3
   void __attribute__((__cdecl__)) ftime (struct timeb *);
-# 111 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/timeb.h" 3
-  inline void __attribute__((__cdecl__)) ftime(struct timeb *_Tmb) {
-    _ftime((struct __timeb32 *)_Tmb);
-  }
-
-
-
-
-
+# 119 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/timeb.h" 3
 }
 
 
@@ -54371,31 +54260,31 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     inline void
-    __ostream_write(basic_ostream<_CharT, _Traits>& __out,
+    __ostream_write(basic_ostream<_CharT, _Traits>& printf,
       const _CharT* __s, streamsize __n)
     {
       typedef basic_ostream<_CharT, _Traits> __ostream_type;
       typedef typename __ostream_type::ios_base __ios_base;
 
-      const streamsize __put = __out.rdbuf()->sputn(__s, __n);
+      const streamsize __put = printf.rdbuf()->sputn(__s, __n);
       if (__put != __n)
- __out.setstate(__ios_base::badbit);
+ printf.setstate(__ios_base::badbit);
     }
 
   template<typename _CharT, typename _Traits>
     inline void
-    __ostream_fill(basic_ostream<_CharT, _Traits>& __out, streamsize __n)
+    __ostream_fill(basic_ostream<_CharT, _Traits>& printf, streamsize __n)
     {
       typedef basic_ostream<_CharT, _Traits> __ostream_type;
       typedef typename __ostream_type::ios_base __ios_base;
 
-      const _CharT __c = __out.fill();
+      const _CharT __c = printf.fill();
       for (; __n > 0; --__n)
  {
-   const typename _Traits::int_type __put = __out.rdbuf()->sputc(__c);
+   const typename _Traits::int_type __put = printf.rdbuf()->sputc(__c);
    if (_Traits::eq_int_type(__put, _Traits::eof()))
      {
-       __out.setstate(__ios_base::badbit);
+       printf.setstate(__ios_base::badbit);
        break;
      }
  }
@@ -54403,43 +54292,43 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_ostream<_CharT, _Traits>&
-    __ostream_insert(basic_ostream<_CharT, _Traits>& __out,
+    __ostream_insert(basic_ostream<_CharT, _Traits>& printf,
        const _CharT* __s, streamsize __n)
     {
       typedef basic_ostream<_CharT, _Traits> __ostream_type;
       typedef typename __ostream_type::ios_base __ios_base;
 
-      typename __ostream_type::sentry __cerb(__out);
+      typename __ostream_type::sentry __cerb(printf);
       if (__cerb)
  {
    try
      {
-       const streamsize __w = __out.width();
+       const streamsize __w = printf.width();
        if (__w > __n)
   {
-    const bool __left = ((__out.flags()
+    const bool __left = ((printf.flags()
      & __ios_base::adjustfield)
            == __ios_base::left);
     if (!__left)
-      __ostream_fill(__out, __w - __n);
-    if (__out.good())
-      __ostream_write(__out, __s, __n);
-    if (__left && __out.good())
-      __ostream_fill(__out, __w - __n);
+      __ostream_fill(printf, __w - __n);
+    if (printf.good())
+      __ostream_write(printf, __s, __n);
+    if (__left && printf.good())
+      __ostream_fill(printf, __w - __n);
   }
        else
-  __ostream_write(__out, __s, __n);
-       __out.width(0);
+  __ostream_write(printf, __s, __n);
+       printf.width(0);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __out._M_setstate(__ios_base::badbit);
+       printf._M_setstate(__ios_base::badbit);
        throw;
      }
    catch(...)
-     { __out._M_setstate(__ios_base::badbit); }
+     { printf._M_setstate(__ios_base::badbit); }
  }
-      return __out;
+      return printf;
     }
 
 
@@ -56875,13 +56764,13 @@ namespace std
 
   template<>
     basic_istream<char>&
-    getline(basic_istream<char>& __in, basic_string<char>& __str,
+    getline(basic_istream<char>& sprintf, basic_string<char>& __str,
      char __delim);
 
 
   template<>
     basic_istream<wchar_t>&
-    getline(basic_istream<wchar_t>& __in, basic_string<wchar_t>& __str,
+    getline(basic_istream<wchar_t>& sprintf, basic_string<wchar_t>& __str,
      wchar_t __delim);
 
 
@@ -58589,7 +58478,7 @@ namespace std
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in,
+    operator>>(basic_istream<_CharT, _Traits>& sprintf,
         basic_string<_CharT, _Traits, _Alloc>& __str)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
@@ -58602,7 +58491,7 @@ namespace std
 
       __size_type __extracted = 0;
       typename __ios_base::iostate __err = __ios_base::goodbit;
-      typename __istream_type::sentry __cerb(__in, false);
+      typename __istream_type::sentry __cerb(sprintf, false);
       if (__cerb)
  {
    try
@@ -58611,12 +58500,12 @@ namespace std
        __str.erase();
        _CharT __buf[128];
        __size_type __len = 0;
-       const streamsize __w = __in.width();
+       const streamsize __w = sprintf.width();
        const __size_type __n = __w > 0 ? static_cast<__size_type>(__w)
                                 : __str.max_size();
-       const __ctype_type& __ct = use_facet<__ctype_type>(__in.getloc());
+       const __ctype_type& __ct = use_facet<__ctype_type>(sprintf.getloc());
        const __int_type __eof = _Traits::eof();
-       __int_type __c = __in.rdbuf()->sgetc();
+       __int_type __c = sprintf.rdbuf()->sgetc();
 
        while (__extracted < __n
        && !_Traits::eq_int_type(__c, __eof)
@@ -58630,17 +58519,17 @@ namespace std
       }
     __buf[__len++] = _Traits::to_char_type(__c);
     ++__extracted;
-    __c = __in.rdbuf()->snextc();
+    __c = sprintf.rdbuf()->snextc();
   }
        __str.append(__buf, __len);
 
        if (_Traits::eq_int_type(__c, __eof))
   __err |= __ios_base::eofbit;
-       __in.width(0);
+       sprintf.width(0);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(__ios_base::badbit);
+       sprintf._M_setstate(__ios_base::badbit);
        throw;
      }
    catch(...)
@@ -58648,20 +58537,20 @@ namespace std
 
 
 
-       __in._M_setstate(__ios_base::badbit);
+       sprintf._M_setstate(__ios_base::badbit);
      }
  }
 
       if (!__extracted)
  __err |= __ios_base::failbit;
       if (__err)
- __in.setstate(__err);
-      return __in;
+ sprintf.setstate(__err);
+      return sprintf;
     }
 
   template<typename _CharT, typename _Traits, typename _Alloc>
     basic_istream<_CharT, _Traits>&
-    getline(basic_istream<_CharT, _Traits>& __in,
+    getline(basic_istream<_CharT, _Traits>& sprintf,
      basic_string<_CharT, _Traits, _Alloc>& __str, _CharT __delim)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
@@ -58673,7 +58562,7 @@ namespace std
       __size_type __extracted = 0;
       const __size_type __n = __str.max_size();
       typename __ios_base::iostate __err = __ios_base::goodbit;
-      typename __istream_type::sentry __cerb(__in, true);
+      typename __istream_type::sentry __cerb(sprintf, true);
       if (__cerb)
  {
    try
@@ -58681,7 +58570,7 @@ namespace std
        __str.erase();
        const __int_type __idelim = _Traits::to_int_type(__delim);
        const __int_type __eof = _Traits::eof();
-       __int_type __c = __in.rdbuf()->sgetc();
+       __int_type __c = sprintf.rdbuf()->sgetc();
 
        while (__extracted < __n
        && !_Traits::eq_int_type(__c, __eof)
@@ -58689,7 +58578,7 @@ namespace std
   {
     __str += _Traits::to_char_type(__c);
     ++__extracted;
-    __c = __in.rdbuf()->snextc();
+    __c = sprintf.rdbuf()->snextc();
   }
 
        if (_Traits::eq_int_type(__c, __eof))
@@ -58697,14 +58586,14 @@ namespace std
        else if (_Traits::eq_int_type(__c, __idelim))
   {
     ++__extracted;
-    __in.rdbuf()->sbumpc();
+    sprintf.rdbuf()->sbumpc();
   }
        else
   __err |= __ios_base::failbit;
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(__ios_base::badbit);
+       sprintf._M_setstate(__ios_base::badbit);
        throw;
      }
    catch(...)
@@ -58712,14 +58601,14 @@ namespace std
 
 
 
-       __in._M_setstate(__ios_base::badbit);
+       sprintf._M_setstate(__ios_base::badbit);
      }
  }
       if (!__extracted)
  __err |= __ios_base::failbit;
       if (__err)
- __in.setstate(__err);
-      return __in;
+ sprintf.setstate(__err);
+      return sprintf;
     }
 
 
@@ -60796,7 +60685,7 @@ namespace std
     static const mask digit = 1 << 3;
     static const mask xdigit = 1 << 4;
     static const mask space = 1 << 5;
-    static const mask print = 1 << 6;
+    static const mask printf = 1 << 6;
     static const mask graph = (1 << 2) | (1 << 3) | (1 << 9);
     static const mask cntrl = 1 << 8;
     static const mask punct = 1 << 9;
@@ -62034,60 +61923,60 @@ namespace std
       num_get(size_t __refs = 0) : facet(__refs) { }
 # 1961 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, bool& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 # 1998 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned short& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned int& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, long long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, unsigned long long& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 # 2058 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, float& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, double& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, long double& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 # 2101 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/bits/locale_facets.h" 3
       iter_type
-      get(iter_type __in, iter_type __end, ios_base& __io,
+      get(iter_type sprintf, iter_type __end, ios_base& __io,
    ios_base::iostate& __err, void*& __v) const
-      { return this->do_get(__in, __end, __io, __err, __v); }
+      { return this->do_get(sprintf, __end, __io, __err, __v); }
 
     protected:
 
@@ -62351,7 +62240,7 @@ namespace std
   template<typename _CharT>
     inline bool
     isprint(_CharT __c, const locale& __loc)
-    { return use_facet<ctype<_CharT> >(__loc).is(ctype_base::print, __c); }
+    { return use_facet<ctype<_CharT> >(__loc).is(ctype_base::printf, __c); }
 
 
   template<typename _CharT>
@@ -64305,70 +64194,70 @@ namespace std
 # 469 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ostream" 3
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
-    { return __ostream_insert(__out, &__c, 1); }
+    operator<<(basic_ostream<_CharT, _Traits>& printf, _CharT __c)
+    { return __ostream_insert(printf, &__c, 1); }
 
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
-    { return (__out << __out.widen(__c)); }
+    operator<<(basic_ostream<_CharT, _Traits>& printf, char __c)
+    { return (printf << printf.widen(__c)); }
 
 
   template <class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, char __c)
-    { return __ostream_insert(__out, &__c, 1); }
+    operator<<(basic_ostream<char, _Traits>& printf, char __c)
+    { return __ostream_insert(printf, &__c, 1); }
 
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
-    { return (__out << static_cast<char>(__c)); }
+    operator<<(basic_ostream<char, _Traits>& printf, signed char __c)
+    { return (printf << static_cast<char>(__c)); }
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
-    { return (__out << static_cast<char>(__c)); }
+    operator<<(basic_ostream<char, _Traits>& printf, unsigned char __c)
+    { return (printf << static_cast<char>(__c)); }
 # 511 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ostream" 3
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+    operator<<(basic_ostream<_CharT, _Traits>& printf, const _CharT* __s)
     {
       if (!__s)
- __out.setstate(ios_base::badbit);
+ printf.setstate(ios_base::badbit);
       else
- __ostream_insert(__out, __s,
+ __ostream_insert(printf, __s,
     static_cast<streamsize>(_Traits::length(__s)));
-      return __out;
+      return printf;
     }
 
   template<typename _CharT, typename _Traits>
     basic_ostream<_CharT, _Traits> &
-    operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s);
+    operator<<(basic_ostream<_CharT, _Traits>& printf, const char* __s);
 
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+    operator<<(basic_ostream<char, _Traits>& printf, const char* __s)
     {
       if (!__s)
- __out.setstate(ios_base::badbit);
+ printf.setstate(ios_base::badbit);
       else
- __ostream_insert(__out, __s,
+ __ostream_insert(printf, __s,
     static_cast<streamsize>(_Traits::length(__s)));
-      return __out;
+      return printf;
     }
 
 
   template<class _Traits>
     inline basic_ostream<char, _Traits>&
-    operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
-    { return (__out << reinterpret_cast<const char*>(__s)); }
+    operator<<(basic_ostream<char, _Traits>& printf, const signed char* __s)
+    { return (printf << reinterpret_cast<const char*>(__s)); }
 
   template<class _Traits>
     inline basic_ostream<char, _Traits> &
-    operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
-    { return (__out << reinterpret_cast<const char*>(__s)); }
+    operator<<(basic_ostream<char, _Traits>& printf, const unsigned char* __s)
+    { return (printf << reinterpret_cast<const char*>(__s)); }
 # 562 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ostream" 3
   template<typename _CharT, typename _Traits>
     inline basic_ostream<_CharT, _Traits>&
@@ -64686,10 +64575,10 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_ostream<_CharT, _Traits>&
-    operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+    operator<<(basic_ostream<_CharT, _Traits>& printf, const char* __s)
     {
       if (!__s)
- __out.setstate(ios_base::badbit);
+ printf.setstate(ios_base::badbit);
       else
  {
 
@@ -64707,18 +64596,18 @@ namespace std
 
        _CharT *__ws = __pg.__get();
        for (size_t __i = 0; __i < __clen; ++__i)
-  __ws[__i] = __out.widen(__s[__i]);
-       __ostream_insert(__out, __ws, __clen);
+  __ws[__i] = printf.widen(__s[__i]);
+       __ostream_insert(printf, __ws, __clen);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __out._M_setstate(ios_base::badbit);
+       printf._M_setstate(ios_base::badbit);
        throw;
      }
    catch(...)
-     { __out._M_setstate(ios_base::badbit); }
+     { printf._M_setstate(ios_base::badbit); }
  }
-      return __out;
+      return printf;
     }
 
 
@@ -65038,36 +64927,36 @@ namespace std
 # 721 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/istream" 3
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT& __c);
+    operator>>(basic_istream<_CharT, _Traits>& sprintf, _CharT& __c);
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, unsigned char& __c)
-    { return (__in >> reinterpret_cast<char&>(__c)); }
+    operator>>(basic_istream<char, _Traits>& sprintf, unsigned char& __c)
+    { return (sprintf >> reinterpret_cast<char&>(__c)); }
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, signed char& __c)
-    { return (__in >> reinterpret_cast<char&>(__c)); }
+    operator>>(basic_istream<char, _Traits>& sprintf, signed char& __c)
+    { return (sprintf >> reinterpret_cast<char&>(__c)); }
 # 763 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/istream" 3
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT* __s);
+    operator>>(basic_istream<_CharT, _Traits>& sprintf, _CharT* __s);
 
 
   template<>
     basic_istream<char>&
-    operator>>(basic_istream<char>& __in, char* __s);
+    operator>>(basic_istream<char>& sprintf, char* __s);
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, unsigned char* __s)
-    { return (__in >> reinterpret_cast<char*>(__s)); }
+    operator>>(basic_istream<char, _Traits>& sprintf, unsigned char* __s)
+    { return (sprintf >> reinterpret_cast<char*>(__s)); }
 
   template<class _Traits>
     inline basic_istream<char, _Traits>&
-    operator>>(basic_istream<char, _Traits>& __in, signed char* __s)
-    { return (__in >> reinterpret_cast<char*>(__s)); }
+    operator>>(basic_istream<char, _Traits>& sprintf, signed char* __s)
+    { return (sprintf >> reinterpret_cast<char*>(__s)); }
 # 794 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/istream" 3
   template<typename _CharT, typename _Traits>
     class basic_iostream
@@ -65135,20 +65024,20 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>::sentry::
-    sentry(basic_istream<_CharT, _Traits>& __in, bool __noskip) : _M_ok(false)
+    sentry(basic_istream<_CharT, _Traits>& sprintf, bool __noskip) : _M_ok(false)
     {
       ios_base::iostate __err = ios_base::goodbit;
-      if (__in.good())
+      if (sprintf.good())
  {
-   if (__in.tie())
-     __in.tie()->flush();
-   if (!__noskip && bool(__in.flags() & ios_base::skipws))
+   if (sprintf.tie())
+     sprintf.tie()->flush();
+   if (!__noskip && bool(sprintf.flags() & ios_base::skipws))
      {
        const __int_type __eof = traits_type::eof();
-       __streambuf_type* __sb = __in.rdbuf();
+       __streambuf_type* __sb = sprintf.rdbuf();
        __int_type __c = __sb->sgetc();
 
-       const __ctype_type& __ct = __check_facet(__in._M_ctype);
+       const __ctype_type& __ct = __check_facet(sprintf._M_ctype);
        while (!traits_type::eq_int_type(__c, __eof)
        && __ct.is(ctype_base::space,
     traits_type::to_char_type(__c)))
@@ -65162,12 +65051,12 @@ namespace std
      }
  }
 
-      if (__in.good() && __err == ios_base::goodbit)
+      if (sprintf.good() && __err == ios_base::goodbit)
  _M_ok = true;
       else
  {
    __err |= ios_base::failbit;
-   __in.setstate(__err);
+   sprintf.setstate(__err);
  }
     }
 
@@ -66004,18 +65893,18 @@ namespace std
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT& __c)
+    operator>>(basic_istream<_CharT, _Traits>& sprintf, _CharT& __c)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
       typedef typename __istream_type::int_type __int_type;
 
-      typename __istream_type::sentry __cerb(__in, false);
+      typename __istream_type::sentry __cerb(sprintf, false);
       if (__cerb)
  {
    ios_base::iostate __err = ios_base::goodbit;
    try
      {
-       const __int_type __cb = __in.rdbuf()->sbumpc();
+       const __int_type __cb = sprintf.rdbuf()->sbumpc();
        if (!_Traits::eq_int_type(__cb, _Traits::eof()))
   __c = _Traits::to_char_type(__cb);
        else
@@ -66023,20 +65912,20 @@ namespace std
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(ios_base::badbit);
+       sprintf._M_setstate(ios_base::badbit);
        throw;
      }
    catch(...)
-     { __in._M_setstate(ios_base::badbit); }
+     { sprintf._M_setstate(ios_base::badbit); }
    if (__err)
-     __in.setstate(__err);
+     sprintf.setstate(__err);
  }
-      return __in;
+      return sprintf;
     }
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    operator>>(basic_istream<_CharT, _Traits>& __in, _CharT* __s)
+    operator>>(basic_istream<_CharT, _Traits>& sprintf, _CharT* __s)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
       typedef basic_streambuf<_CharT, _Traits> __streambuf_type;
@@ -66046,20 +65935,20 @@ namespace std
 
       streamsize __extracted = 0;
       ios_base::iostate __err = ios_base::goodbit;
-      typename __istream_type::sentry __cerb(__in, false);
+      typename __istream_type::sentry __cerb(sprintf, false);
       if (__cerb)
  {
    try
      {
 
-       streamsize __num = __in.width();
+       streamsize __num = sprintf.width();
        if (__num <= 0)
   __num = __gnu_cxx::__numeric_traits<streamsize>::__max;
 
-       const __ctype_type& __ct = use_facet<__ctype_type>(__in.getloc());
+       const __ctype_type& __ct = use_facet<__ctype_type>(sprintf.getloc());
 
        const int_type __eof = _Traits::eof();
-       __streambuf_type* __sb = __in.rdbuf();
+       __streambuf_type* __sb = sprintf.rdbuf();
        int_type __c = __sb->sgetc();
 
        while (__extracted < __num - 1
@@ -66077,36 +65966,36 @@ namespace std
 
 
        *__s = char_type();
-       __in.width(0);
+       sprintf.width(0);
      }
    catch(__cxxabiv1::__forced_unwind&)
      {
-       __in._M_setstate(ios_base::badbit);
+       sprintf._M_setstate(ios_base::badbit);
        throw;
      }
    catch(...)
-     { __in._M_setstate(ios_base::badbit); }
+     { sprintf._M_setstate(ios_base::badbit); }
  }
       if (!__extracted)
  __err |= ios_base::failbit;
       if (__err)
- __in.setstate(__err);
-      return __in;
+ sprintf.setstate(__err);
+      return sprintf;
     }
 
 
   template<typename _CharT, typename _Traits>
     basic_istream<_CharT, _Traits>&
-    ws(basic_istream<_CharT, _Traits>& __in)
+    ws(basic_istream<_CharT, _Traits>& sprintf)
     {
       typedef basic_istream<_CharT, _Traits> __istream_type;
       typedef basic_streambuf<_CharT, _Traits> __streambuf_type;
       typedef typename __istream_type::int_type __int_type;
       typedef ctype<_CharT> __ctype_type;
 
-      const __ctype_type& __ct = use_facet<__ctype_type>(__in.getloc());
+      const __ctype_type& __ct = use_facet<__ctype_type>(sprintf.getloc());
       const __int_type __eof = _Traits::eof();
-      __streambuf_type* __sb = __in.rdbuf();
+      __streambuf_type* __sb = sprintf.rdbuf();
       __int_type __c = __sb->sgetc();
 
       while (!_Traits::eq_int_type(__c, __eof)
@@ -66114,8 +66003,8 @@ namespace std
  __c = __sb->snextc();
 
        if (_Traits::eq_int_type(__c, __eof))
-  __in.setstate(ios_base::eofbit);
-      return __in;
+  sprintf.setstate(ios_base::eofbit);
+      return sprintf;
     }
 
 
@@ -68106,9 +67995,9 @@ namespace std
 
 }
 # 940 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/fstream" 2 3
-# 50 "src/BEOS_Defs.h" 2
+# 56 "src/BEOS_Defs.h" 2
 extern std::ofstream debug;
-# 89 "src/BEOS_Defs.h"
+# 93 "src/BEOS_Defs.h"
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 1 3
 # 21 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/assert.h" 3
 extern "C" {
@@ -68120,7 +68009,7 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 
 
 }
-# 90 "src/BEOS_Defs.h" 2
+# 94 "src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 1 3
 # 16 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
@@ -68134,85 +68023,25 @@ extern "C" {
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fstat64(int _FileDes,struct _stat64 *_Stat);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fstati64(int _FileDes,struct _stati64 *_Stat);
   int __attribute__((__cdecl__)) _fstat64i32(int _FileDes,struct _stat64i32 *_Stat);
-
-  inline int __attribute__((__cdecl__)) _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
-  {
-    struct _stat64 st;
-    int ret=_fstat64(_FileDes,&st);
-    if (ret == -1) {
-      memset(_Stat,0,sizeof(struct _stat64i32));
-      return -1;
-    }
-    _Stat->st_dev=st.st_dev;
-    _Stat->st_ino=st.st_ino;
-    _Stat->st_mode=st.st_mode;
-    _Stat->st_nlink=st.st_nlink;
-    _Stat->st_uid=st.st_uid;
-    _Stat->st_gid=st.st_gid;
-    _Stat->st_rdev=st.st_rdev;
-    _Stat->st_size=(_off_t) st.st_size;
-    _Stat->st_atime=st.st_atime;
-    _Stat->st_mtime=st.st_mtime;
-    _Stat->st_ctime=st.st_ctime;
-    return ret;
-  }
-
+# 97 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _stat64(const char *_Name,struct _stat64 *_Stat);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _stati64(const char *_Name,struct _stati64 *_Stat);
   int __attribute__((__cdecl__)) _stat64i32(const char *_Name,struct _stat64i32 *_Stat);
-
-  inline int __attribute__((__cdecl__)) _stat64i32(const char *_Name,struct _stat64i32 *_Stat)
-  {
-    struct _stat64 st;
-    int ret=_stat64(_Name,&st);
-    if (ret == -1) {
-      memset(_Stat,0,sizeof(struct _stat64i32));
-      return -1;
-    }
-    _Stat->st_dev=st.st_dev;
-    _Stat->st_ino=st.st_ino;
-    _Stat->st_mode=st.st_mode;
-    _Stat->st_nlink=st.st_nlink;
-    _Stat->st_uid=st.st_uid;
-    _Stat->st_gid=st.st_gid;
-    _Stat->st_rdev=st.st_rdev;
-    _Stat->st_size=(_off_t) st.st_size;
-    _Stat->st_atime=st.st_atime;
-    _Stat->st_mtime=st.st_mtime;
-    _Stat->st_ctime=st.st_ctime;
-    return ret;
-  }
 # 164 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
 int __attribute__((__cdecl__)) stat(const char *_Filename,struct stat *_Stat);
 int __attribute__((__cdecl__)) fstat(int _Desc,struct stat *_Stat);
 int __attribute__((__cdecl__)) wstat(const wchar_t *_Filename,struct stat *_Stat);
-
-
-
-inline int __attribute__((__cdecl__))
- fstat(int _Desc,struct stat *_Stat) {
-  struct _stat st;
-  int ret=_fstat(_Desc,&st);
-  if (ret == -1) {
-    memset(_Stat,0,sizeof(struct stat));
-    return -1;
-  }
-
-
-  memcpy(_Stat, &st, sizeof(struct _stat));
-  return ret;
-}
 # 264 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/sys/stat.h" 3
 }
 
 
 #pragma pack(pop)
-# 92 "src/BEOS_Defs.h" 2
+# 96 "src/BEOS_Defs.h" 2
 
 
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/fcntl.h" 1 3
-# 96 "src/BEOS_Defs.h" 2
+# 100 "src/BEOS_Defs.h" 2
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 1 3
 # 15 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
@@ -68270,22 +68099,7 @@ struct tm *__attribute__((__cdecl__)) localtime(const time_t *_Time) ;
 time_t __attribute__((__cdecl__)) mktime(struct tm *_Tm);
 time_t __attribute__((__cdecl__)) _mkgmtime(struct tm *_Tm);
 time_t __attribute__((__cdecl__)) time(time_t *_Time);
-# 235 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
-inline double __attribute__((__cdecl__)) difftime(time_t _Time1,time_t _Time2)
-  { return _difftime32(_Time1,_Time2); }
-inline char *__attribute__((__cdecl__)) ctime(const time_t *_Time) { return _ctime32(_Time); }
-inline struct tm *__attribute__((__cdecl__)) localtime(const time_t *_Time) { return _localtime32(_Time); }
-inline time_t __attribute__((__cdecl__)) mktime(struct tm *_Tm) { return _mktime32(_Tm); }
-inline struct tm *__attribute__((__cdecl__)) gmtime(const time_t *_Time) { return _gmtime32(_Time); }
-inline time_t __attribute__((__cdecl__)) _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
-inline time_t __attribute__((__cdecl__)) time(time_t *_Time) { return _time32(_Time); }
-
-
-
-
-
-
-
+# 250 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 3
   __attribute__ ((__dllimport__)) extern int daylight;
   __attribute__ ((__dllimport__)) extern long timezone;
   __attribute__ ((__dllimport__)) extern char *tzname[2];
@@ -68361,7 +68175,7 @@ int __attribute__((__cdecl__)) clock_settime(clockid_t clock_id, const struct ti
 
 }
 # 286 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/time.h" 2 3
-# 98 "src/BEOS_Defs.h" 2
+# 102 "src/BEOS_Defs.h" 2
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 1 3
 # 39 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/ctime" 3
        
@@ -68383,8 +68197,8 @@ namespace std
   using ::localtime;
   using ::strftime;
 }
-# 99 "src/BEOS_Defs.h" 2
-# 160 "src/BEOS_Defs.h"
+# 103 "src/BEOS_Defs.h" 2
+# 164 "src/BEOS_Defs.h"
 enum {
     B_NO_MEMORY = (-2147483647L - 1L),
     B_IO_ERROR,
@@ -68408,7 +68222,7 @@ enum {
     B_OK = 0,
     B_NO_ERROR = 0
 };
-# 236 "src/BEOS_Defs.h"
+# 245 "src/BEOS_Defs.h"
 enum {
   B_ANY_TYPE = 'ANYT',
   B_ATOM_TYPE = 'ATOM',
@@ -68489,7 +68303,7 @@ typedef struct dirent_t {
     time_t modify;
     time_t create;
 } dirent_t;
-# 326 "src/BEOS_Defs.h"
+# 335 "src/BEOS_Defs.h"
 struct fs_info {
     unsigned int dev;
     unsigned short root;
@@ -68505,32 +68319,33 @@ struct fs_info {
     char fsh_name[32];
 };
 struct attr_stat {
-        unsigned int st_dev;
-        unsigned short st_ino;
-        unsigned short st_mode;
-        short st_nlink;
-        short st_uid;
-        short st_gid;
-        unsigned int st_rdev;
-        int64_t st_size;
-        time_t st_atime;
-        time_t st_mtime;
-        time_t st_ctime;
-        uint32_t st_type;
+    unsigned int st_dev;
+    unsigned short st_ino;
+    uint16_t st_mode;
+    short st_nlink;
+    short st_uid;
+    short st_gid;
+    unsigned int st_rdev;
+    int64_t st_size;
+    time_t st_atime;
+    time_t st_mtime;
+    time_t st_ctime;
+    uint32_t st_type;
 };
-# 394 "src/BEOS_Defs.h"
+# 387 "src/BEOS_Defs.h"
 typedef char* caddr_t;
-typedef struct iovec{
+typedef struct iovec
+{
     caddr_t iov_base;
-    size_t iov_len;
-
+    int64_t iov_len;
 } iovec;
 
 
 typedef char* addr_t;
 
 
-typedef struct device_geometry{
+typedef struct device_geometry
+{
     uint32_t bytes_per_sector;
     uint32_t sectors_per_track;
     uint32_t cylinder_count;
@@ -68540,15 +68355,17 @@ typedef struct device_geometry{
     bool read_only;
     bool write_once;
 } device_geometry;
-# 13 "src/BEOS_SystemWrapper.h" 2
-# 21 "src/BEOS_SystemWrapper.h"
+# 17 "src/BEOS_SystemWrapper.h" 2
+
+
+
 int32_t getegid(void);
 int32_t geteuid(void);
 
 
-int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-int read_pos2(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
-int write_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size);
+int32_t read_pos(HANDLE fDevice, int64_t sStart, void* data, uint32_t size);
+int32_t read_pos2(HANDLE fDevice, int64_t sStart, void* data, uint32_t size);
+int32_t write_pos(HANDLE fDevice, int64_t sStart, void* data, uint32_t size);
 signed long readv_pos(HANDLE fd, int64_t pos, const struct iovec *vec, size_t count);
 signed long writev_pos(HANDLE fd, int64_t pos, const struct iovec *vec,size_t count);
 
@@ -68572,35 +68389,32 @@ int32_t atomic_set (int32_t *value, int32_t newValue);
 
 
 
-int get_vnode(int fs, int64_t id, void **_vnode);
-int publish_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
-int new_vnode (unsigned int mountID, int64_t vnodeID, void* privateNode);
-int remove_vnode (unsigned int mountID, int64_t vnodeID);
-int unremove_vnode (unsigned int mountID, int64_t vnodeID);
-int put_vnode (unsigned int mountID, int64_t vnodeID);
+int get_vnode(int32_t fs, int64_t id, void **_vnode);
+int publish_vnode (uint32_t mountID, int64_t vnodeID, void* privateNode);
+int new_vnode (uint32_t mountID, int64_t vnodeID, void* privateNode);
+int remove_vnode (uint32_t mountID, int64_t vnodeID);
+int unremove_vnode (uint32_t mountID, int64_t vnodeID);
+int put_vnode (uint32_t mountID, int64_t vnodeID);
 
 
 
-void notify_query_entry_created(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
-void notify_query_entry_removed(int a, int b, unsigned int c,int64_t d, const char* e, int64_t f);
+void notify_query_entry_created(int32_t a, int32_t b, uint32_t c,int64_t d, const char* e, int64_t f);
+void notify_query_entry_removed(int32_t a, int32_t b, uint32_t c,int64_t d, const char* e, int64_t f);
 
 
 
-typedef void (*tFoo)(int f, void*ff);
+typedef void (*tFoo)(int32_t f, void*ff);
 
 
 
-int cache_next_block_in_transaction(void* a, int,unsigned int* b, int64_t * c, int d, int e);
-void cache_abort_sub_transaction(void* d, int id);
-void cache_abort_transaction(void* d, int id);
-int32_t cache_blocks_in_transaction(void* d, int id);
-void cache_end_transaction(void* d, int id, tFoo f, void*);
-int cache_start_sub_transaction(void* d, int id);
-int cache_start_transaction(void* d);
-# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
-
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 1
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
+int cache_next_block_in_transaction(void* a, int32_t,uint32_t* b, int64_t * c, int32_t d, int32_t e);
+void cache_abort_sub_transaction(void* d, int32_t id);
+void cache_abort_transaction(void* d, int32_t id);
+int32_t cache_blocks_in_transaction(void* d, int32_t id);
+void cache_end_transaction(void* d, int32_t id, tFoo f, void*);
+int32_t cache_start_sub_transaction(void* d, int32_t id);
+int32_t cache_start_transaction(void* d);
+# 12 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Endian.h" 1
 # 13 "./src/add-ons/kernel/file_systems/befs/BEFS.h" 2
 # 21 "./src/add-ons/kernel/file_systems/befs/BEFS.h"
@@ -68913,39 +68727,30 @@ small_data::IsLast(const bfs_inode *inode) const
 
  return (uint32_t)this > (uint32_t)inode + inode->InodeSize() - sizeof(small_data) || name_size == 0;
 }
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h" 1
-# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 1
-# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h" 1
-# 83 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h"
- struct block_run;
- struct bplustree_header;
- struct bplustree_node;
- struct data_stream;
- struct bfs_inode;
- struct disk_super_block;
- class Inode;
- class Volume;
+# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h" 2
+# 73 "./src/add-ons/kernel/file_systems/befs/BEFS_Debug.h"
+    struct disk_super_block;
+    struct block_run;
+    struct bplustree_header;
+    struct bplustree_node;
+    struct data_stream;
+    struct bfs_inode;
+    class Volume; class Inode;
 
-
- void dump_block_run(const char *prefix, block_run &run);
- void dump_super_block(const disk_super_block *superBlock);
- void dump_data_stream(const data_stream *stream);
- void dump_inode(const bfs_inode *inode);
- void dump_bplustree_header(const bplustree_header *header);
- void dump_bplustree_node(const bplustree_node *node,
-     const bplustree_header *header = __null, Volume *volume = __null);
- void dump_block(const char *buffer, int size);
-
- void remove_debugger_commands();
- void add_debugger_commands();
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
+    void dump_block_run(const char *prefix, block_run &run);
+    void dump_super_block(const disk_super_block *super_block);
+    void dump_data_stream(const data_stream *stream);
+    void dump_inode(const bfs_inode *inode);
+    void dump_bplustree_header(const bplustree_header *header);
+    void dump_bplustree_node(const bplustree_node *node,const bplustree_header *header = __null, Volume *volume = __null);
+    void dump_block(const char *buffer, int size);
+    void remove_debugger_commands();
+    void add_debugger_commands();
+# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Utility.h" 1
 # 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Utility.h"
 struct sorted_array {
- public:
+    public:
         int64_t count;
         int64_t values[0];
 
@@ -68953,7 +68758,7 @@ struct sorted_array {
         void Insert(int64_t value);
         bool Remove(int64_t value);
 
- private:
+    private:
         bool FindInternal(int64_t value,int32_t &index) const;
 };
 
@@ -68961,10 +68766,10 @@ struct sorted_array {
 inline int32_t
 sorted_array::Find(int64_t value) const
 {
- int32_t i;
- return FindInternal(value,i) ? i : -1;
+    int32_t i;
+    return FindInternal(value,i) ? i : -1;
 }
-# 13 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
+# 12 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h" 2
 
 
 typedef struct recursive_lock {
@@ -68993,7 +68798,7 @@ typedef struct rw_lock {
     int32_t count;
     benaphore writeLock;
 } rw_lock;
-# 54 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 53 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
 class Semaphore {
     public:
         Semaphore(const char *name)
@@ -69169,7 +68974,7 @@ class RecursiveLocker {
             : fLock(lock)
         {
             fStatus = lock.Lock();
-            { if (!(fStatus == B_OK)) printf ("skyfs: assert failed: " "fStatus == B_OK" "\n"); };
+            { if (!(fStatus == B_OK)) printf ("BEFS: assert failed: " "fStatus == B_OK" "\n"); };
         }
 
         ~RecursiveLocker()
@@ -69187,7 +68992,7 @@ class RecursiveLocker {
         RecursiveLock &fLock;
         int fStatus;
 };
-# 370 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 369 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
 class ReadWriteLock {
     public:
         ReadWriteLock(const char *name)
@@ -69370,7 +69175,7 @@ class SimpleLock {
                     current = fHolder;
                     fHolder = thisThread;
                 }
-# 560 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
+# 559 "./src/add-ons/kernel/file_systems/befs/BEFS_Lock.h"
                 Sleep(time);
             }
 
@@ -69473,49 +69278,49 @@ class BlockAllocator {
         uint32_t *fCheckBitmap;
         check_cookie *fCheckCookie;
 };
-# 12 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 9 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Chain.h" 1
 # 15 "./src/add-ons/kernel/file_systems/befs/BEFS_Chain.h"
 template<class Link> class Chain {
- public:
-  Chain()
-   :
-   fFirst(__null)
-  {
-  }
+    public:
+        Chain()
+            :
+            fFirst(__null)
+        {
+        }
 
-  void Add(Link *link)
-  {
-   link->fNext = fFirst;
-   fFirst = link;
-  }
+        void Add(Link *link)
+        {
+            link->fNext = fFirst;
+            fFirst = link;
+        }
 
-  void Remove(Link *link)
-  {
+        void Remove(Link *link)
+        {
 
-   Link *last = __null,*entry;
-   for (entry = fFirst;link != entry;entry = entry->fNext)
-    last = entry;
-   if (link == entry) {
-    if (last)
-     last->fNext = link->fNext;
-    else
-     fFirst = link->fNext;
-   }
-  }
+            Link *last = __null,*entry;
+            for (entry = fFirst;link != entry;entry = entry->fNext)
+                last = entry;
+            if (link == entry) {
+                if (last)
+                    last->fNext = link->fNext;
+                else
+                    fFirst = link->fNext;
+            }
+        }
 
-  Link *Next(Link *last)
-  {
-   if (last == __null)
-    return fFirst;
+        Link *Next(Link *last)
+        {
+            if (last == __null)
+                return fFirst;
 
-   return last->fNext;
-  }
+            return last->fNext;
+        }
 
- private:
-  Link *fFirst;
+    private:
+        Link *fFirst;
 };
-# 13 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 10 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Cache.h" 1
 
 
@@ -69528,84 +69333,84 @@ template<class Link> class Chain {
 template<typename Element>
 class DoublyLinkedListLink {
 public:
- DoublyLinkedListLink() : previous(__null), next(__null) {}
- ~DoublyLinkedListLink() {}
+    DoublyLinkedListLink() : previous(__null), next(__null) {}
+    ~DoublyLinkedListLink() {}
 
- Element *previous;
- Element *next;
+    Element *previous;
+    Element *next;
 };
 
 template<typename Element>
 class DoublyLinkedListLinkImpl {
 private:
- typedef DoublyLinkedListLink<Element> DLL_Link;
+    typedef DoublyLinkedListLink<Element> DLL_Link;
 
 public:
- DoublyLinkedListLinkImpl() : fDoublyLinkedListLink() {}
- ~DoublyLinkedListLinkImpl() {}
+    DoublyLinkedListLinkImpl() : fDoublyLinkedListLink() {}
+    ~DoublyLinkedListLinkImpl() {}
 
- DLL_Link *GetDoublyLinkedListLink()
-  { return &fDoublyLinkedListLink; }
- const DLL_Link *GetDoublyLinkedListLink() const
-  { return &fDoublyLinkedListLink; }
+    DLL_Link *GetDoublyLinkedListLink()
+        { return &fDoublyLinkedListLink; }
+    const DLL_Link *GetDoublyLinkedListLink() const
+        { return &fDoublyLinkedListLink; }
 
 private:
- DLL_Link fDoublyLinkedListLink;
+    DLL_Link fDoublyLinkedListLink;
 };
 
 
 template<typename Element>
 class DoublyLinkedListStandardGetLink {
 private:
- typedef DoublyLinkedListLink<Element> Link;
+    typedef DoublyLinkedListLink<Element> Link;
 
 public:
- inline Link *operator()(Element *element) const
- {
-  return element->GetDoublyLinkedListLink();
- }
+    inline Link *operator()(Element *element) const
+    {
+        return element->GetDoublyLinkedListLink();
+    }
 
- inline const Link *operator()(const Element *element) const
- {
-  return element->GetDoublyLinkedListLink();
- }
+    inline const Link *operator()(const Element *element) const
+    {
+        return element->GetDoublyLinkedListLink();
+    }
 };
 
 
 template<typename Element,
- DoublyLinkedListLink<Element> Element::* LinkMember = &Element::fLink>
+    DoublyLinkedListLink<Element> Element::* LinkMember = &Element::fLink>
 class DoublyLinkedListMemberGetLink {
 private:
- typedef DoublyLinkedListLink<Element> Link;
+    typedef DoublyLinkedListLink<Element> Link;
 
 public:
- inline Link *operator()(Element *element) const
- {
-  return &(element->*LinkMember);
- }
+    inline Link *operator()(Element *element) const
+    {
+        return &(element->*LinkMember);
+    }
 
- inline const Link *operator()(const Element *element) const
- {
-  return &(element->*LinkMember);
- }
+    inline const Link *operator()(const Element *element) const
+    {
+        return &(element->*LinkMember);
+    }
 };
 
 
 template<typename Element>
 class DoublyLinkedListCLink {
- private:
-  typedef DoublyLinkedListLink<Element> Link;
+    private:
+        typedef DoublyLinkedListLink<Element> Link;
 
- public:
-  inline Link *operator()(Element *element) const
-  {
-   return (Link *)&element->link;
-  }
+    public:
+        inline Link *operator()(Element *element) const
+        {
+            return (Link *)&element->link;
+        }
 
-  inline const Link *operator()(const Element *element) const
-  {
-   return (const Link *)&element->link;
-  }
+        inline const Link *operator()(const Element *element) const
+        {
+            return (const Link *)&element->link;
+        }
 };
 
 
@@ -69615,260 +69420,260 @@ class DoublyLinkedListCLink {
 
 
 template<typename Element,
- typename GetLink = DoublyLinkedListStandardGetLink<Element> >
+    typename GetLink = DoublyLinkedListStandardGetLink<Element> >
 class DoublyLinkedList {
 private:
- typedef DoublyLinkedList<Element, GetLink> List;
- typedef DoublyLinkedListLink<Element> Link;
+    typedef DoublyLinkedList<Element, GetLink> List;
+    typedef DoublyLinkedListLink<Element> Link;
 
 public:
- class Iterator {
- public:
-  Iterator(List *list)
-   :
-   fList(list)
-  {
-   Rewind();
-  }
+    class Iterator {
+    public:
+        Iterator(List *list)
+            :
+            fList(list)
+        {
+            Rewind();
+        }
 
-  Iterator(const Iterator &other)
-  {
-   *this = other;
-  }
+        Iterator(const Iterator &other)
+        {
+            *this = other;
+        }
 
-  bool HasNext() const
-  {
-   return fNext;
-  }
+        bool HasNext() const
+        {
+            return fNext;
+        }
 
-  Element *Next()
-  {
-   fCurrent = fNext;
-   if (fNext)
-    fNext = fList->GetNext(fNext);
-   return fCurrent;
-  }
+        Element *Next()
+        {
+            fCurrent = fNext;
+            if (fNext)
+                fNext = fList->GetNext(fNext);
+            return fCurrent;
+        }
 
-  Element *Remove()
-  {
-   Element *element = fCurrent;
-   if (fCurrent) {
-    fList->Remove(fCurrent);
-    fCurrent = __null;
-   }
-   return element;
-  }
+        Element *Remove()
+        {
+            Element *element = fCurrent;
+            if (fCurrent) {
+                fList->Remove(fCurrent);
+                fCurrent = __null;
+            }
+            return element;
+        }
 
-  Iterator &operator=(const Iterator &other)
-  {
-   fList = other.fList;
-   fCurrent = other.fCurrent;
-   fNext = other.fNext;
-   return *this;
-  }
+        Iterator &operator=(const Iterator &other)
+        {
+            fList = other.fList;
+            fCurrent = other.fCurrent;
+            fNext = other.fNext;
+            return *this;
+        }
 
-  void Rewind()
-  {
-   fCurrent = __null;
-   fNext = fList->First();
-  }
+        void Rewind()
+        {
+            fCurrent = __null;
+            fNext = fList->First();
+        }
 
- private:
-  List *fList;
-  Element *fCurrent;
-  Element *fNext;
- };
+    private:
+        List *fList;
+        Element *fCurrent;
+        Element *fNext;
+    };
 
- class ConstIterator {
- public:
-  ConstIterator(const List *list)
-   :
-   fList(list)
-  {
-   Rewind();
-  }
+    class ConstIterator {
+    public:
+        ConstIterator(const List *list)
+            :
+            fList(list)
+        {
+            Rewind();
+        }
 
-  ConstIterator(const ConstIterator &other)
-  {
-   *this = other;
-  }
+        ConstIterator(const ConstIterator &other)
+        {
+            *this = other;
+        }
 
-  bool HasNext() const
-  {
-   return fNext;
-  }
+        bool HasNext() const
+        {
+            return fNext;
+        }
 
-  Element *Next()
-  {
-   Element *element = fNext;
-   if (fNext)
-    fNext = fList->GetNext(fNext);
-   return element;
-  }
+        Element *Next()
+        {
+            Element *element = fNext;
+            if (fNext)
+                fNext = fList->GetNext(fNext);
+            return element;
+        }
 
-  ConstIterator &operator=(const ConstIterator &other)
-  {
-   fList = other.fList;
-   fNext = other.fNext;
-   return *this;
-  }
+        ConstIterator &operator=(const ConstIterator &other)
+        {
+            fList = other.fList;
+            fNext = other.fNext;
+            return *this;
+        }
 
-  void Rewind()
-  {
-   fNext = fList->First();
-  }
+        void Rewind()
+        {
+            fNext = fList->First();
+        }
 
- private:
-  const List *fList;
-  Element *fNext;
- };
+    private:
+        const List *fList;
+        Element *fNext;
+    };
 
- class ReverseIterator {
- public:
-  ReverseIterator(List *list)
-   :
-   fList(list)
-  {
-   Rewind();
-  }
+    class ReverseIterator {
+    public:
+        ReverseIterator(List *list)
+            :
+            fList(list)
+        {
+            Rewind();
+        }
 
-  ReverseIterator(const ReverseIterator &other)
-  {
-   *this = other;
-  }
+        ReverseIterator(const ReverseIterator &other)
+        {
+            *this = other;
+        }
 
-  bool HasNext() const
-  {
-   return fNext;
-  }
+        bool HasNext() const
+        {
+            return fNext;
+        }
 
-  Element *Next()
-  {
-   fCurrent = fNext;
-   if (fNext)
-    fNext = fList->GetPrevious(fNext);
-   return fCurrent;
-  }
+        Element *Next()
+        {
+            fCurrent = fNext;
+            if (fNext)
+                fNext = fList->GetPrevious(fNext);
+            return fCurrent;
+        }
 
-  Element *Remove()
-  {
-   Element *element = fCurrent;
-   if (fCurrent) {
-    fList->Remove(fCurrent);
-    fCurrent = __null;
-   }
-   return element;
-  }
+        Element *Remove()
+        {
+            Element *element = fCurrent;
+            if (fCurrent) {
+                fList->Remove(fCurrent);
+                fCurrent = __null;
+            }
+            return element;
+        }
 
-  ReverseIterator &operator=(const ReverseIterator &other)
-  {
-   fList = other.fList;
-   fCurrent = other.fCurrent;
-   fNext = other.fNext;
-   return *this;
-  }
+        ReverseIterator &operator=(const ReverseIterator &other)
+        {
+            fList = other.fList;
+            fCurrent = other.fCurrent;
+            fNext = other.fNext;
+            return *this;
+        }
 
-  void Rewind()
-  {
-   fCurrent = __null;
-   fNext = fList->Last();
-  }
+        void Rewind()
+        {
+            fCurrent = __null;
+            fNext = fList->Last();
+        }
 
- private:
-  List *fList;
-  Element *fCurrent;
-  Element *fNext;
- };
+    private:
+        List *fList;
+        Element *fCurrent;
+        Element *fNext;
+    };
 
- class ConstReverseIterator {
- public:
-  ConstReverseIterator(const List *list)
-   :
-   fList(list)
-  {
-   Rewind();
-  }
+    class ConstReverseIterator {
+    public:
+        ConstReverseIterator(const List *list)
+            :
+            fList(list)
+        {
+            Rewind();
+        }
 
-  ConstReverseIterator(const ConstReverseIterator &other)
-  {
-   *this = other;
-  }
+        ConstReverseIterator(const ConstReverseIterator &other)
+        {
+            *this = other;
+        }
 
-  bool HasNext() const
-  {
-   return fNext;
-  }
+        bool HasNext() const
+        {
+            return fNext;
+        }
 
-  Element *Next()
-  {
-   Element *element = fNext;
-   if (fNext)
-    fNext = fList->GetPrevious(fNext);
-   return element;
-  }
+        Element *Next()
+        {
+            Element *element = fNext;
+            if (fNext)
+                fNext = fList->GetPrevious(fNext);
+            return element;
+        }
 
-  ConstReverseIterator &operator=(const ConstReverseIterator &other)
-  {
-   fList = other.fList;
-   fNext = other.fNext;
-   return *this;
-  }
+        ConstReverseIterator &operator=(const ConstReverseIterator &other)
+        {
+            fList = other.fList;
+            fNext = other.fNext;
+            return *this;
+        }
 
-  void Rewind()
-  {
-   fNext = fList->Last();
-  }
+        void Rewind()
+        {
+            fNext = fList->Last();
+        }
 
- private:
-  const List *fList;
-  Element *fNext;
- };
+    private:
+        const List *fList;
+        Element *fNext;
+    };
 
 public:
- DoublyLinkedList() : fFirst(__null), fLast(__null) {}
- ~DoublyLinkedList() {}
+    DoublyLinkedList() : fFirst(__null), fLast(__null) {}
+    ~DoublyLinkedList() {}
 
- inline bool IsEmpty() const { return (fFirst == __null); }
+    inline bool IsEmpty() const { return (fFirst == __null); }
 
- inline void Insert(Element *element, bool back = true);
- inline void Insert(Element *before, Element *element);
- inline void Add(Element *element, bool back = true);
- inline void Remove(Element *element);
+    inline void Insert(Element *element, bool back = true);
+    inline void Insert(Element *before, Element *element);
+    inline void Add(Element *element, bool back = true);
+    inline void Remove(Element *element);
 
- inline void Swap(Element *a, Element *b);
+    inline void Swap(Element *a, Element *b);
 
- inline void MoveFrom(DoublyLinkedList<Element, GetLink> *fromList);
+    inline void MoveFrom(DoublyLinkedList<Element, GetLink> *fromList);
 
- inline void RemoveAll();
- inline void MakeEmpty() { RemoveAll(); }
+    inline void RemoveAll();
+    inline void MakeEmpty() { RemoveAll(); }
 
- inline Element *First() const { return fFirst; }
- inline Element *Last() const { return fLast; }
+    inline Element *First() const { return fFirst; }
+    inline Element *Last() const { return fLast; }
 
- inline Element *Head() const { return fFirst; }
- inline Element *Tail() const { return fLast; }
+    inline Element *Head() const { return fFirst; }
+    inline Element *Tail() const { return fLast; }
 
- inline Element *RemoveHead();
+    inline Element *RemoveHead();
 
- inline Element *GetPrevious(Element *element) const;
- inline Element *GetNext(Element *element) const;
+    inline Element *GetPrevious(Element *element) const;
+    inline Element *GetNext(Element *element) const;
 
- inline int32_t Size() const;
+    inline int32_t Size() const;
 
 
- inline Iterator GetIterator() { return Iterator(this); }
- inline ConstIterator GetIterator() const { return ConstIterator(this); }
+    inline Iterator GetIterator() { return Iterator(this); }
+    inline ConstIterator GetIterator() const { return ConstIterator(this); }
 
- inline ReverseIterator GetReverseIterator()
-  { return ReverseIterator(this); }
- inline ConstReverseIterator GetReverseIterator() const
-  { return ConstReverseIterator(this); }
+    inline ReverseIterator GetReverseIterator()
+        { return ReverseIterator(this); }
+    inline ConstReverseIterator GetReverseIterator() const
+        { return ConstReverseIterator(this); }
 
 private:
- Element *fFirst;
- Element *fLast;
+    Element *fFirst;
+    Element *fLast;
 
- static GetLink sGetLink;
+    static GetLink sGetLink;
 };
 
 
@@ -69879,29 +69684,29 @@ template<typename Element, typename GetLink>
 void
 DoublyLinkedList<Element, GetLink>::Insert(Element *element, bool back)
 {
- if (element) {
-  if (back) {
+    if (element) {
+        if (back) {
 
-   Link *elLink = sGetLink(element);
-   elLink->previous = fLast;
-   elLink->next = __null;
-   if (fLast)
-    sGetLink(fLast)->next = element;
-   else
-    fFirst = element;
-   fLast = element;
-  } else {
+            Link *elLink = sGetLink(element);
+            elLink->previous = fLast;
+            elLink->next = __null;
+            if (fLast)
+                sGetLink(fLast)->next = element;
+            else
+                fFirst = element;
+            fLast = element;
+        } else {
 
-   Link *elLink = sGetLink(element);
-   elLink->previous = __null;
-   elLink->next = fFirst;
-   if (fFirst)
-    sGetLink(fFirst)->previous = element;
-   else
-    fLast = element;
-   fFirst = element;
-  }
- }
+            Link *elLink = sGetLink(element);
+            elLink->previous = __null;
+            elLink->next = fFirst;
+            if (fFirst)
+                sGetLink(fFirst)->previous = element;
+            else
+                fLast = element;
+            fFirst = element;
+        }
+    }
 }
 
 
@@ -69909,24 +69714,24 @@ template<typename Element, typename GetLink>
 void
 DoublyLinkedList<Element, GetLink>::Insert(Element *before, Element *element)
 {
- if (before == __null) {
-  Insert(element);
-  return;
- }
- if (element == __null)
-  return;
+    if (before == __null) {
+        Insert(element);
+        return;
+    }
+    if (element == __null)
+        return;
 
- Link *beforeLink = sGetLink(before);
- Link *link = sGetLink(element);
+    Link *beforeLink = sGetLink(before);
+    Link *link = sGetLink(element);
 
- link->next = before;
- link->previous = beforeLink->previous;
- if (link->previous != __null)
-  sGetLink(link->previous)->next = element;
- beforeLink->previous = element;
+    link->next = before;
+    link->previous = beforeLink->previous;
+    if (link->previous != __null)
+        sGetLink(link->previous)->next = element;
+    beforeLink->previous = element;
 
- if (fFirst == before)
-  fFirst = element;
+    if (fFirst == before)
+        fFirst = element;
 }
 
 
@@ -69934,7 +69739,7 @@ template<typename Element, typename GetLink>
 void
 DoublyLinkedList<Element, GetLink>::Add(Element *element, bool back)
 {
- Insert(element, back);
+    Insert(element, back);
 }
 
 
@@ -69942,19 +69747,19 @@ template<typename Element, typename GetLink>
 void
 DoublyLinkedList<Element, GetLink>::Remove(Element *element)
 {
- if (element) {
-  Link *elLink = sGetLink(element);
-  if (elLink->previous)
-   sGetLink(elLink->previous)->next = elLink->next;
-  else
-   fFirst = elLink->next;
-  if (elLink->next)
-   sGetLink(elLink->next)->previous = elLink->previous;
-  else
-   fLast = elLink->previous;
-  elLink->previous = __null;
-  elLink->next = __null;
- }
+    if (element) {
+        Link *elLink = sGetLink(element);
+        if (elLink->previous)
+            sGetLink(elLink->previous)->next = elLink->next;
+        else
+            fFirst = elLink->next;
+        if (elLink->next)
+            sGetLink(elLink->next)->previous = elLink->previous;
+        else
+            fLast = elLink->previous;
+        elLink->previous = __null;
+        elLink->next = __null;
+    }
 }
 
 
@@ -69962,36 +69767,36 @@ template<typename Element, typename GetLink>
 void
 DoublyLinkedList<Element, GetLink>::Swap(Element *a, Element *b)
 {
- if (a && b && a != b) {
-  Link *aLink = sGetLink(a);
-  Link *bLink = sGetLink(b);
-  Element *aPrev = aLink->previous;
-  Element *bPrev = bLink->previous;
-  Element *aNext = aLink->next;
-  Element *bNext = bLink->next;
+    if (a && b && a != b) {
+        Link *aLink = sGetLink(a);
+        Link *bLink = sGetLink(b);
+        Element *aPrev = aLink->previous;
+        Element *bPrev = bLink->previous;
+        Element *aNext = aLink->next;
+        Element *bNext = bLink->next;
 
-  if (bPrev)
-   sGetLink(bPrev)->next = a;
-  else
-   fFirst = a;
-  if (bNext)
-   sGetLink(bNext)->previous = a;
-  else
-   fLast = a;
-  aLink->previous = bPrev;
-  aLink->next = bNext;
+        if (bPrev)
+            sGetLink(bPrev)->next = a;
+        else
+            fFirst = a;
+        if (bNext)
+            sGetLink(bNext)->previous = a;
+        else
+            fLast = a;
+        aLink->previous = bPrev;
+        aLink->next = bNext;
 
-  if (aPrev)
-   sGetLink(aPrev)->next = b;
-  else
-   fFirst = b;
-  if (aNext)
-   sGetLink(aNext)->previous = b;
-  else
-   fLast = b;
-  bLink->previous = aPrev;
-  bLink->next = aNext;
- }
+        if (aPrev)
+            sGetLink(aPrev)->next = b;
+        else
+            fFirst = b;
+        if (aNext)
+            sGetLink(aNext)->previous = b;
+        else
+            fLast = b;
+        bLink->previous = aPrev;
+        bLink->next = aNext;
+    }
 }
 
 
@@ -69999,18 +69804,18 @@ template<typename Element, typename GetLink>
 void
 DoublyLinkedList<Element, GetLink>::MoveFrom(DoublyLinkedList<Element, GetLink> *fromList)
 {
- if (fromList && fromList->fFirst) {
-  if (fFirst) {
-   sGetLink(fLast)->next = fromList->fFirst;
-   sGetLink(fFirst)->previous = fLast;
-   fLast = fromList->fLast;
-  } else {
-   fFirst = fromList->fFirst;
-   fLast = fromList->fLast;
-  }
-  fromList->fFirst = __null;
-  fromList->fLast = __null;
- }
+    if (fromList && fromList->fFirst) {
+        if (fFirst) {
+            sGetLink(fLast)->next = fromList->fFirst;
+            sGetLink(fFirst)->previous = fLast;
+            fLast = fromList->fLast;
+        } else {
+            fFirst = fromList->fFirst;
+            fLast = fromList->fLast;
+        }
+        fromList->fFirst = __null;
+        fromList->fLast = __null;
+    }
 }
 
 
@@ -70018,15 +69823,15 @@ template<typename Element, typename GetLink>
 void
 DoublyLinkedList<Element, GetLink>::RemoveAll()
 {
- Element *element = fFirst;
- while (element) {
-  Link *elLink = sGetLink(element);
-  element = elLink->next;
-  elLink->previous = __null;
-  elLink->next = __null;
- }
- fFirst = __null;
- fLast = __null;
+    Element *element = fFirst;
+    while (element) {
+        Link *elLink = sGetLink(element);
+        element = elLink->next;
+        elLink->previous = __null;
+        elLink->next = __null;
+    }
+    fFirst = __null;
+    fLast = __null;
 }
 
 
@@ -70034,9 +69839,9 @@ template<typename Element, typename GetLink>
 Element *
 DoublyLinkedList<Element, GetLink>::RemoveHead()
 {
- Element *element = Head();
- Remove(element);
- return element;
+    Element *element = Head();
+    Remove(element);
+    return element;
 }
 
 
@@ -70044,10 +69849,10 @@ template<typename Element, typename GetLink>
 Element *
 DoublyLinkedList<Element, GetLink>::GetPrevious(Element *element) const
 {
- Element *result = __null;
- if (element)
-  result = sGetLink(element)->previous;
- return result;
+    Element *result = __null;
+    if (element)
+        result = sGetLink(element)->previous;
+    return result;
 }
 
 
@@ -70055,10 +69860,10 @@ template<typename Element, typename GetLink>
 Element *
 DoublyLinkedList<Element, GetLink>::GetNext(Element *element) const
 {
- Element *result = __null;
- if (element)
-  result = sGetLink(element)->next;
- return result;
+    Element *result = __null;
+    if (element)
+        result = sGetLink(element)->next;
+    return result;
 }
 
 
@@ -70066,10 +69871,10 @@ template<typename Element, typename GetLink>
 int32_t
 DoublyLinkedList<Element, GetLink>::Size() const
 {
- int32_t count = 0;
- for (Element* element = First(); element; element = GetNext(element))
-  count++;
- return count;
+    int32_t count = 0;
+    for (Element* element = First(); element; element = GetNext(element))
+        count++;
+    return count;
 }
 
 
@@ -70079,16 +69884,16 @@ GetLink DoublyLinkedList<Element, GetLink>::sGetLink;
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Hash.h" 1
 # 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Hash.h"
 typedef struct hash_iterator {
- void *current;
- int bucket;
+    void *current;
+    int bucket;
 } hash_iterator;
 
 typedef struct hash_table hash_table;
 
 
 extern struct hash_table *hash_init(uint32_t table_size, int next_ptr_offset,
- int compare_func(void *element, const void *key),
- uint32_t hash_func(void *element, const void *key, uint32_t range));
+    int compare_func(void *element, const void *key),
+    uint32_t hash_func(void *element, const void *key, uint32_t range));
 extern int hash_uninit(struct hash_table *table);
 extern int hash_insert(struct hash_table *table, void *_element);
 extern int hash_remove(struct hash_table *table, void *_element);
@@ -70414,168 +70219,169 @@ int cache_io(void *_cacheRef, int64_t offset, addr_t buffer, int64_t *_size, boo
 static cached_block * get_cached_block(block_cache *cache, int64_t blockNumber, bool *_allocated,bool readBlock);
 static void put_cached_block(block_cache *cache, int64_t blockNumber);
 static void put_cached_block(block_cache *cache, cached_block *block);
-# 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+# 11 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 2
+
 
 class Journal;
 class Inode;
 class Query;
 
 enum volume_flags {
- VOLUME_READ_ONLY = 0x0001
+    VOLUME_READ_ONLY = 0x0001
 };
 
 enum volume_initialize_flags {
- VOLUME_NO_INDICES = 0x0001,
+    VOLUME_NO_INDICES = 0x0001,
 };
-# 47 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h"
+# 45 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h"
 typedef struct
 {
- BYTE chBootInd;
- BYTE chHead;
- BYTE chSector;
- BYTE chCylinder;
- BYTE chType;
- BYTE chLastHead;
- BYTE chLastSector;
- BYTE chLastCylinder;
- DWORD dwRelativeSector;
- DWORD dwNumberSectors;
+    BYTE chBootInd;
+    BYTE chHead;
+    BYTE chSector;
+    BYTE chCylinder;
+    BYTE chType;
+    BYTE chLastHead;
+    BYTE chLastSector;
+    BYTE chLastCylinder;
+    DWORD dwRelativeSector;
+    DWORD dwNumberSectors;
 
 }PARTITION;
 
 typedef struct
 {
- WORD wCylinder;
- WORD wHead;
- WORD wSector;
- DWORD dwNumSectors;
- WORD wType;
- DWORD dwRelativeSector;
- DWORD dwNTRelativeSector;
- DWORD dwBytesPerSector;
+    WORD wCylinder;
+    WORD wHead;
+    WORD wSector;
+    DWORD dwNumSectors;
+    WORD wType;
+    DWORD dwRelativeSector;
+    DWORD dwNTRelativeSector;
+    DWORD dwBytesPerSector;
 
 }DRIVEPACKET;
 
 class Volume {
- public:
-  Volume(int id);
+    public:
+        Volume(int id);
 
-  ~Volume();
+        ~Volume();
 
-  int Mount(int diskNr, int partitionNr, uint32_t flags);
+        int Mount(int diskNr, int partitionNr, uint32_t flags);
 
 
-  int Mount(const char *device, int partitionNr, uint32_t flags);
-  int MountBEFS(const char *deviceName, int partitionNr, uint32_t flags);
-  int CountSkyfsPartitions(const char* device, bool skyfs);
+        int Mount(const char *device, int partitionNr, uint32_t flags);
+        int MountBEFS(const char *deviceName, int partitionNr, uint32_t flags);
+        int CountSkyfsPartitions(const char* device, bool skyfs);
 
-  int Unmount();
-  int Initialize(const char *device, const char *name,
-        uint32_t blockSize, uint32_t flags);
+        int Unmount();
+        int Initialize(const char *device, const char *name,
+                                uint32_t blockSize, uint32_t flags);
 
-  bool IsValidSuperBlock();
-  bool IsReadOnly() const;
-  void Panic();
-  RecursiveLock &Lock();
+        bool IsValidSuperBlock();
+        bool IsReadOnly() const;
+        void Panic();
+        RecursiveLock &Lock();
 
-  block_run Root() const { return fSuperBlock.root_dir; }
-  Inode *RootNode() const { return fRootNode; }
-  block_run Indices() const { return fSuperBlock.indices; }
-  Inode *IndicesNode() const { return fIndicesNode; }
-  block_run Log() const { return fSuperBlock.log_blocks; }
-  int32_t &LogStart() { return fLogStart; }
-  int32_t &LogEnd() { return fLogEnd; }
-  HANDLE Device() const { return fDevice; }
+        block_run Root() const { return fSuperBlock.root_dir; }
+        Inode *RootNode() const { return fRootNode; }
+        block_run Indices() const { return fSuperBlock.indices; }
+        Inode *IndicesNode() const { return fIndicesNode; }
+        block_run Log() const { return fSuperBlock.log_blocks; }
+        int32_t &LogStart() { return fLogStart; }
+        int32_t &LogEnd() { return fLogEnd; }
+        HANDLE Device() const { return fDevice; }
 
-  int ID() const { return fID; }
-  const char *Name() const { return fSuperBlock.name; }
+        int ID() const { return fID; }
+        const char *Name() const { return fSuperBlock.name; }
 
         int64_t NumBlocks() const { return fSuperBlock.NumBlocks(); }
         int64_t UsedBlocks() const { return fSuperBlock.UsedBlocks(); }
         int64_t FreeBlocks() const { return NumBlocks() - UsedBlocks(); }
 
-  uint32_t BlockSize() const { return fBlockSize; }
-  uint32_t BlockShift() const { return fBlockShift; }
-  uint32_t InodeSize() const { return fSuperBlock.InodeSize(); }
-  uint32_t AllocationGroups() const { return fSuperBlock.AllocationGroups(); }
-  uint32_t AllocationGroupShift() const { return fAllocationGroupShift; }
-  disk_super_block &SuperBlock() { return fSuperBlock; }
+        uint32_t BlockSize() const { return fBlockSize; }
+        uint32_t BlockShift() const { return fBlockShift; }
+        uint32_t InodeSize() const { return fSuperBlock.InodeSize(); }
+        uint32_t AllocationGroups() const { return fSuperBlock.AllocationGroups(); }
+        uint32_t AllocationGroupShift() const { return fAllocationGroupShift; }
+        disk_super_block &SuperBlock() { return fSuperBlock; }
 
         int64_t ToOffset(block_run run) const { return (ToBlock(run) << BlockShift()); }
         int64_t ToBlock(block_run run) const { return ((((int64_t)run.AllocationGroup()) << AllocationGroupShift()) | (int64_t)run.Start()); }
         block_run ToBlockRun(int64_t block) const;
-  int ValidateBlockRun(block_run run);
+        int ValidateBlockRun(block_run run);
 
         int64_t ToVnode(block_run run) const { return ToBlock(run); }
         int64_t ToVnode(int64_t block) const { return block; }
         int64_t VnodeToBlock(int64_t id) const { return (int64_t)id; }
 
-  int CreateIndicesRoot(Transaction &transaction);
+        int CreateIndicesRoot(Transaction &transaction);
 
 
-  BlockAllocator &Allocator();
-  int AllocateForInode(Transaction &transaction, const Inode *parent,
-        unsigned int type, block_run &run);
-  int AllocateForInode(Transaction &transaction, const block_run *parent,
-        unsigned int type, block_run &run);
-  int Allocate(Transaction &transaction, Inode *inode,
+        BlockAllocator &Allocator();
+        int AllocateForInode(Transaction &transaction, const Inode *parent,
+                                unsigned int type, block_run &run);
+        int AllocateForInode(Transaction &transaction, const block_run *parent,
+                                unsigned int type, block_run &run);
+        int Allocate(Transaction &transaction, Inode *inode,
                                 int64_t numBlocks, block_run &run, uint16_t minimum = 1);
-  int Free(Transaction &transaction, block_run run);
+        int Free(Transaction &transaction, block_run run);
 
 
-  int WriteSuperBlock();
-  int FlushDevice();
+        int WriteSuperBlock();
+        int FlushDevice();
 
 
-  void UpdateLiveQueries(Inode *inode, const char *attribute, int32_t type,
-        const uint8_t *oldKey, size_t oldLength,
-        const uint8_t *newKey, size_t newLength);
-  bool CheckForLiveQuery(const char *attribute);
-  void AddQuery(Query *query);
-  void RemoveQuery(Query *query);
+        void UpdateLiveQueries(Inode *inode, const char *attribute, int32_t type,
+                                const uint8_t *oldKey, size_t oldLength,
+                                const uint8_t *newKey, size_t newLength);
+        bool CheckForLiveQuery(const char *attribute);
+        void AddQuery(Query *query);
+        void RemoveQuery(Query *query);
 
-  int Sync();
+        int Sync();
         Journal *GetJournal(int64_t refBlock) const;
 
-  void *BlockCache() { return fBlockCache; }
+        void *BlockCache() { return fBlockCache; }
 
-  uint32_t GetUniqueID();
+        uint32_t GetUniqueID();
 
-  static int Identify(HANDLE fd, disk_super_block *superBlock);
+        static int Identify(HANDLE fd, disk_super_block *superBlock);
         int64_t StartPos() const {return fStartPos.QuadPart; }
 
- protected:
-  int fID;
-  HANDLE fDevice;
-  disk_super_block fSuperBlock;
+    protected:
+        int fID;
+        HANDLE fDevice;
+        disk_super_block fSuperBlock;
 
-  uint32_t fBlockSize;
-  uint32_t fBlockShift;
-  uint32_t fAllocationGroupShift;
+        uint32_t fBlockSize;
+        uint32_t fBlockShift;
+        uint32_t fAllocationGroupShift;
 
-  BlockAllocator fBlockAllocator;
-  RecursiveLock fLock;
-  Journal *fJournal;
-  int32_t fLogStart, fLogEnd;
+        BlockAllocator fBlockAllocator;
+        RecursiveLock fLock;
+        Journal *fJournal;
+        int32_t fLogStart, fLogEnd;
 
-  Inode *fRootNode;
-  Inode *fIndicesNode;
+        Inode *fRootNode;
+        Inode *fIndicesNode;
 
-  int32_t fDirtyCachedBlocks;
+        int32_t fDirtyCachedBlocks;
 
-  SimpleLock fQueryLock;
-  Chain<Query> fQueries;
+        SimpleLock fQueryLock;
+        Chain<Query> fQueries;
 
-  int32_t fUniqueID;
-  uint32_t fFlags;
+        int32_t fUniqueID;
+        uint32_t fFlags;
 
-  void *fBlockCache;
+        void *fBlockCache;
 
-  PARTITION diskInfo;
-  DRIVEPACKET partitionInfo;
+        PARTITION diskInfo;
+        DRIVEPACKET partitionInfo;
 
-  LARGE_INTEGER fStartPos;
-  int skyfsNr;
+        LARGE_INTEGER fStartPos;
+        int skyfsNr;
 
 };
 void dump_block_run2(const char *prefix, const block_run &run);
@@ -70588,65 +70394,65 @@ void dump_inode2(const bfs_inode *inode);
 inline bool
 Volume::IsReadOnly() const
 {
-  return fFlags & VOLUME_READ_ONLY;
+     return fFlags & VOLUME_READ_ONLY;
 }
 
 
 inline RecursiveLock &
 Volume::Lock()
 {
-  return fLock;
+     return fLock;
 }
 
 
 inline BlockAllocator &
 Volume::Allocator()
 {
-  return fBlockAllocator;
+     return fBlockAllocator;
 }
 
 
 inline int
 Volume::AllocateForInode(Transaction &transaction, const block_run *parent, unsigned int type, block_run &run)
 {
- return fBlockAllocator.AllocateForInode(transaction, parent, type, run);
+    return fBlockAllocator.AllocateForInode(transaction, parent, type, run);
 }
 
 
 inline int
 Volume::Allocate(Transaction &transaction, Inode *inode, int64_t numBlocks, block_run &run, uint16_t minimum)
 {
- return fBlockAllocator.Allocate(transaction, inode, numBlocks, run, minimum);
+    return fBlockAllocator.Allocate(transaction, inode, numBlocks, run, minimum);
 }
 
 
 inline int
 Volume::Free(Transaction &transaction, block_run run)
 {
- return fBlockAllocator.Free(transaction, run);
+    return fBlockAllocator.Free(transaction, run);
 }
 
 
 inline int
 Volume::FlushDevice()
 {
- return block_cache_sync(fBlockCache);
+    return block_cache_sync(fBlockCache);
 }
 
 
 inline Journal *
 Volume::GetJournal(int64_t ) const
 {
-  return fJournal;
+     return fJournal;
 }
 
 
 inline uint32_t
 Volume::GetUniqueID()
 {
-  return atomic_add(&fUniqueID, 1);
+     return atomic_add(&fUniqueID, 1);
 }
-# 15 "./GUI_DiskFunc.h" 2
+# 16 "./GUI_DiskFunc.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h" 1
 # 14 "./src/add-ons/kernel/file_systems/befs/BEFS_Inode.h"
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Volume.h" 1
@@ -70949,82 +70755,82 @@ class NodeGetter;
 
 
 enum inode_type {
- S_DIRECTORY = 00000040000,
- S_FILE = 00000100000,
- S_SYMLINK = 00000120000,
+    S_DIRECTORY = 00000040000,
+    S_FILE = 00000100000,
+    S_SYMLINK = 00000120000,
 
- S_INDEX_TYPES = (00100000000 | 00200000000 | 00400000000 | 00010000000
-      | 00020000000 | 00040000000 | 00001000000)
+    S_INDEX_TYPES = (00100000000 | 00200000000 | 00400000000 | 00010000000
+                        | 00020000000 | 00040000000 | 00001000000)
 };
 
 class Inode {
- public:
-  Inode(Volume *volume, int64_t id);
-  Inode(Volume *volume, Transaction &transaction, int64_t id, unsigned int mode, block_run &run);
+    public:
+        Inode(Volume *volume, int64_t id);
+        Inode(Volume *volume, Transaction &transaction, int64_t id, unsigned int mode, block_run &run);
 
-  ~Inode();
+        ~Inode();
 
 
-  int64_t ID() const { return fID; }
+        int64_t ID() const { return fID; }
         int64_t BlockNumber() const { return fVolume->VnodeToBlock(fID); }
 
-  ReadWriteLock &Lock() { return fLock; }
-  SimpleLock &SmallDataLock() { return fSmallDataLock; }
-  int WriteBack(Transaction &transaction);
+        ReadWriteLock &Lock() { return fLock; }
+        SimpleLock &SmallDataLock() { return fSmallDataLock; }
+        int WriteBack(Transaction &transaction);
 
-  bool IsContainer() const { return Mode() & (S_DIRECTORY | 04000000000 | 01000000000); }
+        bool IsContainer() const { return Mode() & (S_DIRECTORY | 04000000000 | 01000000000); }
 
-  bool IsDirectory() const { return (Mode() & (S_DIRECTORY | 04000000000 | 01000000000)) == S_DIRECTORY; }
-  bool IsIndex() const { return (Mode() & (04000000000 | 0777)) == 04000000000; }
-
-
-  bool IsAttributeDirectory() const { return (Mode() & 01000000000) != 0; }
-  bool IsAttribute() const { return (Mode() & 02000000000) != 0; }
-  bool IsFile() const { return (Mode() & (00000170000 | 02000000000)) == S_FILE; }
-  bool IsRegularNode() const { return (Mode() & (01000000000 | 04000000000 | 02000000000)) == 0; }
-
-  bool IsSymLink() const { return ((((Mode())) & 00000170000) == 00000120000); }
-  bool HasUserAccessableStream() const { return IsFile(); }
+        bool IsDirectory() const { return (Mode() & (S_DIRECTORY | 04000000000 | 01000000000)) == S_DIRECTORY; }
+        bool IsIndex() const { return (Mode() & (04000000000 | 0777)) == 04000000000; }
 
 
-  bool IsDeleted() const { return (Flags() & INODE_DELETED) != 0; }
+        bool IsAttributeDirectory() const { return (Mode() & 01000000000) != 0; }
+        bool IsAttribute() const { return (Mode() & 02000000000) != 0; }
+        bool IsFile() const { return (Mode() & (00000170000 | 02000000000)) == S_FILE; }
+        bool IsRegularNode() const { return (Mode() & (01000000000 | 04000000000 | 02000000000)) == 0; }
 
-  unsigned int Mode() const { return fNode.Mode(); }
-  uint32_t Type() const { return fNode.Type(); }
-  int32_t Flags() const { return fNode.Flags(); }
+        bool IsSymLink() const { return ((((Mode())) & 00000170000) == 00000120000); }
+        bool HasUserAccessableStream() const { return IsFile(); }
+
+
+        bool IsDeleted() const { return (Flags() & INODE_DELETED) != 0; }
+
+        unsigned int Mode() const { return fNode.Mode(); }
+        uint32_t Type() const { return fNode.Type(); }
+        int32_t Flags() const { return fNode.Flags(); }
 
         int64_t Size() const { return fNode.data.Size(); }
         int64_t LastModified() const { return fNode.last_modified_time; }
 
-  const block_run &BlockRun() const { return fNode.inode_num; }
-  block_run &Parent() { return fNode.parent; }
-  block_run &Attributes() { return fNode.attributes; }
+        const block_run &BlockRun() const { return fNode.inode_num; }
+        block_run &Parent() { return fNode.parent; }
+        block_run &Attributes() { return fNode.attributes; }
 
-  Volume *GetVolume() const { return fVolume; }
+        Volume *GetVolume() const { return fVolume; }
 
-  int InitCheck(bool checkNode = true);
+        int InitCheck(bool checkNode = true);
 
-  int CheckPermissions(int accessMode) const;
+        int CheckPermissions(int accessMode) const;
 
 
-  small_data *FindSmallData(const bfs_inode *node, const char *name) const;
-  const char *Name(const bfs_inode *node) const;
-  int GetName(char *buffer, size_t bufferSize = 255) const;
-  int SetName(Transaction &transaction, const char *name);
+        small_data *FindSmallData(const bfs_inode *node, const char *name) const;
+        const char *Name(const bfs_inode *node) const;
+        int GetName(char *buffer, size_t bufferSize = 255) const;
+        int SetName(Transaction &transaction, const char *name);
 
 
         int ReadAttribute(const char *name, int32_t type, int64_t pos, uint8_t *buffer, int64_t *_length);
         int WriteAttribute(Transaction &transaction, const char *name, int32_t type, int64_t pos, const uint8_t *buffer, size_t *_length);
-  int RemoveAttribute(Transaction &transaction, const char *name);
+        int RemoveAttribute(Transaction &transaction, const char *name);
 
 
-  int GetAttribute(const char *name, Inode **attribute);
-  void ReleaseAttribute(Inode *attribute);
-  int CreateAttribute(Transaction &transaction, const char *name, uint32_t type, Inode **attribute);
+        int GetAttribute(const char *name, Inode **attribute);
+        void ReleaseAttribute(Inode *attribute);
+        int CreateAttribute(Transaction &transaction, const char *name, uint32_t type, Inode **attribute);
 
 
-  int GetTree(BPlusTree **);
-  bool IsEmpty();
+        int GetTree(BPlusTree **);
+        bool IsEmpty();
 
 
         int FindBlockRun(int64_t pos, block_run &run, int64_t &offset);
@@ -71035,109 +70841,109 @@ class Inode {
 
         int SetFileSize(Transaction &transaction, int64_t size);
         int Append(Transaction &transaction, int64_t bytes);
-  int TrimPreallocation(Transaction &transaction);
-  bool NeedsTrimming();
+        int TrimPreallocation(Transaction &transaction);
+        bool NeedsTrimming();
 
-  int Free(Transaction &transaction);
-  int Sync();
+        int Free(Transaction &transaction);
+        int Sync();
 
-  bfs_inode &Node() { return fNode; }
+        bfs_inode &Node() { return fNode; }
 
 
         int Remove(Transaction &transaction, const char *name, int64_t *_id = __null,
-     bool isDirectory = false);
-  static int Create(Transaction &transaction, Inode *parent, const char *name,
+                    bool isDirectory = false);
+        static int Create(Transaction &transaction, Inode *parent, const char *name,
                     int32_t mode, int omode, uint32_t type, int64_t *_id = __null, Inode **_inode = __null);
 
 
-  void UpdateOldSize() { fOldSize = Size(); }
-  void UpdateOldLastModified() { fOldLastModified = Node().LastModifiedTime(); }
+        void UpdateOldSize() { fOldSize = Size(); }
+        void UpdateOldLastModified() { fOldLastModified = Node().LastModifiedTime(); }
         int64_t OldSize() { return fOldSize; }
         int64_t OldLastModified() { return fOldLastModified; }
 
 
-  void *FileCache() const { return fCache; }
-  void SetFileCache(void *cache) { fCache = cache; }
+        void *FileCache() const { return fCache; }
+        void SetFileCache(void *cache) { fCache = cache; }
 
- private:
-  Inode(const Inode &);
-  Inode &operator=(const Inode &);
-
-
-  friend class AttributeIterator;
-  friend class InodeAllocator;
+    private:
+        Inode(const Inode &);
+        Inode &operator=(const Inode &);
 
 
-  int _MakeSpaceForSmallData(Transaction &transaction, bfs_inode *node,
-     const char *name, int32_t length);
-  int _RemoveSmallData(Transaction &transaction, NodeGetter &node,
-     const char *name);
-  int _AddSmallData(Transaction &transaction, NodeGetter &node,
-     const char *name, uint32_t type, const uint8_t *data, size_t length,
-     bool force = false);
-  int _GetNextSmallData(bfs_inode *node, small_data **_smallData) const;
-  int _RemoveSmallData(bfs_inode *node, small_data *item, int32_t index);
-  int _RemoveAttribute(Transaction &transaction, const char *name,
-     bool hasIndex, Index *index);
+        friend class AttributeIterator;
+        friend class InodeAllocator;
 
-  void _AddIterator(AttributeIterator *iterator);
-  void _RemoveIterator(AttributeIterator *iterator);
 
-  int _FreeStaticStreamArray(Transaction &transaction, int32_t level,
+        int _MakeSpaceForSmallData(Transaction &transaction, bfs_inode *node,
+                    const char *name, int32_t length);
+        int _RemoveSmallData(Transaction &transaction, NodeGetter &node,
+                    const char *name);
+        int _AddSmallData(Transaction &transaction, NodeGetter &node,
+                    const char *name, uint32_t type, const uint8_t *data, size_t length,
+                    bool force = false);
+        int _GetNextSmallData(bfs_inode *node, small_data **_smallData) const;
+        int _RemoveSmallData(bfs_inode *node, small_data *item, int32_t index);
+        int _RemoveAttribute(Transaction &transaction, const char *name,
+                    bool hasIndex, Index *index);
+
+        void _AddIterator(AttributeIterator *iterator);
+        void _RemoveIterator(AttributeIterator *iterator);
+
+        int _FreeStaticStreamArray(Transaction &transaction, int32_t level,
                     block_run run, int64_t size, int64_t offset, int64_t &max);
-  int _FreeStreamArray(Transaction &transaction, block_run *array,
+        int _FreeStreamArray(Transaction &transaction, block_run *array,
                     uint32_t arrayLength, int64_t size, int64_t &offset, int64_t &max);
-  int _AllocateBlockArray(Transaction &transaction, block_run &run);
+        int _AllocateBlockArray(Transaction &transaction, block_run &run);
         int _GrowStream(Transaction &transaction, int64_t size);
         int _ShrinkStream(Transaction &transaction, int64_t size);
 
- private:
-  ReadWriteLock fLock;
-  Volume *fVolume;
-  int64_t fID;
-  BPlusTree *fTree;
-  Inode *fAttributes;
-  void *fCache;
-  bfs_inode fNode;
+    private:
+        ReadWriteLock fLock;
+        Volume *fVolume;
+        int64_t fID;
+        BPlusTree *fTree;
+        Inode *fAttributes;
+        void *fCache;
+        bfs_inode fNode;
         int64_t fOldSize;
         int64_t fOldLastModified;
 
-  mutable SimpleLock fSmallDataLock;
-  Chain<AttributeIterator> fIterators;
+        mutable SimpleLock fSmallDataLock;
+        Chain<AttributeIterator> fIterators;
 };
 
 
 class NodeGetter : public CachedBlock {
- public:
-  NodeGetter(Volume *volume)
-   : CachedBlock(volume)
-  {
-  }
+    public:
+        NodeGetter(Volume *volume)
+            : CachedBlock(volume)
+        {
+        }
 
-  NodeGetter(Volume *volume, const Inode *inode)
-   : CachedBlock(volume)
-  {
-   SetTo(volume->VnodeToBlock(inode->ID()));
-  }
+        NodeGetter(Volume *volume, const Inode *inode)
+            : CachedBlock(volume)
+        {
+            SetTo(volume->VnodeToBlock(inode->ID()));
+        }
 
-  NodeGetter(Volume *volume, Transaction &transaction, const Inode *inode, bool empty = false)
-   : CachedBlock(volume)
-  {
-   SetToWritable(transaction, volume->VnodeToBlock(inode->ID()), empty);
-  }
+        NodeGetter(Volume *volume, Transaction &transaction, const Inode *inode, bool empty = false)
+            : CachedBlock(volume)
+        {
+            SetToWritable(transaction, volume->VnodeToBlock(inode->ID()), empty);
+        }
 
-  ~NodeGetter()
-  {
-  }
+        ~NodeGetter()
+        {
+        }
 
-  const bfs_inode *
-  SetToNode(const Inode *inode)
-  {
-   return (const bfs_inode *)SetTo(fVolume->VnodeToBlock(inode->ID()));
-  }
+        const bfs_inode *
+        SetToNode(const Inode *inode)
+        {
+            return (const bfs_inode *)SetTo(fVolume->VnodeToBlock(inode->ID()));
+        }
 
-  const bfs_inode *Node() const { return (const bfs_inode *)Block(); }
-  bfs_inode *WritableNode() const { return (bfs_inode *)Block(); }
+        const bfs_inode *Node() const { return (const bfs_inode *)Block(); }
+        bfs_inode *WritableNode() const { return (bfs_inode *)Block(); }
 };
 
 
@@ -71146,71 +70952,71 @@ class NodeGetter : public CachedBlock {
 
 
 class Vnode {
- public:
-  Vnode(Volume *volume, int64_t id)
-   :
-   fVolume(volume),
-   fID(id)
-  {
-  }
+    public:
+        Vnode(Volume *volume, int64_t id)
+            :
+            fVolume(volume),
+            fID(id)
+        {
+        }
 
-  Vnode(Volume *volume, block_run run)
-   :
-   fVolume(volume),
-   fID(volume->ToVnode(run))
-  {
-  }
+        Vnode(Volume *volume, block_run run)
+            :
+            fVolume(volume),
+            fID(volume->ToVnode(run))
+        {
+        }
 
-  ~Vnode()
-  {
-   Put();
-  }
+        ~Vnode()
+        {
+            Put();
+        }
 
-  int Get(Inode **_inode)
-  {
+        int Get(Inode **_inode)
+        {
 
-   return get_vnode(fVolume->ID(), fID, (void **)_inode);
-  }
+            return get_vnode(fVolume->ID(), fID, (void **)_inode);
+        }
 
-  void Put()
-  {
-   if (fVolume)
-    put_vnode(fVolume->ID(), fID);
-   fVolume = __null;
-  }
+        void Put()
+        {
+            if (fVolume)
+                put_vnode(fVolume->ID(), fID);
+            fVolume = __null;
+        }
 
-  void Keep()
-  {
-   fVolume = __null;
-  }
+        void Keep()
+        {
+            fVolume = __null;
+        }
 
- private:
-  Volume *fVolume;
-  int64_t fID;
+    private:
+        Volume *fVolume;
+        int64_t fID;
 };
 
 
 class AttributeIterator {
- public:
-  AttributeIterator(Inode *inode);
-  ~AttributeIterator();
+    public:
+        AttributeIterator(Inode *inode);
+        ~AttributeIterator();
 
-  int Rewind();
+        int Rewind();
 
-  int GetNext(char *name, size_t *length, uint32_t *type, uint64_t *id);
+        int GetNext(char *name, size_t *length, uint32_t *type, uint64_t *id);
 
- private:
-  friend class Chain<AttributeIterator>;
-  friend class Inode;
+    private:
+        friend class Chain<AttributeIterator>;
+        friend class Inode;
 
-  void Update(uint16_t index, int8_t change);
-  AttributeIterator *fNext;
+        void Update(uint16_t index, int8_t change);
+        AttributeIterator *fNext;
 
- private:
-  int32_t fCurrentSmallData;
-  Inode *fInode, *fAttributes;
-  TreeIterator *fIterator;
-  void *fBuffer;
+    private:
+        int32_t fCurrentSmallData;
+        Inode *fInode, *fAttributes;
+        TreeIterator *fIterator;
+        void *fBuffer;
 };
 
 
@@ -71222,15 +71028,15 @@ class AttributeIterator {
 inline int
 openModeToAccess(int openMode)
 {
- openMode &= 0003;
- if (openMode == 0)
-  return 4;
- else if (openMode == 1)
-  return 2;
+    openMode &= 0003;
+    if (openMode == 0)
+        return 4;
+    else if (openMode == 1)
+        return 2;
 
- return 4 | 2;
+    return 4 | 2;
 }
-# 16 "./GUI_DiskFunc.h" 2
+# 17 "./GUI_DiskFunc.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h" 1
 # 14 "./src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h"
 struct bplustree_node;
@@ -71239,10 +71045,10 @@ struct bplustree_node;
 
 
 struct bplustree_header {
- uint32_t magic;
- uint32_t node_size;
- uint32_t max_number_of_levels;
- uint32_t data_type;
+    uint32_t magic;
+    uint32_t node_size;
+    uint32_t max_number_of_levels;
+    uint32_t data_type;
     int64_t root_node_pointer;
     int64_t free_node_pointer;
     int64_t maximum_size;
@@ -71259,10 +71065,10 @@ struct bplustree_header {
     { return free_node_pointer; }
     int64_t MaximumSize() const
     { return maximum_size; }
- uint32_t MaxNumberOfLevels() const
+    uint32_t MaxNumberOfLevels() const
     { return max_number_of_levels; }
 
- inline bool CheckNode(bplustree_node *node) const;
+    inline bool CheckNode(bplustree_node *node) const;
     inline bool IsValidLink(int64_t link) const;
 } ;
 
@@ -71287,8 +71093,8 @@ struct bplustree_node {
     int64_t left_link;
     int64_t right_link;
     int64_t overflow_link;
- uint16_t all_key_count;
- uint16_t all_key_length;
+    uint16_t all_key_count;
+    uint16_t all_key_length;
 
         int64_t LeftLink() const { return left_link; }
         int64_t RightLink() const { return right_link; }
@@ -71302,30 +71108,30 @@ struct bplustree_node {
     inline int32_t Used() const;
     uint8_t *KeyAt(int32_t index, uint16_t *keyLength) const;
 
- inline bool IsLeaf() const;
- void Initialize();
+    inline bool IsLeaf() const;
+    void Initialize();
     uint8_t CountDuplicates(int64_t offset, bool isFragment) const;
     int64_t DuplicateAt(int64_t offset, bool isFragment, int8_t index) const;
- uint32_t FragmentsUsed(uint32_t nodeSize) const;
- inline duplicate_array *FragmentAt(int8_t index) const;
- inline duplicate_array *DuplicateArray() const;
+    uint32_t FragmentsUsed(uint32_t nodeSize) const;
+    inline duplicate_array *FragmentAt(int8_t index) const;
+    inline duplicate_array *DuplicateArray() const;
     static inline uint8_t LinkType(int64_t link);
     static inline int64_t MakeLink(uint8_t type, int64_t link, uint32_t fragmentIndex = 0);
     static inline bool IsDuplicate(int64_t link);
     static inline int64_t FragmentOffset(int64_t link);
     static inline uint32_t FragmentIndex(int64_t link);
- static inline uint32_t MaxFragments(uint32_t nodeSize);
+    static inline uint32_t MaxFragments(uint32_t nodeSize);
 
- int CheckIntegrity(uint32_t nodeSize) const;
+    int CheckIntegrity(uint32_t nodeSize) const;
 
 } ;
 # 109 "./src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h"
 enum bplustree_traversing {
- BPLUSTREE_FORWARD = 1,
- BPLUSTREE_BACKWARD = -1,
+    BPLUSTREE_FORWARD = 1,
+    BPLUSTREE_BACKWARD = -1,
 
- BPLUSTREE_BEGIN = 0,
- BPLUSTREE_END = 1
+    BPLUSTREE_BEGIN = 0,
+    BPLUSTREE_END = 1
 };
 
 
@@ -71341,67 +71147,67 @@ class CachedNode;
 class Inode;
 
 class CachedNode {
- public:
-  CachedNode(BPlusTree *tree)
+    public:
+        CachedNode(BPlusTree *tree)
             : fTree(tree),fNode(__null)
-  {
-  }
+        {
+        }
 
         CachedNode(BPlusTree *tree, int64_t offset, bool check = true)
             : fTree(tree), fNode(__null)
-  {
-   SetTo(offset, check);
-  }
+        {
+            SetTo(offset, check);
+        }
 
-  ~CachedNode()
-  {
-   Unset();
-  }
+        ~CachedNode()
+        {
+            Unset();
+        }
 
         const bplustree_node *SetTo(int64_t offset, bool check = true);
         bplustree_node *SetToWritable(Transaction &transaction, int64_t offset,
-   bool check = true);
-  bplustree_node *MakeWritable(Transaction &transaction);
-  const bplustree_header *SetToHeader();
-  bplustree_header *SetToWritableHeader(Transaction &transaction);
-  bplustree_header *MakeWritableHeader(Transaction &transaction);
-  void UnsetUnchanged(Transaction &transaction);
-  void Unset();
+            bool check = true);
+        bplustree_node *MakeWritable(Transaction &transaction);
+        const bplustree_header *SetToHeader();
+        bplustree_header *SetToWritableHeader(Transaction &transaction);
+        bplustree_header *MakeWritableHeader(Transaction &transaction);
+        void UnsetUnchanged(Transaction &transaction);
+        void Unset();
         int Free(Transaction &transaction, int64_t offset);
-  int Allocate(Transaction &transaction, bplustree_node **node,
+        int Allocate(Transaction &transaction, bplustree_node **node,
             int64_t *offset);
-  bool IsWritable() const { return fWritable; }
-  bplustree_node *Node() const { return fNode; }
+        bool IsWritable() const { return fWritable; }
+        bplustree_node *Node() const { return fNode; }
 protected:
         bplustree_node *InternalSetTo(Transaction *transaction, int64_t offset);
-  BPlusTree *fTree;
-  bplustree_node *fNode;
+        BPlusTree *fTree;
+        bplustree_node *fNode;
         int64_t fOffset;
         int64_t fBlockNumber;
-  bool fWritable;
+        bool fWritable;
 };
 
 
 class BPlusTree {
- public:
-  BPlusTree(Transaction &transaction, Inode *stream,
-   int32_t nodeSize = 1024);
-  BPlusTree(Inode *stream);
-  BPlusTree();
-  ~BPlusTree();
-  int SetTo(Transaction &transaction, Inode *stream,
-      int32_t nodeSize = 1024);
-  int SetTo(Inode *stream);
-  int SetStream(Inode *stream);
-  int InitCheck();
-  int Validate();
-  int Remove(Transaction &transaction, const uint8_t *key,
+    public:
+        BPlusTree(Transaction &transaction, Inode *stream,
+            int32_t nodeSize = 1024);
+        BPlusTree(Inode *stream);
+        BPlusTree();
+        ~BPlusTree();
+        int SetTo(Transaction &transaction, Inode *stream,
+                        int32_t nodeSize = 1024);
+        int SetTo(Inode *stream);
+        int SetStream(Inode *stream);
+        int InitCheck();
+        int Validate();
+        int Remove(Transaction &transaction, const uint8_t *key,
                         uint16_t keyLength, int64_t value);
-  int Insert(Transaction &transaction, const uint8_t *key,
+        int Insert(Transaction &transaction, const uint8_t *key,
                         uint16_t keyLength, int64_t value);
-  int Remove(Transaction &transaction, const char *key,
+        int Remove(Transaction &transaction, const char *key,
                         int64_t value);
-  int Insert(Transaction &transaction, const char *key,
+        int Insert(Transaction &transaction, const char *key,
                         int64_t value);
         int Insert(Transaction &transaction, int32_t key, int64_t value);
         int Insert(Transaction &transaction, uint32_t key, int64_t value);
@@ -71409,94 +71215,94 @@ class BPlusTree {
         int Insert(Transaction &transaction, uint64_t key, int64_t value);
         int Insert(Transaction &transaction, float key, int64_t value);
         int Insert(Transaction &transaction, double key, int64_t value);
-  int Replace(Transaction &transaction, const uint8_t *key,
+        int Replace(Transaction &transaction, const uint8_t *key,
                         uint16_t keyLength, int64_t value);
         int Find(const uint8_t *key, uint16_t keyLength, int64_t *value);
-  static int32_t TypeCodeToKeyType(unsigned int code);
-  static int32_t ModeToKeyType(unsigned int mode);
+        static int32_t TypeCodeToKeyType(unsigned int code);
+        static int32_t ModeToKeyType(unsigned int mode);
 
-  const bplustree_header* Header(){ return fHeader; };
+        const bplustree_header* Header(){ return fHeader; };
 private:
         BPlusTree(const BPlusTree &);
-  BPlusTree &operator=(const BPlusTree &);
+        BPlusTree &operator=(const BPlusTree &);
 
-  int32_t _CompareKeys(const void *key1, int keylength1,
-      const void *key2, int keylength2);
-  int _FindKey(const bplustree_node *node, const uint8_t *key,
-      uint16_t keyLength, uint16_t *index = __null,
+        int32_t _CompareKeys(const void *key1, int keylength1,
+                        const void *key2, int keylength2);
+        int _FindKey(const bplustree_node *node, const uint8_t *key,
+                        uint16_t keyLength, uint16_t *index = __null,
                         int64_t *next = __null);
-  int _SeekDown(Stack<node_and_key> &stack, const uint8_t *key,
-      uint16_t keyLength);
-  int _FindFreeDuplicateFragment(Transaction &transaction,
-      const bplustree_node *node, CachedNode &cached,
+        int _SeekDown(Stack<node_and_key> &stack, const uint8_t *key,
+                        uint16_t keyLength);
+        int _FindFreeDuplicateFragment(Transaction &transaction,
+                        const bplustree_node *node, CachedNode &cached,
                         int64_t *_offset, bplustree_node **_fragment,
-      uint32_t *_index);
-  int _InsertDuplicate(Transaction &transaction,
-      CachedNode &cached, const bplustree_node *node,
+                        uint32_t *_index);
+        int _InsertDuplicate(Transaction &transaction,
+                        CachedNode &cached, const bplustree_node *node,
                         uint16_t index, int64_t value);
-  void _InsertKey(bplustree_node *node, uint16_t index, uint8_t *key,
+        void _InsertKey(bplustree_node *node, uint16_t index, uint8_t *key,
                         uint16_t keyLength, int64_t value);
         int _SplitNode(bplustree_node *node, int64_t nodeOffset,
                         bplustree_node *other, int64_t otherOffset,
-      uint16_t *_keyIndex, uint8_t *key, uint16_t *_keyLength,
+                        uint16_t *_keyIndex, uint8_t *key, uint16_t *_keyLength,
                         int64_t *_value);
-  int _RemoveDuplicate(Transaction &transaction,
-      const bplustree_node *node, CachedNode &cached,
+        int _RemoveDuplicate(Transaction &transaction,
+                        const bplustree_node *node, CachedNode &cached,
                         uint16_t keyIndex, int64_t value);
-  void _RemoveKey(bplustree_node *node, uint16_t index);
+        void _RemoveKey(bplustree_node *node, uint16_t index);
         void _UpdateIterators(int64_t offset, int64_t nextOffset,
-      uint16_t keyIndex, uint16_t splitAt, int8_t change);
-  void _AddIterator(TreeIterator *iterator);
-  void _RemoveIterator(TreeIterator *iterator);
- private:
-  friend class TreeIterator;
-  friend class CachedNode;
-  Inode *fStream;
-  const bplustree_header *fHeader;
-  CachedNode fCachedHeader;
-  int32_t fNodeSize;
-  bool fAllowDuplicates;
-  int fStatus;
-  SimpleLock fIteratorLock;
-  Chain<TreeIterator> fIterators;
+                        uint16_t keyIndex, uint16_t splitAt, int8_t change);
+        void _AddIterator(TreeIterator *iterator);
+        void _RemoveIterator(TreeIterator *iterator);
+    private:
+        friend class TreeIterator;
+        friend class CachedNode;
+        Inode *fStream;
+        const bplustree_header *fHeader;
+        CachedNode fCachedHeader;
+        int32_t fNodeSize;
+        bool fAllowDuplicates;
+        int fStatus;
+        SimpleLock fIteratorLock;
+        Chain<TreeIterator> fIterators;
 };
 
 
 extern int32_t compareKeys(unsigned int type, const void *key1, int keyLength1, const void *key2, int keyLength2);
 class TreeIterator {
 public:
-  TreeIterator(BPlusTree *tree);
-  ~TreeIterator();
+        TreeIterator(BPlusTree *tree);
+        ~TreeIterator();
 
-  int Goto(int8_t to);
-  int Traverse(int8_t direction, void *key, uint16_t *keyLength,
+        int Goto(int8_t to);
+        int Traverse(int8_t direction, void *key, uint16_t *keyLength,
                         uint16_t maxLength, int64_t *value,
-      uint16_t *duplicate = __null);
-  int Find(const uint8_t *key, uint16_t keyLength);
+                        uint16_t *duplicate = __null);
+        int Find(const uint8_t *key, uint16_t keyLength);
 
-  int Rewind();
-  int GetNextEntry(void *key, uint16_t *keyLength, uint16_t maxLength,
+        int Rewind();
+        int GetNextEntry(void *key, uint16_t *keyLength, uint16_t maxLength,
                         int64_t *value, uint16_t *duplicate = __null);
-  int GetPreviousEntry(void *key, uint16_t *keyLength,
+        int GetPreviousEntry(void *key, uint16_t *keyLength,
                         uint16_t maxLength, int64_t *value,
-      uint16_t *duplicate = __null);
-  void SkipDuplicates();
+                        uint16_t *duplicate = __null);
+        void SkipDuplicates();
 
-  void Dump();
+        void Dump();
 
 private:
         BPlusTree *fTree;
         int64_t fCurrentNodeOffset;
-  int32_t fCurrentKey;
+        int32_t fCurrentKey;
         int64_t fDuplicateNode;
-  uint16_t fDuplicate, fNumDuplicates;
-  bool fIsFragment;
+        uint16_t fDuplicate, fNumDuplicates;
+        bool fIsFragment;
 private:
-  friend class Chain<TreeIterator>;
-  friend class BPlusTree;
+        friend class Chain<TreeIterator>;
+        friend class BPlusTree;
         void Update(int64_t offset, int64_t nextOffset, uint16_t keyIndex, uint16_t splitAt, int8_t change);
-  void Stop();
-  TreeIterator *fNext;
+        void Stop();
+        TreeIterator *fNext;
 };
 
 
@@ -71504,71 +71310,71 @@ private:
 
 inline int BPlusTree::Remove(Transaction &transaction, const char *key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_STRING_TYPE)
-  return B_BAD_TYPE;
- return Remove(transaction, (uint8_t *)key, strlen(key), value);
+    if (fHeader->data_type != BPLUSTREE_STRING_TYPE)
+        return B_BAD_TYPE;
+    return Remove(transaction, (uint8_t *)key, strlen(key), value);
 }
 
 
 inline int BPlusTree::Insert(Transaction &transaction, const char *key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_STRING_TYPE)
-  return B_BAD_TYPE;
- return Insert(transaction, (uint8_t *)key, strlen(key), value);
+    if (fHeader->data_type != BPLUSTREE_STRING_TYPE)
+        return B_BAD_TYPE;
+    return Insert(transaction, (uint8_t *)key, strlen(key), value);
 }
 
 
 inline int BPlusTree::Insert(Transaction &transaction, int32_t key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_INT32_TYPE)
-  return B_BAD_TYPE;
- return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
+    if (fHeader->data_type != BPLUSTREE_INT32_TYPE)
+        return B_BAD_TYPE;
+    return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
 }
 
 
 inline int BPlusTree::Insert(Transaction &transaction, uint32_t key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_UINT32_TYPE)
-  return B_BAD_TYPE;
- return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
+    if (fHeader->data_type != BPLUSTREE_UINT32_TYPE)
+        return B_BAD_TYPE;
+    return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
 }
 
 
 inline int BPlusTree::Insert(Transaction &transaction, int64_t key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_INT64_TYPE)
-  return B_BAD_TYPE;
- return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
+    if (fHeader->data_type != BPLUSTREE_INT64_TYPE)
+        return B_BAD_TYPE;
+    return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
 }
 
 
 inline int BPlusTree::Insert(Transaction &transaction, uint64_t key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_UINT64_TYPE)
-  return B_BAD_TYPE;
- return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
+    if (fHeader->data_type != BPLUSTREE_UINT64_TYPE)
+        return B_BAD_TYPE;
+    return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
 }
 
 
 inline int BPlusTree::Insert(Transaction &transaction, float key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_FLOAT_TYPE)
-  return B_BAD_TYPE;
- return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
+    if (fHeader->data_type != BPLUSTREE_FLOAT_TYPE)
+        return B_BAD_TYPE;
+    return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
 }
 
 
 inline int BPlusTree::Insert(Transaction &transaction, double key, int64_t value)
 {
- if (fHeader->data_type != BPLUSTREE_DOUBLE_TYPE)
-  return B_BAD_TYPE;
- return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
+    if (fHeader->data_type != BPLUSTREE_DOUBLE_TYPE)
+        return B_BAD_TYPE;
+    return Insert(transaction, (uint8_t *)&key, sizeof(key), value);
 }
 
 
 inline int TreeIterator::Rewind()
 {
- return Goto(BPLUSTREE_BEGIN);
+    return Goto(BPLUSTREE_BEGIN);
 }
 
 
@@ -71576,23 +71382,23 @@ inline int TreeIterator::GetNextEntry(void *key, uint16_t *keyLength, uint16_t m
     int64_t *value, uint16_t *duplicate)
 {
 
- return Traverse(BPLUSTREE_FORWARD, key, keyLength, maxLength, value, duplicate);
+    return Traverse(BPLUSTREE_FORWARD, key, keyLength, maxLength, value, duplicate);
 }
 
 
 inline int TreeIterator::GetPreviousEntry(void *key, uint16_t *keyLength, uint16_t maxLength,
     int64_t *value, uint16_t *duplicate)
 {
- return Traverse(BPLUSTREE_BACKWARD, key, keyLength, maxLength, value, duplicate);
+    return Traverse(BPLUSTREE_BACKWARD, key, keyLength, maxLength, value, duplicate);
 }
 
 
 inline bool bplustree_header::CheckNode(bplustree_node *node) const
 {
 
- return IsValidLink(node->LeftLink())
-  && IsValidLink(node->RightLink())
-  && IsValidLink(node->OverflowLink())
+    return IsValidLink(node->LeftLink())
+        && IsValidLink(node->RightLink())
+        && IsValidLink(node->OverflowLink())
         && (int8_t *)node->Values() + node->NumKeys() * sizeof(int64_t) <= (int8_t *)node + NodeSize();
 }
 
@@ -71605,8 +71411,8 @@ inline bool bplustree_header::IsValidLink(int64_t link) const
 
 inline uint16_t *bplustree_node::KeyLengths() const
 {
- return (uint16_t *)(((char *)this) + round_up(sizeof(bplustree_node)
-  + AllKeyLength()));
+    return (uint16_t *)(((char *)this) + round_up(sizeof(bplustree_node)
+        + AllKeyLength()));
 }
 
 
@@ -71618,13 +71424,13 @@ inline int64_t *bplustree_node::Values() const
 
 inline uint8_t *bplustree_node::Keys() const
 {
- return (uint8_t *)this + sizeof(bplustree_node);
+    return (uint8_t *)this + sizeof(bplustree_node);
 }
 
 
 inline int32_t bplustree_node::Used() const
 {
- return round_up(sizeof(bplustree_node) + AllKeyLength()) + NumKeys()
+    return round_up(sizeof(bplustree_node) + AllKeyLength()) + NumKeys()
         * (sizeof(uint16_t) + sizeof(int64_t));
 }
 
@@ -71638,13 +71444,13 @@ inline bool bplustree_node::IsLeaf() const
 inline duplicate_array *bplustree_node::FragmentAt(int8_t index) const
 {
     return (duplicate_array *)((int64_t *)this
-  + index * (7 + 1));
+        + index * (7 + 1));
 }
 
 
 inline duplicate_array *bplustree_node::DuplicateArray() const
 {
- return (duplicate_array *)&this->overflow_link;
+    return (duplicate_array *)&this->overflow_link;
 }
 
 inline uint8_t bplustree_node::LinkType(int64_t link)
@@ -71655,27 +71461,27 @@ inline uint8_t bplustree_node::LinkType(int64_t link)
 
 inline int64_t bplustree_node::MakeLink(uint8_t type, int64_t link, uint32_t fragmentIndex)
 {
- return ((int64_t)type << 62) | (link & 0x3ffffffffffffc00)
-  | (fragmentIndex & 0x3ff);
+    return ((int64_t)type << 62) | (link & 0x3ffffffffffffc00)
+        | (fragmentIndex & 0x3ff);
 }
 
 
 inline bool bplustree_node::IsDuplicate(int64_t link)
 {
- return (LinkType(link)
-  & (2 | 3)) > 0;
+    return (LinkType(link)
+        & (2 | 3)) > 0;
 }
 
 
 inline int64_t bplustree_node::FragmentOffset(int64_t link)
 {
- return link & 0x3ffffffffffffc00;
+    return link & 0x3ffffffffffffc00;
 }
 
 
 inline uint32_t bplustree_node::FragmentIndex(int64_t link)
 {
- return (uint32_t)(link & 0x3ff);
+    return (uint32_t)(link & 0x3ff);
 }
 
 
@@ -71683,7 +71489,7 @@ inline uint32_t bplustree_node::MaxFragments(uint32_t nodeSize)
 {
     return nodeSize / ((7 + 1) * sizeof(int64_t));
 }
-# 17 "./GUI_DiskFunc.h" 2
+# 18 "./GUI_DiskFunc.h" 2
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Interface.h" 1
 # 13 "./src/add-ons/kernel/file_systems/befs/BEFS_Interface.h"
 # 1 "./src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h" 1
@@ -71732,7 +71538,7 @@ class Attribute {
 
 int bfs_open_dir(void *, void *, void **);
 int bfs_read_dir(void *_ns, void *_node, void *_cookie, struct dirent_t *Dirent,
- size_t bufferSize, uint32_t *_num);
+    size_t bufferSize, uint32_t *_num);
 int bfs_rewind_dir(void * ns, void * node, void *_cookie);
 int bfs_close_dir(void * , void * , void * );
 
@@ -71752,9 +71558,23 @@ int bfs_open_attr(void* _fs, fs_vnode _node, const char *name, int openMode, voi
 int bfs_close_attr(void* _fs, fs_vnode _file, attr_cookie* cookie);
 int bfs_read_attr(void* _fs, fs_vnode _file, attr_cookie* _cookie, int64_t pos, void *buffer, int64_t *_length);
 int bfs_read_attr_stat(void* _fs, fs_vnode _file, attr_cookie* _cookie, struct attr_stat *stat);
-# 18 "./GUI_DiskFunc.h" 2
-# 1 "./resource/GUI_resource.h" 1
 # 19 "./GUI_DiskFunc.h" 2
+# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h" 1
+
+
+# 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/Windows.h" 1 3
+# 4 "./src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h" 2
+
+struct _TREEITEM;
+typedef struct _TREEITEM *HTREEITEM;
+
+typedef struct HWND__ *HWND;
+
+
+
+HTREEITEM GetNext(HWND hTree, HTREEITEM Item);
+HTREEITEM GetNextUpItem(HWND hTree, HTREEITEM Item);
+# 20 "./GUI_DiskFunc.h" 2
 
 
 
@@ -73405,7 +73225,7 @@ typedef const void* (__attribute__((__stdcall__)) *PFNDPAMERGECONST)(UINT, const
 
 
 }
-# 26 "./GUI_DiskFunc.h" 2
+# 27 "./GUI_DiskFunc.h" 2
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/iostream" 1 3
 # 36 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/iostream" 3
        
@@ -73437,7 +73257,7 @@ namespace std
 
 
 }
-# 27 "./GUI_DiskFunc.h" 2
+# 28 "./GUI_DiskFunc.h" 2
 
 # 1 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/vector" 1 3
 # 58 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/vector" 3
@@ -77477,68 +77297,54 @@ namespace std
 
 }
 # 70 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/vector" 2 3
-# 29 "./GUI_DiskFunc.h" 2
+# 30 "./GUI_DiskFunc.h" 2
+
+# 1 "./resource/GUI_resource.h" 1
+# 32 "./GUI_DiskFunc.h" 2
+
+
+
+
+
 
 using namespace std;
-
-
-
-
 
 
 int __attribute__((__stdcall__)) CountPhysicalDrives();
 int __attribute__((__stdcall__)) ListPartitions(int disk, HWND h, HTREEITEM* node, TVINSERTSTRUCTA* s, std::ofstream* a_debug);
 int __attribute__((__stdcall__)) ListDirectories(HWND h, HTREEITEM* node, TVITEMA* s, ofstream* d, vector<Volume>* a_volumes);
 
+
+
 class TreeData {
-    public:
+public:
         TreeData() {}
         TreeData(int l, const char* n)
             :level(l)
         {
-            sprintf(name, n);
+            strcpy(name,n);
         }
 
         TreeData(int l, const char* n, int64_t i)
             :level(l), inode(i)
         {
-            sprintf(name,n);
+            strcpy(name,n);
         }
 
         ~TreeData()
         {
-            if (name)
-                free(name);
-
-            if (extra)
-                free(extra);
+            if (extra) free(extra);
         }
-
+        int volume;
+        char name[255];
         int level;
         int iData1;
         int iData2;
-        int volume;
         int64_t inode;
-        char name[255];
         void* extra;
 };
 
 int __attribute__((__stdcall__)) AddChild(HWND hWnd, HTREEITEM* parent, char* t1, int icon, TreeData* td, std::ofstream* debug);
-# 14 "GUI_TreeControl.cpp" 2
-# 1 "./src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h" 1
-
-
-
-
-struct _TREEITEM;
-typedef struct _TREEITEM *HTREEITEM;
-
-typedef struct HWND__ *HWND;
-
-
-
-HTREEITEM GetNext(HWND hTree, HTREEITEM Item);
-HTREEITEM GetNextUpItem(HWND hTree, HTREEITEM Item);
 # 15 "GUI_TreeControl.cpp" 2
 # 1 "./resource/GUI_resource.h" 1
 # 16 "GUI_TreeControl.cpp" 2
@@ -78158,7 +77964,7 @@ namespace std
 }
 # 601 "C:/Qt/Tools/mingw492_32/i686-w64-mingw32/include/c++/sstream" 2 3
 # 20 "GUI_TreeControl.cpp" 2
-# 34 "GUI_TreeControl.cpp"
+# 36 "GUI_TreeControl.cpp"
 using namespace std;
 
 
@@ -78221,518 +78027,515 @@ BOOL __attribute__((__stdcall__)) AboutDlgProc(HWND hWnd, UINT message, WPARAM w
 void InitPopupMenu(HWND hWnd)
 {
     LPSTR str[3] = {"Copy to local folder", "Properties...", "About..."};
- int ID[3] = {100, 200, 300};
+    int ID[3] = {100, 200, 300};
 
     MENUITEMINFOA mi;
 
- popupMenu = CreatePopupMenu();
+    popupMenu = CreatePopupMenu();
 
- for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         mi.cbSize = sizeof(MENUITEMINFOA);
-  mi.fMask = 0x00000100 | 0x00000040 | 0x00000002;
+        mi.fMask = 0x00000100 | 0x00000040 | 0x00000002;
 
-  mi.fType = 0x00002000l;
+        mi.fType = 0x00002000l;
         mi.cch = strlen(str[i]);
-  mi.wID = ID[i];
-  mi.dwTypeData = str[i];
+        mi.wID = ID[i];
+        mi.dwTypeData = str[i];
 
-  InsertMenuItemA(popupMenu, 0, 0, &mi);
- }
+        InsertMenuItemA(popupMenu, 0, 0, &mi);
+    }
 }
-
 
 
 
 
 BOOL __attribute__((__stdcall__)) PropertiesDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
- switch (message)
- {
-  case 0x0110:
-  {
-   hList = GetDlgItem(hWnd, 1068);
-   SetupListView();
+    switch (message)
+    {
+        case 0x0110:
+        {
+            hList = GetDlgItem(hWnd, 1068);
+            SetupListView();
 
-   TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
-   if (td) {
-    debug << "init properties dialog = " << td->level << " name = " << td->name << " inode = " << td->inode << "volume = " << td->extra << endl;
-   }
-
-
-
-   Volume* v = (Volume*)(&volumes[td->volume]);
-   Inode* I;
+            TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
+            if (td) {
+                debug << "init properties dialog = " << td->level << " name = " << td->name << " inode = " << td->inode << "volume = " << td->extra << endl;
+            }
 
 
-   bfs_read_vnode(v, td->inode, (void**)&I, true );
 
-   void* attIt;
-   uint32_t num;
-   dirent_t d;
-   struct attr_stat AttrStat;
-   attr_cookie* attCookie;
-   bfs_open_attr_dir(v, I, &attIt);
-   int st = bfs_read_attr_dir(v, I, attIt, &d,0, &num);
-   debug << "attributes: \tName\t\tData\n" << st << num << endl;
-   int a = 0;
-   while (st == 0 && num > 0) {
-    bfs_open_attr(v, I, d.d_name, 0, &attCookie);
-    bfs_read_attr_stat(v, I, attCookie, &AttrStat);
-    unsigned char tupel[5];
-    tupel[0] = 0xff & (AttrStat.st_type >> 24);
-    tupel[1] = 0xff & (AttrStat.st_type >> 16);
-    tupel[2] = 0xff & (AttrStat.st_type >> 8);
-    tupel[3] = 0xff & (AttrStat.st_type);
-    tupel[4] = 0;
-    for (int16_t i = 0;i < 4;i++) {
-     if (tupel[i] < ' ' || tupel[i] > 128)
-      tupel[i] = '.';
-    }
+            Volume* v = (Volume*)(&volumes[td->volume]);
+            Inode* I;
+
+
+            bfs_read_vnode(v, td->inode, (void**)&I, true );
+
+            void* attIt;
+            uint32_t num;
+            dirent_t d;
+            struct attr_stat AttrStat;
+            attr_cookie* attCookie;
+            bfs_open_attr_dir(v, I, &attIt);
+            int st = bfs_read_attr_dir(v, I, attIt, &d,0, &num);
+            debug << "attributes: \tName\t\tData\n" << st << num << endl;
+            int a = 0;
+            while (st == 0 && num > 0) {
+                bfs_open_attr(v, I, d.d_name, 0, &attCookie);
+                bfs_read_attr_stat(v, I, attCookie, &AttrStat);
+                unsigned char tupel[5];
+                tupel[0] = 0xff & (AttrStat.st_type >> 24);
+                tupel[1] = 0xff & (AttrStat.st_type >> 16);
+                tupel[2] = 0xff & (AttrStat.st_type >> 8);
+                tupel[3] = 0xff & (AttrStat.st_type);
+                tupel[4] = 0;
+                for (int16_t i = 0;i < 4;i++) {
+                    if (tupel[i] < ' ' || tupel[i] > 128)
+                        tupel[i] = '.';
+                }
 
                 int64_t leng=AttrStat.st_size;
-    char* buff = (char*)calloc(leng,sizeof(char));
-    bfs_read_attr(v, I, attCookie, 0,buff, &leng);
-    debug << "attribute: " << d.d_name << "  " << "length: " << leng << " type: " << tupel << "  data: ";
-    debug.flush();
-    ostringstream oss;
-    switch(AttrStat.st_type) {
-# 216 "GUI_TreeControl.cpp"
-     case B_UINT8_TYPE:
-      {
-       byte tmp;
-       memcpy(&tmp, buff, 1);
-       oss << tmp;
-       break;
-      }
-     case B_INT8_TYPE:
-      {
-       byte tmp;
-       memcpy(&tmp, buff, 1);
-       oss << tmp;
-       break;
-      }
-     case B_INT16_TYPE:
-      {
-       short tmp;
-       memcpy(&tmp, buff, 2);
-       oss << tmp;
-       break;
-      }
-     case B_SSIZE_T_TYPE:
-      {
-       int tmp;
-       memcpy(&tmp, buff, 4);
-       oss << tmp;
-       break;
-      }
-     case B_INT32_TYPE:
-      {
-       int tmp;
-       memcpy(&tmp, buff, 4);
-       oss << tmp;
-       break;
-      }
-     case B_OFF_T_TYPE:
-      {
-       long long tmp;
-       memcpy(&tmp, buff, sizeof(long long));
-       oss << tmp;
-       break;
-      }
-     case B_INT64_TYPE:
-      {
-       long long tmp;
-       memcpy(&tmp, buff, sizeof(long long));
-       oss << tmp;
-       break;
-      }
-     case B_UINT64_TYPE:
-      {
-       unsigned long long tmp;
-       memcpy(&tmp, buff, sizeof(unsigned long long));
-       oss << tmp;
-       break;
-      }
-     case B_UINT16_TYPE:
-      {
-       unsigned short tmp;
-       memcpy(&tmp, buff, sizeof(unsigned short));
-       oss << tmp;
-       break;
-      }
-     case B_UINT32_TYPE:
-      {
-       unsigned int tmp;
-       memcpy(&tmp, buff, sizeof(unsigned int));
-       oss << tmp;
-       break;
-      }
-     case B_SIZE_T_TYPE:
-      {
-       unsigned int tmp;
-       memcpy(&tmp, buff, sizeof(unsigned int));
-       oss << tmp;
-       break;
-      }
-     case B_DOUBLE_TYPE:
-      {
-       double tmp;
-       memcpy(&tmp, buff, sizeof(double));
-       oss << tmp;
-       break;
-      }
-     case B_FLOAT_TYPE:
-      {
-       float tmp;
-       memcpy(&tmp, buff, sizeof(float));
-       oss << tmp;
-       break;
-      }
+                char* buff = (char*)calloc(leng,sizeof(char));
+                bfs_read_attr(v, I, attCookie, 0,buff, &leng);
+                debug << "attribute: " << d.d_name << "  " << "length: " << leng << " type: " << tupel << "  data: ";
+                debug.flush();
+                ostringstream oss;
+                switch(AttrStat.st_type) {
+# 217 "GUI_TreeControl.cpp"
+                    case B_UINT8_TYPE:
+                        {
+                            byte tmp;
+                            memcpy(&tmp, buff, 1);
+                            oss << tmp;
+                            break;
+                        }
+                    case B_INT8_TYPE:
+                        {
+                            byte tmp;
+                            memcpy(&tmp, buff, 1);
+                            oss << tmp;
+                            break;
+                        }
+                    case B_INT16_TYPE:
+                        {
+                            short tmp;
+                            memcpy(&tmp, buff, 2);
+                            oss << tmp;
+                            break;
+                        }
+                    case B_SSIZE_T_TYPE:
+                        {
+                            int tmp;
+                            memcpy(&tmp, buff, 4);
+                            oss << tmp;
+                            break;
+                        }
+                    case B_INT32_TYPE:
+                        {
+                            int tmp;
+                            memcpy(&tmp, buff, 4);
+                            oss << tmp;
+                            break;
+                        }
+                    case B_OFF_T_TYPE:
+                        {
+                            long long tmp;
+                            memcpy(&tmp, buff, sizeof(long long));
+                            oss << tmp;
+                            break;
+                        }
+                    case B_INT64_TYPE:
+                        {
+                            long long tmp;
+                            memcpy(&tmp, buff, sizeof(long long));
+                            oss << tmp;
+                            break;
+                        }
+                    case B_UINT64_TYPE:
+                        {
+                            unsigned long long tmp;
+                            memcpy(&tmp, buff, sizeof(unsigned long long));
+                            oss << tmp;
+                            break;
+                        }
+                    case B_UINT16_TYPE:
+                        {
+                            unsigned short tmp;
+                            memcpy(&tmp, buff, sizeof(unsigned short));
+                            oss << tmp;
+                            break;
+                        }
+                    case B_UINT32_TYPE:
+                        {
+                            unsigned int tmp;
+                            memcpy(&tmp, buff, sizeof(unsigned int));
+                            oss << tmp;
+                            break;
+                        }
+                    case B_SIZE_T_TYPE:
+                        {
+                            unsigned int tmp;
+                            memcpy(&tmp, buff, sizeof(unsigned int));
+                            oss << tmp;
+                            break;
+                        }
+                    case B_DOUBLE_TYPE:
+                        {
+                            double tmp;
+                            memcpy(&tmp, buff, sizeof(double));
+                            oss << tmp;
+                            break;
+                        }
+                    case B_FLOAT_TYPE:
+                        {
+                            float tmp;
+                            memcpy(&tmp, buff, sizeof(float));
+                            oss << tmp;
+                            break;
+                        }
 
-     case B_ANY_TYPE:
-     case B_ATOM_TYPE:
-     case B_BOOL_TYPE:
-     case B_CHAR_TYPE:
-     case B_COLOR_8_BIT_TYPE:
-     case B_GRAYSCALE_8_BIT_TYPE:
-     case B_LARGE_ICON_TYPE:
-     case B_MEDIA_PARAMETER_GROUP_TYPE:
-     case B_MEDIA_PARAMETER_TYPE:
-     case B_MEDIA_PARAMETER_WEB_TYPE:
-     case B_MESSAGE_TYPE:
-     case B_MESSENGER_TYPE:
-     case B_MINI_ICON_TYPE:
-     case B_MONOCHROME_1_BIT_TYPE:
-     case B_OBJECT_TYPE:
-     case B_PATTERN_TYPE:
-     case B_POINTER_TYPE:
-     case B_POINT_TYPE:
-     case B_PROPERTY_INFO_TYPE:
-     case B_RAW_TYPE:
-     case B_RECT_TYPE:
-     case B_REF_TYPE:
-     case B_RGB_32_BIT_TYPE:
-     case B_RGB_COLOR_TYPE:
-     case B_TIME_TYPE:
-     case B_VECTOR_ICON_TYPE:
-     case B_ASCII_TYPE:
+                    case B_ANY_TYPE:
+                    case B_ATOM_TYPE:
+                    case B_BOOL_TYPE:
+                    case B_CHAR_TYPE:
+                    case B_COLOR_8_BIT_TYPE:
+                    case B_GRAYSCALE_8_BIT_TYPE:
+                    case B_LARGE_ICON_TYPE:
+                    case B_MEDIA_PARAMETER_GROUP_TYPE:
+                    case B_MEDIA_PARAMETER_TYPE:
+                    case B_MEDIA_PARAMETER_WEB_TYPE:
+                    case B_MESSAGE_TYPE:
+                    case B_MESSENGER_TYPE:
+                    case B_MINI_ICON_TYPE:
+                    case B_MONOCHROME_1_BIT_TYPE:
+                    case B_OBJECT_TYPE:
+                    case B_PATTERN_TYPE:
+                    case B_POINTER_TYPE:
+                    case B_POINT_TYPE:
+                    case B_PROPERTY_INFO_TYPE:
+                    case B_RAW_TYPE:
+                    case B_RECT_TYPE:
+                    case B_REF_TYPE:
+                    case B_RGB_32_BIT_TYPE:
+                    case B_RGB_COLOR_TYPE:
+                    case B_TIME_TYPE:
+                    case B_VECTOR_ICON_TYPE:
+                    case B_ASCII_TYPE:
 
-     case B_MIME_TYPE:
-
-     case B_STRING_TYPE:
-     default:
+                    case B_MIME_TYPE:
+                    case B_STRING_TYPE:
+                    default:
                         for (int64_t i = 0; i < leng; i++) {
 
-       oss << buff[i];
-      }
-      break;
-    }
-    string str = oss.str();
-    AddAttrInfo(d.d_name, (char*)str.c_str(), (char*)tupel,a++);
-    st = bfs_read_attr_dir(v, I, attIt, &d, 0, &num);
-    debug << str.c_str() << "\n";
-    debug.flush();
-   }
+                            oss << buff[i];
+                        }
+                        break;
+                }
+                string str = oss.str();
+                AddAttrInfo(d.d_name, (char*)str.c_str(), (char*)tupel,a++);
+                st = bfs_read_attr_dir(v, I, attIt, &d, 0, &num);
+                debug << str.c_str() << "\n";
+                debug.flush();
+            }
 
 
-   ostringstream oss;
-   oss << "Name: " << td->name;
-   string str = oss.str();
+            ostringstream oss;
+            oss << "Name: " << td->name;
+            string str = oss.str();
             SetDlgItemTextA(hWnd, 1069, str.c_str());
-   if (I->IsFile()) {
+            if (I->IsFile()) {
                 SetDlgItemTextA(hWnd, 1070, "Type: File");
-    ostringstream oss2;
-    oss2 << "Size: " << I->Size() << " bytes";
-    string str = oss2.str();
+                ostringstream oss2;
+                oss2 << "Size: " << I->Size() << " bytes";
+                string str = oss2.str();
                 SetDlgItemTextA(hWnd, 1071, str.c_str());
-   } else if (I->IsDirectory())
+            } else if (I->IsDirectory())
                 SetDlgItemTextA(hWnd, 1070, "Type: Directory");
-   else if (I->IsSymLink())
+            else if (I->IsSymLink())
                 SetDlgItemTextA(hWnd, 1070, "Type: Symlink");
-   else
+            else
                 SetDlgItemTextA(hWnd, 1070, "Type: Unknown");
 
-   if (!I->IsFile())
+            if (!I->IsFile())
                 SetDlgItemTextA(hWnd, 1071, "");
 
-  }
+        }
 
-  case 0x0111:
-  {
-   switch (((WORD) (((DWORD_PTR) (wParam)) & 0xffff)))
-   {
-    case 1:
-    {
+        case 0x0111:
+        {
+            switch (((WORD) (((DWORD_PTR) (wParam)) & 0xffff)))
+            {
+                case 1:
+                {
 
-     EndDialog(hWnd, 0);
+                    EndDialog(hWnd, 0);
+                }
+                break;
+            }
+            break;
+
+            case 0x0010:
+            {
+                EndDialog(hWnd, 0);
+            }
+            break;
+        }
     }
-    break;
-   }
-   break;
-
-   case 0x0010:
-   {
-    EndDialog(hWnd, 0);
-   }
-   break;
-  }
- }
- return 0;
+    return 0;
 }
-
 
 
 
 
 BOOL __attribute__((__stdcall__)) DialogProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
- switch (message)
- {
+    switch (message)
+    {
 
 
-  case 0x0110:
-  {
-   debug.open ("debuglog.txt", ios::app|ios::out);
-   debug << "=============================================================================================\n";
-   debug << "Logging started\n";
-   debug << "=============================================================================================\n";
-   debug.flush();
+        case 0x0110:
+        {
+            debug.open ("debuglog.txt", ios::app|ios::out);
+            debug << "=============================================================================================\n";
+            debug << "Logging started\n";
+            debug << "=============================================================================================\n";
+            debug.flush();
 
-   InitCommonControls();
-   hTree=GetDlgItem(hWnd, 1059);
+            InitCommonControls();
+            hTree=GetDlgItem(hWnd, 1059);
 
 
-   hImageList = ImageList_Create(16, 16, 0x10, 2, 10);
-   hBitMap = LoadBitmapW(hInst, ((LPWSTR)((ULONG_PTR)((WORD)(134)))));
-   ImageList_Add(hImageList, hBitMap, __null);
-   DeleteObject(hBitMap);
-      SendDlgItemMessageW(hWnd, 1059, (0x1100 +9), 0, (LPARAM)hImageList);
+            hImageList = ImageList_Create(16, 16, 0x10, 2, 10);
+            hBitMap = LoadBitmapW(hInst, ((LPWSTR)((ULONG_PTR)((WORD)(134)))));
+            ImageList_Add(hImageList, hBitMap, __null);
+            DeleteObject(hBitMap);
+            SendDlgItemMessageW(hWnd, 1059, (0x1100 +9), 0, (LPARAM)hImageList);
 
-   InitPopupMenu(hWnd);
-   hProgress = CreateWindowExW(0, L"msctls_progress32", __null, 0x40000000l | 0x10000000l | 0x1, 3, 470, 527, 25, hWnd, __null, hInst, __null);
-   SendMessageW(hProgress, (0x0400 +4), 4096, 0L);
+            InitPopupMenu(hWnd);
+            hProgress = CreateWindowExW(0, L"msctls_progress32", __null, 0x40000000l | 0x10000000l | 0x1, 3, 470, 527, 25, hWnd, __null, hInst, __null);
+            SendMessageW(hProgress, (0x0400 +4), 4096, 0L);
 
-   string strItem;
-   int i, cd = CountPhysicalDrives();
-   debug << "Number of drives: " << cd << endl;
-   for (i = 0;i < cd; i++) {
-    tvinsert.hParent=__null;
-    tvinsert.hInsertAfter = ((HTREEITEM)(ULONG_PTR)-0x10000);
-    tvinsert.item.mask = 0x1|0x2|0x20|0x4;
-    ostringstream oss;
-    oss << "Device" << i;
-    strItem = oss.str();
+            string strItem;
+            int i, cd = CountPhysicalDrives();
+            debug << "Number of drives: " << cd << endl;
+            for (i = 0;i < cd; i++) {
+                tvinsert.hParent=__null;
+                tvinsert.hInsertAfter = ((HTREEITEM)(ULONG_PTR)-0x10000);
+                tvinsert.item.mask = 0x1|0x2|0x20|0x4;
+                ostringstream oss;
+                oss << "Device" << i;
+                strItem = oss.str();
 
-    TreeData* t = new TreeData(0,strItem.c_str());
-    t->iData1 = i;
-    tvinsert.item.lParam = reinterpret_cast<LPARAM>(t);
+                TreeData* t = new TreeData(0,strItem.c_str());
+                t->iData1 = i;
+                tvinsert.item.lParam = reinterpret_cast<LPARAM>(t);
 
                 tvinsert.item.pszText = (LPSTR)strItem.c_str();
-    tvinsert.item.iImage = 4;
-    tvinsert.item.iSelectedImage = 4;
+                tvinsert.item.iImage = 4;
+                tvinsert.item.iSelectedImage = 4;
 
                 Parent = (HTREEITEM)SendDlgItemMessageW(hWnd, 1059, (0x1100 +50), 0, (LPARAM)&tvinsert);
-    Root = Parent;
+                Root = Parent;
                 ListPartitions(i, hWnd, &Parent, &tvinsert, &debug);
-   }
+            }
 
 
-   char Text[255] = "";
+            char Text[255] = "";
             HTREEITEM CurrentItem = (HTREEITEM)::SendMessageW((hTree),(0x1100 +10),(WPARAM)(0x0),(LPARAM)(HTREEITEM)(__null));
-   tvi.mask = 0x1|0x4|0x40;
-   tvi.pszText = Text;
-   tvi.cchTextMax = 256;
-   while (CurrentItem) {
-    int children = 0;
-    tvi.hItem = CurrentItem;
-    (WINBOOL)::SendMessageW((hTree),(0x1100 +62),0,(LPARAM)(TVITEMW *)(&tvi));
-    debug<<"+++++++++  item: " << tvi.pszText << endl; debug.flush();
-    TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
-    if (td) {
-     debug<<"Node Level = " << td->level << " name = " << td->name << " iData1 = " << td->iData1 << endl;
-     debug.flush();
-     if (td->level == 1) {
+            tvi.mask = 0x1|0x4|0x40;
+            tvi.pszText = Text;
+            tvi.cchTextMax = 256;
+            while (CurrentItem) {
+                int children = 0;
+                tvi.hItem = CurrentItem;
+                (WINBOOL)::SendMessageW((hTree),(0x1100 +62),0,(LPARAM)(TVITEMW *)(&tvi));
+                debug<<"+++++++++  item: " << tvi.pszText << endl; debug.flush();
+                TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
+                if (td) {
+                    debug<<"Node Level = " << td->level << " name = " << td->name << " iData1 = " << td->iData1 << endl;
+                    debug.flush();
+                    if (td->level == 1) {
 
-      Volume* v = new Volume(mountID);
-      debug<<"new volume: " << v << endl;
-      int s = v->Mount(td->iData1, td->iData2, 0 );
-      if (s == B_OK) {
-       debug << "Mount successfull\n";
+                        Volume* v = new Volume(mountID);
+                        debug<<"new volume: " << v << endl;
+                        int s = v->Mount(td->iData1, td->iData2, 0 );
+                        if (s == B_OK) {
+                            debug << "Mount successfull\n";
 
-       volumes.push_back(*v);
-       td->extra = (Volume*)&volumes[volumes.size()-1];
-       td->volume = volumes.size()-1;
-       td->inode = -1;
-       tvi.lParam = reinterpret_cast<LPARAM>(td);
-       (WINBOOL)::SendMessageW((hWnd),(0x1100 +63),0,(LPARAM)(const TVITEMW *)(&tvi));
+                            volumes.push_back(*v);
+                            td->extra = (Volume*)&volumes[volumes.size()-1];
+                            td->volume = volumes.size()-1;
+                            td->inode = -1;
+                            tvi.lParam = reinterpret_cast<LPARAM>(td);
+                            (WINBOOL)::SendMessageW((hWnd),(0x1100 +63),0,(LPARAM)(const TVITEMW *)(&tvi));
 
-       debug << "CurrentItem = " << CurrentItem << "  currentvolume = " << td->extra << "  hTree = " << hTree << endl;
+                            debug << "CurrentItem = " << CurrentItem << "  currentvolume = " << td->extra << "  hTree = " << hTree << endl;
                             children = ListDirectories(hTree, &CurrentItem, &tvi, &debug, &volumes);
-      } else {
-       debug << "Mounting failed, status: " << s << endl;
-      }
-     }
-    }
+                        } else {
+                            debug << "Mounting failed, status: " << s << endl;
+                        }
+                    }
+                }
 
 
 
-    if (td->level == 2)
-     CurrentItem = GetNextUpItem(hTree, CurrentItem);
-    else
-     CurrentItem = GetNext(hTree, CurrentItem);
-   }
+                if (td->level == 2)
+                    CurrentItem = GetNextUpItem(hTree, CurrentItem);
+                else
+                    CurrentItem = GetNext(hTree, CurrentItem);
+            }
 
-   for (i = 0;i < volumes.size(); i++) {
-    Volume* vv = (Volume*)&volumes[i];
+            for (i = 0;i < volumes.size(); i++) {
+                Volume* vv = (Volume*)&volumes[i];
 
-    if (vv->IsValidSuperBlock())
-     debug << "1: VALID SUPERBLOCK " << vv << endl;
-    else
-     debug << "1: NO VALID SUPERBLOCK!!! " << vv << endl;
+                if (vv->IsValidSuperBlock())
+                    debug << "1: VALID SUPERBLOCK " << vv << endl;
+                else
+                    debug << "1: NO VALID SUPERBLOCK!!! " << vv << endl;
 
-    debug.flush();
-   }
-  }
-  break;
+                debug.flush();
+            }
+        }
+        break;
 
-  case 0x0201:
-  {
-   ReleaseCapture();
-   SendMessageW(hWnd, 0x00A1, 2, 0);
-  }
-  break;
+        case 0x0201:
+        {
+            ReleaseCapture();
+            SendMessageW(hWnd, 0x00A1, 2, 0);
+        }
+        break;
 
-  case 0x004E:
-  {
-      case 1059:
+        case 0x004E:
+        {
+            case 1059:
 
-   if (((LPNMHDR)lParam)->code == ((0U-400U)-50))
-   {
-    NMTREEVIEWW* pnmtv = (LPNMTREEVIEWW) lParam;
-    TreeData* td1 = reinterpret_cast<TreeData*>(pnmtv->itemOld.lParam);
-    TreeData* td2 = reinterpret_cast<TreeData*>(pnmtv->itemNew.lParam);
-    debug<<"TVN_SELCHANGING, old: "<<pnmtv->itemOld.hItem<<endl;
-    debug<<"TVN_SELCHANGING, new: "<<pnmtv->itemNew.hItem<<endl;
-    char Text[255] = "";
-    memset(&tvi, 0, sizeof(tvi));
-    tvi.mask = 0x1|0x4|0x40;
-    tvi.pszText = Text;
-    tvi.cchTextMax = 256;
-    tvi.hItem = pnmtv->itemNew.hItem;
-    (WINBOOL)::SendMessageW((hTree),(0x1100 +62),0,(LPARAM)(TVITEMW *)(&tvi));
-    TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
-    debug << "TVN_SELCHANGING, name: " << Text << "  " << td->inode << "  " << td->volume << endl;
-    if (td->level > 1) {
-     if (tvi.cChildren == 0) {
+            if (((LPNMHDR)lParam)->code == ((0U-400U)-50))
+            {
+                NMTREEVIEWW* pnmtv = (LPNMTREEVIEWW) lParam;
+                TreeData* td1 = reinterpret_cast<TreeData*>(pnmtv->itemOld.lParam);
+                TreeData* td2 = reinterpret_cast<TreeData*>(pnmtv->itemNew.lParam);
+                debug<<"TVN_SELCHANGING, old: "<<pnmtv->itemOld.hItem<<endl;
+                debug<<"TVN_SELCHANGING, new: "<<pnmtv->itemNew.hItem<<endl;
+                char Text[255] = "";
+                memset(&tvi, 0, sizeof(tvi));
+                tvi.mask = 0x1|0x4|0x40;
+                tvi.pszText = Text;
+                tvi.cchTextMax = 256;
+                tvi.hItem = pnmtv->itemNew.hItem;
+                (WINBOOL)::SendMessageW((hTree),(0x1100 +62),0,(LPARAM)(TVITEMW *)(&tvi));
+                TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
+                debug << "TVN_SELCHANGING, name: " << Text << "  " << td->inode << "  " << td->volume << endl;
+                if (td->level > 1) {
+                    if (tvi.cChildren == 0) {
                         ListDirectories(hTree, &tvi.hItem, &tvi, &debug, &volumes);
-     }
-    }
-    break;
-   }
+                    }
+                }
+                break;
+            }
 
-   if (((LPNMHDR)lParam)->code == ((0U- 0U)-2)) {
+            if (((LPNMHDR)lParam)->code == ((0U- 0U)-2)) {
 
-    for (unsigned int i = 0;i < volumes.size(); i++) {
-     Volume vv = volumes[i];
-     if (vv.IsValidSuperBlock())
-      debug<<"3: VALID SUPERBLOCK "<<(Volume*)&volumes[i]<<endl;
-     else
-      debug<<"3: NO VALID SUPERBLOCK!!! "<<(Volume*)&volumes[i]<<endl;
-     debug.flush();
-    }
-    char Text[255] = "";
-    memset(&tvi, 0, sizeof(tvi));
+                for (unsigned int i = 0;i < volumes.size(); i++) {
+                    Volume vv = volumes[i];
+                    if (vv.IsValidSuperBlock())
+                        debug<<"3: VALID SUPERBLOCK "<<(Volume*)&volumes[i]<<endl;
+                    else
+                        debug<<"3: NO VALID SUPERBLOCK!!! "<<(Volume*)&volumes[i]<<endl;
+                    debug.flush();
+                }
+                char Text[255] = "";
+                memset(&tvi, 0, sizeof(tvi));
 
-    Selected = (HTREEITEM)SendDlgItemMessageW(hWnd, 1059, (0x1100 +10), 0x9, (LPARAM)Selected);
+                Selected = (HTREEITEM)SendDlgItemMessageW(hWnd, 1059, (0x1100 +10), 0x9, (LPARAM)Selected);
 
-    if (Selected == __null) {
+                if (Selected == __null) {
                     MessageBoxA(hWnd, "No Items in TreeView", "Error", 0x00000000l|0x00000040l);
-     break;
-    }
-    (WINBOOL)::SendMessageW((hWnd),(0x1100 +20),0,(LPARAM)(HTREEITEM)(Selected));
-       SendDlgItemMessageW(hWnd, 1059, (0x1100 +11), 0x9, (LPARAM)Selected);
-    flagSelected = true;
-    tvi.mask = 0x1|0x4|0x40;
-    tvi.pszText = Text;
-    tvi.cchTextMax = 256;
-    tvi.hItem = Selected;
+                    break;
+                }
+                (WINBOOL)::SendMessageW((hWnd),(0x1100 +20),0,(LPARAM)(HTREEITEM)(Selected));
+                SendDlgItemMessageW(hWnd, 1059, (0x1100 +11), 0x9, (LPARAM)Selected);
+                flagSelected = true;
+                tvi.mask = 0x1|0x4|0x40;
+                tvi.pszText = Text;
+                tvi.cchTextMax = 256;
+                tvi.hItem = Selected;
 
-    debug << "If the program get's here wee need to look at this code.." << endl;
-# 727 "GUI_TreeControl.cpp"
-    break;
-   }
-   if (((LPNMHDR)lParam)->code == ((0U-400U)-14))
-   {
-    debug << "If the program get's here wee need to look at this code.. nr 2" << endl;
-# 750 "GUI_TreeControl.cpp"
-    break;
-   }
+                debug << "If the program get's here wee need to look at this code.." << endl;
+# 726 "GUI_TreeControl.cpp"
+                break;
+            }
+            if (((LPNMHDR)lParam)->code == ((0U-400U)-14))
+            {
+                debug << "If the program get's here wee need to look at this code.. nr 2" << endl;
+# 749 "GUI_TreeControl.cpp"
+                break;
+            }
 
-   if (((LPNMHDR)lParam)->code == ((0U- 0U)-5)) {
-    Selected = (HTREEITEM)SendDlgItemMessageW (hWnd, 1059, (0x1100 +10), 0x8, 0);
-    if (Selected == __null) {
+            if (((LPNMHDR)lParam)->code == ((0U- 0U)-5)) {
+                Selected = (HTREEITEM)SendDlgItemMessageW (hWnd, 1059, (0x1100 +10), 0x8, 0);
+                if (Selected == __null) {
 
-     Selected = (HTREEITEM)SendDlgItemMessageW(hWnd, 1059, (0x1100 +10), 0x9, (LPARAM)Selected);
-     if (Selected == __null) {
+                    Selected = (HTREEITEM)SendDlgItemMessageW(hWnd, 1059, (0x1100 +10), 0x9, (LPARAM)Selected);
+                    if (Selected == __null) {
                         MessageBoxA(hWnd, "No Items in TreeView", "Error", 0x00000000l|0x00000040l);
-      break;
-     }
-    }
+                        break;
+                    }
+                }
 
-    SendDlgItemMessageW(hWnd, 1059, (0x1100 +11), 0x9, (LPARAM)Selected);
+                SendDlgItemMessageW(hWnd, 1059, (0x1100 +11), 0x9, (LPARAM)Selected);
 
-    POINT p;
-    p.x = ((WORD) (((DWORD_PTR) (lParam)) & 0xffff));
-    p.y = ((WORD) ((((DWORD_PTR) (lParam)) >> 16) & 0xffff));
+                POINT p;
+                p.x = ((WORD) (((DWORD_PTR) (lParam)) & 0xffff));
+                p.y = ((WORD) ((((DWORD_PTR) (lParam)) >> 16) & 0xffff));
 
-    GetCursorPos(&p);
-    TrackPopupMenu(popupMenu, 0x0000l | 0x0002l , p.x, p.y, 0, hWnd, __null);
+                GetCursorPos(&p);
+                TrackPopupMenu(popupMenu, 0x0000l | 0x0002l , p.x, p.y, 0, hWnd, __null);
 
-    break;
-   }
+                break;
+            }
 
-   if (((LPNMHDR)lParam)->code == ((0U-400U)-56)) {
-    HIMAGELIST hImg;
-    LPNMTREEVIEWW lpnmtv = (LPNMTREEVIEWW) lParam;
-    hImg=(HIMAGELIST)::SendMessageW((hTree),(0x1100 +18),0,(LPARAM)(HTREEITEM)(lpnmtv->itemNew.hItem));
-    ImageList_BeginDrag(hImg, 0, 0, 0);
-    ImageList_DragEnter(hTree,lpnmtv->ptDrag.x,lpnmtv->ptDrag.y);
-    ShowCursor(0);
-    SetCapture(hWnd);
-    Dragging = 1;
-   }
+            if (((LPNMHDR)lParam)->code == ((0U-400U)-56)) {
+                HIMAGELIST hImg;
+                LPNMTREEVIEWW lpnmtv = (LPNMTREEVIEWW) lParam;
+                hImg=(HIMAGELIST)::SendMessageW((hTree),(0x1100 +18),0,(LPARAM)(HTREEITEM)(lpnmtv->itemNew.hItem));
+                ImageList_BeginDrag(hImg, 0, 0, 0);
+                ImageList_DragEnter(hTree,lpnmtv->ptDrag.x,lpnmtv->ptDrag.y);
+                ShowCursor(0);
+                SetCapture(hWnd);
+                Dragging = 1;
+            }
 
-   if (((LPNMHDR)lParam)->code == ((0U-400U)-59)) {
-    hEdit = (HWND)::SendMessageW((hTree),(0x1100 +15),0,0);
-   }
+            if (((LPNMHDR)lParam)->code == ((0U-400U)-59)) {
+                hEdit = (HWND)::SendMessageW((hTree),(0x1100 +15),0,0);
+            }
 
-   if (((LPNMHDR)lParam)->code == ((0U-400U)-60)) {
-    char Text[256] = "";
-    tvi.hItem = Selected;
-    SendDlgItemMessageW(hWnd, 1059, (0x1100 +62), 0, (WPARAM)&tvi);
+            if (((LPNMHDR)lParam)->code == ((0U-400U)-60)) {
+                char Text[256] = "";
+                tvi.hItem = Selected;
+                SendDlgItemMessageW(hWnd, 1059, (0x1100 +62), 0, (WPARAM)&tvi);
                 GetWindowTextA(hEdit, Text, sizeof(Text));
-    tvi.pszText = Text;
-    SendDlgItemMessageW(hWnd, 1059, (0x1100 +63), 0, (WPARAM)&tvi);
-   }
-  }
-  break;
+                tvi.pszText = Text;
+                SendDlgItemMessageW(hWnd, 1059, (0x1100 +63), 0, (WPARAM)&tvi);
+            }
+        }
+        break;
 
-  case 0x0200:
-  {
-   if (Dragging) {
-    Pos = (*((POINTS *)&(lParam)));
-    ImageList_DragMove(Pos.x-32, Pos.y-25);
-    ImageList_DragShowNolock(0);
-    tvht.pt.x = Pos.x - 20;
-    tvht.pt.y = Pos.y - 20;
+        case 0x0200:
+        {
+            if (Dragging) {
+                Pos = (*((POINTS *)&(lParam)));
+                ImageList_DragMove(Pos.x-32, Pos.y-25);
+                ImageList_DragShowNolock(0);
+                tvht.pt.x = Pos.x - 20;
+                tvht.pt.y = Pos.y - 20;
 
                 if ((hitTarget = (HTREEITEM)SendMessageA(hTree, (0x1100 +17), WPARAM(""), (LPARAM)&tvht))!=0)
-     SendMessageA(hTree, (0x1100 +11), 0x8, (LPARAM)hitTarget);
+                    SendMessageA(hTree, (0x1100 +11), 0x8, (LPARAM)hitTarget);
 
-       ImageList_DragShowNolock(1);
-   }
-  }
-  break;
+                ImageList_DragShowNolock(1);
+            }
+        }
+        break;
 
         case 0x0202:
         {
@@ -78750,188 +78553,187 @@ BOOL __attribute__((__stdcall__)) DialogProc(HWND hWnd, UINT message, WPARAM wPa
         break;
 
 
-  case 0x000F:
-  {
-   return 0;
-  }
-  break;
+        case 0x000F:
+        {
+            return 0;
+        }
+        break;
 
-  case 0x0111:
-  {
-   switch (((WORD) (((DWORD_PTR) (wParam)) & 0xffff)))
-   {
-    case 200: {
+        case 0x0111:
+        {
+            switch (((WORD) (((DWORD_PTR) (wParam)) & 0xffff)))
+            {
+                case 200: {
 
-     debug << "popupmenu -> properties" << endl;
-     char Text[255] = "";
-     memset(&tvi, 0, sizeof(tvi));
-     flagSelected = true;
-     tvi.mask = 0x1|0x4|0x40;
-     tvi.pszText = Text;
-     tvi.cchTextMax = 256;
-     tvi.hItem = Selected;
+                    debug << "popupmenu -> properties" << endl;
+                    char Text[255] = "";
+                    memset(&tvi, 0, sizeof(tvi));
+                    flagSelected = true;
+                    tvi.mask = 0x1|0x4|0x40;
+                    tvi.pszText = Text;
+                    tvi.cchTextMax = 256;
+                    tvi.hItem = Selected;
 
-     if (SendDlgItemMessageW(hWnd, 1059, (0x1100 +62), 0x9, (LPARAM)&tvi)) {
-      TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
-      if (td) {
-       debug << "Node Level = " << td->level << " name = " << td->name << " inode = " << td->inode << endl;
+                    if (SendDlgItemMessageW(hWnd, 1059, (0x1100 +62), 0x9, (LPARAM)&tvi)) {
+                        TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
+                        if (td) {
+                            debug << "Node Level = " << td->level << " name = " << td->name << " inode = " << td->inode << endl;
 
 
-       if (td->level>1)
+                            if (td->level>1)
                                 ::DialogBoxParamA(GetModuleHandleW(__null),((LPSTR)((ULONG_PTR)((WORD)(137)))),hWnd,(DLGPROC)PropertiesDlgProc,(LPARAM)0);
 
-      }
-     }
-    } break;
+                        }
+                    }
+                } break;
 
-    case 100:{
-     debug << "popupmenu -> copy file" << endl;
-     char Text[255] = "";
-     memset(&tvi, 0, sizeof(tvi));
-     flagSelected = true;
-     tvi.mask = 0x1|0x4|0x40;
-     tvi.pszText = Text;
-     tvi.cchTextMax = 256;
-     tvi.hItem = Selected;
+                case 100:{
+                    debug << "popupmenu -> copy file" << endl;
+                    char Text[255] = "";
+                    memset(&tvi, 0, sizeof(tvi));
+                    flagSelected = true;
+                    tvi.mask = 0x1|0x4|0x40;
+                    tvi.pszText = Text;
+                    tvi.cchTextMax = 256;
+                    tvi.hItem = Selected;
 
-     if (SendDlgItemMessageW(hWnd, 1059, (0x1100 +62), 0x9, (LPARAM)&tvi)) {
-      TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
-      if (td) {
-       debug << "Node Level = " << td->level << " name = " << td->name << " inode = " << td->inode << endl;
-       debug.flush();
-       if (td->level>1) {
+                    if (SendDlgItemMessageW(hWnd, 1059, (0x1100 +62), 0x9, (LPARAM)&tvi)) {
+                        TreeData* td = reinterpret_cast<TreeData*>(tvi.lParam);
+                        if (td) {
+                            debug << "Node Level = " << td->level << " name = " << td->name << " inode = " << td->inode << endl;
+                            debug.flush();
+                            if (td->level>1) {
 
-        Volume* vol = (Volume*)&volumes[td->volume];
-        Inode* II = new Inode(vol,td->inode);
-        debug << "\tInode size: " << II->Size() << endl;
-        if (II->IsFile()) {
-         debug << "This is a file, go get it\n";
-         debug.flush();
-         Inode* I;
-         void* f;
-         file_cookie ff;
+                                Volume* vol = (Volume*)&volumes[td->volume];
+                                Inode* II = new Inode(vol,td->inode);
+                                debug << "\tInode size: " << II->Size() << endl;
+                                if (II->IsFile()) {
+                                    debug << "This is a file, go get it\n";
+                                    debug.flush();
+                                    Inode* I;
+                                    void* f;
+                                    file_cookie ff;
 
-         debug << "bfs_read_vnode result: " << bfs_read_vnode(vol, td->inode, (void**)&I, true ) << endl;
-         debug << "open status: " << bfs_open(vol, I, 0, &f) << endl;
-         memcpy(&ff, f, sizeof(file_cookie));
-         debug << "filesize: " << ff.last_size << endl;
+                                    debug << "bfs_read_vnode result: " << bfs_read_vnode(vol, td->inode, (void**)&I, true ) << endl;
+                                    debug << "open status: " << bfs_open(vol, I, 0, &f) << endl;
+                                    memcpy(&ff, f, sizeof(file_cookie));
+                                    debug << "filesize: " << ff.last_size << endl;
                                     int64_t BytesTotal = ff.last_size;
                                     int64_t BytesLeft = ff.last_size;
                                     int64_t block = 4096;
                                     int64_t offset = 0;
                                     int64_t BytesWritten = 0;
-         SendMessageW(hProgress, (0x0400 +1), 0, ((LPARAM)(DWORD)((LONG) (((WORD) (((DWORD_PTR) (0)) & 0xffff)) | ((DWORD) ((WORD) (((DWORD_PTR) ((long)BytesTotal/4096)) & 0xffff))) << 16))));
+                                    SendMessageW(hProgress, (0x0400 +1), 0, ((LPARAM)(DWORD)((LONG) (((WORD) (((DWORD_PTR) (0)) & 0xffff)) | ((DWORD) ((WORD) (((DWORD_PTR) ((long)BytesTotal/4096)) & 0xffff))) << 16))));
 
-         SendMessageW(hProgress, (0x0400 +2), 0L, 0L);
+                                    SendMessageW(hProgress, (0x0400 +2), 0L, 0L);
 
-         if (BytesLeft<block)
-          block = BytesLeft;
+                                    if (BytesLeft<block)
+                                        block = BytesLeft;
 
-         char* q = (char* )calloc(block, sizeof(char));
+                                    char* q = (char* )calloc(block, sizeof(char));
 
-         ofstream file;
+                                    ofstream file;
                                     int64_t step = 0;
-         file.open(td->name, ios::trunc|ios::out|ios::binary);
-         while (BytesLeft>0) {
+                                    file.open(td->name, ios::trunc|ios::out|ios::binary);
+                                    while (BytesLeft>0) {
 
 
 
-          bfs_read(vol, I, f, offset, q, &block);
+                                        bfs_read(vol, I, f, offset, q, &block);
 
-          if (file.is_open()) {
-
-
-           file.write(q, block);
-           BytesWritten += block;
-           BytesLeft = BytesLeft - block;
-           SendMessageW(hProgress, (0x0400 +2), ++step, 0L);
+                                        if (file.is_open()) {
 
 
-          }
-
-          offset += block;
-
-          if (BytesLeft<block)
-           block = BytesLeft;
+                                            file.write(q, block);
+                                            BytesWritten += block;
+                                            BytesLeft = BytesLeft - block;
+                                            SendMessageW(hProgress, (0x0400 +2), ++step, 0L);
 
 
+                                        }
 
-         }
+                                        offset += block;
 
-         debug << "file copy done\n";
-         file.close();
-         bfs_close(vol, I, &ff);
-         free(I);
-         ostringstream oss;
-         oss << "File copied to local directory: " << td->name << " (" << BytesWritten << "/" << BytesTotal << " bytes)";
-         string str = oss.str();
+                                        if (BytesLeft<block)
+                                            block = BytesLeft;
+
+
+
+                                    }
+
+                                    debug << "file copy done\n";
+                                    file.close();
+                                    bfs_close(vol, I, &ff);
+                                    free(I);
+                                    ostringstream oss;
+                                    oss << "File copied to local directory: " << td->name << " (" << BytesWritten << "/" << BytesTotal << " bytes)";
+                                    string str = oss.str();
                                     MessageBoxA(hWnd, str.c_str(), "File copied", 0x00000000l|0x00000040l);
-         SendMessageW(hProgress, (0x0400 +2), 0L, 0L);
-         free (q);
-        }
-        free(II);
-       }
-      }
-     }
-    } break;
+                                    SendMessageW(hProgress, (0x0400 +2), 0L, 0L);
+                                    free (q);
+                                }
+                                free(II);
+                            }
+                        }
+                    }
+                } break;
 
-    case 300: {
+                case 300: {
                     ::DialogBoxParamA(GetModuleHandleW(__null),((LPSTR)((ULONG_PTR)((WORD)(138)))),hWnd,(DLGPROC)AboutDlgProc,(LPARAM)0);
-    } break;
-# 1007 "GUI_TreeControl.cpp"
-    default: {
-     debug << "1 Some other switch value " << ((WORD) (((DWORD_PTR) (wParam)) & 0xffff)) << endl;
-    } break;
+                } break;
+# 1006 "GUI_TreeControl.cpp"
+                default: {
+                    debug << "1 Some other switch value " << ((WORD) (((DWORD_PTR) (wParam)) & 0xffff)) << endl;
+                } break;
 
-   }
-   break;
+            }
+            break;
 
-   case 0x0010:
-   {
-    EndDialog(hWnd, 0);
-   }
-   break;
-   default: {
-    debug << "2 Some other switch value " << message << endl;
-   } break;
-  }
-  break;
- }
- return 0;
+            case 0x0010:
+            {
+                EndDialog(hWnd, 0);
+            }
+            break;
+            default: {
+                debug << "2 Some other switch value " << message << endl;
+            } break;
+        }
+        break;
+    }
+    return 0;
 }
-# 1058 "GUI_TreeControl.cpp"
+# 1056 "GUI_TreeControl.cpp"
 void AddAttrInfo(char* pszAttrName, char* pszAttrData, char* type, int iAccess)
 {
     LVITEMA LvItem;
- char* buff = pszAttrData;
- char pszBuff[256] = {0};
- int y = iAccess + 1;
+    char* buff = pszAttrData;
+    char pszBuff[256] = {0};
+    int y = iAccess + 1;
 
- itoa(y, pszBuff, 10);
+    itoa(y, pszBuff, 10);
 
- LvItem.mask = 0x1;
- LvItem.iItem = iAccess;
- LvItem.iSubItem = 0;
- LvItem.pszText = pszBuff;
+    LvItem.mask = 0x1;
+    LvItem.iItem = iAccess;
+    LvItem.iSubItem = 0;
+    LvItem.pszText = pszBuff;
 
- SendMessageW(hList, (0x1000 +77), 0, (LPARAM) &LvItem);
+    SendMessageW(hList, (0x1000 +77), 0, (LPARAM) &LvItem);
 
- LvItem.mask = 0x1;
- LvItem.iSubItem = 1;
- LvItem.pszText = pszAttrName;
- SendMessageW(hList, (0x1000 +76), 0, (LPARAM) &LvItem);
+    LvItem.mask = 0x1;
+    LvItem.iSubItem = 1;
+    LvItem.pszText = pszAttrName;
+    SendMessageW(hList, (0x1000 +76), 0, (LPARAM) &LvItem);
 
- LvItem.mask = 0x1;
- LvItem.iSubItem = 2;
- LvItem.pszText = pszAttrData;
- SendMessageW(hList, (0x1000 +76), 0, (LPARAM) &LvItem);
+    LvItem.mask = 0x1;
+    LvItem.iSubItem = 2;
+    LvItem.pszText = pszAttrData;
+    SendMessageW(hList, (0x1000 +76), 0, (LPARAM) &LvItem);
 
- LvItem.mask = 0x1;
- LvItem.iSubItem = 3;
- LvItem.pszText = type;
- SendMessageW(hList, (0x1000 +76), 0, (LPARAM) &LvItem);
+    LvItem.mask = 0x1;
+    LvItem.iSubItem = 3;
+    LvItem.pszText = type;
+    SendMessageW(hList, (0x1000 +76), 0, (LPARAM) &LvItem);
 }
-
 
 
 
@@ -78940,29 +78742,29 @@ void SetupListView(void)
 {
     LVCOLUMNA LvCol;
 
- memset(&LvCol, 0, sizeof(LvCol));
+    memset(&LvCol, 0, sizeof(LvCol));
 
- LvCol.mask = 0x4 | 0x2 |0x8;
- LvCol.pszText = "#";
- LvCol.cx = 20;
- SendMessageW(hList, (0x1000 +97), 0, (LPARAM) &LvCol);
+    LvCol.mask = 0x4 | 0x2 |0x8;
+    LvCol.pszText = "#";
+    LvCol.cx = 20;
+    SendMessageW(hList, (0x1000 +97), 0, (LPARAM) &LvCol);
 
- LvCol.mask = 0x4 | 0x2 |0x8;
- LvCol.pszText = "Name";
- LvCol.cx = 75;
- SendMessageW(hList, (0x1000 +97), 1, (LPARAM) &LvCol);
+    LvCol.mask = 0x4 | 0x2 |0x8;
+    LvCol.pszText = "Name";
+    LvCol.cx = 75;
+    SendMessageW(hList, (0x1000 +97), 1, (LPARAM) &LvCol);
 
- LvCol.mask = 0x4 | 0x2 |0x8;
- LvCol.pszText = "Data";
- LvCol.cx = 155;
- SendMessageW(hList, (0x1000 +97), 2, (LPARAM) &LvCol);
+    LvCol.mask = 0x4 | 0x2 |0x8;
+    LvCol.pszText = "Data";
+    LvCol.cx = 155;
+    SendMessageW(hList, (0x1000 +97), 2, (LPARAM) &LvCol);
 
- LvCol.mask = 0x4 | 0x2 |0x8;
- LvCol.pszText = "Type";
- LvCol.cx = 155;
- SendMessageW(hList, (0x1000 +97), 3, (LPARAM) &LvCol);
+    LvCol.mask = 0x4 | 0x2 |0x8;
+    LvCol.pszText = "Type";
+    LvCol.cx = 155;
+    SendMessageW(hList, (0x1000 +97), 3, (LPARAM) &LvCol);
 
- SendMessageW(hList, (0x1000 +54), 0, 0x20 | 0x1);
+    SendMessageW(hList, (0x1000 +54), 0, 0x20 | 0x1);
 }
 
 
@@ -78971,41 +78773,38 @@ void SetupListView(void)
 
 BOOL __attribute__((__stdcall__)) AboutDlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
- switch (message)
- {
-  case 0x0110:
-  {
-
-  }
-
-  case 0x0111:
-  {
-   switch (((WORD) (((DWORD_PTR) (wParam)) & 0xffff)))
-   {
-    case 1:
+    switch (message)
     {
+        case 0x0110:
+        {
 
-     EndDialog(hWnd, 0);
+        }
+
+        case 0x0111:
+        {
+            switch (((WORD) (((DWORD_PTR) (wParam)) & 0xffff)))
+            {
+                case 1:
+                {
+
+                    EndDialog(hWnd, 0);
+                }
+                break;
+            }
+            break;
+
+            case 0x0010:
+            {
+                EndDialog(hWnd, 0);
+            }
+            break;
+
+            default: {
+                debug << "3 Some other switch value " << endl;
+            } break; }
     }
-    break;
-   }
-   break;
-
-   case 0x0010:
-   {
-    EndDialog(hWnd, 0);
-   }
-   break;
-
-   default: {
-    debug << "3 Some other switch value " << endl;
-   } break; }
- }
- return 0;
+    return 0;
 }
-
-
-
 
 
 
@@ -79015,11 +78814,27 @@ int __attribute__((__stdcall__)) WinMain(HINSTANCE hInstance, HINSTANCE hPrevIns
 
 
 
- hInst = hInstance;
+    hInst = hInstance;
     Load_NTDLL();
- DialogBoxParamW(hInstance, ((LPWSTR)((ULONG_PTR)((WORD)(101)))), __null, (DLGPROC)DialogProc, 0);
- debug << "Exit application.\n";
- debug.close();
+
+    if (AllocConsole()) {
+    int ifd = _open_osfhandle((long)GetStdHandle(((DWORD)-10)), 0x4000);
+    *(&(* _imp___iob)[0]) = *fdopen(ifd, "r");
+    setvbuf( (&(* _imp___iob)[0]), __null, 0x0004, 0 );
+
+    int ofd = _open_osfhandle((long)GetStdHandle(((DWORD)-11)), 0x4000);
+    *(&(* _imp___iob)[1]) = *fdopen(ofd, "w");
+     setvbuf( (&(* _imp___iob)[1]), __null, 0x0004, 0 );
+
+    int efd = _open_osfhandle((long)GetStdHandle(((DWORD)-12)), 0x4000);
+    *(&(* _imp___iob)[2]) = *fdopen(efd, "w");
+    setvbuf( (&(* _imp___iob)[2]), __null, 0x0004, 0 );
+
+    }
+
+    DialogBoxParamW(hInstance, ((LPWSTR)((ULONG_PTR)((WORD)(101)))), __null, (DLGPROC)DialogProc, 0);
+    debug << "Exit application.\n";
+    debug.close();
     UnLoad_NTDLL();
- return 0;
+    return 0;
 }

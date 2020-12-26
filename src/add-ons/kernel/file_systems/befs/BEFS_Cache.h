@@ -1,7 +1,7 @@
 #ifndef BEFS_CACHE_H
 #define BEFS_CACHE_H
 //---------------------------------------------------------------------------
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 //---------------------------------------------------------------------------
 #include "BEFS_Lock.h"
 #include "BEFS_DoublyLinkedList.h"

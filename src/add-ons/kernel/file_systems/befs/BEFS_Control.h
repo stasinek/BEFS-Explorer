@@ -6,7 +6,7 @@
 #ifndef BEFS_CONTROL_H
 #define BEFS_CONTROL_H
 //---------------------------------------------------------------------------
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 //---------------------------------------------------------------------------
 /* ioctl to check the version of BEFS used - parameter is a uint32_t *
  * where the number is stored

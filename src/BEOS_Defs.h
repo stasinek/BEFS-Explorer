@@ -46,6 +46,12 @@
     #include <NT_System.h>  //for NTCreateFile
 #endif
 //access to the debugfile
+#define Print  printf
+#define print  printf
+#define panic  printf
+#define  echo  printf
+#define __out  printf
+#define  __in sprintf
 #include <fstream>
 extern std::ofstream debug;
 #include <string.h>
@@ -54,7 +60,7 @@ extern std::ofstream debug;
 //#include <sys/stat.h>
 //#define size_t		unsigned long
 //#define size_t		long long
-//#define size_t		unsigned int
+//#define off_t       unsigned __int64
 #define byte		char
 #define int8_t		char
 #define int16_t     __int16
@@ -65,8 +71,6 @@ extern std::ofstream debug;
 #define uint		unsigned __int32
 #define int64_t     __int64
 #define uint64_t    unsigned __int64
-//#define off_t       unsigned __int64
-//typedef size_t        long long;
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
@@ -403,16 +407,7 @@ typedef struct device_geometry
     bool 	        write_once;
 } device_geometry;
 
-#define  echo printf
-#define panic printf
-#define __out printf
-#define Print printf
 #define min_c(a, b)   ((a)>(b)?(b):(a))
-
-#if !defined(ASSERT) && !defined(DEBUGGER)
-    #define ASSERT(x) { if (!(x)) DEBUGGER(("skyfs: assert failed: " #x "\n")); }
-    #define DEBUGGER(x) printf x
-#endif
 
 #endif // BEOS_DEFS_H
 

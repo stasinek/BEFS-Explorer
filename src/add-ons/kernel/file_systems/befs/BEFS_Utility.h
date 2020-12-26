@@ -6,13 +6,13 @@
 #ifndef BEFS_UTILITY_H
 #define BEFS_UTILITY_H
 
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 
 // Simple array, used for the duplicate handling in the B+Tree,
 // and for the log entries.
 
 struct sorted_array {
-	public:
+    public:
         int64_t	count;
         int64_t	values[0];
 
@@ -20,7 +20,7 @@ struct sorted_array {
         void Insert(int64_t value);
         bool Remove(int64_t value);
 
-	private:
+    private:
         bool FindInternal(int64_t value,int32_t &index) const;
 };
 
@@ -28,8 +28,8 @@ struct sorted_array {
 inline int32_t
 sorted_array::Find(int64_t value) const
 {
-	int32_t i;
-	return FindInternal(value,i) ? i : -1;
+    int32_t i;
+    return FindInternal(value,i) ? i : -1;
 }
 
 #endif	/* UTILITY_H */

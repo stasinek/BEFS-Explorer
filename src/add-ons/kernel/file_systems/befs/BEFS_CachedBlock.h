@@ -12,7 +12,7 @@
 #include "BEFS_Chain.h"
 #include "BEFS_Debug.h"
 //---------------------------------------------------------------------------
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 //---------------------------------------------------------------------------
 // The CachedBlock class is completely implemented as inlines.
 // It should be used when cache single blocks to make sure they

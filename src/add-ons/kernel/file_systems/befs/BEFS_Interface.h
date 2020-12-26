@@ -11,11 +11,11 @@
 #define BEFS_INTERFACE_H
 //-----------------------------------------------------------------------------
 #include "BEFS_Attribute.h" //for struct attr_cookie
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 //-----------------------------------------------------------------------------
 status_t bfs_open_dir(void *, void *, void **);
-status_t bfs_read_dir(void *_ns, void *_node, void *_cookie, struct dirent_t *Dirent, 
-	size_t bufferSize, uint32_t *_num);
+status_t bfs_read_dir(void *_ns, void *_node, void *_cookie, struct dirent_t *Dirent,
+    size_t bufferSize, uint32_t *_num);
 status_t bfs_rewind_dir(void * ns, void * node, void *_cookie);
 status_t bfs_close_dir(void * /*ns*/, void * /*node*/, void * /*_cookie*/);
 //-----------------------------------------------------------------------------

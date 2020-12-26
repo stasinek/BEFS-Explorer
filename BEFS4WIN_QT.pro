@@ -68,7 +68,8 @@ HEADERS += \
     src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
     src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
-    src/add-ons/kernel/file_systems/befs/BEFS_Volume.h
+    src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
+    src/add-ons/kernel/file_systems/befs/BEFS.h
 
 LIBS += -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32
 LIBS += -lole32 -lshell32 -lcomctl32 -lwinmm
