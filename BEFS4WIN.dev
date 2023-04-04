@@ -28,7 +28,7 @@ Folders=
 IncludeVersionInfo=0
 SupportXPThemes=1
 CompilerSet=4
-CompilerSettings=000i010100000000001000000
+CompilerSettings=0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0
 UnitCount=46
 
 [VersionInfo]
@@ -441,7 +441,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit41]
-FileName=resource\GUI_TreeControl.rsrc.rc
+FileName=resource\GUI_TreeControl.rc
 CompileCpp=1
 Folder=Resources
 Compile=1

@@ -15,7 +15,7 @@
 #ifndef BEFS_AUTO_LOCKER_H
 #define BEFS_AUTO_LOCKER_H
 
-#include <BEOS_SystemWrapper.h>
+#include "BEFS.h"
 
 // lockin AutoLockerStandardLocking
 template<typename Lockable>

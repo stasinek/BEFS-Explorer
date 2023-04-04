@@ -1,7 +1,7 @@
 /* THIS FILE WILL BE OVERWRITTEN BY DEV-C++ */
 /* DO NOT EDIT! */
 
-#include "resource/GUI_TreeControl.rsrc.rc"
+#include "resource/GUI_TreeControl.rc"
 
 //
 // SUPPORT FOR WINDOWS XP THEMES:

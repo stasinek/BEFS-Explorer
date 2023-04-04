@@ -6556,3 +6556,770 @@ Node Level = 0 name = Device0 iData1 = 0
 +++++++++  item: Partition2 (BEFS)
 Node Level = 1 name = Partition2 iData1 = 0
 new volume: 00947F28
+=============================================================================================
+Logging started
+=============================================================================================
+2 Some other switch value 528
+CountPhysicalDrives
+Number of drives: 10
+listPartitions
+DRIVE = \\.\PhysicalDrive0
+	[0] NTFS Drive, Primary (7)
+	[1] EXT2/3 Drive, Primary (131)
+listPartitions
+DRIVE = \\.\PhysicalDrive1
+	[0] NTFS Drive, Primary (7)
+	[1] NTFS Drive, Primary (7)
+listPartitions
+DRIVE = \\.\PhysicalDrive2
+	[0] NTFS Drive, Primary (7)
+	[1] NTFS Drive, Logical (7)
+listPartitions
+DRIVE = \\.\PhysicalDrive3
+	[0] NTFS Drive, Primary (7)
+listPartitions
+DRIVE = \\.\PhysicalDrive4
+Read error in listPartitions: Urz퉐zenie nie jest gotowe.
+
+listPartitions
+DRIVE = \\.\PhysicalDrive5
+Read error in listPartitions: Urz퉐zenie nie jest gotowe.
+
+listPartitions
+DRIVE = \\.\PhysicalDrive6
+Read error in listPartitions: Urz퉐zenie nie jest gotowe.
+
+listPartitions
+DRIVE = \\.\PhysicalDrive7
+Read error in listPartitions: Urz퉐zenie nie jest gotowe.
+
+listPartitions
+DRIVE = \\.\PhysicalDrive8
+	[0] NTFS Drive, Primary (7)
+listPartitions
+DRIVE = \\.\PhysicalDrive9
+	[0] NTFS Drive, Primary (7)
+	[1] Unknown Drive, Primary (22)
+	[2] Unknown Drive, Primary (111)
++++++++++  item: Device0
+Node Level = 0 name = Device0 iData1 = 0
++++++++++  item: Device1
+Node Level = 0 name = Device1 iData1 = 1
++++++++++  item: Device2
+Node Level = 0 name = Device2 iData1 = 2
++++++++++  item: Device3
+Node Level = 0 name = Device3 iData1 = 3
++++++++++  item: Device4
+Node Level = 0 name = Device4 iData1 = 4
++++++++++  item: Device5
+Node Level = 0 name = Device5 iData1 = 5
++++++++++  item: Device6
+Node Level = 0 name = Device6 iData1 = 6
++++++++++  item: Device7
+Node Level = 0 name = Device7 iData1 = 7
++++++++++  item: Device8
+Node Level = 0 name = Device8 iData1 = 8
++++++++++  item: Device9
+Node Level = 0 name = Device9 iData1 = 9
+2 Some other switch value 295
+2 Some other switch value 296
+2 Some other switch value 24
+2 Some other switch value 70
+2 Some other switch value 28
+2 Some other switch value 134
+2 Some other switch value 6
+2 Some other switch value 641
+2 Some other switch value 7
+2 Some other switch value 8
+2 Some other switch value 641
+TVN_SELCHANGING, old: 0
+TVN_SELCHANGING, new: 0x1ae3c50
+TVN_SELCHANGING, name: Device0  0  53663800
+2 Some other switch value 70
+2 Some other switch value 133
+2 Some other switch value 13
+2 Some other switch value 20
+2 Some other switch value 310
+2 Some other switch value 71
+2 Some other switch value 307
+2 Some other switch value 307
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 127
+2 Some other switch value 127
+2 Some other switch value 127
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 134
+2 Some other switch value 13
+2 Some other switch value 70
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 161
+2 Some other switch value 274
+2 Some other switch value 533
+2 Some other switch value 36
+2 Some other switch value 561
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 3
+2 Some other switch value 534
+2 Some other switch value 533
+2 Some other switch value 70
+2 Some other switch value 562
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 134
+2 Some other switch value 13
+2 Some other switch value 6
+2 Some other switch value 28
+2 Some other switch value 307
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 161
+2 Some other switch value 70
+2 Some other switch value 133
+2 Some other switch value 13
+2 Some other switch value 20
+2 Some other switch value 310
+2 Some other switch value 71
+2 Some other switch value 28
+2 Some other switch value 134
+2 Some other switch value 6
+2 Some other switch value 1024
+2 Some other switch value 274
+2 Some other switch value 533
+2 Some other switch value 70
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 307
+2 Some other switch value 307
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 4372
+If the program get's here wee need to look at this code..
+TVN_SELCHANGING, old: 0x1ae3c50
+TVN_SELCHANGING, new: 0x1ae3ea8
+TVN_SELCHANGING, name: Device8  0  30867652
+2 Some other switch value 307
+2 Some other switch value 307
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 4372
+If the program get's here wee need to look at this code..
+TVN_SELCHANGING, old: 0x1ae3ea8
+TVN_SELCHANGING, new: 0x1ae3ef0
+TVN_SELCHANGING, name: Device9  0  30867652
+2 Some other switch value 307
+2 Some other switch value 307
+2 Some other switch value 32
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 4372
+If the program get's here wee need to look at this code..
+TVN_SELCHANGING, old: 0x1ae3ef0
+TVN_SELCHANGING, new: 0x1ae3c50
+TVN_SELCHANGING, name: Device0  0  53663800
+2 Some other switch value 307
+2 Some other switch value 307
+2 Some other switch value 32
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 4372
+If the program get's here wee need to look at this code..
+TVN_SELCHANGING, old: 0x1ae3c50
+TVN_SELCHANGING, new: 0x1ae3cb0
+TVN_SELCHANGING, name: Device1  0  53663800
+2 Some other switch value 307
+2 Some other switch value 307
+2 Some other switch value 32
+2 Some other switch value 33
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 32
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 160
+2 Some other switch value 132
+2 Some other switch value 32
+2 Some other switch value 161
+2 Some other switch value 533
+2 Some other switch value 274
+2 Some other switch value 307
+2 Some other switch value 641
+2 Some other switch value 7
+2 Some other switch value 70
+2 Some other switch value 71
+2 Some other switch value 2
+2 Some other switch value 130
+Exit application.
