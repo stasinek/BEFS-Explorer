@@ -10,7 +10,7 @@
 #include "BEFS_Debug.h"
 #include "BEFS_Stack.h"
 //for write_pos
-#include <BEOS_SystemWrapper.h>
+#include <HAIKU_System.h>
 //---------------------------------------------------------------------------
 
 struct run_array {

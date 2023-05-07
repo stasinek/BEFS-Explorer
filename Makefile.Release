@@ -14,58 +14,56 @@ CXX           = g++
 DEFINES       = -DUNICODE -DQT_NEEDS_QMAIN
 CFLAGS        = -pipe -fno-keep-inline-dllexport -Wno-write-strings -Wno-multichar -Wno-unused-variable -Wno-unused-parameter -Wno-unused-value -Wno-unused-label -Wno-unused-but-set-variable -Wattributes -Winline -Wshadow -Wall -Wunknown-pragmas -w -O2 -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -Wno-write-strings -Wno-multichar -Wno-unused-variable -Wno-unused-parameter -Wno-unused-value -Wno-unused-label -Wno-unused-but-set-variable -Wattributes -Winline -Wshadow -Wall -Wunknown-pragmas -w -save-temps -fverbose-asm -fstrict-aliasing -dD -g -std=gnu++11 -pthread -malign-double -momit-leaf-frame-pointer -fwrapv -funroll-loops -m32 -mfpmath=sse -flto -mpreferred-stack-boundary=8 -mmmx -msse -msse2 -O2 -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I. -Isrc -I..\..\..\..\OpenSSL-Win32\include -I..\..\..\..\Qt\5.5\mingw492_32\mkspecs\win32-g++ 
+INCPATH       = -I. -Isrc -IC:/OpenSSL-Win32/include$ -IC:/Qt-5.5.0/5.5/mingw492_32/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        -LC:/OpenSSL-Win32/lib/MinGW/libcrypto.a -LC:/OpenSSL-Win32/lib/MinGW/llibssl.a -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32 -lole32 -lshell32 -lcomctl32 -lwinmm 
-QMAKE         = C:\Qt\5.5\mingw492_32\bin\qmake.exe
+LIBS        =        -L./../../../../x86_libraries/BHAPI -libbhapi -L./../../../../x86_libraries/OpenSSL-Win32/lib -lubsec -L./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW -lssleay32 -llibeay32 -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32 -lole32 -lshell32 -lcomctl32 -lwinmm 
+QMAKE         = C:/Qt-5.5.0/5.5/mingw492_32/bin/qmake.exe
 IDC           = idc
 IDL           = midl
-ZIP           = zip -r -9
+ZIP           = 
 DEF_FILE      = 
 RES_FILE      = 
-COPY          = copy /y
-SED           = $(QMAKE) -install sed
-COPY_FILE     = copy /y
-COPY_DIR      = xcopy /s /q /y /i
-DEL_FILE      = del
+COPY          = cp -f
+SED           = sed
+COPY_FILE     = cp -f
+COPY_DIR      = cp -f -R
+DEL_FILE      = rm -f
 DEL_DIR       = rmdir
-MOVE          = move
-CHK_DIR_EXISTS= if not exist
-MKDIR         = mkdir
-INSTALL_FILE    = copy /y
-INSTALL_PROGRAM = copy /y
-INSTALL_DIR     = xcopy /s /q /y /i
+MOVE          = mv -f
+CHK_DIR_EXISTS= test -d
+MKDIR         = mkdir -p
+INSTALL_FILE    = cp -f
+INSTALL_PROGRAM = cp -f
+INSTALL_DIR     = cp -f -R
 
 ####### Output directory
 
-OBJECTS_DIR   = release
+OBJECTS_DIR   = release/
 
 ####### Files
 
 SOURCES       = GUI_DiskFunc.cpp \
 		GUI_TreeControl.cpp \
-		src\NT_System.cpp \
-		src\BEOS_SystemWrapper.cpp \
-		src\SKYFS_Interface.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Attribute.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Hash.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Inode.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Interface.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_PlusTree.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Query.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Utility.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Volume.cpp 
+		src/SKYFS_Interface.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Attribute.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Cache.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Debug.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Hash.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Index.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Inode.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Interface.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Journal.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Query.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp \
+		src/WINNT.cpp \
+		src/HAIKU_System.cpp 
 OBJECTS       = release/GUI_DiskFunc.o \
 		release/GUI_TreeControl.o \
-		release/NT_System.o \
-		release/BEOS_SystemWrapper.o \
 		release/SKYFS_Interface.o \
 		release/BEFS_Attribute.o \
 		release/BEFS_BlockAllocator.o \
@@ -80,14 +78,13 @@ OBJECTS       = release/GUI_DiskFunc.o \
 		release/BEFS_Query.o \
 		release/BEFS_SupportFunctions.o \
 		release/BEFS_Utility.o \
-		release/BEFS_Volume.o
+		release/BEFS_Volume.o \
+		release/WINNT.o \
+		release/HAIKU_System.o
 
 DIST          =  BEFS4WIN_private.h \
 		GUI_DiskFunc.h \
 		BEFS.h \
-		src/BEOS_Defs.h \
-		src/BEOS_SystemWrapper.h \
-		src/NT_System.h \
 		NT_DDK.h \
 		NT_Native.h \
 		SKYFS_Interface.h \
@@ -114,29 +111,33 @@ DIST          =  BEFS4WIN_private.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
-		src/add-ons/kernel/file_systems/befs/BEFS.h GUI_DiskFunc.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS.h \
+		src/HAIKU_Defs.h \
+		src/SKYFS_Interface.h \
+		src/HAIKU_System.h \
+		src/WINNT.h GUI_DiskFunc.cpp \
 		GUI_TreeControl.cpp \
-		src\NT_System.cpp \
-		src\BEOS_SystemWrapper.cpp \
-		src\SKYFS_Interface.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Attribute.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Hash.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Inode.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Interface.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_PlusTree.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Query.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Utility.cpp \
-		src\add-ons\kernel\file_systems\befs\BEFS_Volume.cpp
+		src/SKYFS_Interface.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Attribute.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Cache.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Debug.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Hash.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Index.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Inode.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Interface.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Journal.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Query.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp \
+		src/WINNT.cpp \
+		src/HAIKU_System.cpp
 QMAKE_TARGET  = BEFS4WIN_QT
-DESTDIR        = release\ #avoid trailing-slash linebreak
+DESTDIR        = release/ #avoid trailing-slash linebreak
 TARGET         = BEFS4WIN_QT.exe
-DESTDIR_TARGET = release\BEFS4WIN_QT.exe
+DESTDIR_TARGET = release/BEFS4WIN_QT.exe
 
 ####### Implicit rules
 
@@ -163,15 +164,15 @@ $(DESTDIR_TARGET):  $(OBJECTS)
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.BEFS4WIN_QT.Release  $(LIBS)
 
 qmake: FORCE
-	@$(QMAKE) -spec win32-g++ "CONFIG+=debug" -o Makefile.Release BEFS4WIN_QT.pro
+	@$(QMAKE) -spec win32-g++ CONFIG+=debug -o Makefile.Release BEFS4WIN_QT.pro
 
 qmake_all: FORCE
 
 dist:
-	$(ZIP) BEFS4WIN_QT.zip $(SOURCES) $(DIST) BEFS4WIN_QT.pro ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\qdevice.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\device_config.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\qconfig.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_enginio.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_enginio_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkit.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkit_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\qt_config.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\win32\qt_config.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\spec_post.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\default_pre.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\win32\default_pre.prf deployment.pri ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\default_post.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\build_pass.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\win32\rtti.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\precompile_header.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\warn_on.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\exceptions.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\yacc.prf ..\..\..\..\Qt\5.5\mingw492_32\mkspecs\features\lex.prf BEFS4WIN_QT.pro  NO_PCH_SOURCES YACCSOURCES YACCSOURCES LEXSOURCES 
+	$(ZIP) BEFS4WIN_QT.zip $(SOURCES) $(DIST) BEFS4WIN_QT.pro C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/spec_pre.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/qdevice.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/device_config.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/qconfig.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_bootstrap_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_clucene_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_core.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_core_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_designer.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_designer_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_designercomponents_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_gui.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_gui_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_help.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_help_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_network.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_network_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_platformsupport_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_qml.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_qml_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_qmldevtools_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_quick.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_quick_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_quickparticles_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_sql.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_sql_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_svg.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_svg_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_uiplugin.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_xml.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_xml_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns_private.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/qt_functions.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/qt_config.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/win32/qt_config.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/win32-g++/qmake.conf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/spec_post.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/exclusive_builds.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/default_pre.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/win32/default_pre.prf deployment.pri C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/resolve_config.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/exclusive_builds_post.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/default_post.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/build_pass.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/win32/windows.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/win32/rtti.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/precompile_header.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/warn_on.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/testcase_targets.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/exceptions.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/yacc.prf C:/Qt-5.5.0/5.5/mingw492_32/mkspecs/features/lex.prf BEFS4WIN_QT.pro  NO_PCH_SOURCES YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\GUI_DiskFunc.o release\GUI_TreeControl.o release\NT_System.o release\BEOS_SystemWrapper.o release\SKYFS_Interface.o release\BEFS_Attribute.o release\BEFS_BlockAllocator.o release\BEFS_Cache.o release\BEFS_Debug.o release\BEFS_Hash.o release\BEFS_Index.o release\BEFS_Inode.o release\BEFS_Interface.o release\BEFS_Journal.o release\BEFS_PlusTree.o release\BEFS_Query.o release\BEFS_SupportFunctions.o release\BEFS_Utility.o release\BEFS_Volume.o
+	-$(DEL_FILE) release/GUI_DiskFunc.o release/GUI_TreeControl.o release/SKYFS_Interface.o release/BEFS_Attribute.o release/BEFS_BlockAllocator.o release/BEFS_Cache.o release/BEFS_Debug.o release/BEFS_Hash.o release/BEFS_Index.o release/BEFS_Inode.o release/BEFS_Interface.o release/BEFS_Journal.o release/BEFS_PlusTree.o release/BEFS_Query.o release/BEFS_SupportFunctions.o release/BEFS_Utility.o release/BEFS_Volume.o release/WINNT.o release/HAIKU_System.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -195,14 +196,11 @@ compiler_clean:
 
 release/GUI_DiskFunc.o: GUI_DiskFunc.cpp GUI_DiskFunc.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
+		src/add-ons/kernel/file_systems/befs/BEFS.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Chain.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Cache.h \
@@ -216,18 +214,15 @@ release/GUI_DiskFunc.o: GUI_DiskFunc.cpp GUI_DiskFunc.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h \
 		resource/GUI_resource.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\GUI_DiskFunc.o GUI_DiskFunc.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/GUI_DiskFunc.o GUI_DiskFunc.cpp
 
 release/GUI_TreeControl.o: GUI_TreeControl.cpp GUI_DiskFunc.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
+		src/add-ons/kernel/file_systems/befs/BEFS.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Chain.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Cache.h \
@@ -241,25 +236,14 @@ release/GUI_TreeControl.o: GUI_TreeControl.cpp GUI_DiskFunc.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h \
 		resource/GUI_resource.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\GUI_TreeControl.o GUI_TreeControl.cpp
-
-release/NT_System.o: src/NT_System.cpp src/NT_System.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\NT_System.o src\NT_System.cpp
-
-release/BEOS_SystemWrapper.o: src/BEOS_SystemWrapper.cpp src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEOS_SystemWrapper.o src\BEOS_SystemWrapper.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/GUI_TreeControl.o GUI_TreeControl.cpp
 
 release/SKYFS_Interface.o: src/SKYFS_Interface.cpp src/SKYFS_Interface.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
@@ -271,16 +255,13 @@ release/SKYFS_Interface.o: src/SKYFS_Interface.cpp src/SKYFS_Interface.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\SKYFS_Interface.o src\SKYFS_Interface.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/SKYFS_Interface.o src/SKYFS_Interface.cpp
 
 release/BEFS_Attribute.o: src/add-ons/kernel/file_systems/befs/BEFS_Attribute.cpp src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
@@ -291,18 +272,15 @@ release/BEFS_Attribute.o: src/add-ons/kernel/file_systems/befs/BEFS_Attribute.cp
 		src/add-ons/kernel/file_systems/befs/BEFS_Hash.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Attribute.o src\add-ons\kernel\file_systems\befs\BEFS_Attribute.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Attribute.o src/add-ons/kernel/file_systems/befs/BEFS_Attribute.cpp
 
 release/BEFS_BlockAllocator.o: src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.cpp src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Chain.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Cache.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_DoublyLinkedList.h \
@@ -312,13 +290,13 @@ release/BEFS_BlockAllocator.o: src/add-ons/kernel/file_systems/befs/BEFS_BlockAl
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Control.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_BlockAllocator.o src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp
+		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
+		src/HAIKU_System.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_BlockAllocator.o src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.cpp
 
 release/BEFS_Cache.o: src/add-ons/kernel/file_systems/befs/BEFS_Cache.cpp src/add-ons/kernel/file_systems/befs/BEFS_Cache.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
+		src/add-ons/kernel/file_systems/befs/BEFS.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
@@ -327,21 +305,16 @@ release/BEFS_Cache.o: src/add-ons/kernel/file_systems/befs/BEFS_Cache.cpp src/ad
 		src/add-ons/kernel/file_systems/befs/BEFS_AutoLocker.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
-		src/add-ons/kernel/file_systems/befs/BEFS.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Chain.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Cache.o src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Cache.o src/add-ons/kernel/file_systems/befs/BEFS_Cache.cpp
 
 release/BEFS_Debug.o: src/add-ons/kernel/file_systems/befs/BEFS_Debug.cpp src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
@@ -353,23 +326,19 @@ release/BEFS_Debug.o: src/add-ons/kernel/file_systems/befs/BEFS_Debug.cpp src/ad
 		src/add-ons/kernel/file_systems/befs/BEFS_Hash.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Debug.o src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Debug.o src/add-ons/kernel/file_systems/befs/BEFS_Debug.cpp
 
 release/BEFS_Hash.o: src/add-ons/kernel/file_systems/befs/BEFS_Hash.cpp src/add-ons/kernel/file_systems/befs/BEFS_Hash.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Hash.o src\add-ons\kernel\file_systems\befs\BEFS_Hash.cpp
-
-release/BEFS_Index.o: src/add-ons/kernel/file_systems/befs/BEFS_Index.cpp src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Index.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Hash.o src/add-ons/kernel/file_systems/befs/BEFS_Hash.cpp
+
+release/BEFS_Index.o: src/add-ons/kernel/file_systems/befs/BEFS_Index.cpp src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
+		src/add-ons/kernel/file_systems/befs/BEFS.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Index.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
@@ -381,16 +350,13 @@ release/BEFS_Index.o: src/add-ons/kernel/file_systems/befs/BEFS_Index.cpp src/ad
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Index.o src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Index.o src/add-ons/kernel/file_systems/befs/BEFS_Index.cpp
 
 release/BEFS_Inode.o: src/add-ons/kernel/file_systems/befs/BEFS_Inode.cpp src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
@@ -402,17 +368,14 @@ release/BEFS_Inode.o: src/add-ons/kernel/file_systems/befs/BEFS_Inode.cpp src/ad
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Index.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Inode.o src\add-ons\kernel\file_systems\befs\BEFS_Inode.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Inode.o src/add-ons/kernel/file_systems/befs/BEFS_Inode.cpp
 
 release/BEFS_Interface.o: src/add-ons/kernel/file_systems/befs/BEFS_Interface.cpp src/add-ons/kernel/file_systems/befs/BEFS_Interface.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
@@ -424,18 +387,15 @@ release/BEFS_Interface.o: src/add-ons/kernel/file_systems/befs/BEFS_Interface.cp
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Interface.o src\add-ons\kernel\file_systems\befs\BEFS_Interface.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Interface.o src/add-ons/kernel/file_systems/befs/BEFS_Interface.cpp
 
 release/BEFS_Journal.o: src/add-ons/kernel/file_systems/befs/BEFS_Journal.cpp src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
+		src/add-ons/kernel/file_systems/befs/BEFS.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Chain.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Cache.h \
@@ -443,16 +403,14 @@ release/BEFS_Journal.o: src/add-ons/kernel/file_systems/befs/BEFS_Journal.cpp sr
 		src/add-ons/kernel/file_systems/befs/BEFS_Hash.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Journal.o src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp
+		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
+		src/HAIKU_System.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Journal.o src/add-ons/kernel/file_systems/befs/BEFS_Journal.cpp
 
 release/BEFS_PlusTree.o: src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.cpp src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
@@ -465,17 +423,14 @@ release/BEFS_PlusTree.o: src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.cpp 
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_PlusTree.o src\add-ons\kernel\file_systems\befs\BEFS_PlusTree.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_PlusTree.o src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.cpp
 
 release/BEFS_Query.o: src/add-ons/kernel/file_systems/befs/BEFS_Query.cpp src/add-ons/kernel/file_systems/befs/BEFS_Query.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Chain.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Index.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Index.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
@@ -487,26 +442,23 @@ release/BEFS_Query.o: src/add-ons/kernel/file_systems/befs/BEFS_Query.cpp src/ad
 		src/add-ons/kernel/file_systems/befs/BEFS_Inode.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Journal.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Query.o src\add-ons\kernel\file_systems\befs\BEFS_Query.cpp
+		src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h \
+		src/HAIKU_System.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Query.o src/add-ons/kernel/file_systems/befs/BEFS_Query.cpp
 
 release/BEFS_SupportFunctions.o: src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.cpp src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_SupportFunctions.o src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_SupportFunctions.o src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.cpp
 
 release/BEFS_Utility.o: src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Utility.o src\add-ons\kernel\file_systems\befs\BEFS_Utility.cpp
-
-release/BEFS_Volume.o: src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
-		src/BEOS_SystemWrapper.h \
-		src/BEOS_Defs.h \
-		src/NT_System.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Debug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Utility.o src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp
+
+release/BEFS_Volume.o: src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp src/add-ons/kernel/file_systems/befs/BEFS_Debug.h \
+		src/add-ons/kernel/file_systems/befs/BEFS.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Endian.h \
+		src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Lock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
@@ -519,8 +471,15 @@ release/BEFS_Volume.o: src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp src/
 		src/add-ons/kernel/file_systems/befs/BEFS_CachedBlock.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Query.h \
 		src/add-ons/kernel/file_systems/befs/BEFS_Index.h \
-		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\BEFS_Volume.o src\add-ons\kernel\file_systems\befs\BEFS_Volume.cpp
+		src/add-ons/kernel/file_systems/befs/BEFS_Stack.h \
+		src/WINNT.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/BEFS_Volume.o src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp
+
+release/WINNT.o: src/WINNT.cpp src/WINNT.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/WINNT.o src/WINNT.cpp
+
+release/HAIKU_System.o: src/HAIKU_System.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/HAIKU_System.o src/HAIKU_System.cpp
 
 ####### Install
 

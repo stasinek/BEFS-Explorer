@@ -5,34 +5,36 @@
  *
  * This file may be used under the terms of the MIT License.
  */
+//---------------------------------------------------------------------------
 #ifndef BEFS_H
 #define BEFS_H
-
-#include <BEOS_SystemWrapper.h>
+//---------------------------------------------------------------------------
+#include <HAIKU_System.h>
+#include <WINNT.h>
 #include "BEFS_Endian.h"
-
+//---------------------------------------------------------------------------
 #ifdef _BOOT_MODE
 //namespace BEFS {
 #endif
-
+//---------------------------------------------------------------------------
 // ToDo: temporary fix! (missing but public ioctls)
 #define IOCTL_FILE_UNCACHED_IO	10000
-
+//---------------------------------------------------------------------------
 struct block_run {
-	int32_t		allocation_group;
-	uint16_t		start;
-	uint16_t		length;
+    int32_t		allocation_group;
+    uint16_t		start;
+    uint16_t		length;
 
     int32_t AllocationGroup() const { return /*BEFS_ENDIAN_TO_HOST_INT32*/(allocation_group); }
     uint16_t Start() const { return BEFS_ENDIAN_TO_HOST_INT16(start); }
     uint16_t Length() const { return BEFS_ENDIAN_TO_HOST_INT16(length); }
-	inline bool operator==(const block_run &run) const;
-	inline bool operator!=(const block_run &run) const;
-	inline bool IsZero() const;
-	inline bool MergeableWith(block_run run) const;
-	inline void SetTo(int32_t group, uint16_t start, uint16_t length = 1);
-	inline static block_run Run(int32_t group, uint16_t start, uint16_t length = 1);
-	// can't have a constructor because it's used in a union
+    inline bool operator==(const block_run &run) const;
+    inline bool operator!=(const block_run &run) const;
+    inline bool IsZero() const;
+    inline bool MergeableWith(block_run run) const;
+    inline void SetTo(int32_t group, uint16_t start, uint16_t length = 1);
+    inline static block_run Run(int32_t group, uint16_t start, uint16_t length = 1);
+    // can't have a constructor because it's used in a union
 }/* _PACKED*/;
 
 typedef block_run inode_addr;
@@ -49,25 +51,25 @@ typedef block_run inode_addr;
 
 struct disk_super_block {
         char		name[BEFS_DISK_NAME_LENGTH];
-	int32_t		magic1;
-	int32_t		fs_byte_order;
-	uint32_t		block_size;
-	uint32_t		block_shift;
+    int32_t		magic1;
+    int32_t		fs_byte_order;
+    uint32_t		block_size;
+    uint32_t		block_shift;
         int64_t		num_blocks;
         int64_t		used_blocks;
-	int32_t		inode_size;
-	int32_t		magic2;
-	int32_t		blocks_per_ag;
-	int32_t		ag_shift;
-	int32_t		num_ags;
-	int32_t		flags;
-	block_run	log_blocks;
+    int32_t		inode_size;
+    int32_t		magic2;
+    int32_t		blocks_per_ag;
+    int32_t		ag_shift;
+    int32_t		num_ags;
+    int32_t		flags;
+    block_run	log_blocks;
         int64_t		log_start;
         int64_t		log_end;
-	int32_t		magic3;
-	inode_addr	root_dir;
-	inode_addr	indices;
-	int32_t		pad[8];
+    int32_t		magic3;
+    inode_addr	root_dir;
+    inode_addr	indices;
+    int32_t		pad[8];
 
         int32_t Magic1() const { return BEFS_ENDIAN_TO_HOST_INT32(magic1); }
         int32_t Magic2() const { return BEFS_ENDIAN_TO_HOST_INT32(magic2); }
@@ -85,8 +87,8 @@ struct disk_super_block {
         int64_t LogStart() const { return BEFS_ENDIAN_TO_HOST_INT64(log_start); }
         int64_t LogEnd() const { return BEFS_ENDIAN_TO_HOST_INT64(log_end); }
 
-	// implemented in Volume.cpp:
-	bool IsValid();
+    // implemented in Volume.cpp:
+    bool IsValid();
         void Initialize(const char *name, int64_t numBlocks, uint32_t blockSize);
 }/* _PACKED*/;
 
@@ -97,7 +99,7 @@ struct disk_super_block {
 #define BEFS_SUPER_BLOCK_MAGIC3			0x15b6830e
 
 #define SUPER_BLOCK_MAGIC1			0x534b5931		/* 'SKY1' */
-#define SUPER_BLOCK_MAGIC2			0x33551214	
+#define SUPER_BLOCK_MAGIC2			0x33551214
 #define SUPER_BLOCK_MAGIC3			0x12149977
 
 #define SUPER_BLOCK_DISK_CLEAN		'CLEN'		/* CLEN */
@@ -108,11 +110,11 @@ struct disk_super_block {
 #define NUM_DIRECT_BLOCKS			12
 
 struct data_stream {
-	block_run	direct[NUM_DIRECT_BLOCKS];
+    block_run	direct[NUM_DIRECT_BLOCKS];
         int64_t		max_direct_range;
-	block_run	indirect;
+    block_run	indirect;
         int64_t		max_indirect_range;
-	block_run	double_indirect;
+    block_run	double_indirect;
         int64_t		max_double_indirect_range;
         int64_t		size;
 
@@ -134,26 +136,26 @@ struct data_stream {
 struct bfs_inode;
 
 struct small_data {
-	uint32_t		type;
-	uint16_t		name_size;
-	uint16_t		data_size;
-	char		name[0];	// name_size long, followed by data
+    uint32_t		type;
+    uint16_t		name_size;
+    uint16_t		data_size;
+    char		name[0];	// name_size long, followed by data
 
         uint32_t Type() const { return BEFS_ENDIAN_TO_HOST_INT32(type); }
         uint16_t NameSize() const { return BEFS_ENDIAN_TO_HOST_INT16(name_size); }
         uint16_t DataSize() const { return BEFS_ENDIAN_TO_HOST_INT16(data_size); }
 
-	inline char		*Name() const;
-	inline uint8_t	*Data() const;
-	inline uint32_t	Size() const;
-	inline small_data *Next() const;
-	inline bool		IsLast(const bfs_inode *inode) const;
+    inline char		*Name() const;
+    inline uint8_t	*Data() const;
+    inline uint32_t	Size() const;
+    inline small_data *Next() const;
+    inline bool		IsLast(const bfs_inode *inode) const;
 } /*_PACKED*/;
 
 // the file name is part of the small_data structure
 #define FILE_NAME_TYPE			'CSTR'
-#define FILE_NAME_NAME			0x13 
-#define FILE_NAME_NAME_LENGTH	1 
+#define FILE_NAME_NAME			0x13
+#define FILE_NAME_NAME_LENGTH	1
 
 
 //**************************************
@@ -164,28 +166,28 @@ class Volume;
 
 struct bfs_inode {
 #pragma pack(1)
-	int32_t		magic1;
-	inode_addr	inode_num;
-	int32_t		uid;
-	int32_t		gid;
-	int32_t		mode;				// see sys/stat.h
-	int32_t		flags;
-	bigtime_t	create_time;
-	bigtime_t	last_modified_time;
-	inode_addr	parent;
-	inode_addr	attributes;
-	uint32_t		type;				// attribute type
+    int32_t		magic1;
+    inode_addr	inode_num;
+    int32_t		uid;
+    int32_t		gid;
+    int32_t		mode;				// see sys/stat.h
+    int32_t		flags;
+    bigtime_t	create_time;
+    bigtime_t	last_modified_time;
+    inode_addr	parent;
+    inode_addr	attributes;
+    uint32_t		type;				// attribute type
 
-	int32_t		inode_size;
-	uint32_t		etc;				// a pointer to the Inode object during construction
+    int32_t		inode_size;
+    uint32_t		etc;				// a pointer to the Inode object during construction
 
-	union {
-		data_stream		data;
-		char 			short_symlink[SHORT_SYMLINK_NAME_LENGTH];
-	};
-	int32_t		pad[4];
+    union {
+        data_stream		data;
+        char 			short_symlink[SHORT_SYMLINK_NAME_LENGTH];
+    };
+    int32_t		pad[4];
 #ifndef WIN32
-	small_data	small_data_start[0];
+    small_data	small_data_start[0];
 #endif // WIN32
         int32_t Magic1() const { return BEFS_ENDIAN_TO_HOST_INT32(magic1); }
         int32_t UserID() const { return BEFS_ENDIAN_TO_HOST_INT32(uid); }
@@ -196,15 +198,15 @@ struct bfs_inode {
         int32_t InodeSize() const { return BEFS_ENDIAN_TO_HOST_INT32(inode_size); }
         bigtime_t LastModifiedTime() const { return BEFS_ENDIAN_TO_HOST_INT64(last_modified_time); }
         bigtime_t CreateTime() const { return BEFS_ENDIAN_TO_HOST_INT64(create_time); }
-#ifndef WIN32	
-	small_data *SmallDataStart() { return small_data_start; }
+#ifndef WIN32
+    small_data *SmallDataStart() { return small_data_start; }
 #else
-	small_data *SmallDataStart(){ return (small_data *)(&pad[4]);};
+    small_data *SmallDataStart(){ return (small_data *)(&pad[4]);};
 #endif // WIN32
 
-	status_t InitCheck(Volume *volume);
-		// defined in Inode.cpp
-}/*_PACKED*/;	
+    status_t InitCheck(Volume *volume);
+        // defined in Inode.cpp
+}/*_PACKED*/;
 
 #define INODE_MAGIC1			0x3bbe0ad9
 #define INODE_TIME_SHIFT		16
@@ -212,28 +214,28 @@ struct bfs_inode {
 #define INODE_FILE_NAME_LENGTH	256
 
 enum inode_flags {
-	INODE_IN_USE			= 0x00000001,	// always set
-	INODE_ATTR_INODE		= 0x00000004,
-	INODE_LOGGED			= 0x00000008,	// log changes to the data stream
-	INODE_DELETED			= 0x00000010,
-	INODE_NOT_READY			= 0x00000020,	// used during Inode construction
-	INODE_LONG_SYMLINK		= 0x00000040,	// symlink in data stream
+    INODE_IN_USE			= 0x00000001,	// always set
+    INODE_ATTR_INODE		= 0x00000004,
+    INODE_LOGGED			= 0x00000008,	// log changes to the data stream
+    INODE_DELETED			= 0x00000010,
+    INODE_NOT_READY			= 0x00000020,	// used during Inode construction
+    INODE_LONG_SYMLINK		= 0x00000040,	// symlink in data stream
 
-	INODE_PERMANENT_FLAGS	= 0x0000ffff,
+    INODE_PERMANENT_FLAGS	= 0x0000ffff,
 
-	INODE_WAS_WRITTEN		= 0x00020000,
-	INODE_NO_TRANSACTION	= 0x00040000,
-	INODE_DONT_FREE_SPACE	= 0x00080000,	// only used by the "chkbfs" functionality
+    INODE_WAS_WRITTEN		= 0x00020000,
+    INODE_NO_TRANSACTION	= 0x00040000,
+    INODE_DONT_FREE_SPACE	= 0x00080000,	// only used by the "chkbfs" functionality
         INODE_CHKBEFS_RUNNING	= 0x00200000,
 };
 
 //**************************************
 
 struct file_cookie {
-	bigtime_t last_notification;
+    bigtime_t last_notification;
         int64_t	last_size;
-	//size_t	last_size;
-	int		open_mode;
+    //size_t	last_size;
+    int		open_mode;
 };
 
 // notify every second if the file size has changed
@@ -244,31 +246,31 @@ struct file_cookie {
 
 inline int32_t divide_roundup(int32_t num,int32_t divisor)
 {
-	return (num + divisor - 1) / divisor;
+    return (num + divisor - 1) / divisor;
 }
 
 inline int64_t divide_roundup(int64_t num,int32_t divisor)
 {
-	return (num + divisor - 1) / divisor;
+    return (num + divisor - 1) / divisor;
 }
 
 inline int
 get_shift(uint64_t i)
 {
-	int c;
-	c = 0;
-	while (i > 1) {
-		i >>= 1;
-		c++;
-	}
-	return c;
+    int c;
+    c = 0;
+    while (i > 1) {
+        i >>= 1;
+        c++;
+    }
+    return c;
 }
 
 inline int32_t
 round_up(uint32_t data)
 {
-	// rounds up to the next uint64_t boundary
-	return (data + sizeof(uint64_t) - 1) & ~(sizeof(uint64_t) - 1);
+    // rounds up to the next uint64_t boundary
+    return (data + sizeof(uint64_t) - 1) & ~(sizeof(uint64_t) - 1);
 }
 
 
@@ -279,35 +281,35 @@ round_up(uint32_t data)
 inline bool
 block_run::operator==(const block_run &run) const
 {
-	return allocation_group == run.allocation_group
-		&& start == run.start
-		&& length == run.length;
+    return allocation_group == run.allocation_group
+        && start == run.start
+        && length == run.length;
 }
 
 
 inline bool
 block_run::operator!=(const block_run &run) const
 {
-	return allocation_group != run.allocation_group
-		|| start != run.start
-		|| length != run.length;
+    return allocation_group != run.allocation_group
+        || start != run.start
+        || length != run.length;
 }
 
 
 inline bool
 block_run::IsZero() const
 {
-	return allocation_group == 0 && start == 0 && length == 0;
+    return allocation_group == 0 && start == 0 && length == 0;
 }
 
 
-inline bool 
+inline bool
 block_run::MergeableWith(block_run run) const
 {
-	// 65535 is the maximum allowed run size for BEFS
-	return allocation_group == run.allocation_group
-		&& Start() + Length() == run.Start()
-		&& (uint32_t)Length() + run.Length() <= MAX_BLOCK_RUN_LENGTH;
+    // 65535 is the maximum allowed run size for BEFS
+    return allocation_group == run.allocation_group
+        && Start() + Length() == run.Start()
+        && (uint32_t)Length() + run.Length() <= MAX_BLOCK_RUN_LENGTH;
 }
 
 
@@ -323,11 +325,11 @@ block_run::SetTo(int32_t _group,uint16_t _start,uint16_t _length)
 inline block_run
 block_run::Run(int32_t group, uint16_t start, uint16_t length)
 {
-	block_run run;
+    block_run run;
         run.allocation_group = HOST_ENDIAN_TO_BEFS_INT32(group);
         run.start = HOST_ENDIAN_TO_BEFS_INT16(start);
         run.length = HOST_ENDIAN_TO_BEFS_INT16(length);
-	return run;
+    return run;
 }
 
 
@@ -338,38 +340,38 @@ block_run::Run(int32_t group, uint16_t start, uint16_t length)
 inline char *
 small_data::Name() const
 {
-	return const_cast<char *>(name);
+    return const_cast<char *>(name);
 }
 
 
 inline uint8_t *
 small_data::Data() const
 {
-	return (uint8_t *)Name() + NameSize() + 3;
+    return (uint8_t *)Name() + NameSize() + 3;
 }
 
 
-inline uint32_t 
+inline uint32_t
 small_data::Size() const
 {
-	return sizeof(small_data) + NameSize() + 3 + DataSize() + 1;
+    return sizeof(small_data) + NameSize() + 3 + DataSize() + 1;
 }
 
 
 inline small_data *
 small_data::Next() const
 {
-	return (small_data *)((uint8_t *)this + Size());
+    return (small_data *)((uint8_t *)this + Size());
 }
 
 
 inline bool
 small_data::IsLast(const bfs_inode *inode) const
 {
-	// we need to check the location first, because if name_size is already beyond
-	// the block, we would touch invalid memory (although that can't cause wrong
-	// results)
-	return (uint32_t)this > (uint32_t)inode + inode->InodeSize() - sizeof(small_data) || name_size == 0;
+    // we need to check the location first, because if name_size is already beyond
+    // the block, we would touch invalid memory (although that can't cause wrong
+    // results)
+    return (uint32_t)this > (uint32_t)inode + inode->InodeSize() - sizeof(small_data) || name_size == 0;
 }
 
 #ifdef _BOOT_MODE

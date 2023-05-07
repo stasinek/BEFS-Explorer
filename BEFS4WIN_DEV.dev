@@ -1,12 +1,12 @@
 [Project]
-FileName=BEFS4WIN.dev
-Name=BEFS4WIN
+FileName=BEFS4WIN_DEV.dev
+Name=BEFS4WIN_DEV
 Type=0
 Ver=2
 ObjFiles=
 Includes=./src;.
 Libs=
-PrivateResource=BEFS4WIN_private.rc
+PrivateResource=BEFS4WIN_DEV_private.rc
 ResourceIncludes=
 MakeIncludes=
 Compiler=-Wno-multichar_@@_-Wno-write-strings_@@_
@@ -19,7 +19,7 @@ ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
 OverrideOutput=0
-OverrideOutputName=BEFS4WIN.exe
+OverrideOutputName=BEFS4WIN_DEV.exe
 HostApplication=
 UseCustomMakefile=0
 CustomMakefile=

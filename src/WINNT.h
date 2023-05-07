@@ -1,9 +1,15 @@
 #ifndef NT_SYSTEM_H
 #define NT_SYSTEM_H
 //---------------------------------------------------------------------------
-#include <winsock2.h>
-#include <windows.h>
-#include <winioctl.h>
+#ifdef  WIN32
+    #include <winsock2.h>
+    #include <windows.h>
+    #include <winioctl.h>
+    #include <conio.h>
+    #include <direct.h>
+    #include <io.h>
+    #include <WINNT.h>  //for NTCreateFile
+#endif
 //---------------------------------------------------------------------------
 #ifndef _In_
 #define _In_

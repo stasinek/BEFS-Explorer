@@ -6,13 +6,13 @@
  * this stuff is worth it, you can buy me a beer in return. Poul-Henning Kamp
  * ----------------------------------------------------------------------------
  */
-#ifndef BEOS_SUPPORTDEFS_H
-#define BEOS_SUPPORTDEFS_H
-
+//---------------------------------------------------------------------------
+#ifndef HAIKU_SUPPORTDEFS_H
+#define HAIKU_SUPPORTDEFS_H
+//---------------------------------------------------------------------------
 #ifdef _MSC_VER
 #define __MSVC__
 #endif
-
 #if defined(__MSVC__)
     #pragma warning (default: 4005)
     #pragma warning (disable: 4005)
@@ -37,14 +37,6 @@
     //C:\WINDDK\3790.1830\lib\wxp\i386\ntdll.lib // NTCreateFile
 #endif
 #define _CRT_SECURE_NO_DEPRECATE 1
-#ifdef  WIN32
-    #include <winsock2.h>
-    #include <windows.h>
-    #include <conio.h>
-    #include <direct.h>
-    #include <io.h>
-    #include <NT_System.h>  //for NTCreateFile
-#endif
 //access to the debugfile
 #define Print  printf
 #define print  printf

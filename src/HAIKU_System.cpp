@@ -6,8 +6,8 @@
 *  this stuff is worth it, you can buy me a beer in return. Poul-Henning Kamp
 *  ----------------------------------------------------------------------------
 */
-#include <BEOS_SystemWrapper.h>
-#include <NT_System.h>
+#include <HAIKU_SystemWrapper.h>
+#include <NT_SystemWrapper.h>
 
 int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size)
 {

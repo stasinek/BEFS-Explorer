@@ -6,14 +6,14 @@
  * this stuff is worth it, you can buy me a beer in return. Poul-Henning Kamp
  * ----------------------------------------------------------------------------
  */
-#ifndef BEOS_SYSTEM_H
-#define BEOS_SYSTEM_H
+#ifndef BEOS_SYSTEMWRAPPER_H
+#define BEOS_SYSTEMERAPPER_H
 //
 #ifndef _IMPEXP_KERNEL
 #define _IMPEXP_KERNEL
 #endif
-
-#include <BEOS_Defs.h>
+#include <HAIKU_Defs.h>
+#include <WINNT.h>
 //
 // UID, GID
 //

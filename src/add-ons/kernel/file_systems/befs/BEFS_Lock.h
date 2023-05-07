@@ -4,12 +4,13 @@
  * Copyright 2001-2006, Axel Dörfler, axeld@pinc-software.de.
  * This file may be used under the terms of the MIT License.
  */
+//---------------------------------------------------------------------------
 #ifndef BEFS_LOCK_H
 #define BEFS_LOCK_H
 //---------------------------------------------------------------------------
+#include "BEFS.h"
 #include "BEFS_Debug.h"
 #include "BEFS_Utility.h"
-#include "BEFS.h"
 //---------------------------------------------------------------------------
 typedef struct recursive_lock {
     sem_id      sem;

@@ -17,7 +17,7 @@
 #include <src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_Interface.h>
 #include <src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h>
-#include <BEOS_SystemWrapper.h>
+#include <SKYFS_Interface.h>
 //-----------------------------------------------------------------------------
 // WINDOWS CRT include files
 #define _CRT_SECURE_NO_DEPRECATE 1

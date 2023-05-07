@@ -15,7 +15,7 @@
 //read_pos and write_pos
 #include "BEFS_Cache.h"
 
-#include <NT_System.h>
+#include <WINNT.h>
 
 //extern ofstream debug;
 static const int32_t kDesiredAllocationGroups = 56;

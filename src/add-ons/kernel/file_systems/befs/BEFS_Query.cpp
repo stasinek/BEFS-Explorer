@@ -17,7 +17,7 @@
 #include "BEFS_PlusTree.h"
 #include "BEFS_Index.h"
 #include "BEFS_Stack.h"
-#include <BEOS_SystemWrapper.h>
+#include <HAIKU_System.h>
 
 
 // The parser has a very static design, but it will do what is required.

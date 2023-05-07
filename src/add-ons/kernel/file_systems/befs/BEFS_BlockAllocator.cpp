@@ -12,7 +12,7 @@
 #include "BEFS_Control.h"
 #include "BEFS_DoublyLinkedList.h"
 #include "BEFS_Stack.h"
-#include <BEOS_SystemWrapper.h>
+#include <HAIKU_System.h>
 
 // Things the BlockAllocator should do:
 

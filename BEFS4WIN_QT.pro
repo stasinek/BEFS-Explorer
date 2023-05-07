@@ -4,19 +4,17 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 INCLUDEPATH += src
-INCLUDEPATH += C:/OpenSSL-Win32/include
-LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/libcrypto.a"
-LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/llibssl.a"
-#LIBS += -L"./../../../../x86_libraries/BHAPI" -libbhapi
-#LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib" -lubsec
-#LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -lssleay32
-#LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -llibeay32
+INCLUDEPATH += C:/OpenSSL-Win32/include$
+#LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/libcrypto.a"
+#LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/llibssl.a"
+LIBS += -L"./../../../../x86_libraries/BHAPI" -libbhapi
+LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib" -lubsec
+LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -lssleay32
+LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -llibeay32
 
 SOURCES += \
     GUI_DiskFunc.cpp \
     GUI_TreeControl.cpp \
-    src/NT_System.cpp \
-    src/BEOS_SystemWrapper.cpp \
     src/SKYFS_Interface.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_Attribute.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.cpp \
@@ -31,7 +29,9 @@ SOURCES += \
     src/add-ons/kernel/file_systems/befs/BEFS_Query.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp \
-    src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp
+    src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp \
+    src/WINNT.cpp \
+    src/HAIKU_System.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -40,9 +40,6 @@ HEADERS += \
     BEFS4WIN_private.h \
     GUI_DiskFunc.h \
     BEFS.h \
-    src/BEOS_Defs.h \
-    src/BEOS_SystemWrapper.h \
-    src/NT_System.h \
     NT_DDK.h \
     NT_Native.h \
     SKYFS_Interface.h \
@@ -69,7 +66,11 @@ HEADERS += \
     src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
-    src/add-ons/kernel/file_systems/befs/BEFS.h
+    src/add-ons/kernel/file_systems/befs/BEFS.h \
+    src/HAIKU_Defs.h \
+    src/SKYFS_Interface.h \
+    src/HAIKU_System.h \
+    src/WINNT.h
 
 LIBS += -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32
 LIBS += -lole32 -lshell32 -lcomctl32 -lwinmm

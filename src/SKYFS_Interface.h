@@ -10,8 +10,8 @@
 #ifndef SKYFS_INTERFACE_H
 #define SKYFS_INTERFACE_H
 
-#include <BEOS_SystemWrapper.h>
 #include <add-ons/kernel/file_systems/befs/BEFS_Attribute.h> //for struct attr_cookie
+#include <WINNT.h> //for Windows API
 
 status_t skyfs_lookup(void *_ns, void *_directory, const char *file, vnode_id *_vnodeID, int *_type);
 status_t skyfs_get_vnode_name(void* _fs, fs_vnode _node, char *buffer, size_t bufferSize);

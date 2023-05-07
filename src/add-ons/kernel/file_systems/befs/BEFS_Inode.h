@@ -2,23 +2,22 @@
  * Copyright 2001-2007, Axel Dörfler, axeld@pinc-software.de.
  * This file may be used under the terms of the MIT License.
  */
-#ifndef INODE_H
-#define INODE_H
-
-#include "BEFS.h"
-
+//---------------------------------------------------------------------------
+#ifndef BEFS_INODE_H
+#define BEFS_INODE_H
+//---------------------------------------------------------------------------
 #ifndef _IMPEXP_KERNEL
 #	define _IMPEXP_KERNEL
 #endif
-
+//---------------------------------------------------------------------------
+#include "BEFS.h"
 #include "BEFS_Volume.h"
 #include "BEFS_Journal.h"
 #include "BEFS_Lock.h"
 #include "BEFS_Chain.h"
 #include "BEFS_Debug.h"
 #include "BEFS_CachedBlock.h"
-
-
+//---------------------------------------------------------------------------
 void fill_stat_buffer(Inode *inode, struct attr_stat &stat);
 class BPlusTree;
 class TreeIterator;
@@ -26,8 +25,7 @@ class AttributeIterator;
 class Index;
 class InodeAllocator;
 class NodeGetter;
-
-
+//---------------------------------------------------------------------------
 enum inode_type {
     S_DIRECTORY		= S_IFDIR,
     S_FILE			= S_IFREG,

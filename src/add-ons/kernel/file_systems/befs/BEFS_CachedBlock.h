@@ -3,16 +3,16 @@
  * Copyright 2001-2004, Axel Dörfler, axeld@pinc-software.de.
  * This file may be used under the terms of the MIT License.
  */
+//---------------------------------------------------------------------------
 #ifndef BEFS_CACHED_BLOCK_H
 #define BEFS_CACHED_BLOCK_H
 //---------------------------------------------------------------------------
+#include "BEFS.h"
 #include "BEFS_Volume.h"
 #include "BEFS_Journal.h"
 #include "BEFS_Lock.h"
 #include "BEFS_Chain.h"
 #include "BEFS_Debug.h"
-//---------------------------------------------------------------------------
-#include "BEFS.h"
 //---------------------------------------------------------------------------
 // The CachedBlock class is completely implemented as inlines.
 // It should be used when cache single blocks to make sure they

@@ -1,13 +1,16 @@
+//---------------------------------------------------------------------------
 #ifndef BEFS_CHAIN_H
 #define BEFS_CHAIN_H
+//---------------------------------------------------------------------------
 /* Chain - a chain implementation; it's used for the callback management
 **		throughout the code (currently TreeIterator, and AttributeIterator).
 **
 ** Initial version by Axel Dörfler, axeld@pinc-software.de
 ** This file may be used under the terms of the OpenBeOS License.
 */
+//---------------------------------------------------------------------------
 #include "BEFS.h"
-
+//---------------------------------------------------------------------------
 /** The Link class you want to use with the Chain class needs to have
  *	a "fNext" member which is accessable from within the Chain class.
  */
