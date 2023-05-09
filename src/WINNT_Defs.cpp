@@ -22,7 +22,8 @@ __ntdll_handle = LoadLibraryA("ntdll.dll");
  if (__ntdll_handle!=NULL)
     {
     // If the function address is valid, set the function ptrs.
-    NtCreateFile = (__NtCreateFile)GetProcAddress(__ntdll_handle,"NtCreateFile");
+#if !defined(_MSC_VER)
+		NtCreateFile = (__NtCreateFile)GetProcAddress(__ntdll_handle,"NtCreateFile");
         assert(NtCreateFile!=NULL);
     NtReadFile = (__NtReadFile)GetProcAddress(__ntdll_handle,"NtReadFile");
         assert(NtReadFile!=NULL);
@@ -30,6 +31,7 @@ __ntdll_handle = LoadLibraryA("ntdll.dll");
         assert(NtWriteFile!=NULL);
     NtClose = (__NtClose)GetProcAddress(__ntdll_handle,"NtClose");
         assert(NtClose!=NULL);
+#endif
     __ntdll_loaded = true;
     return 0;
    }

@@ -31,7 +31,9 @@ SOURCES += \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp \
     src/WINNT.cpp \
-    src/HAIKU_System.cpp
+    src/HAIKU_System.cpp \
+    src/HAIKU_Defs.cpp \
+    src/WINNT_Defs.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -70,7 +72,9 @@ HEADERS += \
     src/HAIKU_Defs.h \
     src/SKYFS_Interface.h \
     src/HAIKU_System.h \
-    src/WINNT.h
+    src/WINNT.h \
+    src/WINNT_Defs.h \
+    resource/GUI_TreeControl.rc
 
 LIBS += -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32
 LIBS += -lole32 -lshell32 -lcomctl32 -lwinmm

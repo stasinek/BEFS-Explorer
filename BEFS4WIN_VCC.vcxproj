@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>BEFS-Explorer</ProjectName>
+    <ProjectGuid>{5D617433-0460-4F88-85F7-4490EB00D564}</ProjectGuid>
+    <RootNamespace>SkyFS</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/BEFS4WIN_VCC.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StructMemberAlignment>4Bytes</StructMemberAlignment>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\Release/BEFS4WIN_VCC.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalIncludeDirectories>./src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x040d</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/BEFS4WIN_VCC.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>.\Release/BEFS4WIN_VCC.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/BEFS4WIN_VCC.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>./src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\Debug/BEFS4WIN_VCC.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ShowIncludes>false</ShowIncludes>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x040d</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;LIBCMTD.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>Debug/SkyFS.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD.lib ntdll.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)skyfs.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>./src;./src/add-ons/kernel/file_systems/befs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="resource\bitmap3.bmp" />
+    <None Include="resource\ICOkeyg.ico" />
+    <None Include="resource\icon1.ico" />
+    <None Include="resource\LIST.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource\GUI_TreeControl.rc">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">resource;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">resource;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GUI_DiskFunc.cpp" />
+    <ClCompile Include="GUI_TreeControl.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Attribute.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Cache.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Debug.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Hash.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Index.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Inode.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Interface.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Journal.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_PlusTree.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Query.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_SupportFunctions.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Utility.cpp" />
+    <ClCompile Include="src\add-ons\kernel\file_systems\befs\BEFS_Volume.cpp" />
+    <ClCompile Include="src\HAIKU_Defs.cpp" />
+    <ClCompile Include="src\SKYFS_Interface.cpp" />
+    <ClCompile Include="src\WINNT_Defs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GUI_DiskFunc.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Attribute.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_AUTOLOCKER.H" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_BlockAllocator.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Cache.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_CachedBlock.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Chain.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Control.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Debug.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_DoublyLinkedList.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Endian.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Hash.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Index.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Inode.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Interface.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Journal.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Lock.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Logging.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_PlusTree.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Query.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Stack.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_SUPPORTFUNCTIONS.H" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Utility.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEFS_Volume.h" />
+    <ClInclude Include="src\add-ons\kernel\file_systems\befs\BEOS_System_Dependencies.h" />
+    <ClInclude Include="src\HAIKU_Defs.h" />
+    <ClInclude Include="src\SKYFS_Interface.h" />
+    <ClInclude Include="src\WINNT_Defs.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="resource\GUI_TreeControl.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
