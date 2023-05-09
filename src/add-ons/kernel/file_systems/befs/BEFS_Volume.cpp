@@ -7,6 +7,7 @@
 
 #define _CRT_SECURE_NO_DEPRECATE 1
 
+#include "BEFS.h"
 #include "BEFS_Debug.h"
 #include "BEFS_Volume.h"
 #include "BEFS_Journal.h"
@@ -14,8 +15,6 @@
 #include "BEFS_Query.h"
 //read_pos and write_pos
 #include "BEFS_Cache.h"
-
-#include <WINNT.h>
 
 //extern ofstream debug;
 static const int32_t kDesiredAllocationGroups = 56;

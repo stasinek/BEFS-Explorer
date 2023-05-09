@@ -2,13 +2,13 @@
  * Copyright 2001-2007, Axel Dörfler, axeld@pinc-software.de.
  * This file may be used under the terms of the MIT License.
  */
-//---------------------------------------------------------------------------
 #ifndef BEFS_PLUS_TREE_H
 #define BEFS_PLUS_TREE_H
+
 //---------------------------------------------------------------------------
-#include "BEFS.h"
 #include "BEFS_Journal.h"
 #include "BEFS_Chain.h"
+#include "BEFS.h"
 //---------------------------------------------------------------------------
 //	#pragma mark - on-disk structures
 struct bplustree_node;

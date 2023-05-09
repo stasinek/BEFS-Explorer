@@ -3,12 +3,12 @@
  * Copyright 2001-2005, Axel Dörfler, axeld@pinc-software.de.
  * This file may be used under the terms of the MIT License.
  */
-//---------------------------------------------------------------------------
-#ifndef BEFS_STACK_H
-#define BEFS_STACK_H
-//---------------------------------------------------------------------------
+
+#ifndef FSSH_STACK_H
+#define FSSH_STACK_H
+
 #include "BEFS.h"
-//---------------------------------------------------------------------------
+
 template<class T> class Stack {
     public:
         Stack()

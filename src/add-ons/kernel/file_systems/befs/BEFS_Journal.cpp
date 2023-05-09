@@ -5,12 +5,11 @@
  */
 
 //---------------------------------------------------------------------------
+#include "BEFS.h"
 #include "BEFS_Journal.h"
 #include "BEFS_Inode.h"
 #include "BEFS_Debug.h"
 #include "BEFS_Stack.h"
-//for write_pos
-#include <HAIKU_System.h>
 //---------------------------------------------------------------------------
 
 struct run_array {

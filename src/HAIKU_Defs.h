@@ -7,11 +7,13 @@
  * ----------------------------------------------------------------------------
  */
 //---------------------------------------------------------------------------
-#ifndef HAIKU_SUPPORTDEFS_H
-#define HAIKU_SUPPORTDEFS_H
+#ifndef HAIKU_DEFS_H
+#define HAIKU_DEFS_H
+//---------------------------------------------------------------------------
+#include <WINNT_Defs.h>
 //---------------------------------------------------------------------------
 #ifdef _MSC_VER
-#define __MSVC__
+	#define __MSVC__
 #endif
 #if defined(__MSVC__)
     #pragma warning (default: 4005)
@@ -113,9 +115,11 @@ extern std::ofstream debug;
 #ifndef LONG_LONG_MAX
 #define LONG_LONG_MAX 9223372036854775807LL
 #endif
+
 #ifndef LONG_MAX
 #define LONG_MAX 2147483647L
 #endif
+
 #ifndef LONG_MIN
 #define LONG_MIN (-LONG_MAX - 1L)
 #endif
@@ -123,8 +127,13 @@ extern std::ofstream debug;
 #define	NAME_MAX			255	/* max bytes in a file name */
 #define B_FILE_NAME_LENGTH	NAME_MAX
 #define B_OS_NAME_LENGTH	32
+
+#ifndef O_ACCMODE
 #define O_ACCMODE			0003
+#endif
+#ifndef O_RWMASK
 #define O_RWMASK			O_ACCMODE
+#endif
 #define	O_RDONLY			0		/* +1 == FREAD */
 #define	O_WRONLY			1		/* +1 == FWRITE */
 #define	O_RDWR				2		/* +1 == FREAD|FWRITE */
@@ -194,6 +203,7 @@ enum {
 #define	S_LINK_SELF_HEALING	00001000000	/* link will be updated if you move its target */
 #define S_LINK_AUTO_DELETE	00002000000	/* link will be deleted if you delete its target */
 /* standard file types */
+#ifndef S_IFMT
 #define S_IFMT				00000170000 /* type of file */
 #define	S_IFLNK				00000120000 /* symbolic link */
 #define S_IFREG 			00000100000 /* regular */
@@ -201,29 +211,41 @@ enum {
 #define S_IFDIR 			00000040000 /* directory */
 #define S_IFCHR 			00000020000 /* character special */
 #define S_IFIFO 			00000010000 /* fifo */
+#endif
 
 #if defined(__MSVC__)
 #pragma warning( default: 4005 )
 #endif
 
-//#define S_IFREG				00000100000 /* regular */
-//#define	S_IFLNK				00000120000 /* symbolic link */
-//#define S_IFDIR 			00000040000 /* directory */
-//#define _IFMT				0170000  // TODO: do I need this? added it for S_ISLNK
-//#define S_STR_INDEX			'CSTR'
-//#define S_INT_INDEX			'LONG'
-//#define S_UINT_INDEX		'ULNG'
-//#define S_LONG_LONG_INDEX	'LLNG'
-//#define S_ULONG_LONG_INDEX	'ULLG'
-//#define S_FLOAT_INDEX		'FLOT'
-//#define S_DOUBLE_INDEX		'DBLE'
-//#define S_ATTR_DIR			01000000000
-//#define S_ATTR				02000000000
-//#define S_INDEX_DIR			04000000000
-//#define S_ALLOW_DUPS		00002000000
+#ifndef S_IFREG
+#define S_IFREG				00000100000 /* regular */
+#endif
+#ifndef S_IFLNK
+#define	S_IFLNK				00000120000 /* symbolic link */
+#endif
+#ifndef S_IFDIR
+#define S_IFDIR 			00000040000 /* directory */
+#define _IFMT				0170000  // TODO: do I need this? added it for S_ISLNK
+#endif
 
+#define S_STR_INDEX			'CSTR'
+#define S_INT_INDEX			'LONG'
+#define S_UINT_INDEX		'ULNG'
+#define S_LONG_LONG_INDEX	'LLNG'
+#define S_ULONG_LONG_INDEX	'ULLG'
+#define S_FLOAT_INDEX		'FLOT'
+#define S_DOUBLE_INDEX		'DBLE'
+#define S_ATTR_DIR			01000000000
+#define S_ATTR				02000000000
+#define S_INDEX_DIR			04000000000
+#define S_ALLOW_DUPS		00002000000
+
+#ifndef S_ISLNK(m)
 #define S_ISLNK(m)	((((m)) & S_IFMT) == S_IFLNK)
+#endif
+#ifndef S_ISDIR(m)
 #define S_ISDIR(m)	((((m)) & S_IFDIR)== S_IFDIR)
+#endif
 
 #ifndef O_TRUNC
 #define O_TRUNC 0x0002
@@ -233,7 +255,7 @@ enum {
 #endif
 
 #define B_GET_GEOMETRY	7   //some ioctl
-//from TypeConstants.h
+//from HAIKU TypeConstants.h
 enum  	{
   B_ANY_TYPE = 'ANYT',
   B_ATOM_TYPE = 'ATOM',
@@ -400,6 +422,65 @@ typedef struct device_geometry
 } device_geometry;
 
 #define min_c(a, b)   ((a)>(b)?(b):(a))
+
+//
+// UID, GID
+//
+gid_t getegid(void);
+uid_t geteuid(void);
+
+// ?
+int32_t read_pos(HANDLE fDevice, int64_t sStart, void* data, uint32_t size);
+int32_t read_pos2(HANDLE fDevice, int64_t sStart, void* data, uint32_t size);
+int32_t write_pos(HANDLE fDevice, int64_t sStart, void* data, uint32_t size);
+ssize_t	readv_pos(HANDLE fd, int64_t pos, const struct iovec *vec, size_t count);
+ssize_t	writev_pos(HANDLE fd, int64_t pos, const struct iovec *vec,size_t count);
+//
+// Threads
+//
+status_t resume_thread(thread_id id);
+//
+// Threads::Semaphore
+//
+status_t acquire_sem(sem_id sem);
+status_t acquire_sem_etc(sem_id sem, uint32_t count, uint32_t flags, bigtime_t timeout);
+sem_id create_sem(uint32_t thread_count, const char *name);
+status_t delete_sem(sem_id sem);
+status_t release_sem(sem_id sem);
+status_t release_sem_etc(sem_id sem, int32_t count, uint32_t flags);
+//
+// Threads::Atomic
+//
+int32_t	atomic_add (int32_t *value, int32_t addValue);
+int32_t	atomic_set (int32_t *value, int32_t newValue);
+//
+// V-node
+//
+status_t get_vnode(int32_t fs, vnode_id id, void **_vnode);
+status_t publish_vnode (uint32_t mountID, int64_t vnodeID, void* privateNode);
+status_t new_vnode (uint32_t mountID, int64_t vnodeID, void* privateNode);
+status_t remove_vnode (uint32_t mountID, int64_t vnodeID);
+status_t unremove_vnode (uint32_t mountID, int64_t vnodeID);
+status_t put_vnode (uint32_t mountID, int64_t vnodeID);
+//
+// Query
+//
+void notify_query_entry_created(int32_t a, int32_t b, uint32_t c,int64_t d, const char* e, int64_t f);
+void notify_query_entry_removed(int32_t a, int32_t b, uint32_t c,int64_t d, const char* e, int64_t f);
+//
+// Cache Callback
+//
+typedef void (*tFoo)(int32_t f, void*ff);
+//
+// Cache
+//
+status_t cache_next_block_in_transaction(void* a, int32_t,uint32_t* b, int64_t * c, int32_t d, int32_t e);
+void cache_abort_sub_transaction(void* d, int32_t id);
+void cache_abort_transaction(void* d, int32_t id);
+int32_t cache_blocks_in_transaction(void* d, int32_t id);
+void cache_end_transaction(void* d, int32_t id, void (*callback)(int,void*), void*);
+int32_t cache_start_sub_transaction(void* d, int32_t id);
+int32_t cache_start_transaction(void* d);
 
 #endif // BEOS_DEFS_H
 

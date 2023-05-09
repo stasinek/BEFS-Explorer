@@ -4,6 +4,7 @@
  */
 
 //! block bitmap handling and allocation policies
+#include "BEFS.h"
 #include "BEFS_BlockAllocator.h"
 #include "BEFS_Debug.h"
 #include "BEFS_Volume.h"
@@ -12,7 +13,6 @@
 #include "BEFS_Control.h"
 #include "BEFS_DoublyLinkedList.h"
 #include "BEFS_Stack.h"
-#include <HAIKU_System.h>
 
 // Things the BlockAllocator should do:
 

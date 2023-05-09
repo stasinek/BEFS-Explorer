@@ -9,8 +9,8 @@
 #ifndef BEFS_H
 #define BEFS_H
 //---------------------------------------------------------------------------
-#include <HAIKU_System.h>
-#include <WINNT.h>
+#include "HAIKU_Defs.h"
+#include "WINNT_Defs.h"
 #include "BEFS_Endian.h"
 //---------------------------------------------------------------------------
 #ifdef _BOOT_MODE

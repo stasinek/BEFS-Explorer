@@ -2,13 +2,13 @@
  * Copyright 2005-2006, Ingo Weinhold, bonefish@users.sf.net. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
-//---------------------------------------------------------------------------
-#ifndef BEFS_DOUBLY_LINKED_LIST_H
-#define BEFS_DOUBLY_LINKED_LIST_H
-//---------------------------------------------------------------------------
+#ifndef KERNEL_UTIL_DOUBLY_LINKED_LIST_H
+#define KERNEL_UTIL_DOUBLY_LINKED_LIST_H
+
 #include "BEFS.h"
-//---------------------------------------------------------------------------
-template<typename Element> class DoublyLinkedListLink {
+
+template<typename Element>
+class DoublyLinkedListLink {
 public:
     DoublyLinkedListLink() : previous(NULL), next(NULL) {}
     ~DoublyLinkedListLink() {}

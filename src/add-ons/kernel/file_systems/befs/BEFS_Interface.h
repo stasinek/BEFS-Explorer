@@ -6,12 +6,12 @@
  * this stuff is worth it, you can buy me a beer in return. Poul-Henning Kamp
  * ----------------------------------------------------------------------------
  */
-//---------------------------------------------------------------------------
+
 #ifndef BEFS_INTERFACE_H
 #define BEFS_INTERFACE_H
 //-----------------------------------------------------------------------------
-#include "BEFS.h"
 #include "BEFS_Attribute.h" //for struct attr_cookie
+#include "BEFS.h"
 //-----------------------------------------------------------------------------
 status_t bfs_open_dir(void *, void *, void **);
 status_t bfs_read_dir(void *_ns, void *_node, void *_cookie, struct dirent_t *Dirent,

@@ -2,19 +2,19 @@
 ** Copyright 2001-2002, Travis Geiselbrecht. All rights reserved.
 ** Distributed under the terms of the NewOS License.
 */
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #ifndef BEFS_HASH_H
 #define BEFS_HASH_H
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #include "BEFS.h"
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // can be allocated on the stack
 typedef struct hash_iterator {
     void *current;
     int bucket;
 } hash_iterator;
-//---------------------------------------------------------------------------
 typedef struct hash_table hash_table;
+//-----------------------------------------------------------------------------
 extern struct hash_table *hash_init(uint32_t table_size, int next_ptr_offset,
     int compare_func(void *element, const void *key),
     uint32_t hash_func(void *element, const void *key, uint32_t range));

@@ -5,18 +5,17 @@
 * Authors:
 *      IngoWeinhold <bonefish@cs.tu-berlin.de>
 */
-//---------------------------------------------------------------------------
+
 /** Scope-based automatic deletion of objects/arrays.
 *                  ObjectDeleter - deletes an object
 *                  ArrayDeleter  - deletes an array
 *                  MemoryDeleter - free()s malloc()ed memory
 */
-
 //---------------------------------------------------------------------------
 #ifndef BEFS_AUTO_LOCKER_H
 #define BEFS_AUTO_LOCKER_H
 //---------------------------------------------------------------------------
-#include <HAIKU_System.h>
+#include "BEFS.h"
 //---------------------------------------------------------------------------
 // lockin AutoLockerStandardLocking
 template<typename Lockable>

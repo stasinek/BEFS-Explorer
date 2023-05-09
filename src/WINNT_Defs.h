@@ -1,5 +1,5 @@
-#ifndef NT_SYSTEM_H
-#define NT_SYSTEM_H
+#ifndef NT_DEFS_H
+#define NT_DEFS_H
 //---------------------------------------------------------------------------
 #ifdef  WIN32
     #include <winsock2.h>

@@ -7,10 +7,10 @@
 #ifndef BEFS_QUERY_H
 #define BEFS_QUERY_H
 //---------------------------------------------------------------------------
-#include "BEFS.h"
 #include "BEFS_Chain.h"
 #include "BEFS_Index.h"
 #include "BEFS_Stack.h"
+#include "BEFS.h"
 //---------------------------------------------------------------------------
 class Volume;
 class Term;

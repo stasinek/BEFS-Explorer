@@ -3,11 +3,11 @@
   xmlns="urn:schemas-microsoft-com:asm.v1"
   manifestVersion="1.0">
 <assemblyIdentity
-    name="DevCpp.Apps.BEFS4WIN"
+    name="DevCpp.Apps.BEFS4WIN_DEV"
     processorArchitecture="*"
     version="1.0.0.0"
     type="win32"/>
-<description>BEFS4WIN</description>
+<description>BEFS4WIN_DEV</description>
 <dependency>
     <dependentAssembly>
         <assemblyIdentity

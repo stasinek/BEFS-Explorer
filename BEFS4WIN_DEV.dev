@@ -4,13 +4,13 @@ Name=BEFS4WIN_DEV
 Type=0
 Ver=2
 ObjFiles=
-Includes=./src;.
+Includes=E:\SRC\PROGS\CPP\BEFS4WIN\src;./src;./src/add-ons/kernel/file_systems/befs;.
 Libs=
 PrivateResource=BEFS4WIN_DEV_private.rc
 ResourceIncludes=
 MakeIncludes=
-Compiler=-Wno-multichar_@@_-Wno-write-strings_@@_
-CppCompiler=-Wno-multichar_@@_-Wno-write-strings_@@_
+Compiler=-Wno-multichar_@@_-Wno-write-strings_@@_-I "./../../../../"_@@_
+CppCompiler=-Wno-multichar_@@_-Wno-write-strings_@@_-I "./../../../../"_@@_
 Linker=-mwindows _@@_-mthreads_@@_-lkernel32_@@_-luser32_@@_-lshell32 _@@_-lcomctl32_@@_-lwinmm_@@_
 IsCpp=1
 Icon=
@@ -25,11 +25,11 @@ UseCustomMakefile=0
 CustomMakefile=
 CommandLine=
 Folders=
-IncludeVersionInfo=0
+IncludeVersionInfo=1
 SupportXPThemes=1
-CompilerSet=4
-CompilerSettings=0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0
-UnitCount=46
+CompilerSet=3
+CompilerSettings=0000000100000000000000000
+UnitCount=49
 
 [VersionInfo]
 Major=1
@@ -461,7 +461,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit44]
-FileName=src\BEOS_SystemWrapper.cpp
+FileName=src\WINNT_Defs.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -471,7 +471,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit45]
-FileName=src\NT_System.cpp
+FileName=src\SKYFS_Interface.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -481,7 +481,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit46]
-FileName=src\BEOS_Defs.h
+FileName=src\SKYFS_Interface.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -491,7 +491,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit47]
-FileName=NT_System.cpp
+FileName=src\HAIKU_Defs.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -501,7 +501,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit48]
-FileName=NT_System.h
+FileName=src\HAIKU_Defs.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -509,16 +509,6 @@ Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
-
-[Unit50]
-FileName=NT_System.cpp
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-CompileCpp=1
 
 [Unit51]
 FileName=src\add-ons\kernel\file_systems\befs\BEFS_Volume.h
@@ -601,7 +591,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit49]
-FileName=NT_System.cpp
+FileName=src\add-ons\kernel\file_systems\befs\BEFS.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -621,7 +611,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit43]
-FileName=src\BEOS_SystemWrapper.h
+FileName=src\WINNT_Defs.cpp
 CompileCpp=1
 Folder=
 Compile=1

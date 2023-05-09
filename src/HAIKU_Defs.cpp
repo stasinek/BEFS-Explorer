@@ -6,8 +6,8 @@
 *  this stuff is worth it, you can buy me a beer in return. Poul-Henning Kamp
 *  ----------------------------------------------------------------------------
 */
-#include <HAIKU_SystemWrapper.h>
-#include <NT_SystemWrapper.h>
+#include <HAIKU_Defs.h>
+#include <WINNT_Defs.h>
 
 int read_pos(HANDLE fDevice, int64_t sStart, void* data, unsigned int size)
 {
@@ -384,18 +384,19 @@ void cache_abort_transaction(void* d, int id)
 }
 
 
-int32_t cache_blocks_in_transaction(void* d, int id)
+int32_t cache_blocks_in_transaction(void* d, int32_t id)
 {
 	printf("cache_blocks_in_transaction not implemented\n");
 	return 0;
 }
+//TODO: verify parameters types! specially f 
 
-void cache_end_transaction(void* d, int id, tFoo f, void*)
+void cache_end_transaction(void* d, int32_t id,  void (*callback)(int,void*), void*)
 {
 	printf("cache_end_transaction not implemented\n");
 }
 
-int cache_start_sub_transaction(void* d, int id)
+int cache_start_sub_transaction(void* d, int32_t id)
 {
 	printf("cache_start_sub_transaction not implemented\n");
 	return 0;

@@ -1,26 +1,26 @@
-# Project: BEFS4WIN
-# Makefile created by Embarcadero Dev-C++ 6.3
+# Project: BEFS4WIN_DEV
+# Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe -D__DEBUG__
-CC       = gcc.exe -D__DEBUG__
+CPP      = g++.exe
+CC       = gcc.exe
 WINDRES  = windres.exe
-RES      = BEFS4WIN_private.res
-OBJ      = src/add-ons/kernel/file_systems/befs/BEFS_Attribute.o src/add-ons/kernel/file_systems/befs/BEFS_Interface.o src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.o src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.o src/add-ons/kernel/file_systems/befs/BEFS_Cache.o src/add-ons/kernel/file_systems/befs/BEFS_Debug.o GUI_DiskFunc.o src/add-ons/kernel/file_systems/befs/BEFS_Hash.o src/add-ons/kernel/file_systems/befs/BEFS_Index.o src/add-ons/kernel/file_systems/befs/BEFS_Inode.o src/add-ons/kernel/file_systems/befs/BEFS_Journal.o src/add-ons/kernel/file_systems/befs/BEFS_Query.o src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.o GUI_TreeControl.o src/add-ons/kernel/file_systems/befs/BEFS_Utility.o src/add-ons/kernel/file_systems/befs/BEFS_Volume.o src/BEOS_SystemWrapper.o src/NT_System.o $(RES)
-LINKOBJ  = src/add-ons/kernel/file_systems/befs/BEFS_Attribute.o src/add-ons/kernel/file_systems/befs/BEFS_Interface.o src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.o src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.o src/add-ons/kernel/file_systems/befs/BEFS_Cache.o src/add-ons/kernel/file_systems/befs/BEFS_Debug.o GUI_DiskFunc.o src/add-ons/kernel/file_systems/befs/BEFS_Hash.o src/add-ons/kernel/file_systems/befs/BEFS_Index.o src/add-ons/kernel/file_systems/befs/BEFS_Inode.o src/add-ons/kernel/file_systems/befs/BEFS_Journal.o src/add-ons/kernel/file_systems/befs/BEFS_Query.o src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.o GUI_TreeControl.o src/add-ons/kernel/file_systems/befs/BEFS_Utility.o src/add-ons/kernel/file_systems/befs/BEFS_Volume.o src/BEOS_SystemWrapper.o src/NT_System.o $(RES)
-LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -mwindows  -mthreads -lkernel32 -luser32 -lshell32  -lcomctl32 -lwinmm -m32 -g3
-INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"./src" -I"."
-CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++" -I"./src" -I"."
-BIN      = BEFS4WIN.exe
-CXXFLAGS = $(CXXINCS) -m32 -g3 -Wno-multichar -Wno-write-strings
-CFLAGS   = $(INCS) -m32 -g3 -Wno-multichar -Wno-write-strings
-DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
+RES      = BEFS4WIN_DEV_private.res
+OBJ      = src/add-ons/kernel/file_systems/befs/BEFS_Attribute.o src/add-ons/kernel/file_systems/befs/BEFS_Interface.o src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.o src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.o src/add-ons/kernel/file_systems/befs/BEFS_Cache.o src/add-ons/kernel/file_systems/befs/BEFS_Debug.o GUI_DiskFunc.o src/add-ons/kernel/file_systems/befs/BEFS_Hash.o src/add-ons/kernel/file_systems/befs/BEFS_Index.o src/add-ons/kernel/file_systems/befs/BEFS_Inode.o src/add-ons/kernel/file_systems/befs/BEFS_Journal.o src/add-ons/kernel/file_systems/befs/BEFS_Query.o src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.o GUI_TreeControl.o src/add-ons/kernel/file_systems/befs/BEFS_Utility.o src/add-ons/kernel/file_systems/befs/BEFS_Volume.o src/WINNT_Defs.o src/SKYFS_Interface.o src/HAIKU_Defs.o $(RES)
+LINKOBJ  = src/add-ons/kernel/file_systems/befs/BEFS_Attribute.o src/add-ons/kernel/file_systems/befs/BEFS_Interface.o src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.o src/add-ons/kernel/file_systems/befs/BEFS_PlusTree.o src/add-ons/kernel/file_systems/befs/BEFS_Cache.o src/add-ons/kernel/file_systems/befs/BEFS_Debug.o GUI_DiskFunc.o src/add-ons/kernel/file_systems/befs/BEFS_Hash.o src/add-ons/kernel/file_systems/befs/BEFS_Index.o src/add-ons/kernel/file_systems/befs/BEFS_Inode.o src/add-ons/kernel/file_systems/befs/BEFS_Journal.o src/add-ons/kernel/file_systems/befs/BEFS_Query.o src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.o GUI_TreeControl.o src/add-ons/kernel/file_systems/befs/BEFS_Utility.o src/add-ons/kernel/file_systems/befs/BEFS_Volume.o src/WINNT_Defs.o src/SKYFS_Interface.o src/HAIKU_Defs.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -mwindows  -mthreads -lkernel32 -luser32 -lshell32  -lcomctl32 -lwinmm -m32
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/SRC/PROGS/CPP/BEFS4WIN/src" -I"./src" -I"./src/add-ons/kernel/file_systems/befs" -I"."
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"E:/SRC/PROGS/CPP/BEFS4WIN/src" -I"./src" -I"./src/add-ons/kernel/file_systems/befs" -I"."
+BIN      = BEFS4WIN_DEV.exe
+CXXFLAGS = $(CXXINCS) -m32 -Wno-multichar -Wno-write-strings -I "./../../../../"
+CFLAGS   = $(INCS) -m32 -Wno-multichar -Wno-write-strings -I "./../../../../"
+RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
 
 all: all-before $(BIN) all-after
 
 clean: clean-custom
-	${DEL} $(OBJ) $(BIN)
+	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
@@ -73,12 +73,15 @@ src/add-ons/kernel/file_systems/befs/BEFS_Utility.o: src/add-ons/kernel/file_sys
 src/add-ons/kernel/file_systems/befs/BEFS_Volume.o: src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp
 	$(CPP) -c src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp -o src/add-ons/kernel/file_systems/befs/BEFS_Volume.o $(CXXFLAGS)
 
-src/BEOS_SystemWrapper.o: src/BEOS_SystemWrapper.cpp
-	$(CPP) -c src/BEOS_SystemWrapper.cpp -o src/BEOS_SystemWrapper.o $(CXXFLAGS)
+src/WINNT_Defs.o: src/WINNT_Defs.cpp
+	$(CPP) -c src/WINNT_Defs.cpp -o src/WINNT_Defs.o $(CXXFLAGS)
 
-src/NT_System.o: src/NT_System.cpp
-	$(CPP) -c src/NT_System.cpp -o src/NT_System.o $(CXXFLAGS)
+src/SKYFS_Interface.o: src/SKYFS_Interface.cpp
+	$(CPP) -c src/SKYFS_Interface.cpp -o src/SKYFS_Interface.o $(CXXFLAGS)
 
-BEFS4WIN_private.res: BEFS4WIN_private.rc resource/GUI_TreeControl.rc
-	$(WINDRES) -i BEFS4WIN_private.rc -F pe-i386 --input-format=rc -o BEFS4WIN_private.res -O coff 
+src/HAIKU_Defs.o: src/HAIKU_Defs.cpp
+	$(CPP) -c src/HAIKU_Defs.cpp -o src/HAIKU_Defs.o $(CXXFLAGS)
+
+BEFS4WIN_DEV_private.res: BEFS4WIN_DEV_private.rc resource/GUI_TreeControl.rc
+	$(WINDRES) -i BEFS4WIN_DEV_private.rc -F pe-i386 --input-format=rc -o BEFS4WIN_DEV_private.res -O coff 
 

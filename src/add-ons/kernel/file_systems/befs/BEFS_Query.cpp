@@ -9,15 +9,14 @@
  */
 
 
-#include "BEFS_Query.h"
 #include "BEFS.h"
+#include "BEFS_Query.h"
 #include "BEFS_Debug.h"
 #include "BEFS_Volume.h"
 #include "BEFS_Inode.h"
 #include "BEFS_PlusTree.h"
 #include "BEFS_Index.h"
 #include "BEFS_Stack.h"
-#include <HAIKU_System.h>
 
 
 // The parser has a very static design, but it will do what is required.
