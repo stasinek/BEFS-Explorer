@@ -10,14 +10,14 @@
 #define VER_MINOR	0
 #define VER_RELEASE	0
 #define VER_BUILD	0
-#define COMPANY_NAME	""
+#define COMPANY_NAME	"Fork"
 #define FILE_VERSION	"1.0.0.0"
 #define FILE_DESCRIPTION	"Developed using the Dev-C++ IDE"
 #define INTERNAL_NAME	""
 #define LEGAL_COPYRIGHT	""
 #define LEGAL_TRADEMARKS	""
-#define ORIGINAL_FILENAME	""
-#define PRODUCT_NAME	""
+#define ORIGINAL_FILENAME	"BEFS4WIN_DEV.exe"
+#define PRODUCT_NAME	"BEFS-Explorer"
 #define PRODUCT_VERSION	"1.0.0.0"
 
 #endif /*BEFS4WIN_DEV_PRIVATE_H*/

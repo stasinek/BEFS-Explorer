@@ -24,14 +24,14 @@ FILETYPE VFT_APP
   {
     BLOCK "040904E4"
     {
-      VALUE "CompanyName", ""
+      VALUE "CompanyName", "Fork"
       VALUE "FileVersion", "1.0.0.0"
       VALUE "FileDescription", "Developed using the Dev-C++ IDE"
       VALUE "InternalName", ""
       VALUE "LegalCopyright", ""
       VALUE "LegalTrademarks", ""
-      VALUE "OriginalFilename", ""
-      VALUE "ProductName", ""
+      VALUE "OriginalFilename", "BEFS4WIN_DEV.exe"
+      VALUE "ProductName", "BEFS-Explorer"
       VALUE "ProductVersion", "1.0.0.0"
     }
   }
