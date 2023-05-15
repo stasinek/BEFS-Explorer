@@ -3,13 +3,15 @@
  * Copyright 2001-2005, Axel Dörfler, axeld@pinc-software.de.
  * This file may be used under the terms of the MIT License.
  */
+//---------------------------------------------------------------------------
 #ifndef BEFS_UTILITY_H
 #define BEFS_UTILITY_H
-
+//---------------------------------------------------------------------------
 #include "BEFS.h"
-
+//---------------------------------------------------------------------------
 // Simple array, used for the duplicate handling in the B+Tree,
 // and for the log entries.
+//---------------------------------------------------------------------------
 
 struct sorted_array {
     public:

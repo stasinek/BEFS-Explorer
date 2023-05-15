@@ -172,7 +172,7 @@ struct vm_page {
         : next(NULL),
           cache(NULL),
           offset(0),
-          data(calloc(B_PAGE_SIZE,1)),
+          data(malloc(B_PAGE_SIZE)),
           state(PAGE_STATE_FREE),
           ref_count(1)
     {

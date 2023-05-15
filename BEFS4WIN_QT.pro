@@ -4,8 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 INCLUDEPATH += src
-INCLUDEPATH += src/add-ons/kernel/file_systems/befs
-INCLUDEPATH += /../../../openSSL-win32/include$
+INCLUDEPATH += C:/OpenSSL-Win32/include$
+#LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/libcrypto.a"
+#LIBS += -L"C:/OpenSSL-Win32/lib/MinGW/llibssl.a"
+LIBS += -L"./../../../../x86_libraries/BHAPI" -libbhapi
+LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib" -lubsec
+LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -lssleay32
+LIBS += -L"./../../../../x86_libraries/OpenSSL-Win32/lib/MinGW" -llibeay32
 
 SOURCES += \
     GUI_DiskFunc.cpp \
@@ -25,14 +30,19 @@ SOURCES += \
     src/add-ons/kernel/file_systems/befs/BEFS_SupportFunctions.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.cpp \
     src/add-ons/kernel/file_systems/befs/BEFS_Volume.cpp \
-    src/HAIKU_Defs.cpp \
-    src/WINNT_Defs.cpp
+    src/WINNT.cpp \
+    src/HAIKU_System.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
     BEFS4WIN_private.h \
+    GUI_DiskFunc.h \
+    BEFS.h \
+    NT_DDK.h \
+    NT_Native.h \
+    SKYFS_Interface.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Attribute.h \
     src/add-ons/kernel/file_systems/befs/BEFS_AutoLocker.h \
     src/add-ons/kernel/file_systems/befs/BEFS_BlockAllocator.h \
@@ -57,11 +67,13 @@ HEADERS += \
     src/add-ons/kernel/file_systems/befs/BEFS_Utility.h \
     src/add-ons/kernel/file_systems/befs/BEFS_Volume.h \
     src/add-ons/kernel/file_systems/befs/BEFS.h \
-    GUI_DiskFunc.h \
     src/HAIKU_Defs.h \
     src/SKYFS_Interface.h \
-    src/WINNT_Defs.h \
-    resource/GUI_TreeControl.rc
+    src/HAIKU_System.h \
+    src/WINNT.h
+
+LIBS += -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32
+LIBS += -lole32 -lshell32 -lcomctl32 -lwinmm
 
 contains(QMAKE_COMPILER_DEFINES, __GNUC__) {
 QMAKE_CXXFLAGS += -Wno-write-strings -Wno-multichar
@@ -95,11 +107,6 @@ QMAKE_CXXFLAGS += -mmmx -msse -msse2 #-msse3
 
 #QMAKE_CXXFLAGS += -fno-leading-underscore
 #QMAKE_CFLAGS   += -fno-leading-underscore
-#LIBS += -L$$absolute_path("./../../../X86_LIBRARIES/openssl-win32/lib/MinGW") libcrypto
-#LIBS += -L$$absolute_path("./../../../X86_LIBRARIES/openssl-win32/lib/MinGW") libssl
-#LIBS += -L$$absolute_path("./../../../X86_LIBRARIES/BHAPI") libbhapi
-LIBS += -mwindows -mthreads -lntoskrnl -lws2_32 -lkernel32 -luser32
-LIBS += -lole32 -lshell32 -lcomctl32 -lwinmm
 }
 
 contains(QMAKE_COMPILER_DEFINES, __clang__) {
@@ -136,4 +143,4 @@ QMAKE_LFLAGS += -Qunused-arguments -Wno-error=unused-command-line-argument-hard-
 QMAKE_LFLAGS -= -mthreads
 }
 
-RESOURCES +=     resource/GUI_TreeControl.rc
+RESOURCES +=     resource/GUI_TreeControl.rsrc.rc

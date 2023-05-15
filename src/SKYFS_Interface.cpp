@@ -134,7 +134,7 @@ status_t skyfs_open(void *_fs, void *_node, int openMode, void **_cookie)
 	// This could greatly speed up continuous reads of big files, especially
 	// in the indirect block section.
 
-	file_cookie *cookie = (file_cookie *)malloc(sizeof(file_cookie));
+	file_cookie *cookie = (file_cookie *)calloc(sizeof(file_cookie),1);
 	if (cookie == NULL)
 		RETURN_ERROR(B_NO_MEMORY); 
 

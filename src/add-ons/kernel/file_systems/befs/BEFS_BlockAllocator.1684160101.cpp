@@ -403,7 +403,7 @@ BlockAllocator::InitializeAndClearBitmap(Transaction &transaction)
 	uint32_t numBits = 8 * blocks * fVolume->BlockSize();
 	uint32_t blockShift = fVolume->BlockShift();
 
-	uint32_t *buffer = (uint32_t *)calloc(numBits >> 3,1);
+	uint32_t *buffer = (uint32_t *)malloc(numBits >> 3);
 	if (buffer == NULL)
 		RETURN_ERROR(B_NO_MEMORY);
 
@@ -456,7 +456,7 @@ BlockAllocator::_Initialize(BlockAllocator *allocator)
 	uint32_t blockShift = volume->BlockShift();
     int64_t freeBlocks = 0;
 
-	uint32_t *buffer = (uint32_t *)calloc(blocks << blockShift,1);
+	uint32_t *buffer = (uint32_t *)malloc(blocks << blockShift);
 	if (buffer == NULL) {
 		allocator->fLock.Unlock();
 		RETURN_ERROR(B_NO_MEMORY);
@@ -806,7 +806,7 @@ BlockAllocator::StartChecking(check_control *control)
 		return status;
 
 	size_t size = BitmapSize();
-	fCheckBitmap = (uint32_t *)calloc(size,1);
+	fCheckBitmap = (uint32_t *)malloc(size);
 	if (fCheckBitmap == NULL) {
 		fLock.Unlock();
 		return B_NO_MEMORY;

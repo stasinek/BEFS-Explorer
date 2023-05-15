@@ -135,7 +135,7 @@ bfs_open(void* _fs, void* _node, int openMode, void** _cookie)
 	// This could greatly speed up continuous reads of big files, especially
 	// in the indirect block section.
 
-	file_cookie* cookie = (file_cookie* )calloc(sizeof(file_cookie),1);
+	file_cookie* cookie = (file_cookie* )malloc(sizeof(file_cookie));
 	if (cookie == NULL)
 		RETURN_ERROR(B_NO_MEMORY); 
 

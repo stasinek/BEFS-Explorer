@@ -216,7 +216,7 @@ status_t
 RunArrays::_AddArray()
 {
 	int32_t blockSize = fJournal->GetVolume()->BlockSize();
-	run_array *array = (run_array *)calloc(blockSize,1);
+	run_array *array = (run_array *)malloc(blockSize);
 	if (array == NULL)
 		return B_NO_MEMORY;
 
@@ -559,7 +559,7 @@ Journal::_WriteTransactionToLog()
 
 	int32_t maxVecs = runArrays.MaxArrayLength();
 
-	iovec *vecs = (iovec *)calloc(sizeof(iovec) * maxVecs,1);
+	iovec *vecs = (iovec *)malloc(sizeof(iovec) * maxVecs);
 	if (vecs == NULL) {
 		// ToDo: write back log entries directly?
 		return B_NO_MEMORY;

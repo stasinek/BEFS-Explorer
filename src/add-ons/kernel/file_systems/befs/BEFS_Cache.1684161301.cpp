@@ -94,7 +94,7 @@ block_cache::Free(void *address)
 void *
 block_cache::Allocate()
 {
-    return calloc(block_size,1);
+    return calloc(block_size);
 }
 
 

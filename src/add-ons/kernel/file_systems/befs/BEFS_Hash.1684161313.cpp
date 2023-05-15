@@ -57,11 +57,11 @@ hash_init(uint32_t table_size, int next_ptr_offset,
 		return NULL;
 	}
 
-	t = (struct hash_table *)calloc(sizeof(struct hash_table),1);
+	t = (struct hash_table *)calloc(sizeof(struct hash_table));
 	if (t == NULL)
 		return NULL;
 
-	t->table = (struct hash_element **)calloc(sizeof(void *) * table_size,1);
+	t->table = (struct hash_element **)calloc(sizeof(void *) * table_size);
 	if (t->table == NULL) {
 		free(t);
 		return NULL;
@@ -233,7 +233,7 @@ struct hash_iterator *
 hash_open(struct hash_table *table, struct hash_iterator *iterator)
 {
 	if (iterator == NULL) {
-		iterator = (struct hash_iterator *)calloc(sizeof(struct hash_iterator),1);
+		iterator = (struct hash_iterator *)calloc(sizeof(struct hash_iterator));
 		if (iterator == NULL)
 			return NULL;
 	}

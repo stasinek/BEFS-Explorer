@@ -112,7 +112,7 @@ Attribute::Create(const char *name, type_code type, int openMode, attr_cookie **
 	if (status < B_OK)
 		return status;
 
-	attr_cookie *cookie = (attr_cookie *)malloc(sizeof(attr_cookie));
+	attr_cookie *cookie = (attr_cookie *)calloc(sizeof(attr_cookie),1);
 	if (cookie == NULL)
 		RETURN_ERROR(B_NO_MEMORY); 
 
@@ -141,7 +141,7 @@ Attribute::Open(const char *name, int openMode, attr_cookie **_cookie)
 	if (status < B_OK)
 		return status;
 
-	attr_cookie *cookie = (attr_cookie *)malloc(sizeof(attr_cookie));
+	attr_cookie *cookie = (attr_cookie *)calloc(sizeof(attr_cookie),1);
 	if (cookie == NULL)
 		RETURN_ERROR(B_NO_MEMORY); 
 

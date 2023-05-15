@@ -43,6 +43,15 @@
 #define NTSTATUS __int32
 #endif
 #define NT_SUCCESS(Status) (((NTSTATUS)(Status)) >= 0)
+#ifndef PVOID
+#define PVOID void*
+#endif
+#ifndef ULONG_PTR
+#define ULONG_PTR unsigned long*
+#endif
+#ifndef USHORT
+#define USHORT unsigned short
+#endif
 //---------------------------------------------------------------------------
 #define OBJ_CASE_INSENSITIVE   0x00000040
 #define InitializeObjectAttributes(p,n,a,r,s)\
@@ -55,11 +64,12 @@
     (p)->SecurityQualityOfService = NULL; \
 }
 //---------------------------------------------------------------------------
+
 typedef struct _IO_STATUS_BLOCK {
   union {
     NTSTATUS Status;
     PVOID    Pointer;
-  };
+  } ;
   ULONG_PTR Information;
 } IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
 //---------------------------------------------------------------------------
@@ -143,3 +153,5 @@ int __stdcall   Load_NTDLL(void);
 int __stdcall UnLoad_NTDLL(void);
 //---------------------------------------------------------------------------
 #endif
+
+

@@ -38,7 +38,9 @@
     //add as dependancy (linker/input)
     //C:\WINDDK\3790.1830\lib\wxp\i386\ntdll.lib // NTCreateFile
 #endif
+#ifndef _CRT_SECURE_NO_DEPRECATE
 #define _CRT_SECURE_NO_DEPRECATE 1
+#endif
 //access to the debugfile
 #define Print  printf
 #define print  printf
@@ -240,10 +242,10 @@ enum {
 #define S_INDEX_DIR			04000000000
 #define S_ALLOW_DUPS		00002000000
 
-#ifndef S_ISLNK(m)
+#ifndef S_ISLNK
 #define S_ISLNK(m)	((((m)) & S_IFMT) == S_IFLNK)
 #endif
-#ifndef S_ISDIR(m)
+#ifndef S_ISDIR
 #define S_ISDIR(m)	((((m)) & S_IFDIR)== S_IFDIR)
 #endif
 

@@ -1099,7 +1099,7 @@ BPlusTree::_SplitNode(bplustree_node *node, int64_t nodeOffset,
 				fStream->GetVolume()->Panic();
 				RETURN_ERROR(B_BAD_DATA);
 			}
-			newKey = (uint8_t *)calloc(newLength,1);
+			newKey = (uint8_t *)malloc(newLength);
 			if (newKey == NULL)
 				return B_NO_MEMORY;
 			memcpy(newKey, droppedKey, newLength);

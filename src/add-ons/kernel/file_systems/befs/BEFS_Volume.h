@@ -3,17 +3,19 @@
  * Copyright 2001-2004, Axel Dörfler, axeld@pinc-software.de.
  * This file may be used under the terms of the MIT License.
  */
-#ifndef VOLUME_H
-#define VOLUME_H
+//-----------------------------------------------------------------------------
+#ifndef BEFS_VOLUME_H
+#define BEFS_VOLUME_H
+//-----------------------------------------------------------------------------
+#include "BEFS.h"
 #include "BEFS_BlockAllocator.h"
 #include "BEFS_Chain.h"
 #include "BEFS_Cache.h"
-#include "BEFS.h"
-
+//-----------------------------------------------------------------------------
 class Journal;
 class Inode;
 class Query;
-
+//-----------------------------------------------------------------------------
 enum volume_flags {
     VOLUME_READ_ONLY	= 0x0001
 };
@@ -21,7 +23,7 @@ enum volume_flags {
 enum volume_initialize_flags {
     VOLUME_NO_INDICES	= 0x0001,
 };
-
+//-----------------------------------------------------------------------------
 #define PART_TABLE 0
 #define BOOT_RECORD 1
 #define EXTENDED_PART 2
@@ -41,6 +43,7 @@ enum volume_initialize_flags {
 #define PART_NTFS 0x07			//NTFS partition
 #define PART_BEFS 0xEB			//64 bit BEFS partition, it should be this one
 #define PART_BEFS1 46			//64 bit BEFS partition, WHY IS IT THIS ONE????
+//-----------------------------------------------------------------------------
 
 typedef struct
 {
@@ -54,6 +57,7 @@ typedef struct
     BYTE	chLastCylinder;
     DWORD	dwRelativeSector;
     DWORD	dwNumberSectors;
+//-----------------------------------------------------------------------------
 
 }PARTITION;
 
@@ -69,6 +73,7 @@ typedef struct
     DWORD	dwBytesPerSector;
 
 }DRIVEPACKET;
+//-----------------------------------------------------------------------------
 
 class Volume {
     public:
@@ -192,11 +197,12 @@ class Volume {
         int					skyfsNr;
 
 };
+//-----------------------------------------------------------------------------
 void dump_block_run2(const char *prefix, const block_run &run);
 void dump_data_stream2(const data_stream *stream);
 char * get_tupel2(uint32_t id);
 void dump_inode2(const bfs_inode *inode);
-
+//-----------------------------------------------------------------------------
 // inline functions
 
 inline bool

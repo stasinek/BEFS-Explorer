@@ -629,7 +629,7 @@ Equation::CopyString(char *start, char *end)
 	if (length > INODE_FILE_NAME_LENGTH || length <= 0)
 		return NULL;
 
-	char *copy = (char *)calloc(length,1);
+	char *copy = (char *)malloc(length);
 	if (copy == NULL)
 		return NULL;
 
