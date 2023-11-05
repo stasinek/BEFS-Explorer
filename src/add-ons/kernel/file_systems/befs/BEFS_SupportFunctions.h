@@ -15,3 +15,5 @@ typedef struct HWND__ *HWND;
 HTREEITEM GetNext(HWND hTree, HTREEITEM Item);
 HTREEITEM GetNextUpItem(HWND hTree, HTREEITEM Item);
 //---------------------------------------------------------------------------
+#endif
+//---------------------------------------------------------------------------
